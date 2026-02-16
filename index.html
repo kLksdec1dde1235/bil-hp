@@ -15,7 +15,6 @@
 <script src="./menu3.js"></script>
 
 
-
 <section id="nwHero" aria-label="Norwegian Wood Hero" data-video-pos="center">
   <style>
     /* ================= Scope: #nwHero only ================= */
@@ -237,7 +236,6 @@
         <div class="vimeoCover">
           <div class="vimeoPoster" aria-hidden="true"></div>
           <div class="vimeoFrame" aria-hidden="true">
-            <!-- ✅ src는 JS에서 세팅 -->
             <video
               muted
               playsinline
@@ -322,10 +320,21 @@
 
       let userUnlocked = false;
 
-      // ✅ “멈춤 방지” 재생 감시(Watchdog)
+      /* =====================
+         ✅ “끊김 방지” 상태
+         ===================== */
       let watchdog = null;
       let lastKick = 0;
+      let lastTime = -1;
+      let stillCount = 0;
 
+      function nowMs(){ return Date.now(); }
+      function canKick(minGap){
+        const t = nowMs();
+        if(t - lastKick < minGap) return false;
+        lastKick = t;
+        return true;
+      }
       function isVisible(){
         return document.visibilityState === 'visible' && !document.hidden;
       }
@@ -372,9 +381,10 @@
       }
 
       /* =========================
-         ✅ Local Video (mp4)
-         - pause 이벤트에서 즉시 복구
-         - watchdog로 “잠깐 재생 후 멈춤” 복구
+         ✅ Local Video (mp4) - “진짜 끊김 방지” 버전
+         - load()는 초기 1회만
+         - waiting/stalled/suspend/pause에서 모두 복구
+         - currentTime 진행 감시로 멈춤 감지
          ========================= */
       function ensureLocalVideo(slide){
         if(localVideoMap.has(slide)) return localVideoMap.get(slide);
@@ -382,81 +392,107 @@
         const video = slide.querySelector('video');
         if(!video) return null;
 
-        // 강제 속성/프로퍼티
+        // ✅ 속성/프로퍼티 순서 중요: src 넣기 전에 무음/인라인/자동재생 고정
         video.muted = true;
         video.defaultMuted = true;
+        video.volume = 0;
         video.playsInline = true;
         video.loop = true;
         video.autoplay = true;
         video.preload = 'auto';
 
+        video.setAttribute('muted', '');
         video.setAttribute('playsinline', '');
         video.setAttribute('webkit-playsinline', '');
-        video.setAttribute('muted', '');
         video.setAttribute('autoplay', '');
         video.setAttribute('loop', '');
         video.setAttribute('preload', 'auto');
         video.setAttribute('fetchpriority', 'high');
-        // 일부 안드로이드/웹뷰 힌트(무해)
+        // 일부 Android/WebView 힌트(무해)
         video.setAttribute('x5-playsinline', '');
-        video.setAttribute('x-webkit-airplay', 'deny');
 
         // PiP 금지(가능하면)
         try{ video.disablePictureInPicture = true; }catch(e){}
 
-        // src를 JS에서 세팅
         const src = slide.dataset.localSrc || slide.getAttribute('data-local-src') || '';
         if(src && !video.getAttribute('src')){
           video.setAttribute('src', src);
         }
 
-        const onReady = () => markVideoReadyOnce(slide);
+        // ✅ “load() 1회만” (반복 load는 iOS에서 끊김/정지 유발)
+        let loadedOnce = false;
 
-        // 첫 프레임 감지(가능하면 더 빠르게)
+        const safeLoadOnce = () => {
+          if(loadedOnce) return;
+          loadedOnce = true;
+          try{ video.load(); }catch(e){}
+        };
+
+        const safePlay = async () => {
+          try{
+            // iOS는 paused 상태에서 play()를 여러 번 호출해도 OK지만, 너무 자주하면 역효과라 throttle
+            if(!canKick(350)) return false;
+
+            // 버퍼/네트워크 스타트
+            safeLoadOnce();
+
+            const p = video.play();
+            if(p && typeof p.then === 'function') await p;
+            return true;
+          }catch(e){
+            return false;
+          }
+        };
+
+        // ✅ 첫 프레임/재생 준비 감지
+        const onReady = () => markVideoReadyOnce(slide);
         try{
           if(typeof video.requestVideoFrameCallback === 'function'){
             video.requestVideoFrameCallback(() => markVideoReadyOnce(slide));
           }
         }catch(e){}
-
         video.addEventListener('loadeddata', onReady, { once:true });
         video.addEventListener('canplay', onReady, { once:true });
         video.addEventListener('playing', onReady, { once:true });
 
-        // ✅ “잠깐 재생 후 pause”가 떨어질 때 즉시 복구
-        video.addEventListener('pause', () => {
-          // 사용자 의도 pause가 아니라면(현재 슬라이드 active + 화면 visible) 즉시 재시도
+        // ✅ “끊김 원인 이벤트” 전부 잡아서 복구
+        const recoverIfActive = () => {
+          if(!slide.classList.contains('active')) return;
+          if(!isVisible()) return;
+          // waiting/stalled 등으로 멈춘 상태면 다시 play
+          safePlay();
+        };
+
+        video.addEventListener('pause', recoverIfActive);
+        video.addEventListener('waiting', recoverIfActive);
+        video.addEventListener('stalled', recoverIfActive);
+        video.addEventListener('suspend', recoverIfActive);
+        video.addEventListener('emptied', recoverIfActive);
+
+        // ✅ 에러 나면 src 재주입 + 1회 load 후 재생 재시도
+        video.addEventListener('error', () => {
           if(!slide.classList.contains('active')) return;
           if(!isVisible()) return;
 
-          // 너무 잦은 반복 방지(쿨다운)
-          const now = Date.now();
-          if(now - lastKick < 600) return;
-          lastKick = now;
-
-          // 재시도
-          tryPlayLocal({ video }).catch(()=>{});
+          if(src){
+            try{
+              // 일부 iOS에서 네트워크 에러 후 재시도 시 src 재할당이 필요
+              video.removeAttribute('src');
+              video.setAttribute('src', src);
+            }catch(e){}
+            loadedOnce = false; // 다시 1회 load 허용
+            safeLoadOnce();
+            safePlay();
+          }
         });
 
-        // 네트워크 스타트
-        try{ video.load(); }catch(e){}
-
-        const entry = { video };
+        const entry = { video, safePlay, safeLoadOnce };
         localVideoMap.set(slide, entry);
-        return entry;
-      }
 
-      async function tryPlayLocal(entry){
-        try{
-          if(entry.video && entry.video.readyState < 2){
-            try{ entry.video.load(); }catch(e){}
-          }
-          const p = entry.video.play();
-          if(p && typeof p.then === 'function') await p;
-          return true;
-        }catch(e){
-          return false;
-        }
+        // 초기 워밍업
+        safeLoadOnce();
+
+        return entry;
       }
 
       async function playLocalVideo(slide){
@@ -472,9 +508,8 @@
         const entry = ensureLocalVideo(slide);
         if(!entry) return;
 
-        const ok = await tryPlayLocal(entry);
-
-        // autoplay 막히면 언락 대기
+        // ✅ 첫 재생 시도 (막히면 언락 대기)
+        const ok = await entry.safePlay();
         if(!ok && !userUnlocked){
           // 포스터 유지
         }
@@ -505,16 +540,6 @@
         return entry;
       }
 
-      async function tryPlayVimeo(entry, slide){
-        try{
-          await entry.player.play();
-          entry.player.getPaused().then(paused => { if(!paused) markVideoReadyOnce(slide); });
-          return true;
-        }catch(e){
-          return false;
-        }
-      }
-
       async function playVimeo(slide){
         if(slide.dataset.videoReadyOnce === '1'){
           slide.classList.add('video-ready');
@@ -526,9 +551,10 @@
         if(!entry) return;
 
         await entry.readyPromise;
-        const ok = await tryPlayVimeo(entry, slide);
-
-        if(!ok && !userUnlocked){
+        try{
+          await entry.player.play();
+          entry.player.getPaused().then(paused => { if(!paused) markVideoReadyOnce(slide); });
+        }catch(e){
           // 포스터 유지
         }
       }
@@ -569,7 +595,7 @@
 
       function nextSlide(){ show(i + 1); }
 
-      // ✅ iOS/모바일 언락
+      // ✅ iOS/모바일 언락: 첫 사용자 제스처에서 현재 슬라이드 재생 재시도
       function unlockAndPlay(){
         if(userUnlocked) return;
         userUnlocked = true;
@@ -579,48 +605,64 @@
 
         if(active.dataset.type === 'local-video'){
           const entry = ensureLocalVideo(active);
-          if(entry) tryPlayLocal(entry);
+          if(entry) entry.safePlay();
           else playLocalVideo(active);
         }else if(active.dataset.type === 'video'){
           const entry = ensureVimeoPlayer(active);
           if(entry){
-            entry.readyPromise.then(()=> tryPlayVimeo(entry, active));
+            entry.readyPromise.then(()=> entry.player.play().catch(()=>{}));
           }else{
             playVimeo(active);
           }
         }
       }
 
-      // ✅ watchdog: “active인데 paused로 멈춘 상태”를 주기적으로 복구
+      // ✅ currentTime 진행 감시로 “멈춘 상태” 복구 (진짜 강력)
       function startWatchdog(){
         if(watchdog) clearInterval(watchdog);
+
+        lastTime = -1;
+        stillCount = 0;
+
         watchdog = setInterval(() => {
           if(!isVisible()) return;
+
           const active = slides[i];
-          if(!active) return;
-          if(!active.classList.contains('active')) return;
+          if(!active || !active.classList.contains('active')) return;
 
-          if(active.dataset.type === 'local-video'){
-            const entry = localVideoMap.get(active) || ensureLocalVideo(active);
-            if(!entry || !entry.video) return;
+          if(active.dataset.type !== 'local-video') return;
 
-            // active인데 멈춰 있으면 재생 재시도
-            const v = entry.video;
-            const shouldResume =
-              v.paused &&
-              !v.ended &&
-              !v.seeking &&
-              // 첫 프레임이라도 진행된 적 있거나(= 잠깐 재생 후 멈춤 케이스)
-              (v.currentTime > 0 || v.readyState >= 2);
+          const entry = localVideoMap.get(active) || ensureLocalVideo(active);
+          if(!entry || !entry.video) return;
 
-            if(shouldResume){
-              const now = Date.now();
-              if(now - lastKick < 900) return; // 과도 재시도 방지
-              lastKick = now;
-              tryPlayLocal(entry);
-            }
+          const v = entry.video;
+
+          // 재생 중이어야 하는데 멈춤/정체 감지
+          const t = v.currentTime;
+
+          // readyState 2 이상(첫 프레임 가능)인데 time이 안 움직이면 끊긴 것
+          const timeNotMoving = (lastTime >= 0 && Math.abs(t - lastTime) < 0.001);
+
+          if(v.readyState >= 2 && timeNotMoving){
+            stillCount++;
+          }else{
+            stillCount = 0;
           }
-        }, 900);
+
+          lastTime = t;
+
+          // 2~3회 연속 정체면(약 1.0~1.5초) 즉시 복구
+          if(stillCount >= 2){
+            stillCount = 0;
+            // paused든 waiting이든 상관없이 재생 재시도
+            entry.safePlay();
+          }
+
+          // paused 상태도 복구
+          if(v.paused && !v.ended && v.readyState >= 2){
+            entry.safePlay();
+          }
+        }, 500);
       }
 
       function init(){
@@ -634,11 +676,9 @@
 
             const entry = ensureLocalVideo(s);
             if(entry && entry.video){
-              // 첫 슬라이드 강 워밍업
+              // 첫 슬라이드 강 워밍업 & 빠른 재생 시도
               if(idx === 0){
-                try{ entry.video.load(); }catch(e){}
-                // 가능한 빨리 play 시도(막혀도 OK)
-                tryPlayLocal(entry);
+                entry.safePlay();
               }
             }
           }else if(s.dataset.type === 'video'){
@@ -656,14 +696,13 @@
         root.addEventListener('click', unlockAndPlay, { passive:true, once:true });
       }
 
-      // ✅ DOMContentLoaded만 기다리지 말고, 가능한 즉시 init
       if(document.readyState === 'loading'){
         window.addEventListener('DOMContentLoaded', init, { once:true });
       }else{
         init();
       }
 
-      // ✅ iOS 사파리: bfcache 복귀/pageshow에서 멈춘 채로 돌아오는 케이스 복구
+      // iOS 사파리: bfcache 복귀/pageshow에서 멈춤 복구
       window.addEventListener('pageshow', () => {
         const active = slides[i];
         if(!active) return;
@@ -689,6 +728,7 @@
     })();
   </script>
 </section>
+
 
 
 
