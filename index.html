@@ -53,16 +53,12 @@
       --ink:#ffffff; --muted:rgba(255,255,255,.88);
       --slideDur:8000ms;
 
-      /* ✅ 오프닝 속도/부드러움 조절 (원하는 값으로 바꾸면 됨)
-         - openDur: 확장 총 시간
-         - openEase: 확장 가속도(부드러움)
-         - openHold: 흰 화면이 다 찬 뒤 잠깐 멈추는 시간
-      */
-      --openDur:2400ms; /* ✅ 느리게 */
+      /* ✅ 오프닝 속도/부드러움 조절 */
+      --openDur:2600ms;
       --openEase:cubic-bezier(.12,.96,.12,1);
-      --openHold:160ms;
+      --openHold:180ms;
 
-      --videoFade:800ms;
+      --videoFade:650ms;
       --textDelay:260ms;
       --textFade:980ms;
 
@@ -92,44 +88,21 @@
       z-index:1;
     }
 
-    /* Images */
-    #nwHero .slide img{
+    /* ===== Video frame (Vimeo + Local 공용) ===== */
+    #nwHero .vimeoCover{
       position:absolute; inset:0;
       width:100%; height:100%;
-      object-fit:cover;
-      animation:none;
-      transform-origin:center;
+      overflow:hidden;
+      background:#000;
     }
 
-    /* ===== Cover (Vimeo + Local Video 공용) ===== */
-    #nwHero .vimeoCover{position:absolute; inset:0; width:100%; height:100%; overflow:hidden; background:#000;}
-    #nwHero .vimeoPoster{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      background-size:cover;
-      background-repeat:no-repeat;
-      background-position:center center;
-      opacity:1;
-      transform:scale(1.05);
-      transition:opacity 140ms ease;
-      will-change:opacity, transform;
-      z-index:3;
-    }
-
-    #nwHero .slide.active .vimeoPoster{
-      animation:nwPosterZoom 3.5s ease-out forwards;
-    }
-    @keyframes nwPosterZoom{
-      from{ transform:scale(1.05); }
-      to{ transform:scale(1.18); }
-    }
-
+    /* ✅ 미리보기(포스터) 제거: frame은 항상 보일 준비 */
     #nwHero .vimeoFrame{
       position:absolute; inset:0;
       width:100%; height:100%;
       z-index:2;
-      opacity:0;
-      transition:opacity 160ms ease;
+      opacity:1;               /* ✅ 포스터 없이 바로 */
+      transition:none;
       will-change:opacity;
       background:#000;
     }
@@ -162,17 +135,6 @@
     #nwHero[data-video-pos="left"]   .vimeoFrame iframe{ left:35%; }
     #nwHero[data-video-pos="center"] .vimeoFrame iframe{ left:50%; }
     #nwHero[data-video-pos="right"]  .vimeoFrame iframe{ left:65%; }
-
-    #nwHero[data-video-pos="left"]   .vimeoPoster{ background-position:20% 50%; }
-    #nwHero[data-video-pos="center"] .vimeoPoster{ background-position:50% 50%; }
-    #nwHero[data-video-pos="right"]  .vimeoPoster{ background-position:80% 50%; }
-
-    /* ✅ ready */
-    #nwHero .slide.video-ready .vimeoPoster{
-      opacity:0;
-      pointer-events:none;
-    }
-    #nwHero .slide.video-ready .vimeoFrame{ opacity:1; }
 
     /* ===== Vignette ===== */
     #nwHero .vignette{
@@ -275,11 +237,8 @@
     }
 
     /* =========================================================
-       ✅ OPENING (요구사항 최종)
-       - 중앙 검은 선/커튼 디자인/그라데이션/엣지효과 전부 제거
-       - 시작부터 높이 100vh 꽉 찬 “흰색”이
-         가운데에서 좌/우로 천천히 부드럽게 확장
-       - 검정이 완전히 사라진 뒤 영상/텍스트 등장
+       ✅ OPENING (흰색만 좌/우 확장, 느리게)
+       - 포스터/중앙선/커튼 디자인 없음
        ========================================================= */
 
     /* 오프닝 중엔 내부 숨김 */
@@ -341,11 +300,11 @@
     }
     #nwHero .nwOpening .nwWhitePanel{
       position:absolute;
-      top:0; bottom:0;     /* ✅ 위아래는 시작부터 최대 높이 */
+      top:0; bottom:0;     /* ✅ 위아래는 시작부터 100vh */
       width:50%;
-      background:#fff;     /* ✅ 흰색만 */
+      background:#fff;
       will-change:transform;
-      transform:scaleX(0); /* ✅ 가로만 0에서 시작 */
+      transform:scaleX(0);
     }
     #nwHero .nwOpening .nwWhitePanel.left{
       left:0;
@@ -370,7 +329,6 @@
       transition:opacity 520ms ease;
     }
 
-    /* ✅ “천천히 부드럽게 확장” (오버슈트/디자인 효과 없음) */
     @keyframes nwWhiteSplitOpen{
       0%   { transform:scaleX(0); }
       100% { transform:scaleX(1); }
@@ -398,11 +356,10 @@
   </div>
 
   <div class="slides">
-    <!-- ✅ 1번 슬라이드: 로컬 mp4 -->
-    <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="급변하고 있는<br>시대의 흐름 속" data-type="local-video" data-poster="./img/intro-3-1.jpg" data-local-src="./video/video-1.mp4">
+    <!-- ✅ 1번 슬라이드: 로컬 mp4 (포스터 없음 / 바로 재생) -->
+    <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="급변하고 있는<br>시대의 흐름 속" data-type="local-video" data-local-src="./video/video-1.mp4">
       <div class="media">
         <div class="vimeoCover">
-          <div class="vimeoPoster" aria-hidden="true"></div>
           <div class="vimeoFrame" aria-hidden="true">
             <video
               muted
@@ -411,7 +368,6 @@
               autoplay
               loop
               preload="auto"
-              style="width:100%;height:100%;object-fit: cover;"
             ></video>
           </div>
         </div>
@@ -419,34 +375,31 @@
     </div>
 
     <!-- 2번: Vimeo -->
-    <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="사업 성장의 한계 및<br>변화가 절실한 상황이라면?" data-type="video" data-poster="./img/bg-2.png">
+    <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="사업 성장의 한계 및<br>변화가 절실한 상황이라면?" data-type="video">
       <div class="media">
         <div class="vimeoCover">
-          <div class="vimeoPoster" aria-hidden="true"></div>
           <div class="vimeoFrame" aria-hidden="true">
-             <iframe src="https://player.vimeo.com/video/1163175542?background=1&mute=1&muted=1&autoplay=1&loop=1&playsinline=1&autopause=0" allow="autoplay; fullscreen" title="비즈니스 혁신 연구소 2"></iframe>
+            <iframe src="https://player.vimeo.com/video/1163175542?background=1&mute=1&muted=1&autoplay=1&loop=1&playsinline=1&autopause=0" allow="autoplay; fullscreen" title="비즈니스 혁신 연구소 2"></iframe>
           </div>
         </div>
       </div>
     </div>
 
     <!-- 3번: Vimeo -->
-    <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="AI, 초연결 시대에 맞는<br>새로운 혁신을 통해" data-type="video" data-poster="./img/program1.jpg">
+    <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="AI, 초연결 시대에 맞는<br>새로운 혁신을 통해" data-type="video">
       <div class="media">
         <div class="vimeoCover">
-          <div class="vimeoPoster" aria-hidden="true"></div>
           <div class="vimeoFrame" aria-hidden="true">
-             <iframe src="https://player.vimeo.com/video/1163396570?background=1&mute=1&muted=1&autoplay=1&loop=1&playsinline=1&autopause=0" allow="autoplay; fullscreen" title="비즈니스 혁신 연구소 3"></iframe>
+            <iframe src="https://player.vimeo.com/video/1163396570?background=1&mute=1&muted=1&autoplay=1&loop=1&playsinline=1&autopause=0" allow="autoplay; fullscreen" title="비즈니스 혁신 연구소 3"></iframe>
           </div>
         </div>
       </div>
     </div>
 
     <!-- 4번: Vimeo -->
-    <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="다가올 미래 시장을<br>선점하는 기회를 제공합니다." data-type="video" data-poster="./img/program1.jpg">
+    <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="다가올 미래 시장을<br>선점하는 기회를 제공합니다." data-type="video">
       <div class="media">
         <div class="vimeoCover">
-          <div class="vimeoPoster" aria-hidden="true"></div>
           <div class="vimeoFrame" aria-hidden="true">
             <iframe src="https://player.vimeo.com/video/1146791884?background=1&mute=1&muted=1&autoplay=1&loop=1&playsinline=1&autopause=0" allow="autoplay; fullscreen" title="비즈니스 혁신 연구소 4"></iframe>
           </div>
@@ -456,10 +409,12 @@
   </div>
 
   <div class="vignette"></div>
+
   <div class="content">
     <span class="eyebrow"></span>
     <h2 class="title"></h2>
   </div>
+
   <button class="scrollHint" type="button" aria-label="아래로 스크롤">
     <span class="mouse" aria-hidden="true"></span>
   </button>
@@ -488,16 +443,24 @@
       }
 
       const DUR = readMsVar('--slideDur', 8000);
-      const OPEN_DUR = readMsVar('--openDur', 2400);
-      const OPEN_HOLD = readMsVar('--openHold', 160);
+      const OPEN_DUR = readMsVar('--openDur', 2600);
+      const OPEN_HOLD = readMsVar('--openHold', 180);
 
       let i = 0;
       let timer = null;
 
+      // Vimeo
       const playerMap = new Map();
+
+      // Local video
       const localVideoMap = new Map();
+
+      // ✅ 모바일 자동재생 차단 대응(첫 제스처 언락)
       let userUnlocked = false;
 
+      /* =====================
+         ✅ “끊김 방지” 상태
+         ===================== */
       let watchdog = null;
       let lastKick = 0;
       let lastTime = -1;
@@ -542,21 +505,10 @@
         content.classList.add('text-in');
       }
 
-      function setPoster(slide){
-        const posterUrl = slide.dataset.poster || '';
-        const posterEl = slide.querySelector('.vimeoPoster');
-        if(posterEl && posterUrl && !posterEl.style.backgroundImage){
-          posterEl.style.backgroundImage = `url("${posterUrl}")`;
-        }
-      }
-
-      function markVideoReadyOnce(slide){
-        slide.dataset.videoReadyOnce = '1';
-        slide.classList.add('video-ready');
-      }
-
       /* =========================
-         ✅ Local Video (mp4) - “진짜 끊김 방지” 버전
+         ✅ Local Video (mp4) - 모바일 즉시재생 강화
+         - 포스터/프레임 전환 없음
+         - play()를 오프닝 중에도 계속 “살살” 시도
          ========================= */
       function ensureLocalVideo(slide){
         if(localVideoMap.has(slide)) return localVideoMap.get(slide);
@@ -564,6 +516,7 @@
         const video = slide.querySelector('video');
         if(!video) return null;
 
+        // ✅ iOS/모바일 필수 세팅
         video.muted = true;
         video.defaultMuted = true;
         video.volume = 0;
@@ -578,7 +531,6 @@
         video.setAttribute('autoplay', '');
         video.setAttribute('loop', '');
         video.setAttribute('preload', 'auto');
-        video.setAttribute('fetchpriority', 'high');
         video.setAttribute('x5-playsinline', '');
 
         try{ video.disablePictureInPicture = true; }catch(e){}
@@ -598,40 +550,40 @@
 
         const safePlay = async () => {
           try{
-            if(!canKick(350)) return false;
+            if(!canKick(250)) return false; // ✅ 조금 더 자주 시도(모바일 대응)
             safeLoadOnce();
+
+            // ✅ iOS에서 가끔 currentTime=0에서 멈춤 → 살짝 건드리기(무해)
+            try{
+              if(video.readyState >= 2 && video.paused && video.currentTime === 0){
+                // noop
+              }
+            }catch(e){}
+
             const p = video.play();
             if(p && typeof p.then === 'function') await p;
             return true;
-          }catch(e){ return false; }
+          }catch(e){
+            return false;
+          }
         };
 
-        const onReady = () => markVideoReadyOnce(slide);
-        try{
-          if(typeof video.requestVideoFrameCallback === 'function'){
-            video.requestVideoFrameCallback(() => markVideoReadyOnce(slide));
-          }
-        }catch(e){}
-        video.addEventListener('loadeddata', onReady, { once:true });
-        video.addEventListener('canplay', onReady, { once:true });
-        video.addEventListener('playing', onReady, { once:true });
-
+        // waiting/stalled에서도 복구
         const recoverIfActive = () => {
           if(!slide.classList.contains('active')) return;
           if(!isVisible()) return;
           safePlay();
         };
-
         video.addEventListener('pause', recoverIfActive);
         video.addEventListener('waiting', recoverIfActive);
         video.addEventListener('stalled', recoverIfActive);
         video.addEventListener('suspend', recoverIfActive);
         video.addEventListener('emptied', recoverIfActive);
 
+        // 에러 재시도
         video.addEventListener('error', () => {
           if(!slide.classList.contains('active')) return;
           if(!isVisible()) return;
-
           if(src){
             try{
               video.removeAttribute('src');
@@ -646,27 +598,22 @@
         const entry = { video, safePlay, safeLoadOnce };
         localVideoMap.set(slide, entry);
 
+        // ✅ 즉시 워밍업
         safeLoadOnce();
+        safePlay();
+
         return entry;
       }
 
       async function playLocalVideo(slide){
-        if(slide.dataset.videoReadyOnce === '1'){
-          slide.classList.add('video-ready');
-        }else{
-          setPoster(slide);
-        }
-
         const src = slide.dataset.localSrc || slide.getAttribute('data-local-src') || '';
         if(src) injectPreloadVideoOnce(src);
 
         const entry = ensureLocalVideo(slide);
         if(!entry) return;
 
-        const ok = await entry.safePlay();
-        if(!ok && !userUnlocked){
-          // 포스터 유지
-        }
+        // ✅ “바로 재생” 강제 시도
+        await entry.safePlay();
       }
 
       function pauseLocalVideo(slide){
@@ -674,7 +621,6 @@
         if(entry && entry.video){
           try{ entry.video.pause(); }catch(e){}
         }
-        if(slide.dataset.videoReadyOnce !== '1') slide.classList.remove('video-ready');
       }
 
       /* =========================
@@ -687,7 +633,6 @@
 
         const player = new Vimeo.Player(iframe);
         player.setVolume(0).catch(()=>{});
-        player.on('playing', () => markVideoReadyOnce(slide));
 
         const entry = { player, readyPromise: player.ready().catch(()=>null) };
         playerMap.set(slide, entry);
@@ -695,28 +640,16 @@
       }
 
       async function playVimeo(slide){
-        if(slide.dataset.videoReadyOnce === '1'){
-          slide.classList.add('video-ready');
-        }else{
-          setPoster(slide);
-        }
-
         const entry = ensureVimeoPlayer(slide);
         if(!entry) return;
 
         await entry.readyPromise;
-        try{
-          await entry.player.play();
-          entry.player.getPaused().then(paused => { if(!paused) markVideoReadyOnce(slide); });
-        }catch(e){
-          // 포스터 유지
-        }
+        try{ await entry.player.play(); }catch(e){}
       }
 
       function pauseVimeo(slide){
         const entry = playerMap.get(slide);
         if(entry) entry.player.pause().catch(()=>{});
-        if(slide.dataset.videoReadyOnce !== '1') slide.classList.remove('video-ready');
       }
 
       /* =========================
@@ -731,29 +664,28 @@
 
           if(active){
             updateText(s);
-
-            if(s.dataset.type === 'local-video'){
-              playLocalVideo(s);
-            }else if(s.dataset.type === 'video'){
-              playVimeo(s);
-            }
+            if(s.dataset.type === 'local-video') playLocalVideo(s);
+            else if(s.dataset.type === 'video') playVimeo(s);
           }else{
-            if(s.dataset.type === 'local-video'){
-              pauseLocalVideo(s);
-            }else if(s.dataset.type === 'video'){
-              pauseVimeo(s);
-            }
+            if(s.dataset.type === 'local-video') pauseLocalVideo(s);
+            else if(s.dataset.type === 'video') pauseVimeo(s);
           }
         });
       }
 
       function nextSlide(){ show(i + 1); }
 
-      function unlockAndPlay(){
+      function startTimer(){
+        if(timer) clearInterval(timer);
+        timer = setInterval(nextSlide, DUR);
+      }
+
+      // ✅ 모바일 언락: 화면 어디든 첫 제스처에서 “현재 슬라이드” 재생 재시도
+      function unlockAndPlayAnywhere(){
         if(userUnlocked) return;
         userUnlocked = true;
 
-        const active = slides[i];
+        const active = slides[i] || slides[0];
         if(!active) return;
 
         if(active.dataset.type === 'local-video'){
@@ -770,9 +702,9 @@
         }
       }
 
+      // ✅ currentTime 진행 감시로 멈춤 복구(로컬 영상만)
       function startWatchdog(){
         if(watchdog) clearInterval(watchdog);
-
         lastTime = -1;
         stillCount = 0;
 
@@ -790,12 +722,8 @@
           const t = v.currentTime;
 
           const timeNotMoving = (lastTime >= 0 && Math.abs(t - lastTime) < 0.001);
-
-          if(v.readyState >= 2 && timeNotMoving){
-            stillCount++;
-          }else{
-            stillCount = 0;
-          }
+          if(v.readyState >= 2 && timeNotMoving) stillCount++;
+          else stillCount = 0;
 
           lastTime = t;
 
@@ -810,13 +738,9 @@
         }, 500);
       }
 
-      function startTimer(){
-        if(timer) clearInterval(timer);
-        timer = setInterval(nextSlide, DUR);
-      }
-
       /* =========================
          ✅ OPENING TIMELINE
+         - 오프닝 중에도 1번(로컬) 영상은 계속 play 시도(모바일 대비)
          ========================= */
       function whiteSplitOpenThenStart(){
         const prefersReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -833,26 +757,36 @@
         root.classList.add('nw-opening');
         root.classList.remove('nw-opened');
 
-        // 오프닝 중간부터 첫 영상 워밍업(뒤에서 준비)
+        // ✅ 오프닝 시작 즉시 1번 영상 “바로 재생” 시도
+        const first = slides[0];
+        if(first && first.dataset.type === 'local-video'){
+          playLocalVideo(first);
+        }
+
+        // 오프닝 중간에도 한번 더 재시도(모바일에서 종종 필요)
         const warm = setTimeout(() => {
-          const first = slides[0];
-          if(!first) return;
-          if(first.dataset.type === 'local-video') playLocalVideo(first);
-          if(first.dataset.type === 'video') playVimeo(first);
-        }, Math.max(0, OPEN_DUR * 0.40));
+          const first2 = slides[0];
+          if(!first2) return;
+          if(first2.dataset.type === 'local-video') playLocalVideo(first2);
+          else if(first2.dataset.type === 'video') playVimeo(first2);
+        }, Math.max(0, OPEN_DUR * 0.45));
 
         // 거의 다 열릴 때 첫 슬라이드 확정(아직 안 보임)
         const preShow = setTimeout(() => {
           show(0);
-        }, Math.max(0, OPEN_DUR * 0.75));
+        }, Math.max(0, OPEN_DUR * 0.80));
 
-        // 오프닝 끝 → 홀드 → 내부 등장
+        // 오프닝 끝 → 홀드 → 내부 등장 + 타이머 시작
         const done = setTimeout(() => {
           clearTimeout(warm);
 
           setTimeout(() => {
             root.classList.remove('nw-opening');
             root.classList.add('nw-opened');
+
+            // ✅ 오프닝이 끝나는 순간에도 한 번 더 play() (모바일 대비)
+            const a = slides[0];
+            if(a && a.dataset.type === 'local-video') playLocalVideo(a);
 
             content.classList.remove('text-in');
             void content.offsetWidth;
@@ -868,27 +802,24 @@
       }
 
       function init(){
+        // ✅ 먼저 첫 슬라이드(로컬) src를 ASAP로 박아두고 워밍업
         slides.forEach((s, idx) => {
-          setPoster(s);
-
           if(s.dataset.type === 'local-video'){
             const src = s.dataset.localSrc || s.getAttribute('data-local-src') || '';
             if(src) injectPreloadVideoOnce(src);
-
-            const entry = ensureLocalVideo(s);
-            if(entry && entry.video){
-              if(idx === 0) entry.safePlay();
-            }
+            ensureLocalVideo(s);
           }else if(s.dataset.type === 'video'){
             ensureVimeoPlayer(s);
           }
         });
 
+        // ✅ 오프닝 먼저
         whiteSplitOpenThenStart();
 
-        root.addEventListener('touchstart', unlockAndPlay, { passive:true, once:true });
-        root.addEventListener('pointerdown', unlockAndPlay, { passive:true, once:true });
-        root.addEventListener('click', unlockAndPlay, { passive:true, once:true });
+        // ✅ 모바일 언락: root뿐 아니라 “문서 전체”에서 첫 제스처 잡기(더 확실)
+        window.addEventListener('touchstart', unlockAndPlayAnywhere, { passive:true, once:true, capture:true });
+        window.addEventListener('pointerdown', unlockAndPlayAnywhere, { passive:true, once:true, capture:true });
+        window.addEventListener('click', unlockAndPlayAnywhere, { passive:true, once:true, capture:true });
       }
 
       if(document.readyState === 'loading'){
@@ -898,14 +829,14 @@
       }
 
       window.addEventListener('pageshow', () => {
-        const active = slides[i];
+        const active = slides[i] || slides[0];
         if(!active) return;
         if(active.dataset.type === 'local-video') playLocalVideo(active);
         if(active.dataset.type === 'video') playVimeo(active);
       });
 
       window.addEventListener('focus', () => {
-        const active = slides[i];
+        const active = slides[i] || slides[0];
         if(!active) return;
         if(active.dataset.type === 'local-video') playLocalVideo(active);
         if(active.dataset.type === 'video') playVimeo(active);
@@ -913,7 +844,7 @@
 
       document.addEventListener('visibilitychange', () => {
         if(document.visibilityState === 'visible'){
-          const active = slides[i];
+          const active = slides[i] || slides[0];
           if(!active) return;
           if(active.dataset.type === 'local-video') playLocalVideo(active);
           if(active.dataset.type === 'video') playVimeo(active);
@@ -922,6 +853,7 @@
     })();
   </script>
 </section>
+
 
 
 
