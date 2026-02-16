@@ -57,8 +57,8 @@
       --openEase:cubic-bezier(.12,.96,.12,1);
 
       /* ✅ 흰 바탕이 꽉 찬 뒤 → 영상 등장(더 빠르게) */
-      --openHold:80ms;     /* ✅ 이전보다 짧게 */
-      --videoFade:420ms;   /* ✅ 영상 등장 조금 더 빠르게 */
+      --openHold:70ms;
+      --videoFade:380ms;
       --textDelay:220ms;
       --textFade:900ms;
 
@@ -81,20 +81,10 @@
     #nwHero .slide.active{opacity:1; z-index:2;}
 
     /* ✅ Media */
-    #nwHero .media{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      overflow:hidden;
-      z-index:1;
-    }
+    #nwHero .media{position:absolute; inset:0; width:100%; height:100%; overflow:hidden; z-index:1;}
 
     /* ===== Video frame (Vimeo + Local 공용) ===== */
-    #nwHero .vimeoCover{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      overflow:hidden;
-      background:#000;
-    }
+    #nwHero .vimeoCover{position:absolute; inset:0; width:100%; height:100%; overflow:hidden; background:#000;}
 
     /* ✅ 포스터 없음: frame은 항상 바로 */
     #nwHero .vimeoFrame{
@@ -137,11 +127,7 @@
     #nwHero[data-video-pos="right"]  .vimeoFrame iframe{ left:65%; }
 
     /* ===== Vignette ===== */
-    #nwHero .vignette{
-      position:absolute; inset:0;
-      z-index:6;
-      pointer-events:none;
-    }
+    #nwHero .vignette{position:absolute; inset:0; z-index:6; pointer-events:none;}
     #nwHero .vignette::before{
       content:""; position:absolute; inset:0;
       background:radial-gradient(120% 100% at 20% 60%,
@@ -159,8 +145,7 @@
       z-index:10;
       max-width:min(820px,78vw);
     }
-    #nwHero .eyebrow,
-    #nwHero .title{
+    #nwHero .eyebrow, #nwHero .title{
       opacity:0;
       transform:translateX(-30px);
       will-change:opacity, transform;
@@ -175,14 +160,8 @@
     #nwHero .content.text-in .eyebrow{ animation:textFadeEyebrow var(--textFade) ease forwards; }
     #nwHero .content.text-in .title{ animation:textFadeTitle  calc(var(--textFade) + 200ms) ease forwards; }
 
-    @keyframes textFadeEyebrow{
-      from{opacity:0; transform:translateX(-30px);}
-      to{opacity:1; transform:translateX(0);}
-    }
-    @keyframes textFadeTitle{
-      from{opacity:0; transform:translateX(-40px);}
-      to{opacity:1; transform:translateX(0);}
-    }
+    @keyframes textFadeEyebrow{ from{opacity:0; transform:translateX(-30px);} to{opacity:1; transform:translateX(0);} }
+    @keyframes textFadeTitle{ from{opacity:0; transform:translateX(-40px);} to{opacity:1; transform:translateX(0);} }
 
     /* ✅ Dock 비활성화 */
     #nwHero .dock{ display:none !important; }
@@ -190,22 +169,16 @@
     /* ✅ Scroll Indicator */
     #nwHero .scrollHint{
       position:absolute;
-      left:50%;
-      bottom:26px;
+      left:50%; bottom:26px;
       transform:translateX(-50%);
       z-index:12;
       width:48px; height:64px;
-      display:grid;
-      place-items:center;
-      cursor:pointer;
-      user-select:none;
-      background:transparent;
-      border:0;
-      padding:0;
+      display:grid; place-items:center;
+      cursor:pointer; user-select:none;
+      background:transparent; border:0; padding:0;
       opacity:1;
       transition:opacity .35s ease, transform .35s ease;
     }
-
     #nwHero .scrollHint .mouse{
       width:26px; height:40px;
       border-radius:18px;
@@ -217,8 +190,7 @@
     #nwHero .scrollHint .mouse::after{
       content:"";
       position:absolute;
-      left:50%;
-      top:10px;
+      left:50%; top:10px;
       width:4px; height:4px;
       border-radius:50%;
       background:rgba(255,255,255,.92);
@@ -231,40 +203,85 @@
       100%{ opacity:.15; transform:translateX(-50%) translateY(14px); }
     }
 
-    /* ===== Mobile ===== */
     @media (max-width:768px){
       #nwHero .title{font-size:2rem; padding-top:20px;}
     }
 
     /* =========================================================
-       ✅ OPENING
+       ✅ OPENING (흰색만 좌/우 확장)
        ========================================================= */
 
     #nwHero.nw-opening .slides{ opacity:0; transition:none; pointer-events:none; }
     #nwHero.nw-opening .vignette,
     #nwHero.nw-opening .content,
-    #nwHero.nw-opening .scrollHint{ opacity:0; transform:translateY(10px); transition:none; pointer-events:none; }
+    #nwHero.nw-opening .scrollHint{
+      opacity:0;
+      transform:translateY(10px);
+      transition:none;
+      pointer-events:none;
+    }
 
-    #nwHero.nw-opened .slides{ opacity:1; transition:opacity var(--videoFade) ease; pointer-events:auto; }
+    #nwHero.nw-opened .slides{
+      opacity:1;
+      transition:opacity var(--videoFade) ease;
+      pointer-events:auto;
+    }
     #nwHero.nw-opened .vignette{ opacity:1; transition:opacity var(--videoFade) ease; }
-    #nwHero.nw-opened .content{ opacity:1; transform:none; transition:opacity var(--textFade) ease, transform var(--textFade) ease; transition-delay:var(--textDelay); pointer-events:auto; }
-    #nwHero.nw-opened .scrollHint{ opacity:1; transform:none; transition:opacity 650ms ease, transform 650ms ease; transition-delay:calc(var(--textDelay) + 220ms); pointer-events:auto; }
+    #nwHero.nw-opened .content{
+      opacity:1; transform:none;
+      transition:opacity var(--textFade) ease, transform var(--textFade) ease;
+      transition-delay:var(--textDelay);
+      pointer-events:auto;
+    }
+    #nwHero.nw-opened .scrollHint{
+      opacity:1; transform:none;
+      transition:opacity 650ms ease, transform 650ms ease;
+      transition-delay:calc(var(--textDelay) + 220ms);
+      pointer-events:auto;
+    }
 
-    #nwHero .nwOpening{ position:absolute; inset:0; z-index:50; pointer-events:none; overflow:hidden; opacity:1; }
+    #nwHero .nwOpening{
+      position:absolute; inset:0;
+      z-index:50;
+      pointer-events:none;
+      overflow:hidden;
+      opacity:1;
+    }
     #nwHero .nwOpening .nwBlack{ position:absolute; inset:0; background:#000; }
     #nwHero .nwOpening .nwWhiteSplit{ position:absolute; inset:0; }
-    #nwHero .nwOpening .nwWhitePanel{ position:absolute; top:0; bottom:0; width:50%; background:#fff; will-change:transform; transform:scaleX(0); }
+    #nwHero .nwOpening .nwWhitePanel{
+      position:absolute;
+      top:0; bottom:0;
+      width:50%;
+      background:#fff;
+      will-change:transform;
+      transform:scaleX(0);
+    }
     #nwHero .nwOpening .nwWhitePanel.left{ left:0; transform-origin:100% 50%; }
     #nwHero .nwOpening .nwWhitePanel.right{ right:0; transform-origin:0% 50%; }
 
-    #nwHero.nw-opening .nwOpening .nwWhitePanel.left{ animation:nwWhiteSplitOpen var(--openDur) var(--openEase) forwards; }
-    #nwHero.nw-opening .nwOpening .nwWhitePanel.right{ animation:nwWhiteSplitOpen var(--openDur) var(--openEase) forwards; }
+    #nwHero.nw-opening .nwOpening .nwWhitePanel.left{
+      animation:nwWhiteSplitOpen var(--openDur) var(--openEase) forwards;
+    }
+    #nwHero.nw-opening .nwOpening .nwWhitePanel.right{
+      animation:nwWhiteSplitOpen var(--openDur) var(--openEase) forwards;
+    }
 
     #nwHero.nw-opened .nwOpening{ opacity:0; transition:opacity 520ms ease; }
 
     @keyframes nwWhiteSplitOpen{
-      0%   { transform:scaleX(0); }
-      100% { transform:scaleX(1); }
+      0%{ transform:scaleX(0); }
+      100%{ transform:scaleX(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      #nwHero .nwOpening{ display:none !important; }
+      #nwHero.nw-opening .slides,
+      #nwHero.nw-opening .vignette,
+      #nwHero.nw-opening .content,
+      #nwHero.nw-opening .scrollHint{
+        opacity:1 !important; transform:none !important; pointer-events:auto !important;
+      }
     }
   </style>
 
@@ -277,16 +294,18 @@
   </div>
 
   <div class="slides">
+    <!-- ✅ 1번 슬라이드: 로컬 mp4 -->
     <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="급변하고 있는<br>시대의 흐름 속" data-type="local-video" data-local-src="./video/video-1.mp4">
       <div class="media">
         <div class="vimeoCover">
           <div class="vimeoFrame" aria-hidden="true">
-            <video muted playsinline webkit-playsinline autoplay loop preload="auto" x5-video-player-type="h5-page"></video>
+            <video muted playsinline webkit-playsinline autoplay loop preload="auto"></video>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- 2번: Vimeo -->
     <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="사업 성장의 한계 및<br>변화가 절실한 상황이라면?" data-type="video">
       <div class="media">
         <div class="vimeoCover">
@@ -297,6 +316,7 @@
       </div>
     </div>
 
+    <!-- 3번: Vimeo -->
     <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="AI, 초연결 시대에 맞는<br>새로운 혁신을 통해" data-type="video">
       <div class="media">
         <div class="vimeoCover">
@@ -307,6 +327,7 @@
       </div>
     </div>
 
+    <!-- 4번: Vimeo -->
     <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="다가올 미래 시장을<br>선점하는 기회를 제공합니다." data-type="video">
       <div class="media">
         <div class="vimeoCover">
@@ -319,10 +340,18 @@
   </div>
 
   <div class="vignette"></div>
-  <div class="content"><span class="eyebrow"></span><h2 class="title"></h2></div>
-  <button class="scrollHint" type="button" aria-label="아래로 스크롤"><span class="mouse" aria-hidden="true"></span></button>
+
+  <div class="content">
+    <span class="eyebrow"></span>
+    <h2 class="title"></h2>
+  </div>
+
+  <button class="scrollHint" type="button" aria-label="아래로 스크롤">
+    <span class="mouse" aria-hidden="true"></span>
+  </button>
 
   <script src="https://player.vimeo.com/api/player.js"></script>
+
   <script>
     (function(){
       const root = document.querySelector('#nwHero');
@@ -333,166 +362,461 @@
       const eyebrow = root.querySelector('.eyebrow');
       const title = root.querySelector('.title');
 
-      const DUR = 8000;
-      const OPEN_DUR = 2600;
+      function readMsVar(name, fallback){
+        try{
+          const v = getComputedStyle(root).getPropertyValue(name).trim();
+          if(!v) return fallback;
+          if(v.endsWith('ms')) return parseFloat(v);
+          if(v.endsWith('s')) return parseFloat(v) * 1000;
+          const n = parseFloat(v);
+          return Number.isFinite(n) ? n : fallback;
+        }catch(e){ return fallback; }
+      }
+
+      const DUR = readMsVar('--slideDur', 8000);
+      const OPEN_DUR = readMsVar('--openDur', 2600);
+      const OPEN_HOLD = readMsVar('--openHold', 70);
+
       let i = 0;
       let timer = null;
-      let watchdog = null;
-      const localVideoMap = new Map();
-      const playerMap = new Map();
 
-      // ✅ 1. 비디오 초기 설정 보완 (아이폰 필수 속성 강제)
+      const playerMap = new Map();
+      const localVideoMap = new Map();
+
+      // ✅ iOS 정책상 “완전 보장”은 불가능하지만, 멈춤을 최대한 0에 가깝게 만드는 하드 보완
+      let userUnlocked = false;
+
+      // ===== 강제 킥(스팸 방지) =====
+      let lastKick = 0;
+      function nowMs(){ return Date.now(); }
+      function canKick(minGap){
+        const t = nowMs();
+        if(t - lastKick < minGap) return false;
+        lastKick = t;
+        return true;
+      }
+      function isVisible(){
+        return document.visibilityState === 'visible' && !document.hidden;
+      }
+
+      function injectPreloadVideoOnce(href){
+        try{
+          if(!href) return;
+          const head = document.head || document.getElementsByTagName('head')[0];
+          if(!head) return;
+
+          const key = 'nw-preload-' + href;
+          if(document.getElementById(key)) return;
+
+          const link = document.createElement('link');
+          link.id = key;
+          link.rel = 'preload';
+          link.as = 'video';
+          link.href = href;
+          link.type = 'video/mp4';
+          link.setAttribute('fetchpriority', 'high');
+          head.appendChild(link);
+        }catch(e){}
+      }
+
+      function updateText(slide){
+        eyebrow.innerHTML = slide.dataset.eyebrow || '';
+        title.innerHTML = slide.dataset.title || '';
+        content.classList.remove('text-in');
+        void content.offsetWidth;
+        content.classList.add('text-in');
+      }
+
+      /* =========================================================
+         ✅ 1번(로컬) 영상 “절대 멈춤 방지” 하드 보완
+         - play() 반복 시도 (throttle)
+         - currentTime 정체 감지 → 미세 currentTime nudging → play()
+         - 일정 시간 이상 정체 → src 재주입 + load + play()
+         - pageshow/focus/visibilitychange 네 가지 모두에서 킥
+         ========================================================= */
       function ensureLocalVideo(slide){
         if(localVideoMap.has(slide)) return localVideoMap.get(slide);
+
         const video = slide.querySelector('video');
         if(!video) return null;
 
+        // ✅ iOS/모바일 필수 (속성 + 프로퍼티 둘 다)
         video.muted = true;
         video.defaultMuted = true;
+        video.volume = 0;
         video.playsInline = true;
+        video.loop = true;
         video.autoplay = true;
-        video.setAttribute('muted', '');
+        video.preload = 'auto';
+
+        video.setAttribute('muted', 'muted');
         video.setAttribute('playsinline', '');
         video.setAttribute('webkit-playsinline', '');
         video.setAttribute('autoplay', '');
+        video.setAttribute('loop', '');
+        video.setAttribute('preload', 'auto');
+        video.setAttribute('x5-playsinline', '');
 
-        const src = slide.dataset.localSrc;
-        if(src && !video.src) video.src = src;
+        try{ video.disablePictureInPicture = true; }catch(e){}
+
+        const src = slide.dataset.localSrc || slide.getAttribute('data-local-src') || '';
+        if(src && !video.getAttribute('src')){
+          video.setAttribute('src', src);
+        }
+
+        let loadedOnce = false;
+        let stuckMs = 0;
+        let lastTime = -1;
+        let hardReloadedAt = 0;
+
+        const safeLoadOnce = () => {
+          if(loadedOnce) return;
+          loadedOnce = true;
+          try{ video.load(); }catch(e){}
+        };
+
+        const softNudge = () => {
+          try{
+            // iOS에서 가끔 0프레임 정체 → 아주 미세하게 건드리면 풀리는 경우
+            if(video.readyState >= 2 && video.currentTime > 0){
+              video.currentTime = Math.max(0, video.currentTime - 0.001);
+            }else if(video.readyState >= 2 && video.currentTime === 0){
+              // 첫 프레임 정체면 아주 미세하게 앞으로
+              video.currentTime = 0.01;
+            }
+          }catch(e){}
+        };
+
+        const hardReload = () => {
+          // 너무 잦은 재로딩 방지(최소 3초 간격)
+          const t = nowMs();
+          if(t - hardReloadedAt < 3000) return;
+          hardReloadedAt = t;
+
+          try{
+            // src 재주입 + load + play
+            if(src){
+              video.pause();
+              video.removeAttribute('src');
+              video.setAttribute('src', src);
+              loadedOnce = false;
+              safeLoadOnce();
+            }
+          }catch(e){}
+        };
 
         const safePlay = async () => {
-          try {
-            // 아이폰에서 Suspend 상태를 깨우기 위해 load() 호출 후 play()
-            if (video.paused) {
-              const p = video.play();
-              if (p !== undefined) await p;
-            }
-          } catch(e) {
-            console.log("Autoplay blocked or suspended. Waiting for interaction.");
+          try{
+            if(!canKick(180)) return false;
+            safeLoadOnce();
+
+            const p = video.play();
+            if(p && typeof p.then === 'function') await p;
+            return true;
+          }catch(e){
+            return false;
           }
         };
 
-        // 아이폰에서 리소스가 멈추는 suspend 이벤트 대응
-        video.addEventListener('suspend', () => { if(slide.classList.contains('active')) safePlay(); });
-        video.addEventListener('stalled', () => { if(slide.classList.contains('active')) { video.load(); safePlay(); } });
+        const kick = () => {
+          if(!isVisible()) return;
+          // 무조건 play()를 시도(멈춤 방지)
+          safePlay();
+        };
 
-        const entry = { video, safePlay };
+        // 멈춤 유발 이벤트 전부 복구
+        const recover = () => {
+          if(!isVisible()) return;
+          safePlay();
+        };
+
+        video.addEventListener('pause', recover);
+        video.addEventListener('waiting', recover);
+        video.addEventListener('stalled', recover);
+        video.addEventListener('suspend', recover);
+        video.addEventListener('emptied', recover);
+        video.addEventListener('ended', () => { try{ video.currentTime = 0; }catch(e){} recover(); });
+
+        video.addEventListener('error', () => {
+          if(!isVisible()) return;
+          hardReload();
+          safePlay();
+        });
+
+        // 강력 정체 감시(첫 영상 전용으로 계속)
+        const watchdog = setInterval(() => {
+          if(!isVisible()) return;
+
+          const t = video.currentTime;
+          const moving = (lastTime < 0) ? true : (Math.abs(t - lastTime) > 0.0005);
+
+          // 재생 중인데 time이 안 움직이면 정체 누적
+          if(video.readyState >= 2 && !video.paused && !moving){
+            stuckMs += 250;
+          }else{
+            stuckMs = 0;
+          }
+
+          lastTime = t;
+
+          // paused면 즉시 play
+          if(video.paused && !video.ended){
+            safePlay();
+          }
+
+          // 500ms 이상 정체: nudge + play
+          if(stuckMs >= 500){
+            stuckMs = Math.min(stuckMs, 2500);
+            softNudge();
+            safePlay();
+          }
+
+          // 2000ms 이상 정체: hard reload + play
+          if(stuckMs >= 2000){
+            stuckMs = 0;
+            hardReload();
+            safePlay();
+          }
+        }, 250);
+
+        const entry = { video, safePlay, safeLoadOnce, kick, watchdog };
         localVideoMap.set(slide, entry);
+
+        // 즉시 워밍업 + 재생 시도
+        safeLoadOnce();
+        safePlay();
+
         return entry;
       }
 
-      function playLocalVideo(slide){
+      async function playLocalVideo(slide){
+        const src = slide.dataset.localSrc || slide.getAttribute('data-local-src') || '';
+        if(src) injectPreloadVideoOnce(src);
+
         const entry = ensureLocalVideo(slide);
-        if(entry) entry.safePlay();
+        if(!entry) return;
+
+        // 첫 프레임부터 강제
+        entry.kick();
       }
 
       function pauseLocalVideo(slide){
         const entry = localVideoMap.get(slide);
-        if(entry && entry.video) entry.video.pause();
+        if(entry && entry.video){
+          try{ entry.video.pause(); }catch(e){}
+        }
       }
 
-      // Vimeo 관련 함수들 (기존 유지)
+      /* =========================
+         ✅ Vimeo
+         ========================= */
       function ensureVimeoPlayer(slide){
         if(playerMap.has(slide)) return playerMap.get(slide);
         const iframe = slide.querySelector('iframe');
-        if(!iframe) return null;
+        if(!iframe || !window.Vimeo) return null;
+
         const player = new Vimeo.Player(iframe);
-        player.setVolume(0);
-        const entry = { player, ready: player.ready() };
+        player.setVolume(0).catch(()=>{});
+
+        const entry = { player, readyPromise: player.ready().catch(()=>null) };
         playerMap.set(slide, entry);
         return entry;
       }
+
       async function playVimeo(slide){
         const entry = ensureVimeoPlayer(slide);
-        if(entry) { await entry.ready; entry.player.play().catch(()=>{}); }
+        if(!entry) return;
+        await entry.readyPromise;
+        try{ await entry.player.play(); }catch(e){}
       }
+
       function pauseVimeo(slide){
         const entry = playerMap.get(slide);
         if(entry) entry.player.pause().catch(()=>{});
       }
 
+      /* =========================
+         ✅ Slide show
+         ========================= */
       function show(n){
         i = (n + slides.length) % slides.length;
+
         slides.forEach((s, idx) => {
           const active = (idx === i);
           s.classList.toggle('active', active);
+
           if(active){
-            eyebrow.innerHTML = s.dataset.eyebrow || '';
-            title.innerHTML = s.dataset.title || '';
-            content.classList.remove('text-in');
-            void content.offsetWidth;
-            content.classList.add('text-in');
+            updateText(s);
             if(s.dataset.type === 'local-video') playLocalVideo(s);
-            else playVimeo(s);
-          } else {
+            else if(s.dataset.type === 'video') playVimeo(s);
+          }else{
             if(s.dataset.type === 'local-video') pauseLocalVideo(s);
-            else pauseVimeo(s);
+            else if(s.dataset.type === 'video') pauseVimeo(s);
           }
         });
       }
 
+      function nextSlide(){ show(i + 1); }
+
       function startTimer(){
         if(timer) clearInterval(timer);
-        timer = setInterval(() => show(i + 1), DUR);
+        timer = setInterval(nextSlide, DUR);
       }
 
-      // ✅ 2. 강제 재생 감시 (Watchdog) 보완
-      // 영상이 로드되었으나 멈춰있는 경우 0.5초마다 체크하여 강제 실행
-      function startWatchdog(){
-        if(watchdog) clearInterval(watchdog);
-        watchdog = setInterval(() => {
-          const active = slides[i];
-          if(!active || active.dataset.type !== 'local-video') return;
-          const entry = localVideoMap.get(active);
-          if(entry && entry.video.paused && document.visibilityState === 'visible') {
-            entry.safePlay();
+      // ✅ 언락(첫 제스처)
+      function unlockAndPlayAnywhere(){
+        if(userUnlocked) return;
+        userUnlocked = true;
+
+        const active = slides[i] || slides[0];
+        if(!active) return;
+
+        if(active.dataset.type === 'local-video'){
+          const entry = ensureLocalVideo(active);
+          if(entry) entry.kick();
+          else playLocalVideo(active);
+        }else if(active.dataset.type === 'video'){
+          const entry = ensureVimeoPlayer(active);
+          if(entry){
+            entry.readyPromise.then(()=> entry.player.play().catch(()=>{}));
+          }else{
+            playVimeo(active);
           }
-        }, 500);
+        }
+      }
+
+      /* =========================
+         ✅ OPENING TIMELINE
+         ========================= */
+      function whiteSplitOpenThenStart(){
+        const prefersReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(prefersReduce){
+          root.classList.remove('nw-opening');
+          root.classList.add('nw-opened');
+          show(0);
+          startTimer();
+          content.classList.remove('text-in'); void content.offsetWidth; content.classList.add('text-in');
+          return;
+        }
+
+        root.classList.add('nw-opening');
+        root.classList.remove('nw-opened');
+
+        // ✅ 0번 슬라이드(첫 로컬 영상)는 오프닝 중에도 “항상 active”로 두고 계속 킥
+        const first = slides[0];
+        if(first){
+          first.classList.add('active');
+          if(first.dataset.type === 'local-video'){
+            playLocalVideo(first);
+            const entry = ensureLocalVideo(first);
+            if(entry) entry.kick();
+          }
+        }
+
+        // 거의 다 열릴 때 텍스트 갱신(슬라이드 확정)
+        const preShow = setTimeout(() => { show(0); }, Math.max(0, OPEN_DUR * 0.78));
+
+        // 오프닝 끝 → 홀드 → 내부 등장 + 타이머
+        const done = setTimeout(() => {
+          setTimeout(() => {
+            root.classList.remove('nw-opening');
+            root.classList.add('nw-opened');
+
+            // ✅ 오프닝 끝나는 순간에도 첫 영상 강제 킥(중요)
+            const f = slides[0];
+            if(f && f.dataset.type === 'local-video'){
+              const entry = ensureLocalVideo(f);
+              if(entry) entry.kick();
+            }
+
+            content.classList.remove('text-in');
+            void content.offsetWidth;
+            content.classList.add('text-in');
+
+            startTimer();
+          }, OPEN_HOLD);
+        }, Math.max(0, OPEN_DUR + 40));
+
+        root._nwOpenTimers = [preShow, done];
+      }
+
+      function hardKickFirstVideo(reason){
+        try{
+          const first = slides[0];
+          if(!first || first.dataset.type !== 'local-video') return;
+          first.classList.add('active'); // 모바일에서 “첫 영상 멈춤” 방지용
+          const entry = ensureLocalVideo(first);
+          if(!entry) return;
+
+          // 재생이 멈춰있으면 즉시 킥
+          if(entry.video.paused || entry.video.readyState < 2){
+            entry.kick();
+          }else{
+            // 재생 중이어도 한번 더 킥(무해)
+            entry.kick();
+          }
+        }catch(e){}
       }
 
       function init(){
-        // 첫 번째 영상 미리 준비
-        ensureLocalVideo(slides[0]);
-
-        // 오프닝 시작
-        root.classList.add('nw-opening');
-
-        // ✅ 3. 핵심 수정: 오프닝 완료 직후(흰 판이 다 열린 순간) 재생 재확인
-        setTimeout(() => {
-          show(0);
-          root.classList.remove('nw-opening');
-          root.classList.add('nw-opened');
-          
-          // 첫 번째 영상 강제 play 시도 (아이폰 지연 대응)
-          const firstEntry = localVideoMap.get(slides[0]);
-          if(firstEntry) {
-            firstEntry.video.load(); // 리소스를 다시 깨움
-            firstEntry.safePlay();
+        // ✅ 먼저 첫 영상(src) ASAP 세팅 + 프리로드
+        slides.forEach((s) => {
+          if(s.dataset.type === 'local-video'){
+            const src = s.dataset.localSrc || s.getAttribute('data-local-src') || '';
+            if(src) injectPreloadVideoOnce(src);
+            ensureLocalVideo(s);
+          }else if(s.dataset.type === 'video'){
+            ensureVimeoPlayer(s);
           }
+        });
 
-          startTimer();
-          startWatchdog();
-        }, OPEN_DUR + 100);
+        whiteSplitOpenThenStart();
 
-        // 첫 터치 시 모든 비디오 언락 (아이폰 정책 대응)
-        const unlock = () => {
-          const active = slides[i];
-          if(active && active.dataset.type === 'local-video') playLocalVideo(active);
-          window.removeEventListener('touchstart', unlock);
-        };
-        window.addEventListener('touchstart', unlock);
+        // ✅ 언락 리스너(정책상 필요할 수 있음)
+        window.addEventListener('touchstart', unlockAndPlayAnywhere, { passive:true, once:true, capture:true });
+        window.addEventListener('pointerdown', unlockAndPlayAnywhere, { passive:true, once:true, capture:true });
+        window.addEventListener('click', unlockAndPlayAnywhere, { passive:true, once:true, capture:true });
+
+        // ✅ 최초 진입 즉시 첫 영상 “하드 킥” (모바일 새로고침/로드 타이밍 이슈 방지)
+        setTimeout(()=> hardKickFirstVideo('init+150'), 150);
+        setTimeout(()=> hardKickFirstVideo('init+600'), 600);
+        setTimeout(()=> hardKickFirstVideo('init+1200'), 1200);
       }
 
-      if(document.readyState === 'loading') window.addEventListener('DOMContentLoaded', init);
-      else init();
+      if(document.readyState === 'loading'){
+        window.addEventListener('DOMContentLoaded', init, { once:true });
+      }else{
+        init();
+      }
 
-      // 브라우저 탭 복귀 시 재생 재개
+      // ✅ 모바일에서 새로고침/뒤로가기/bfcache 등 “무조건” 첫 영상 재생 강제
       window.addEventListener('pageshow', () => {
-        const active = slides[i];
-        if(active && active.dataset.type === 'local-video') playLocalVideo(active);
+        hardKickFirstVideo('pageshow');
+        setTimeout(()=> hardKickFirstVideo('pageshow+250'), 250);
+        setTimeout(()=> hardKickFirstVideo('pageshow+900'), 900);
       });
+
+      window.addEventListener('focus', () => {
+        hardKickFirstVideo('focus');
+        setTimeout(()=> hardKickFirstVideo('focus+250'), 250);
+      });
+
+      document.addEventListener('visibilitychange', () => {
+        if(document.visibilityState === 'visible'){
+          hardKickFirstVideo('visible');
+          setTimeout(()=> hardKickFirstVideo('visible+250'), 250);
+          setTimeout(()=> hardKickFirstVideo('visible+900'), 900);
+        }
+      });
+
+      // ✅ 스크롤/리사이즈로 iOS가 영상 멈추는 케이스까지 커버(가볍게 킥)
+      window.addEventListener('scroll', () => { hardKickFirstVideo('scroll'); }, { passive:true });
+      window.addEventListener('resize', () => { hardKickFirstVideo('resize'); }, { passive:true });
+
     })();
   </script>
 </section>
+
    
 <section id="energyHL" aria-label="하이라이트 질문 시퀀스 (JS 누적 점등 · 밝기 조절 가능)"
   data-step="650" data-hold="1300" data-dark="600" data-dim="0.18" data-bright="1">
