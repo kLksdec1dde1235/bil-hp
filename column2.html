@@ -1,0 +1,577 @@
+<section id="nbbioInsightGrid" aria-label="비즈니스 혁신 연구소 인사이트 카드 그리드">
+  <style>
+    /* ==============================
+       Scope: #nbbioInsightGrid only
+       ============================== */
+    #nbbioInsightGrid{
+      --bg:#ffffff;
+      --ink:#0b1220;
+      --muted:#5b6574;
+      --line:rgba(15,23,42,.10);
+      --soft:rgba(15,23,42,.06);
+      --card:#ffffff;
+      --chip:#f5f7fb;
+      --brand:#0a6a62;      /* NBBIO 딥그린 */
+      --brand2:#5a7cf6;     /* 서브 포인트 블루 */
+      --warm:#ff8a3d;       /* 하이라이트 오렌지 */
+      --shadow:0 14px 45px rgba(15, 23, 42, .10);
+      --radius:18px;
+      --max:1240px;
+      --padX:18px;
+
+      font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      padding:clamp(26px, 3.4vw, 54px) var(--padX);
+    }
+
+    #nbbioInsightGrid .wrap{max-width:var(--max); margin:0 auto;}
+
+    /* Header */
+    #nbbioInsightGrid .head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
+    }
+    #nbbioInsightGrid .title{
+      margin:0;
+      font-size:clamp(20px, 2.3vw, 30px);
+      letter-spacing:-.02em;
+      line-height:1.15;
+    }
+    #nbbioInsightGrid .sub{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:clamp(13px, 1.1vw, 15px);
+      line-height:1.5;
+    }
+
+    #nbbioInsightGrid .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+
+    #nbbioInsightGrid .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:linear-gradient(180deg, #fff, rgba(255,255,255,.86));
+      box-shadow:0 10px 24px rgba(15,23,42,.06);
+    }
+    #nbbioInsightGrid .pill label{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:700;
+      letter-spacing:-.01em;
+    }
+    #nbbioInsightGrid .pill select{
+      border:none;
+      outline:none;
+      background:transparent;
+      color:var(--ink);
+      font-weight:700;
+      font-size:12px;
+      padding:0;
+      letter-spacing:-.01em;
+      cursor:pointer;
+    }
+    #nbbioInsightGrid .pill select:focus{outline:none;}
+
+    #nbbioInsightGrid .search{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:linear-gradient(180deg, #fff, rgba(255,255,255,.86));
+      box-shadow:0 10px 24px rgba(15,23,42,.06);
+      min-width:min(360px, 100%);
+    }
+    #nbbioInsightGrid .search svg{width:16px; height:16px; opacity:.72;}
+    #nbbioInsightGrid .search input{
+      width:100%;
+      border:none;
+      outline:none;
+      background:transparent;
+      color:var(--ink);
+      font-weight:600;
+      font-size:13px;
+      letter-spacing:-.01em;
+    }
+    #nbbioInsightGrid .search input::placeholder{color:rgba(15,23,42,.45); font-weight:600;}
+
+    /* Grid */
+    #nbbioInsightGrid .grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:16px;
+    }
+
+    /* Card */
+    #nbbioInsightGrid .card{
+      position:relative;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:0 10px 28px rgba(15,23,42,.06);
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    #nbbioInsightGrid .card:focus-within{
+      border-color:rgba(10,106,98,.35);
+      box-shadow:0 18px 52px rgba(15,23,42,.12);
+    }
+    @media (hover:hover){
+      #nbbioInsightGrid .card:hover{
+        transform:translateY(-4px);
+        border-color:rgba(10,106,98,.22);
+        box-shadow:0 18px 52px rgba(15,23,42,.12);
+      }
+    }
+
+    #nbbioInsightGrid .card a{color:inherit; text-decoration:none;}
+
+    /* Media */
+    #nbbioInsightGrid .media{
+      position:relative;
+      aspect-ratio:16/9;
+      background:
+        radial-gradient(1200px 360px at 20% 20%, rgba(90,124,246,.18), transparent 55%),
+        radial-gradient(900px 320px at 85% 70%, rgba(255,138,61,.18), transparent 60%),
+        linear-gradient(180deg, rgba(15,23,42,.05), rgba(15,23,42,.00));
+    }
+    #nbbioInsightGrid .media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter:saturate(1.03) contrast(1.02);
+      transform:scale(1.0001);
+    }
+
+    /* Read time badge */
+    #nbbioInsightGrid .read{
+      position:absolute;
+      right:12px;
+      bottom:12px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(15,23,42,.72);
+      color:#fff;
+      font-weight:700;
+      font-size:12px;
+      letter-spacing:-.01em;
+      box-shadow:0 12px 26px rgba(0,0,0,.22);
+      backdrop-filter:blur(10px);
+    }
+    #nbbioInsightGrid .read svg{width:14px; height:14px; opacity:.92;}
+
+    /* Body */
+    #nbbioInsightGrid .body{
+      padding:14px 14px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    #nbbioInsightGrid .meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    #nbbioInsightGrid .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--chip);
+      border:1px solid rgba(15,23,42,.08);
+      color:rgba(15,23,42,.86);
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:-.01em;
+    }
+    #nbbioInsightGrid .chip::before{
+      content:"";
+      width:8px; height:8px;
+      border-radius:50%;
+      background:linear-gradient(180deg, var(--brand), var(--brand2));
+      box-shadow:0 8px 16px rgba(10,106,98,.22);
+    }
+
+    #nbbioInsightGrid .date{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      color:rgba(15,23,42,.58);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:-.01em;
+    }
+    #nbbioInsightGrid .date svg{width:14px;height:14px;opacity:.75;}
+
+    #nbbioInsightGrid .h{
+      margin:0;
+      font-size:clamp(16px, 1.3vw, 18px);
+      line-height:1.35;
+      letter-spacing:-.02em;
+      font-weight:900;
+    }
+
+    #nbbioInsightGrid .desc{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.65;
+      letter-spacing:-.01em;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+
+    /* Footer micro CTA */
+    #nbbioInsightGrid .cta{
+      margin-top:2px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding-top:12px;
+      border-top:1px solid var(--soft);
+    }
+
+    #nbbioInsightGrid .tagset{display:flex; gap:8px; flex-wrap:wrap;}
+    #nbbioInsightGrid .tag{
+      padding:6px 9px;
+      border-radius:999px;
+      border:1px solid rgba(15,23,42,.10);
+      background:rgba(255,255,255,.7);
+      color:rgba(15,23,42,.75);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:-.01em;
+    }
+
+    #nbbioInsightGrid .more{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(10,106,98,.18);
+      background:linear-gradient(180deg, rgba(10,106,98,.10), rgba(10,106,98,.04));
+      color:rgba(10,106,98,.95);
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:-.01em;
+      white-space:nowrap;
+      transition:transform .2s ease, background .2s ease;
+    }
+    #nbbioInsightGrid .more svg{width:14px;height:14px;}
+    @media (hover:hover){
+      #nbbioInsightGrid .card:hover .more{transform:translateX(2px); background:linear-gradient(180deg, rgba(10,106,98,.14), rgba(10,106,98,.06));}
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      #nbbioInsightGrid .head{align-items:flex-start; flex-direction:column;}
+      #nbbioInsightGrid .actions{width:100%;}
+      #nbbioInsightGrid .search{min-width:0; width:100%;}
+      #nbbioInsightGrid .grid{grid-template-columns:repeat(2, minmax(0, 1fr));}
+    }
+    @media (max-width: 620px){
+      #nbbioInsightGrid{padding:22px 14px 34px;}
+      #nbbioInsightGrid .grid{grid-template-columns:1fr; gap:14px;}
+      #nbbioInsightGrid .body{padding:13px 13px 15px;}
+      #nbbioInsightGrid .cta{gap:10px;}
+      #nbbioInsightGrid .more{padding:8px 10px;}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      #nbbioInsightGrid .card{transition:none;}
+      #nbbioInsightGrid .more{transition:none;}
+    }
+  </style>
+
+  <div class="wrap">
+    <header class="head">
+      <div>
+        <h2 class="title">인사이트 · How to use</h2>
+        <p class="sub">비즈니스 혁신 연구소가 실제 현장에서 검증한 실행 프레임워크와 도구 사용법을 정리합니다.</p>
+      </div>
+
+      <div class="actions" aria-label="필터 및 검색">
+        <div class="pill" role="group" aria-label="카테고리 선택">
+          <label for="nbbioCat">Category</label>
+          <select id="nbbioCat" name="nbbioCat">
+            <option value="all" selected>전체</option>
+            <option value="how">How to use</option>
+            <option value="framework">Framework</option>
+            <option value="ops">Operations</option>
+          </select>
+        </div>
+
+        <div class="search" role="search">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10.5 19a8.5 8.5 0 1 1 0-17 8.5 8.5 0 0 1 0 17Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M16.8 16.8 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input id="nbbioSearch" type="search" placeholder="키워드로 찾기 (예: 혁신, 실행, 프레임워크)" autocomplete="off" />
+        </div>
+      </div>
+    </header>
+
+    <div class="grid" role="list" aria-label="인사이트 카드 목록">
+      <!-- Card 1 -->
+      <article class="card" role="listitem" data-cat="how" data-title="바이브 코딩이란? 2025년 AI 개발의 새로운 패러다임" data-tags="바이브코딩,개발,생산성">
+        <a href="#" aria-label="바이브 코딩이란? 2025년 AI 개발의 새로운 패러다임 자세히 보기">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1600&auto=format&fit=crop" alt="노트북 화면에 코드가 보이는 이미지" loading="lazy" />
+            <span class="read" aria-label="읽는 시간 5분">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/></svg>
+              5 min read
+            </span>
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span class="chip">How to use</span>
+              <span class="date" aria-label="게시일 2025년 12월 16일">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 9h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 6h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/></svg>
+                2025.12.16
+              </span>
+            </div>
+            <h3 class="h">바이브 코딩이란? 2025년 AI 개발의 새로운 패러다임</h3>
+            <p class="desc">AI 시대의 개발 방식은 ‘작성’보다 ‘정의’로 이동합니다. 목표·제약·검증을 먼저 설계해 결과를 빠르게 만드는 방법을 정리합니다.</p>
+            <div class="cta" aria-hidden="true">
+              <div class="tagset">
+                <span class="tag">#생산성</span><span class="tag">#워크플로우</span>
+              </div>
+              <span class="more">읽어보기 <svg viewBox="0 0 24 24" fill="none"><path d="M10 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card" role="listitem" data-cat="how" data-title="Vooster MCP 연동 + 개발 시작하는 방법" data-tags="MCP,자동화,툴체인">
+        <a href="#" aria-label="Vooster MCP 연동 + 개발 시작하는 방법 자세히 보기">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1600&auto=format&fit=crop" alt="개발 도구와 로직이 연결된 추상 이미지" loading="lazy" />
+            <span class="read" aria-label="읽는 시간 9분">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/></svg>
+              9 min read
+            </span>
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span class="chip">How to use</span>
+              <span class="date" aria-label="게시일 2025년 12월 15일">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 9h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 6h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/></svg>
+                2025.12.15
+              </span>
+            </div>
+            <h3 class="h">Vooster MCP 연동 + 개발 시작하는 방법</h3>
+            <p class="desc">도구를 ‘연결’하는 순간 생산성은 점프합니다. MCP로 IDE·문서·워크플로우를 5분 안에 묶고, 실행 루프를 만드는 절차를 담았습니다.</p>
+            <div class="cta" aria-hidden="true">
+              <div class="tagset">
+                <span class="tag">#자동화</span><span class="tag">#툴체인</span>
+              </div>
+              <span class="more">읽어보기 <svg viewBox="0 0 24 24" fill="none"><path d="M10 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card" role="listitem" data-cat="framework" data-title="Vooster가 기획해주는 7가지 문서: 잘 생성하는 방법" data-tags="PRD,TRD,ERD,문서화">
+        <a href="#" aria-label="Vooster가 기획해주는 7가지 문서: 잘 생성하는 방법 자세히 보기">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1600&auto=format&fit=crop" alt="문서 아이콘과 워크플로우를 상징하는 이미지" loading="lazy" />
+            <span class="read" aria-label="읽는 시간 7분">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/></svg>
+              7 min read
+            </span>
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span class="chip">Framework</span>
+              <span class="date" aria-label="게시일 2025년 12월 15일">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 9h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 6h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/></svg>
+                2025.12.15
+              </span>
+            </div>
+            <h3 class="h">Vooster가 기획해주는 7가지 문서 · 잘 생성하는 방법</h3>
+            <p class="desc">PRD·TRD·ERD·디자인 가이드까지. ‘좋은 문서’는 길이가 아니라 판단 기준이 선명한 문서입니다. AI로 품질을 올리는 체크리스트를 제안합니다.</p>
+            <div class="cta" aria-hidden="true">
+              <div class="tagset">
+                <span class="tag">#문서화</span><span class="tag">#설계</span>
+              </div>
+              <span class="more">읽어보기 <svg viewBox="0 0 24 24" fill="none"><path d="M10 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card" role="listitem" data-cat="framework" data-title="AI 모델 선택 가이드: 언제 어떤 모델을 써야할까?" data-tags="모델선정,비용,품질">
+        <a href="#" aria-label="AI 모델 선택 가이드: 언제 어떤 모델을 써야할까? 자세히 보기">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop" alt="회로와 기술을 상징하는 이미지" loading="lazy" />
+            <span class="read" aria-label="읽는 시간 9분">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/></svg>
+              9 min read
+            </span>
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span class="chip">Framework</span>
+              <span class="date" aria-label="게시일 2025년 12월 14일">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 9h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 6h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/></svg>
+                2025.12.14
+              </span>
+            </div>
+            <h3 class="h">바이브코딩 AI 모델 선택 가이드 · 언제 어떤 모델을 써야할까?</h3>
+            <p class="desc">핵심은 ‘정답률’보다 ‘목적 적합도’입니다. 탐색·설계·구현·검증 단계별로 비용과 품질을 균형 있게 쓰는 기준을 정리합니다.</p>
+            <div class="cta" aria-hidden="true">
+              <div class="tagset">
+                <span class="tag">#전략</span><span class="tag">#운영</span>
+              </div>
+              <span class="more">읽어보기 <svg viewBox="0 0 24 24" fill="none"><path d="M10 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card" role="listitem" data-cat="ops" data-title="AI 시대 개발자의 진짜 역할: 코딩에서 프롬프트 기획으로" data-tags="기획,리서치,시스템">
+        <a href="#" aria-label="AI 시대 개발자의 진짜 역할: 코딩에서 프롬프트 기획으로 자세히 보기">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop" alt="노트북과 팀 협업을 상징하는 이미지" loading="lazy" />
+            <span class="read" aria-label="읽는 시간 6분">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/></svg>
+              6 min read
+            </span>
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span class="chip">Operations</span>
+              <span class="date" aria-label="게시일 2025년 12월 14일">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 9h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 6h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/></svg>
+                2025.12.14
+              </span>
+            </div>
+            <h3 class="h">AI 시대 개발자의 진짜 역할 · 코딩에서 ‘프롬프트 기획’으로</h3>
+            <p class="desc">코드를 ‘잘 치는 사람’에서 시스템을 ‘잘 정의하는 사람’으로. 요구사항을 구조화해 AI를 팀처럼 쓰는 방식과 운영 루틴을 제안합니다.</p>
+            <div class="cta" aria-hidden="true">
+              <div class="tagset">
+                <span class="tag">#역할전환</span><span class="tag">#기획</span>
+              </div>
+              <span class="more">읽어보기 <svg viewBox="0 0 24 24" fill="none"><path d="M10 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="card" role="listitem" data-cat="ops" data-title="Step by Step로 AI 뇌절 방지하기" data-tags="프로세스,검증,품질">
+        <a href="#" aria-label="Step by Step로 AI 뇌절 방지하기 자세히 보기">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop" alt="개발 프로세스와 코드 흐름을 상징하는 이미지" loading="lazy" />
+            <span class="read" aria-label="읽는 시간 5분">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/></svg>
+              5 min read
+            </span>
+          </div>
+          <div class="body">
+            <div class="meta">
+              <span class="chip">Operations</span>
+              <span class="date" aria-label="게시일 2025년 12월 14일">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 9h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 6h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/></svg>
+                2025.12.14
+              </span>
+            </div>
+            <h3 class="h">Step by Step로 AI 뇌절 방지하기</h3>
+            <p class="desc">탐색 → 계획 → 구현 3단계로 요청을 쪼개면 품질이 안정됩니다. 산출물을 검증하는 기준과 ‘되돌리기 루프’를 함께 정리했습니다.</p>
+            <div class="cta" aria-hidden="true">
+              <div class="tagset">
+                <span class="tag">#품질관리</span><span class="tag">#검증</span>
+              </div>
+              <span class="more">읽어보기 <svg viewBox="0 0 24 24" fill="none"><path d="M10 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+
+  <script>
+    /* ==============================
+       Scope: #nbbioInsightGrid only
+       - 로컬(파일://) / VS Live Server / 다양한 삽입 위치에서도 안정 동작
+       - 섹션 id를 사용하되, 혹시 id를 바꿔 붙여넣었어도 동작하도록 fallback 제공
+       ============================== */
+    (function(){
+      function init(root){
+        if(!root || root.__nbbioInited) return;
+        root.__nbbioInited = true;
+
+        // (1) 요소 탐색: id 우선, 없으면 data-role로 fallback
+        var catSel = root.querySelector('#nbbioCat') || root.querySelector('[data-role="nbbio-cat"]');
+        var search = root.querySelector('#nbbioSearch') || root.querySelector('[data-role="nbbio-search"]');
+        var cards = Array.prototype.slice.call(root.querySelectorAll('.card'));
+
+        function norm(s){
+          return (s == null ? '' : String(s)).trim().toLowerCase();
+        }
+
+        function apply(){
+          var cat = norm(catSel && catSel.value ? catSel.value : 'all');
+          var q = norm(search && search.value ? search.value : '');
+
+          for(var i=0;i<cards.length;i++){
+            var card = cards[i];
+            var c = norm(card.getAttribute('data-cat'));
+            var title = norm(card.getAttribute('data-title'));
+            var tags = norm(card.getAttribute('data-tags'));
+            var matchCat = (cat === 'all') ? true : (c === cat);
+            var matchQ = (!q) ? true : (title.indexOf(q) > -1 || tags.indexOf(q) > -1);
+            card.style.display = (matchCat && matchQ) ? '' : 'none';
+          }
+        }
+
+        if(catSel) catSel.addEventListener('change', apply);
+        if(search) search.addEventListener('input', apply);
+        apply();
+      }
+
+      // ✅ 안정 실행: DOM 준비 후 + 현재 스크립트가 속한 섹션 우선
+      function boot(){
+        var byId = document.getElementById('nbbioInsightGrid');
+        if(byId) init(byId);
+
+        // 혹시 id를 바꿔서 붙여넣었다면: 현재 script가 속한 section을 찾아 초기화
+        var cs = document.currentScript;
+        var near = cs && cs.closest ? cs.closest('section') : null;
+        if(near) init(near);
+      }
+
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', boot, { once:true });
+      }else{
+        boot();
+      }
+    })();
+  </script>
+</section>

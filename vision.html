@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <!-- ===== 기본 메타 ===== -->
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  
+  <link href="./css/reset.css" rel="stylesheet" type="text/css" />
+   <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="menu_navi"></div>
+
+<script src="./menu3.js"></script>
+
+
+
+  <style>
+    /* ── RESET & LAYOUT ── */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Pretendard',sans-serif;background:#111;color:#fff;overflow-x:hidden}
+    .container{display:flex}
+    #main{flex:1;position:relative;overflow:hidden}
+    #visualTransWrap{position:absolute;inset:0;pointer-events:none;z-index:5}
+
+    /* ── SWIPER & BG ── */
+    .mv_container{width:100%;height:90vh;position:relative}
+    .swiper-container,.swiper-wrapper,.swiper-slide{width:100%;height:100%}
+    .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 6s ease;filter:brightness(0.5)}
+    .swiper-slide-active .bg{transform:scale(1.12)}
+    .bg1{background-image:url('./img/intro-1.jpg')}
+    .bg2{background-image:url('./img/intro-2.jpg')}
+    .bg3{background-image:url('./img/page-3.jpg')}
+    .bg4{background-image:url('./img/repair.jpg')}
+
+    /* ── TEXT & BUTTON ── */
+    .mv_txt_box{position:absolute;top:20%;left:5%;max-width:640px;z-index:2}
+    .mv_cate{font-size:18px;font-weight:600;margin-bottom:14px;color:#ffeb55;display:inline-block}
+    .mv_tit{font-size:43px;line-height:1.4;margin:0 0 12px}
+    @media screen and (max-width:620px){ .mv_tit{font-size:34px !important;} }
+    @media screen and (max-width:500px){ .mv_tit{font-size:26px !important;} }
+    .mv_txt{font-size:18px;line-height:1.6;font-weight:300}
+    .mv_btn{
+      display:inline-block;margin-top:30px;padding:14px 36px;
+      border:2px solid #fff;border-radius:40px;
+      background:transparent;color:#fff;font-weight:600;letter-spacing:.3px;
+      opacity:0;pointer-events:none;
+      transition:opacity .6s,background .35s,box-shadow .35s,color .35s,transform .35s;
+      position:relative;overflow:hidden;text-decoration:none;
+    }
+    .swiper-slide-active .mv_btn{opacity:1;pointer-events:auto}
+    .mv_btn::after{
+      content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);
+      transform:translateX(-100%);transition:transform .4s;
+    }
+    .mv_btn:hover::after{transform:translateX(0)}
+    .mv_btn:hover{
+      background:#fff;color:#111;box-shadow:0 8px 24px rgba(0,0,0,.25);
+      transform:translateY(-2px);
+    }
+
+    /* ── WAVE ANIMATION ── */
+    .wave_anim .wave{display:inline-block;opacity:0;animation:wave 1.1s ease-out forwards}
+    @keyframes wave{0%{transform:translateY(25px);opacity:0}100%{transform:translateY(0);opacity:1}}
+    .wave_anim.custom .wave:nth-child(1){animation-delay:.15s}
+    .wave_anim.custom .wave:nth-child(2){animation-delay:.3s}
+    .wave_anim.custom .wave:nth-child(3){animation-delay:.45s}
+
+    /* ── PROGRESS BAR ── */
+    .progress-container{position:absolute;bottom:80px;left:5%;right:5%;height:4px;display:flex;gap:10px;z-index:3;width:150px;}
+    .progress-segment{flex:1;background:rgba(255,255,255,.25);border-radius:2px;overflow:hidden;cursor:pointer}
+    .progress-fill{width:0;height:100%;background:#fff;display:block}
+
+    .wheel_down{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:24px;opacity:.7;z-index:3;animation: wheel-bounce 2s ease-in-out infinite;}
+    .wheel_down .wheel {animation: wheel-fade 2s ease-in-out infinite;}
+    @keyframes wheel-fade {
+      0%{opacity:1;transform:translateY(0)}
+      80%{opacity:.2;transform:translateY(10px)}
+      100%{opacity:0;transform:translateY(14px)}
+    }
+    #sidebar{display:none}
+  </style>
+
+  <style>
+    /* ──────────────────────────────────────────
+          #visual-section 전용 스타일
+      ─────────────────────────────────────────── */
+    #visual-section{position:relative;width:100%;height:100vh;overflow:hidden}
+    #visual-section .video_wrap{position:absolute;inset:0;z-index:0}
+    #visual-section .video_wrap video{width:100%;height:100%;object-fit:cover;object-position:center}
+    #visual-section .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5)}
+    #visual-section .txt_container{
+      position:absolute;inset:0;z-index:2;
+      display:flex;flex-direction:column;
+      justify-content:space-evenly;align-items:center;
+      text-align:center;pointer-events:none
+    }
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    #visual-section .company,#visual-section .logo,#visual-section .exp{opacity:0}
+    #visual-section.animate .company{
+      color:#fff;font-size:2.5rem;font-weight:500;margin-bottom:.5em;
+      animation:fadeInUp 1s ease-out forwards;animation-delay:.2s
+    }
+    #visual-section.animate .logo{animation:fadeInUp 1s ease-out forwards;animation-delay:.7s}
+    #visual-section .logo .m_logo{
+      width:800px;height:130px;
+      background:url("../img/sm-logo.png") no-repeat center/contain;
+      margin-bottom:.5em
+    }
+    #visual-section.animate .exp{
+      color:#fff;font-size:1.25rem;line-height:1.6;max-width:80%;
+      animation:fadeInUp 1s ease-out forwards;animation-delay:1s
+    }
+    #visual-section .highlight{color:#e6d3a3;font-weight:600}
+    @media (max-width:768px){
+      #visual-section .company{font-size:2rem !important}
+      #visual-section .logo .m_logo{
+        background:url("../img/sm-font.png") no-repeat center/contain;
+        width:400px;height:300px
+      }
+      #visual-section .exp{font-size:1rem}
+      #visual-section .video_wrap video{object-position:right center}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 메뉴(외부 로드) -->
+<div id="menu"></div>
+
+<style>
+  /* ───────────────────────────────────────────────
+     공통 · 레이아웃
+  ───────────────────────────────────────────────*/
+  .sub-visual__wrap{
+    position:relative; z-index:2;
+    height:80vh; width:100%;
+    background-size:cover!important; background-position:center top!important;
+    overflow:hidden; perspective:900px;
+    --reveal-dur: 900ms;
+  }
+  .sub-visual__wrap.visual-01{
+    background:url(./img/world.jpg) no-repeat center top;
+  }
+  .sub-visual__wrap[class*="visual"]::before{
+    z-index:1; content:''; position:absolute; inset:0;
+    background:linear-gradient(110deg,rgba(18,22,34,.56)45%,rgba(28,33,54,.34)100%);
+    pointer-events:none; transition:background .8s;
+  }
+
+  /* ▼ 중앙에서 바깥쪽으로 '열리며' 배경이 나타나는 리빌 패널 */
+  .sub-visual__wrap .reveal{
+    position:absolute; top:0; bottom:0; width:50%;
+    background:#0b0d12;
+    z-index:0;
+    transform:translateX(0);
+    will-change:transform;
+  }
+  .sub-visual__wrap .reveal.l{ left:0; }
+  .sub-visual__wrap .reveal.r{ right:0; }
+  .sub-visual__wrap.play .reveal.l{ animation:revealOutL var(--reveal-dur) cubic-bezier(.22,.8,.18,1) forwards; }
+  .sub-visual__wrap.play .reveal.r{ animation:revealOutR var(--reveal-dur) cubic-bezier(.22,.8,.18,1) forwards; }
+  @keyframes revealOutL{ to{ transform:translateX(-100%); } }
+  @keyframes revealOutR{ to{ transform:translateX(100%); } }
+  @media (prefers-reduced-motion:reduce){
+    .sub-visual__wrap.play .reveal.l{ animation:none; transform:translateX(-100%); }
+    .sub-visual__wrap.play .reveal.r{ animation:none; transform:translateX(100%); }
+  }
+
+  /* ───── 브레드크럼 ───── */
+  .breadcrumb-nav{
+    position:absolute;
+    left:50%; transform:translateX(-50%) translateY(-18px);
+    width:100%;
+    top:20%; max-width:1440px;
+    margin:0 40px;
+    bottom:210px;
+    z-index:10;
+    font-family:'Pretendard','Noto Sans KR',sans-serif;
+    opacity:0;
+    transition:opacity .9s cubic-bezier(.22,.9,.39,1.01),
+               transform 1.05s cubic-bezier(.22,.9,.39,1.01);
+  }
+  .breadcrumb-nav.in{opacity:1; transform:translateX(-50%) translateY(0);}
+  .breadcrumb-nav ol{
+    display:flex; gap:10px; align-items:center; margin:0; padding:0;
+    font-size:1.04rem; color:#fff; opacity:.92; list-style:none;
+  }
+  .breadcrumb-nav li{display:flex; align-items:center;}
+  .breadcrumb-nav li:not(:last-child)::after{
+    content:"›"; margin:0 7px; color:#fff; opacity:.48; font-size:.92em; font-weight:600;
+  }
+  .breadcrumb-nav a{color:#fff; opacity:.83; text-decoration:none; transition:opacity .17s;}
+  .breadcrumb-nav a:hover,.breadcrumb-nav a:focus{opacity:1; text-decoration:underline;}
+  .breadcrumb-nav .current{color:#fff; font-weight:700; opacity:1;}
+
+  /* ───── 타이틀 · 설명 ───── */
+  .sub-visual__area{
+    position:absolute; bottom:110px; left:50%; transform:translateX(-50%);
+    width:100%; max-width:1440px; margin:0 40px; z-index:2;
+  }
+  .sub-visual__title{
+    color:#fff; text-align:left; width:100%;
+    filter:drop-shadow(0 8px 32px rgba(0,0,0,.11));
+  }
+
+  /* ✅ H1/H2/H3/H4 정리: 인사말 페이지의 메인 타이틀은 h1 */
+  .sub-visual__title .title{
+    font-size:56px; font-weight:700; line-height:1.28; letter-spacing:-1px;
+    opacity:0; transform:translateY(60px) scale(.96) skewY(4deg) rotateX(15deg);
+    filter:blur(4px) brightness(1.4);
+    transition:all 1.1s cubic-bezier(.24,.8,.26,1.01);
+    margin:0;
+  }
+  .sub-visual__title .desc{
+    font-size:26px; margin-top:26px; opacity:0;
+    transform:translateY(50px) scale(.97) skewY(2deg) rotateX(10deg);
+    filter:blur(7px) brightness(1.3);
+    min-height:28px; font-weight:400; letter-spacing:-.3px; line-height:1.4;
+    transition:all 1.25s cubic-bezier(.22,.78,.21,1.02) .14s;
+    margin:0;
+  }
+  .sub-visual__title.in .title{ opacity:1; filter:blur(0) brightness(1); transform:none; }
+  .sub-visual__title.in .desc{  opacity:1; filter:blur(0) brightness(1); transform:none; }
+
+  /* ───── 반응형 ───── */
+  @media(max-width:950px){
+    .sub-visual__wrap{height:440px;}
+    .sub-visual__area{bottom:52px; margin:0 16px;}
+    .breadcrumb-nav{margin:0 16px; bottom:112px;}
+    .sub-visual__title .title{font-size:2rem;}
+    .sub-visual__title .desc{font-size:1.02rem;}
+    .breadcrumb-nav ol{font-size:.92rem;}
+  }
+</style>
+
+<!-- ▣ 비주얼 영역 -->
+<div class="sub-visual__wrap visual-01">
+  <div class="reveal l" aria-hidden="true"></div>
+  <div class="reveal r" aria-hidden="true"></div>
+
+  <!-- 브레드크럼 -->
+  <nav class="breadcrumb-nav" aria-label="breadcrumb">
+    <ol>
+      <li><a href="#">홈</a></li>
+      <li><a href="#">연구소</a></li>
+      <li><a href="./vision.html">비전 & 철학</a></li>
+    </ol>
+  </nav>
+
+  <!-- 타이틀·설명 -->
+<div class="sub-visual__area">
+  <header class="sub-visual__title">
+    <h1 class="title">비전 & 철학</h1><br>
+    <p class="desc">
+      비즈니스 혁신 연구소의 비전과 철학은?
+    </p>
+  </header>
+</div>
+</div>
+
+<script>
+  /* ───── 애니메이션 + 패럴럭스 + 브레드크럼 정렬 ───── */
+  document.addEventListener('DOMContentLoaded',()=>{
+    const titleBox   = document.querySelector('.sub-visual__title');
+    const breadcrumb = document.querySelector('.breadcrumb-nav');
+    const visual     = document.querySelector('.sub-visual__wrap.visual-01');
+
+    // ① 배경 양갈래 리빌 시작(중앙 → 바깥)
+    visual.classList.add('play');
+
+    // 리빌 길이( CSS 변수 --reveal-dur )를 읽어서 동기화
+    const dur = parseInt(getComputedStyle(visual).getPropertyValue('--reveal-dur')) || 900;
+
+    // ② 리빌 종료 후 텍스트 등장
+    setTimeout(()=>{
+      titleBox.classList.add('in');
+      breadcrumb.classList.add('in');
+      alignBreadcrumb();
+    }, dur + 40);
+
+    // ③ 스크롤 패럴럭스
+    window.addEventListener('scroll',()=>{
+      const scrolled=window.scrollY||window.pageYOffset;
+      if(visual){
+        visual.style.backgroundPosition=`center ${Math.max(0,-scrolled*0.15)}px`;
+      }
+    });
+
+    // ④ 브레드크럼을 타이틀 바로 위에 놓음
+    function alignBreadcrumb(){
+      const areaRect = document.querySelector('.sub-visual__area').getBoundingClientRect();
+      const wrapRect = visual.getBoundingClientRect();
+      const nav      = breadcrumb;
+      const gap      = 12;
+      nav.style.bottom = (wrapRect.bottom - areaRect.top + gap * -1) + 'px';
+    }
+    window.addEventListener('resize',alignBreadcrumb);
+  });
+</script>
+
+
+
+
+
+<style>
+  
+  #main-slider-root{
+    position:relative;
+    width:100%;min-height:70vh;
+    font-family:'Pretendard','Noto Sans KR',sans-serif;
+    overflow-x:hidden;background:#fff;
+  }
+  
+  #main-slider-root .main-slider-section1{
+    height:70vh;min-height:600px;display:flex;align-items:center;justify-content:center;
+    background:#fff;position:relative;z-index:2;transition:opacity .8s,transform .8s;
+  }
+  
+  #main-slider-root .main-slider-section1 dl{text-align:center;width:100%;margin:auto;}
+  
+  @media screen and (max-width:750px){
+    #main-slider-root .main-slider-section1 dl{text-align:center;width:100%;margin:auto;}
+  }
+  
+  #main-slider-root .main-slider-section1 dt{
+    font-size:2.6rem;font-weight:800;line-height:1.25;margin-top:20px;margin-bottom:1.2rem;
+    color:#111;opacity:1;transform:translateY(0);transition:opacity .8s,transform .8s;
+  }
+  
+  #main-slider-root .main-slider-section1 dd{
+    font-size:1.15rem;color:#555;opacity:1;transform:translateY(0);
+    transition:opacity .8s,transform .8s;margin:0;
+  }
+  
+  #main-slider-root.s1-out .main-slider-section1 dt,
+  #main-slider-root.s1-out .main-slider-section1 dd{opacity:0;transform:translateY(-70px);}
+  
+  #main-slider-root .main-slider-section2{position:relative;height:300vh;z-index:1;}
+  
+  /* ★ 배경 이미지 컨테이너 */
+  #main-slider-root .main-slider-bg{
+    position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:0;pointer-events:none;
+    transition:opacity .5s;
+    filter:brightness(0.5);
+  }
+  
+  /* ★ 경계선 클리핑 효과를 위한 마스크 */
+  #main-slider-root .main-slider-bg::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, transparent 85%, rgba(255,255,255,0.1) 95%, rgba(255,255,255,0.3) 100%);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    
+  }
+  
+  /* ★ 클리핑 상태에서 경계선 효과 활성화 */
+  #main-slider-root.clip .main-slider-bg::after{
+    opacity: 1;
+  }
+  
+  #main-slider-root .main-slider-bg img{
+    position:absolute;width:100vw;height:100vh;object-fit:cover;left:0;top:0;opacity:0;
+    transition:opacity .9s cubic-bezier(.7,0,.2,1),filter .7s cubic-bezier(.7,0,.2,1);
+    filter:grayscale(.06) brightness(.93);transform:scale(1);will-change:transform;
+  }
+  
+  #main-slider-root .main-slider-bg img.active{opacity:1;z-index:2;filter:brightness(0.9);}
+  
+  /* ★ 마지막 이미지 영구 유지를 위한 클래스 - 더 강력한 우선순위 */
+  #main-slider-root .main-slider-bg img.permanent-active{
+    opacity:1 !important;
+    z-index:10 !important;
+    filter:none !important;
+  }
+  
+  #main-slider-root .main-slider-list{
+    position:relative;margin:0;padding:0;list-style:none;width:100vw;max-width:680px;
+    margin-left:auto;margin-right:8vw;right:0;top:18vh;z-index:3;display:flex;
+    flex-direction:column;align-items:flex-end;
+  }
+  
+  #main-slider-root .main-slider-list li{
+    min-height:90vh;display:flex;align-items:center;justify-content:flex-end;opacity:.4;
+    pointer-events:none;transition:opacity .7s,transform .7s;position:relative;width:100%;
+  }
+  
+  #main-slider-root .main-slider-list li.active{opacity:1;pointer-events:auto;z-index:3;}
+  
+  #main-slider-root .main-slider-list li .slide-text{
+    color:#fff;max-width:520px;transition:opacity .18s,transform .22s cubic-bezier(.22,.61,.36,1);
+    padding:2.5rem 2.3rem 2.2rem 2.3rem;will-change:opacity,transform;text-align:left;
+    margin-bottom:40px;margin-right:200px;
+    /* background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px); */
+    border-radius: 12px;
+  }
+  
+  @media screen and (max-width:1200px){
+    #main-slider-root .main-slider-list li .slide-text{margin-right:0;}
+  }
+  
+  #main-slider-root .main-slider-list li h4{font-size:2rem;font-weight:700;margin-bottom:1rem;}
+  #main-slider-root .main-slider-list li p{font-size:1.1rem;margin-bottom:1.6rem;}
+  
+  #main-slider-root .main-slider-list li a{
+    font-size:1.03rem;color:#fff;border-radius:1.7em;padding:.5em 1.8em;text-decoration:none;
+    font-weight:500;background:#008e7c;transition:background .19s;display:inline-block;margin-top:1rem;
+  }
+  
+  #main-slider-root .main-slider-list li a:hover{background:#0b6660;}
+  
+  @media(max-width:800px){
+    #main-slider-root .main-slider-section1 dl{max-width:100%;}
+    #main-slider-root .main-slider-section1 dt{font-size:2rem;}
+    #main-slider-root .main-slider-list{max-width:95vw;margin-right:2vw;top:11vw;align-items:flex-end;}
+    #main-slider-root .main-slider-list li .slide-text{padding:1.3rem 2.1rem;}
+    #main-slider-root .main-slider-list li h4{font-size:1.15rem;}
+  }
+
+@media(max-width:500px){
+    #main-slider-root .main-slider-section1 dl{max-width:100%;}
+    #main-slider-root .main-slider-section1 dt{font-size:1.4rem;}
+   
+  }
+
+
+  
+  #main-slider-root .main-slider-bg{display:none;opacity:0;transition:opacity .45s;}
+  #main-slider-root.inview .main-slider-bg{display:block;opacity:1;}
+
+  /* ★ 클리핑 상태 */
+  #main-slider-root.clip {
+    overflow:hidden;
+    position: relative;
+  }
+  
+  #main-slider-root.clip .main-slider-bg {
+    position:absolute;
+    height: 120vh;
+    top: -10vh;
+  }
+
+  /* ★ 페이드 대상 - 텍스트만 페이드, 배경은 유지 */
+  #main-slider-root .fade-target{transition:opacity .6s ease-out;}
+  
+  /* ★ 다음 섹션 스타일 */
+  .next-section {
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    /* min-height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* ★ 마지막 이미지를 위한 추가 레이어 - 항상 표시되는 배경 (우선순위 최고) */
+  #permanent-bg-layer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* 다른 배경보다 뒤에 배치하되 항상 보이도록 */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  
+  #permanent-bg-layer.active {
+    opacity: 1;
+    z-index: 0; /* 활성화되면 일반 배경과 같은 레벨로 */
+  }
+  
+  /* ★ 마지막 슬라이드 이후에도 영구 유지 */
+  #permanent-bg-layer.permanent {
+    opacity: 1 !important;
+    z-index: 0 !important;
+  }
+  
+  #permanent-bg-layer img {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+  }
+</style>
+
+<section id="main-slider-root">
+  <div class="main-slider-section1 fade-target">
+    <dl>
+      <dt>건강한 비즈니스 혁신을 통해<br>
+대한민국을 더욱 건강하고 아름답게!</dt>
+<dd>100세 시대와 저출산·고령화라는 거대한 흐름 속에서,<br>
+대한민국이 진정으로 건강해지기 위해<Br>가장 먼저 해결해야 할 핵심 문제는
+바로 <b><u>경제적 불안</u></b>입니다.</dd>
+
+    </dl>
+  </div>
+
+  <div class="main-slider-section2">
+    <div class="main-slider-bg">
+      <img src="./img/speed.jpg" alt="맞춤 추천" class="active">
+      <img src="./img/lab1.jpg" alt="정보 신뢰">
+      <img src="./img/ceo-pic.jpg" alt="빠른 승인">
+    </div>
+
+    <ul class="main-slider-list fade-target">
+
+<li>
+  <div class="slide-text">
+    <h4>달라진 시대의 흐름으로<br>위기를 느끼는 사업자에게
+    </h4>
+    <p>사업자의 경제적 위기는<br>변화하는 시간을 놓치는 것입니다.</p>
+    <!-- <a href="#">나비스쿨 비전 & 미션</a> -->
+  </div>
+</li>      
+
+
+<li>
+  <div class="slide-text">
+    <h4>경제적 안정의 핵심인<br>지속적인 비즈니스 성장을 도와
+    </h4>
+    <p>그 성장을 가능하게 만드는 힘은<br>바로 <b>혁신의 마인드</b>입니다.</p>
+    <!-- <a href="#">나비스쿨 비전 & 미션</a> -->
+  </div>
+</li>
+
+<li>
+  <div class="slide-text">
+    <h4>건강한 일자리를 창출하여<br>삶의 여유와 경제 기반을 제공</h4>
+    <p>비즈니스를 혁신 시키고<br>실제 성장할 수 있는 기반을 제공합니다.</p>
+    <!-- <a href="#">성장 커리큘럼 보기</a> -->
+  </div>
+</li>
+
+
+
+    </ul>
+  </div>
+</section>
+
+<!-- 마지막 이미지를 위한 영구 레이어 -->
+<div id="permanent-bg-layer" style="filter:brightness(0.5);">
+  <img src="./img/ceo-pic.jpg" alt="영구 배경">
+</div>
+
+
+<script>
+;(function(){
+  const root = document.getElementById('main-slider-root');
+  const permanentBgLayer = document.getElementById('permanent-bg-layer');
+  if(!root) return;
+
+  const s1 = root.querySelector('.main-slider-section1');
+  const s2 = root.querySelector('.main-slider-section2');
+  const bgImgs = root.querySelectorAll('.main-slider-bg img');
+  const slides = root.querySelectorAll('.main-slider-list li');
+  const texts = root.querySelectorAll('.slide-text');
+  const fades = [...root.querySelectorAll('.fade-target')];
+  const total = slides.length;
+  
+  // 상태 관리
+  let lastSlideReached = false;
+  let permanentBackgroundActive = false;
+  let prevScrollY = 0;
+
+  const MAX_Y = 40, FADE_START = .65, FADE_END = 0, SCALE_MIN = .86, SCALE_MAX = 1;
+  let curScale = SCALE_MIN, trgScale = SCALE_MIN, rafId = null, active = false;
+  const states = Array.from({length: total}, () => ({op: 1, y: MAX_Y}));
+
+  // 초기화: 첫 번째 이미지만 활성화
+  function initializeImages() {
+    bgImgs.forEach((img, i) => {
+      img.classList.remove('active');
+      img.classList.remove('permanent-active');
+      if (i === 0) {
+        img.classList.add('active');
+        img.style.transform = `scale(${curScale})`;
+      }
+    });
+  }
+
+  // 초기 설정
+  initializeImages();
+  slides[0].classList.add('active');
+  permanentBgLayer.classList.remove('active');
+  permanentBgLayer.classList.remove('permanent');
+
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const vh = () => innerHeight;
+
+  /* ---------- rAF ---------- */
+  function animate() {
+    curScale = lerp(curScale, trgScale, .18);
+    
+    bgImgs.forEach(img => {
+      if (img.classList.contains('active') || img.classList.contains('permanent-active')) {
+        img.style.transform = `scale(${curScale})`;
+      }
+    });
+    
+    texts.forEach((el, i) => {
+      const st = states[i];
+      el.style.opacity = lerp(+el.style.opacity || 1, st.op, .25);
+      const prev = +el.style.getPropertyValue('--ty') || 0;
+      const ny = lerp(prev, st.y, .2);
+      el.style.transform = `translateY(${ny}px)`;
+      el.style.setProperty('--ty', ny);
+    });
+    
+    rafId = requestAnimationFrame(animate);
+  }
+
+  /* ---------- 상태 계산 ---------- */
+  function updateStates() {
+    const viewH = vh(), y = scrollY;
+    const scrollDirection = y > prevScrollY ? 'down' : 'up';
+    prevScrollY = y;
+    
+    const s2Top = root.offsetTop + s2.offsetTop,
+          start = s2Top - viewH, end = s2Top + viewH * .25;
+
+    trgScale = (y < start) ? SCALE_MIN : (y > end) ? SCALE_MAX
+            : SCALE_MIN + (SCALE_MAX - SCALE_MIN) * ((y - start) / (end - start));
+
+    const rootRect = root.getBoundingClientRect();
+    if (rootRect.top < viewH && rootRect.bottom > 0) {
+      const idx = Math.min(total - 1, Math.max(0,
+                 Math.floor((y - s2Top + viewH / 2) / viewH)));
+      
+      // 마지막 슬라이드 도달 체크
+      if (idx === total - 1) {
+        if (!lastSlideReached) {
+          lastSlideReached = true;
+          permanentBackgroundActive = true;
+          permanentBgLayer.classList.add('active');
+          permanentBgLayer.classList.add('permanent');
+        }
+      } else {
+        // 마지막 슬라이드가 아닌 경우 - 역방향 스크롤 시에만 해제
+        if (scrollDirection === 'up' && lastSlideReached) {
+          lastSlideReached = false;
+          permanentBackgroundActive = false;
+          permanentBgLayer.classList.remove('active');
+          permanentBgLayer.classList.remove('permanent');
+        }
+      }
+      
+      slides.forEach((li, i) => li.classList.toggle('active', i === idx));
+      
+      // 이미지 전환 로직
+      if (!permanentBackgroundActive) {
+        // 일반적인 이미지 전환
+        bgImgs.forEach((img, i) => {
+          img.classList.toggle('active', i === idx);
+          img.classList.remove('permanent-active');
+        });
+      } else {
+        // 영구 배경이 활성화된 상태
+        if (idx === total - 1) {
+          // 마지막 슬라이드에서는 영구 배경만 표시
+          bgImgs.forEach((img, i) => {
+            img.classList.remove('active');
+            if (i === total - 1) {
+              img.classList.add('permanent-active');
+            }
+          });
+        } else {
+          // 역방향으로 다른 슬라이드로 이동한 경우
+          if (scrollDirection === 'up') {
+            bgImgs.forEach((img, i) => {
+              img.classList.toggle('active', i === idx);
+              img.classList.remove('permanent-active');
+            });
+          } else {
+            // 순방향일 때는 영구 배경 유지
+            bgImgs.forEach((img, i) => {
+              if (i === total - 1) {
+                img.classList.add('permanent-active');
+              } else {
+                img.classList.remove('active');
+              }
+            });
+          }
+        }
+      }
+    }
+
+    // 마지막 슬라이드 이후 영역에서의 영구 배경 유지
+    const totalHeight = root.offsetHeight;
+    const scrollProgress = (y + viewH) - root.offsetTop;
+    const endThreshold = totalHeight - viewH * 0.3;
+    
+    if (scrollProgress >= endThreshold && scrollDirection === 'down') {
+      if (!permanentBackgroundActive) {
+        permanentBackgroundActive = true;
+        permanentBgLayer.classList.add('permanent');
+        
+        // 마지막 이미지 영구 활성화
+        bgImgs.forEach((img, i) => {
+          if (i === total - 1) {
+            img.classList.add('permanent-active');
+          }
+        });
+      }
+    }
+
+    texts.forEach((_, i) => {
+      const center = s2Top + viewH * i + viewH / 2,
+            dist = ((y + viewH / 2) - center) / viewH;
+      if(dist < -FADE_START) states[i] = {op: 0, y: MAX_Y};
+      else if(dist < -FADE_END){
+        const p = (dist + FADE_START) / (FADE_START - FADE_END);
+        states[i] = {op: p, y: MAX_Y * (1 - p)};
+      } else states[i] = {op: 1, y: 0};
+    });
+
+    root.classList.toggle('s1-out', s1.getBoundingClientRect().bottom < viewH / 2);
+  }
+
+  /* ---------- 활성 토글 ---------- */
+  function setActive(on) {
+    if(on === active) return;
+    active = on;
+    root.classList.toggle('inview', on);
+    
+    if(on) {
+      addEventListener('scroll', updateStates, {passive: true});
+      addEventListener('resize', updateStates);
+      updateStates();
+      rafId = requestAnimationFrame(animate);
+    } else {
+      removeEventListener('scroll', updateStates);
+      removeEventListener('resize', updateStates);
+      if(rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+  }
+
+  /* ---------- 페이드 & 클립 ---------- */
+  function applyFade(rect, viewH) {
+    const START_LINE = viewH;        
+    const SPAN = viewH * 0.7;
+    const dist = START_LINE - rect.bottom;
+    const ratio = dist <= 0 ? 0 : Math.min(0.7, dist / SPAN);
+    
+    // 텍스트만 페이드, 영구 배경은 절대 페이드하지 않음
+    fades.forEach(el => {
+      if (permanentBackgroundActive && el.closest('#permanent-bg-layer')) {
+        // 영구 배경은 페이드하지 않음
+        return;
+      }
+      el.style.opacity = Math.max(0, 1 - ratio);
+    });
+  }
+
+  function checkPos() {
+    const r = root.getBoundingClientRect();
+    const v = vh();
+    
+    setActive(r.top <= v && r.bottom > 0);
+    
+    // 클리핑 조건
+    const clipThreshold = v * 0.8;
+    root.classList.toggle('clip', r.bottom <= clipThreshold);
+    
+    applyFade(r, v);
+  }
+
+  // 이벤트 리스너
+  addEventListener('scroll', checkPos, {passive: true});
+  addEventListener('resize', checkPos);
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeImages();
+    checkPos();
+  });
+
+  window.addEventListener('load', checkPos);
+})();
+</script>
+
+<section id="valueCardSection" aria-label="Value 카드 섹션" style="position: relative">
+  <style>
+    /* ===============================
+       Scope: #valueCardSection ONLY
+       =============================== */
+    #valueCardSection{
+      --blue:#5a7cf6;
+      --red:#fa4733;
+      --dark:#3f4049;
+      --navy:#3a4778;
+      --ink:#111827;
+      --muted:#6b7280;
+      --radius:20px;
+      --max:1280px;
+
+      font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:#fff;
+      padding:100px 20px;
+    }
+
+    #valueCardSection .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      gap:80px;
+      align-items:center;
+    }
+
+    /* ===== LEFT TEXT ===== */
+    #valueCardSection .left h2{
+      font-size:22px;
+      letter-spacing:0em;
+      color:#2f80ff;
+      margin-bottom:24px;
+    }
+
+    #valueCardSection .left p{
+      font-size:32px;
+      line-height:1.45;
+      font-weight:700;
+      color:var(--ink);
+      word-break:keep-all;
+    }
+
+    /* ===== RIGHT CARDS ===== */
+    #valueCardSection .cards{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
+
+    #valueCardSection .card{
+      position:relative;
+      border-radius:var(--radius);
+      padding:36px 42px;
+      color:#fff;
+      overflow:hidden;
+      min-height:140px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    #valueCardSection .card small{
+      font-size:14px;
+      opacity:.85;
+      margin-bottom:10px;
+    }
+
+    #valueCardSection .card h3{
+      font-size:26px;
+      font-weight:700;
+    }
+
+    /* ===== ICON ===== */
+    #valueCardSection .arrow{
+      position:absolute;
+      left:32px;
+      bottom:24px;
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.7);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:14px;
+    }
+
+    /* ===== DECORATIONS ===== */
+    #valueCardSection .circle{
+      position:absolute;
+      right:-40px;
+      top:50%;
+      transform:translateY(-50%);
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:rgba(255,255,255,.18);
+    }
+
+    #valueCardSection .circle::after{
+      content:"";
+      position:absolute;
+      inset:40px;
+      border-radius:50%;
+      background:rgba(255,255,255,.35);
+    }
+
+    #valueCardSection .bars{
+      position:absolute;
+      right:26px;
+      bottom:24px;
+      display:flex;
+      gap:10px;
+      align-items:flex-end;
+    }
+
+    #valueCardSection .bars span{
+      width:18px;
+      border-radius:12px 12px 0 0;
+      background:rgba(255,255,255,.55);
+    }
+
+    #valueCardSection .bars span:nth-child(1){height:38px}
+    #valueCardSection .bars span:nth-child(2){height:62px}
+    #valueCardSection .bars span:nth-child(3){height:92px}
+
+    /* ===== COLOR VARIANTS ===== */
+    #valueCardSection .blue{background:var(--blue)}
+    #valueCardSection .dark{background:var(--dark)}
+    #valueCardSection .navy{background:var(--navy)}
+    #valueCardSection .red{background:var(--red)}
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:900px){
+      #valueCardSection .wrap{grid-template-columns:1fr;gap:60px}
+      #valueCardSection .left p{font-size:26px}
+    }
+  </style>
+
+  <div class="wrap">
+    <!-- LEFT -->
+    <div class="left">
+      <h2>비즈니스 혁신 연구소의 철학</h2>
+      <p>
+        낯설 수 밖에 없고<br>어려울 수밖에 없는<br>혁신의 길을 동행합니다.
+      </p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="cards">
+      <div class="card blue">
+        <small>Business Innovation Lab</small>
+        <h3>1) 말이 아닌 현장의 혁신을 기반</h3><br>
+        <p>말로만 끝나는 이론이 아닌<br>실제 혁신을 일으킬 수 있도록 도와드립니다.</p>
+        <div class="circle"></div>
+      </div>
+
+      <div class="card dark">
+        <small>Business Innovation Lab</small>
+        <h3>2) 생각이 다른 1%를 위한 공간</h3><br>
+        <p>혁신은 외롭고 반대가 거셀 수 밖에 없습니다.<br>그런 사람들이 모여 멈추지 않고 끝까지 현실화 할 수 있도록</p>
+      </div>
+
+
+      <div class="card navy">
+        <small>Business Innovation Lab</small>
+        <h3>3) 비즈니스 성장 기회 제공</h3><br>
+          <p>할 수 있다는 용기가 나는 커뮤니티, 협업 기회 제공<br>멘토 컨설팅, 자문, 마케팅 교육, 폐쇄몰 등<br>다양한 네트워크 및 기반을 제공하여 실제 성장이 가능한 교육 제공</p>
+        <div class="bars">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<div id="footer_template"></div>
+
+
+
+    </body>
+    <script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./js/validation1.js"> </script>
+<script src="./js/main.js"> </script>
+<script src="./js/footer.js"></script>
+  </html>

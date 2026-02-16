@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>추천인 링크 생성기 | BILAB</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --line:rgba(255,255,255,.10);
+      --ink:#eaf0ff;
+      --muted:rgba(234,240,255,.72);
+      --brand:#7c83ff;
+      --brand2:#9aa0ff;
+      --ok:#1dd75b;
+      --warn:#ffcc00;
+      --err:#ff3b30;
+      --radius:18px;
+      --shadow:0 18px 60px rgba(0,0,0,.35);
+      font-synthesis-weight:none;
+      text-rendering:optimizeLegibility;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(900px 420px at 20% 15%, rgba(124,131,255,.28), transparent 60%),
+        radial-gradient(800px 380px at 80% 20%, rgba(154,160,255,.22), transparent 55%),
+        radial-gradient(900px 520px at 60% 90%, rgba(255,255,255,.06), transparent 55%),
+        var(--bg);
+      color:var(--ink);
+      font-family:Pretendard,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR",sans-serif;
+      padding:24px;
+    }
+    .wrap{
+      width:min(860px, 100%);
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+    }
+    @media (max-width: 820px){
+      .wrap{grid-template-columns:1fr}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      overflow:hidden;
+    }
+    .head{
+      display:flex; gap:12px; align-items:flex-start; justify-content:space-between;
+      margin-bottom:14px;
+    }
+    .title{
+      margin:0;
+      font-size:18px;
+      letter-spacing:-.2px;
+      line-height:1.2;
+    }
+    .sub{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+    .pill{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:rgba(255,255,255,.85);
+      background:rgba(0,0,0,.18);
+      white-space:nowrap;
+    }
+    label{
+      display:block;
+      font-size:12px;
+      color:rgba(234,240,255,.85);
+      margin:12px 0 6px;
+    }
+    input, select{
+      width:100%;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      color:var(--ink);
+      padding:12px 12px;
+      outline:none;
+      font-size:14px;
+    }
+    input::placeholder{color:rgba(234,240,255,.42)}
+    .row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width:520px){.row{grid-template-columns:1fr}}
+    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    button{
+      border:0;
+      border-radius:14px;
+      padding:12px 14px;
+      font-weight:700;
+      cursor:pointer;
+      color:#0b1220;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 24px rgba(124,131,255,.28);
+    }
+    button.secondary{
+      color:rgba(234,240,255,.92);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:none;
+    }
+    button:disabled{
+      opacity:.6; cursor:not-allowed;
+    }
+    .out{
+      margin-top:14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      padding:12px;
+      display:grid;
+      gap:10px;
+    }
+    .kv{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap:10px;
+      align-items:center;
+    }
+    .k{color:rgba(234,240,255,.70); font-size:12px}
+    .v{
+      font-size:13px;
+      line-height:1.4;
+      word-break:break-all;
+      padding:10px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+    .hint{
+      margin-top:10px;
+      font-size:12px;
+      color:rgba(234,240,255,.70);
+      line-height:1.65;
+    }
+    .status{
+      margin-top:10px;
+      font-size:12px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color:rgba(234,240,255,.85);
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.35)}
+    .ok .dot{background:var(--ok)}
+    .warn .dot{background:var(--warn)}
+    .err .dot{background:var(--err)}
+    .mini{
+      font-size:12px;
+      color:rgba(234,240,255,.70);
+      margin-top:10px;
+      padding-top:10px;
+      border-top:1px dashed rgba(255,255,255,.14);
+    }
+    a{color:rgba(234,240,255,.92)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- LEFT -->
+    <section class="card" aria-label="추천인 링크 생성기">
+      <div class="head">
+        <div>
+          <h1 class="title">추천인 링크 생성기</h1>
+          <p class="sub">추천인 코드만 입력하면 <b>자동으로 URL 생성</b> + <b>무료 단축 URL</b>까지 만들 수 있어요.</p>
+        </div>
+        <div class="pill">무료 단축: is.gd</div>
+      </div>
+
+      <label for="code">추천인 코드 (utm)</label>
+      <input id="code" inputmode="text" autocomplete="off" placeholder="예: carrot01 / kim123 / 혁신파트너" />
+
+      <div class="row">
+        <div>
+          <label for="base">대표 URL</label>
+          <input id="base" value="https://bilab.co.kr" />
+        </div>
+        <div>
+          <label for="path">랜딩 경로(선택)</label>
+          <input id="path" placeholder="예: /consulting.html (비우면 홈)" />
+        </div>
+      </div>
+
+      <div class="btns">
+        <button id="makeBtn">링크 만들기</button>
+        <button id="copyLongBtn" class="secondary" disabled>원본 링크 복사</button>
+        <button id="shortBtn" class="secondary" disabled>무료 단축 만들기</button>
+        <button id="copyShortBtn" class="secondary" disabled>단축 링크 복사</button>
+        <button id="resetBtn" class="secondary">초기화</button>
+      </div>
+
+      <div class="out" aria-live="polite">
+        <div class="kv">
+          <div class="k">원본 링크</div>
+          <div class="v" id="longOut">-</div>
+        </div>
+        <div class="kv">
+          <div class="k">단축 링크</div>
+          <div class="v" id="shortOut">-</div>
+        </div>
+      </div>
+
+      <div id="status" class="status warn">
+        <span class="dot" aria-hidden="true"></span>
+        <span>추천인 코드를 입력하고 “링크 만들기”를 눌러주세요.</span>
+      </div>
+
+      <div class="hint">
+        권장 코드 규칙: <b>영문/숫자/언더바(_)/하이픈(-)/한글</b>만 사용 (공백·특수문자 ❌)<br>
+        생성 예시: <code>https://bilab.co.kr/consulting.html?utm=carrot01</code>
+      </div>
+    </section>
+
+    <!-- RIGHT -->
+    <aside class="card" aria-label="사용 가이드">
+      <div class="head">
+        <div>
+          <h2 class="title">사용 가이드</h2>
+          <p class="sub">추천인에게는 <b>단축 링크</b>를 공유하는 걸 권장합니다.</p>
+        </div>
+        <div class="pill">Copy & Share</div>
+      </div>
+
+      <div class="mini">
+        <b>배포 예시</b><br><br>
+        1) 추천인 코드 입력: <code>carrot01</code><br>
+        2) 링크 만들기 → 원본 링크 생성<br>
+        3) 무료 단축 만들기 → 단축 링크 생성<br>
+        4) 단축 링크 복사 → 카톡/문자/광고에 붙여넣기
+      </div>
+
+      <div class="mini">
+        <b>참고</b><br>
+        - 단축 서비스는 외부 무료 API라, 가끔 응답이 늦거나 막힐 수 있어요.<br>
+        - 그럴 땐 <b>원본 링크</b>만 복사해서 써도 정상 추적됩니다.
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    (function(){
+      const $ = (s)=>document.querySelector(s);
+
+      const codeEl = $("#code");
+      const baseEl = $("#base");
+      const pathEl = $("#path");
+
+      const makeBtn = $("#makeBtn");
+      const copyLongBtn = $("#copyLongBtn");
+      const shortBtn = $("#shortBtn");
+      const copyShortBtn = $("#copyShortBtn");
+      const resetBtn = $("#resetBtn");
+
+      const longOut = $("#longOut");
+      const shortOut = $("#shortOut");
+      const status = $("#status");
+
+      let longUrl = "";
+      let shortUrl = "";
+
+      function setStatus(type, msg){
+        status.className = "status " + type;
+        status.querySelector("span:last-child").textContent = msg;
+      }
+
+      function sanitizeCode(raw){
+        // 영문/숫자/_- + 한글만 허용
+        return String(raw || "").trim().replace(/[^\w\-가-힣]/g, "");
+      }
+
+      function normalizeBase(raw){
+        const s = String(raw || "").trim();
+        if(!s) return "https://bilab.co.kr";
+        // protocol 없으면 붙여줌
+        if(!/^https?:\/\//i.test(s)) return "https://" + s;
+        return s;
+      }
+
+      function normalizePath(raw){
+        let p = String(raw || "").trim();
+        if(!p) return "";
+        // 경로만 허용: 쿼리/해시 제거
+        p = p.split("?")[0].split("#")[0].trim();
+        if(!p.startsWith("/")) p = "/" + p;
+        return p;
+      }
+
+      function buildLongUrl(){
+        const code = sanitizeCode(codeEl.value);
+        const base = normalizeBase(baseEl.value);
+        const path = normalizePath(pathEl.value);
+
+        if(!code){
+          setStatus("err", "추천인 코드를 입력해 주세요.");
+          return { ok:false };
+        }
+
+        // base + path 결합
+        let target = base.replace(/\/+$/,""); // 끝 / 제거
+        if(path) target += path;
+
+        const u = new URL(target);
+        u.searchParams.set("utm", code);
+
+        return { ok:true, code, url: u.toString() };
+      }
+
+      async function copyText(text){
+        try{
+          await navigator.clipboard.writeText(text);
+          return true;
+        }catch(e){
+          // clipboard 막히면 fallback
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.style.position = "fixed";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          try{
+            const ok = document.execCommand("copy");
+            document.body.removeChild(ta);
+            return ok;
+          }catch(err){
+            document.body.removeChild(ta);
+            return false;
+          }
+        }
+      }
+
+      async function shortenWithIsgd(url){
+        // 무료/무키: is.gd
+        // format=simple -> 텍스트로 단축 URL 반환
+        const api = "https://is.gd/create.php?format=simple&url=" + encodeURIComponent(url);
+        const res = await fetch(api, { method:"GET" });
+        if(!res.ok) throw new Error("단축 API 응답 실패");
+        const txt = (await res.text()).trim();
+        if(!/^https?:\/\//i.test(txt)) throw new Error("단축 URL 형식 아님");
+        return txt;
+      }
+
+      makeBtn.addEventListener("click", ()=>{
+        const r = buildLongUrl();
+        if(!r.ok) return;
+
+        longUrl = r.url;
+        shortUrl = "";
+
+        longOut.textContent = longUrl;
+        shortOut.textContent = "-";
+
+        copyLongBtn.disabled = false;
+        shortBtn.disabled = false;
+        copyShortBtn.disabled = true;
+
+        setStatus("ok", `원본 링크 생성 완료 (utm=${r.code})`);
+      });
+
+      copyLongBtn.addEventListener("click", async ()=>{
+        if(!longUrl) return;
+        const ok = await copyText(longUrl);
+        setStatus(ok ? "ok" : "err", ok ? "원본 링크를 복사했어요." : "복사에 실패했어요. 브라우저 권한을 확인해 주세요.");
+      });
+
+      shortBtn.addEventListener("click", async ()=>{
+        if(!longUrl) return;
+        shortBtn.disabled = true;
+        setStatus("warn", "무료 단축 URL 생성 중...");
+
+        try{
+          shortUrl = await shortenWithIsgd(longUrl);
+          shortOut.textContent = shortUrl;
+          copyShortBtn.disabled = false;
+          setStatus("ok", "단축 링크 생성 완료!");
+        }catch(e){
+          shortUrl = "";
+          shortOut.textContent = "-";
+          copyShortBtn.disabled = true;
+          setStatus("err", "단축 생성 실패(환경에 따라 차단될 수 있어요). 원본 링크를 사용해 주세요.");
+        }finally{
+          shortBtn.disabled = false;
+        }
+      });
+
+      copyShortBtn.addEventListener("click", async ()=>{
+        if(!shortUrl) return;
+        const ok = await copyText(shortUrl);
+        setStatus(ok ? "ok" : "err", ok ? "단축 링크를 복사했어요." : "복사에 실패했어요. 브라우저 권한을 확인해 주세요.");
+      });
+
+      resetBtn.addEventListener("click", ()=>{
+        codeEl.value = "";
+        pathEl.value = "";
+        longUrl = "";
+        shortUrl = "";
+        longOut.textContent = "-";
+        shortOut.textContent = "-";
+        copyLongBtn.disabled = true;
+        shortBtn.disabled = true;
+        copyShortBtn.disabled = true;
+        setStatus("warn", "추천인 코드를 입력하고 “링크 만들기”를 눌러주세요.");
+        codeEl.focus();
+      });
+
+      // Enter로 바로 생성
+      codeEl.addEventListener("keydown", (e)=>{
+        if(e.key === "Enter"){ e.preventDefault(); makeBtn.click(); }
+      });
+    })();
+  </script>
+</body>
+</html>

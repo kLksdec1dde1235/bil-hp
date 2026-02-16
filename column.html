@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <!-- ===== 기본 메타 ===== -->
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  
+  <link href="./css/reset.css" rel="stylesheet" type="text/css" />
+   <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="menu_navi"></div>
+
+<script src="./menu3.js"></script>
+
+
+
+  <style>
+    /* ── RESET & LAYOUT ── */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Pretendard',sans-serif;background:#111;color:#fff;overflow-x:hidden}
+    .container{display:flex}
+    #main{flex:1;position:relative;overflow:hidden}
+    #visualTransWrap{position:absolute;inset:0;pointer-events:none;z-index:5}
+
+    /* ── SWIPER & BG ── */
+    .mv_container{width:100%;height:90vh;position:relative}
+    .swiper-container,.swiper-wrapper,.swiper-slide{width:100%;height:100%}
+    .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 6s ease;filter:brightness(0.5)}
+    .swiper-slide-active .bg{transform:scale(1.12)}
+    .bg1{background-image:url('./img/intro-1.jpg')}
+    .bg2{background-image:url('./img/intro-2.jpg')}
+    .bg3{background-image:url('./img/page-3.jpg')}
+    .bg4{background-image:url('./img/repair.jpg')}
+
+    /* ── TEXT & BUTTON ── */
+    .mv_txt_box{position:absolute;top:20%;left:5%;max-width:640px;z-index:2}
+    .mv_cate{font-size:18px;font-weight:600;margin-bottom:14px;color:#ffeb55;display:inline-block}
+    .mv_tit{font-size:43px;line-height:1.4;margin:0 0 12px}
+    @media screen and (max-width:620px){ .mv_tit{font-size:34px !important;} }
+    @media screen and (max-width:500px){ .mv_tit{font-size:26px !important;} }
+    .mv_txt{font-size:18px;line-height:1.6;font-weight:300}
+    .mv_btn{
+      display:inline-block;margin-top:30px;padding:14px 36px;
+      border:2px solid #fff;border-radius:40px;
+      background:transparent;color:#fff;font-weight:600;letter-spacing:.3px;
+      opacity:0;pointer-events:none;
+      transition:opacity .6s,background .35s,box-shadow .35s,color .35s,transform .35s;
+      position:relative;overflow:hidden;text-decoration:none;
+    }
+    .swiper-slide-active .mv_btn{opacity:1;pointer-events:auto}
+    .mv_btn::after{
+      content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);
+      transform:translateX(-100%);transition:transform .4s;
+    }
+    .mv_btn:hover::after{transform:translateX(0)}
+    .mv_btn:hover{
+      background:#fff;color:#111;box-shadow:0 8px 24px rgba(0,0,0,.25);
+      transform:translateY(-2px);
+    }
+
+    /* ── WAVE ANIMATION ── */
+    .wave_anim .wave{display:inline-block;opacity:0;animation:wave 1.1s ease-out forwards}
+    @keyframes wave{0%{transform:translateY(25px);opacity:0}100%{transform:translateY(0);opacity:1}}
+    .wave_anim.custom .wave:nth-child(1){animation-delay:.15s}
+    .wave_anim.custom .wave:nth-child(2){animation-delay:.3s}
+    .wave_anim.custom .wave:nth-child(3){animation-delay:.45s}
+
+    /* ── PROGRESS BAR ── */
+    .progress-container{position:absolute;bottom:80px;left:5%;right:5%;height:4px;display:flex;gap:10px;z-index:3;width:150px;}
+    .progress-segment{flex:1;background:rgba(255,255,255,.25);border-radius:2px;overflow:hidden;cursor:pointer}
+    .progress-fill{width:0;height:100%;background:#fff;display:block}
+
+    .wheel_down{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:24px;opacity:.7;z-index:3;animation: wheel-bounce 2s ease-in-out infinite;}
+    .wheel_down .wheel {animation: wheel-fade 2s ease-in-out infinite;}
+    @keyframes wheel-fade {
+      0%{opacity:1;transform:translateY(0)}
+      80%{opacity:.2;transform:translateY(10px)}
+      100%{opacity:0;transform:translateY(14px)}
+    }
+    #sidebar{display:none}
+  </style>
+
+  <style>
+    /* ──────────────────────────────────────────
+          #visual-section 전용 스타일
+      ─────────────────────────────────────────── */
+    #visual-section{position:relative;width:100%;height:100vh;overflow:hidden}
+    #visual-section .video_wrap{position:absolute;inset:0;z-index:0}
+    #visual-section .video_wrap video{width:100%;height:100%;object-fit:cover;object-position:center}
+    #visual-section .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5)}
+    #visual-section .txt_container{
+      position:absolute;inset:0;z-index:2;
+      display:flex;flex-direction:column;
+      justify-content:space-evenly;align-items:center;
+      text-align:center;pointer-events:none
+    }
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    #visual-section .company,#visual-section .logo,#visual-section .exp{opacity:0}
+    #visual-section.animate .company{
+      color:#fff;font-size:2.5rem;font-weight:500;margin-bottom:.5em;
+      animation:fadeInUp 1s ease-out forwards;animation-delay:.2s
+    }
+    #visual-section.animate .logo{animation:fadeInUp 1s ease-out forwards;animation-delay:.7s}
+    #visual-section .logo .m_logo{
+      width:800px;height:130px;
+      background:url("../img/sm-logo.png") no-repeat center/contain;
+      margin-bottom:.5em
+    }
+    #visual-section.animate .exp{
+      color:#fff;font-size:1.25rem;line-height:1.6;max-width:80%;
+      animation:fadeInUp 1s ease-out forwards;animation-delay:1s
+    }
+    #visual-section .highlight{color:#e6d3a3;font-weight:600}
+    @media (max-width:768px){
+      #visual-section .company{font-size:2rem !important}
+      #visual-section .logo .m_logo{
+        background:url("../img/sm-font.png") no-repeat center/contain;
+        width:400px;height:300px
+      }
+      #visual-section .exp{font-size:1rem}
+      #visual-section .video_wrap video{object-position:right center}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 메뉴(외부 로드) -->
+<div id="menu"></div>
+
+<style>
+  /* ───────────────────────────────────────────────
+     공통 · 레이아웃
+  ───────────────────────────────────────────────*/
+  .sub-visual__wrap{
+    position:relative; z-index:2;
+    height:80vh; width:100%;
+    background-size:cover!important; background-position:center top!important;
+    overflow:hidden; perspective:900px;
+    --reveal-dur: 900ms;
+  }
+  .sub-visual__wrap.visual-01{
+    background:url(./img/columns.jpg) no-repeat center top;
+  }
+  .sub-visual__wrap[class*="visual"]::before{
+    z-index:1; content:''; position:absolute; inset:0;
+    background:linear-gradient(110deg,rgba(18,22,34,.56)45%,rgba(28,33,54,.34)100%);
+    pointer-events:none; transition:background .8s;
+  }
+
+  /* ▼ 중앙에서 바깥쪽으로 '열리며' 배경이 나타나는 리빌 패널 */
+  .sub-visual__wrap .reveal{
+    position:absolute; top:0; bottom:0; width:50%;
+    background:#0b0d12;
+    z-index:0;
+    transform:translateX(0);
+    will-change:transform;
+  }
+  .sub-visual__wrap .reveal.l{ left:0; }
+  .sub-visual__wrap .reveal.r{ right:0; }
+  .sub-visual__wrap.play .reveal.l{ animation:revealOutL var(--reveal-dur) cubic-bezier(.22,.8,.18,1) forwards; }
+  .sub-visual__wrap.play .reveal.r{ animation:revealOutR var(--reveal-dur) cubic-bezier(.22,.8,.18,1) forwards; }
+  @keyframes revealOutL{ to{ transform:translateX(-100%); } }
+  @keyframes revealOutR{ to{ transform:translateX(100%); } }
+  @media (prefers-reduced-motion:reduce){
+    .sub-visual__wrap.play .reveal.l{ animation:none; transform:translateX(-100%); }
+    .sub-visual__wrap.play .reveal.r{ animation:none; transform:translateX(100%); }
+  }
+
+  /* ───── 브레드크럼 ───── */
+  .breadcrumb-nav{
+    position:absolute;
+    left:50%; transform:translateX(-50%) translateY(-18px);
+    width:100%;
+    top:20%; max-width:1440px;
+    margin:0 40px;
+    bottom:210px;
+    z-index:10;
+    font-family:'Pretendard','Noto Sans KR',sans-serif;
+    opacity:0;
+    transition:opacity .9s cubic-bezier(.22,.9,.39,1.01),
+               transform 1.05s cubic-bezier(.22,.9,.39,1.01);
+  }
+  .breadcrumb-nav.in{opacity:1; transform:translateX(-50%) translateY(0);}
+  .breadcrumb-nav ol{
+    display:flex; gap:10px; align-items:center; margin:0; padding:0;
+    font-size:1.04rem; color:#fff; opacity:.92; list-style:none;
+  }
+  .breadcrumb-nav li{display:flex; align-items:center;}
+  .breadcrumb-nav li:not(:last-child)::after{
+    content:"›"; margin:0 7px; color:#fff; opacity:.48; font-size:.92em; font-weight:600;
+  }
+  .breadcrumb-nav a{color:#fff; opacity:.83; text-decoration:none; transition:opacity .17s;}
+  .breadcrumb-nav a:hover,.breadcrumb-nav a:focus{opacity:1; text-decoration:underline;}
+  .breadcrumb-nav .current{color:#fff; font-weight:700; opacity:1;}
+
+  /* ───── 타이틀 · 설명 ───── */
+  .sub-visual__area{
+    position:absolute; bottom:110px; left:50%; transform:translateX(-50%);
+    width:100%; max-width:1440px; margin:0 40px; z-index:2;
+  }
+  .sub-visual__title{
+    color:#fff; text-align:left; width:100%;
+    filter:drop-shadow(0 8px 32px rgba(0,0,0,.11));
+  }
+
+  /* ✅ H1/H2/H3/H4 정리: 인사말 페이지의 메인 타이틀은 h1 */
+  .sub-visual__title .title{
+    font-size:56px; font-weight:700; line-height:1.28; letter-spacing:-1px;
+    opacity:0; transform:translateY(60px) scale(.96) skewY(4deg) rotateX(15deg);
+    filter:blur(4px) brightness(1.4);
+    transition:all 1.1s cubic-bezier(.24,.8,.26,1.01);
+    margin:0;
+  }
+  .sub-visual__title .desc{
+    font-size:26px; margin-top:26px; opacity:0;
+    transform:translateY(50px) scale(.97) skewY(2deg) rotateX(10deg);
+    filter:blur(7px) brightness(1.3);
+    min-height:28px; font-weight:400; letter-spacing:-.3px; line-height:1.4;
+    transition:all 1.25s cubic-bezier(.22,.78,.21,1.02) .14s;
+    margin:0;
+  }
+  .sub-visual__title.in .title{ opacity:1; filter:blur(0) brightness(1); transform:none; }
+  .sub-visual__title.in .desc{  opacity:1; filter:blur(0) brightness(1); transform:none; }
+
+  /* ───── 반응형 ───── */
+  @media(max-width:950px){
+    .sub-visual__wrap{height:440px;}
+    .sub-visual__area{bottom:52px; margin:0 16px;}
+    .breadcrumb-nav{margin:0 16px; bottom:112px;}
+    .sub-visual__title .title{font-size:2rem;}
+    .sub-visual__title .desc{font-size:1.02rem;}
+    .breadcrumb-nav ol{font-size:.92rem;}
+  }
+</style>
+
+<!-- ▣ 비주얼 영역 -->
+<div class="sub-visual__wrap visual-01">
+  <div class="reveal l" aria-hidden="true"></div>
+  <div class="reveal r" aria-hidden="true"></div>
+
+  <!-- 브레드크럼 -->
+  <nav class="breadcrumb-nav" aria-label="breadcrumb">
+    <ol>
+      <li><a href="#">홈</a></li>
+      <li><a href="#">칼럼</a></li>
+      <li><a href="./vision.html">혁신 칼럼</a></li>
+    </ol>
+  </nav>
+
+  <!-- 타이틀·설명 -->
+<div class="sub-visual__area">
+  <header class="sub-visual__title">
+    <h1 class="title">혁신 칼럼</h1><br>
+    <p class="desc">
+      매출은 감소되고 성장이 정체되어<br>
+      혁신은 외치고 있지만<Br>
+      막상 어떻게 해야할지 모르겠다면?<br>
+      혁신 마인드를 만들어주는 6가지 칼럼 
+    </p>
+  </header>
+</div>
+</div>
+
+<script>
+  /* ───── 애니메이션 + 패럴럭스 + 브레드크럼 정렬 ───── */
+  document.addEventListener('DOMContentLoaded',()=>{
+    const titleBox   = document.querySelector('.sub-visual__title');
+    const breadcrumb = document.querySelector('.breadcrumb-nav');
+    const visual     = document.querySelector('.sub-visual__wrap.visual-01');
+
+    // ① 배경 양갈래 리빌 시작(중앙 → 바깥)
+    visual.classList.add('play');
+
+    // 리빌 길이( CSS 변수 --reveal-dur )를 읽어서 동기화
+    const dur = parseInt(getComputedStyle(visual).getPropertyValue('--reveal-dur')) || 900;
+
+    // ② 리빌 종료 후 텍스트 등장
+    setTimeout(()=>{
+      titleBox.classList.add('in');
+      breadcrumb.classList.add('in');
+      alignBreadcrumb();
+    }, dur + 40);
+
+    // ③ 스크롤 패럴럭스
+    window.addEventListener('scroll',()=>{
+      const scrolled=window.scrollY||window.pageYOffset;
+      if(visual){
+        visual.style.backgroundPosition=`center ${Math.max(0,-scrolled*0.15)}px`;
+      }
+    });
+
+    // ④ 브레드크럼을 타이틀 바로 위에 놓음
+    function alignBreadcrumb(){
+      const areaRect = document.querySelector('.sub-visual__area').getBoundingClientRect();
+      const wrapRect = visual.getBoundingClientRect();
+      const nav      = breadcrumb;
+      const gap      = 12;
+      nav.style.bottom = (wrapRect.bottom - areaRect.top + gap * -1) + 'px';
+    }
+    window.addEventListener('resize',alignBreadcrumb);
+  });
+</script>
+
+<section id="h-service-banners" style="position:relative;">
+  <div class="h-container">
+    <h2 class="h-main-title">시대의 흐름을 제대로 읽고<br>현장에서 실제 혁신을 이루기 위한<br>6가지 컨텐츠</h2>
+
+    <div class="h-banner-wrapper" id="h-banner-container">
+  <!-- 1편 -->
+  <a class="h-banner banner-1" href="column-1.html" aria-label="1편 : 혁신의 필요성을 느끼고 있는 사업자라면?으로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">01. 이 시대에 혁신은 선택이 아닌 생존이다.</h3>
+      <p class="h-banner-text">
+        열심히 하는데 결과가 줄어든다면,<br>노력의 문제가 아니라, 비즈니스의 룰이 바뀌었을 수 있다.
+      </p>
+    </div>
+  </a>
+
+  <!-- 2편 -->
+  <a class="h-banner banner-2" href="column-2.html" aria-label="2편. 혁신을 위해 꼭 알아야 할 비즈니스의 본질로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">02. 혁신을 위해 꼭 알아야 할 비즈니스의 본질</h3>
+      <p class="h-banner-text">
+        시대가 바뀌고, 기술이 바뀌고, 시장의 모습이 달라져도<br>
+비즈니스의 본질은 단 한 번도 바뀐 적이 없다는 것이다.
+      </p>
+    </div>
+  </a>
+
+  <!-- 3편 -->
+  <a class="h-banner banner-3" href="column-3.html" aria-label="3편. 성공하는 비즈니스 혁신의 4가지 형태로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">03. 성공하는 비즈니스 혁신의 4가지 형태</h3>
+      <p class="h-banner-text">
+       비즈니스 혁신의 방식은 무수히 많아 보인다.<br>
+그러나 실제로 성과로 이어진 혁신은 대부분 네 가지 유형 안에서 반복된다.
+      </p>
+    </div>
+  </a>
+
+  <!-- 4편 -->
+  <a class="h-banner banner-4 h-hidden" href="column-4.html" aria-label="4편. 혁신을 위한 진정한 비즈니스의 흐름은 어떻게 읽어내는가?로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">04. 혁신을 위한 진정한 비즈니스의 흐름은 어떻게 읽어내는가?</h3>
+      <p class="h-banner-text">
+        혁신을 위한 가장 중요한 능력은<br>
+시대의 바람을 읽어내는 힘이다.
+      </p>
+    </div>
+  </a>
+
+  <!-- 5편 -->
+  <a class="h-banner banner-5 h-hidden" href="column-5.html" aria-label="5편. 혁신은 아무나 못한다로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">05. 혁신은 아무나 못한다</h3>
+      <p class="h-banner-text">
+        왜 혁신은 늘 소수의 선택으로 남을까?<br>
+        혁신을 가로막는 구조적인 장벽이 존재하기 때문이다.
+      </p>
+    </div>
+  </a>
+
+  <!-- 6편 -->
+  <a class="h-banner banner-6 h-hidden" href="column-6.html" aria-label="6편. 혁신은 개인적이지만, 이뤄내는 것은 함께로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">06. 혁신은 개인적이지만, 이뤄내는 것은 함께</h3>
+      <p class="h-banner-text">
+        혁신의 출발은 개인이지만, 완주는 시스템과 팀이 만듭니다.<br>
+        실행이 지속되는 협업 구조와 환경의 중요성
+      </p>
+    </div>
+  </a>
+</div>
+
+
+    <button id="h-load-more-btn">혁신 인사이트 더보기 <span class="arrow">▼</span></button>
+  </div>
+
+  <style>
+    /* ==============================
+       Scope: #h-service-banners only
+       ============================== */
+    #h-service-banners {
+      font-family: 'Pretendard', -apple-system, system-ui, sans-serif;
+      padding: 80px 20px;
+      margin: 0 auto;
+      text-align: center;
+      background: #fff;
+    }
+
+    #h-service-banners .h-main-title{
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 50px;
+      line-height: 1.4;
+      color: #111;
+      letter-spacing: -0.02em;
+    }
+
+    #h-service-banners .h-banner-wrapper{
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    /* 배경 이미지 줌을 위해 background-image를 ::before로 분리 */
+    #h-service-banners .h-banner{
+      position: relative;
+      height: 320px;
+      border-radius: 30px;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #fff;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+
+      cursor: pointer;
+      outline: none;
+
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* 이미지 레이어 */
+    #h-service-banners .h-banner::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--h-bg);
+      background-size: cover;
+      background-position: center;
+      transform: scale(1);
+      transition: transform 600ms cubic-bezier(.2,.8,.2,1);
+      will-change: transform;
+      z-index: 0;
+    }
+
+    /* 어두운 오버레이 */
+    #h-service-banners .h-banner::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52));
+      opacity: 1;
+      transition: opacity 350ms ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* 콘텐츠는 위로 */
+    #h-service-banners .h-banner-content{
+      position: relative;
+      z-index: 2;
+      padding: 0 18px;
+      max-width: 980px;
+    }
+
+    /* ✅ Hover: 이미지 확대 + 살짝 선명 */
+    @media (hover:hover){
+      #h-service-banners .h-banner:hover::before{ transform: scale(1.08); }
+      #h-service-banners .h-banner:hover::after{ opacity: .94; }
+    }
+
+    #h-service-banners .h-banner:focus-visible{
+      box-shadow: 0 0 0 4px rgba(17, 24, 39, .10), 0 0 0 2px rgba(255,255,255,.55) inset;
+    }
+
+    /* ✅ 숨김/등장 애니메이션 기존 유지 */
+    #h-service-banners .h-banner.h-hidden{
+      display: none;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* ✅ 각 배너별 이미지 */
+    #h-service-banners .banner-1{ --h-bg: url('https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-2{ --h-bg: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-3{ --h-bg: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-4{ --h-bg: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-5{ --h-bg: url('https://images.unsplash.com/photo-1509391366360-fe5bb58583bb?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-6{ --h-bg: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-7{ --h-bg: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop'); }
+
+    #h-service-banners .h-dummy-title{
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+    #h-service-banners .h-banner-text{
+      font-size: 18px;
+      opacity: 0.95;
+      line-height: 1.6;
+      word-break: keep-all;
+      letter-spacing: -0.01em;
+    }
+
+    #h-service-banners #h-load-more-btn{
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 16px 80px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #h-service-banners #h-load-more-btn:hover{ background-color: #f5f5f5; color: #222; border-color: #bbb; }
+    #h-service-banners #h-load-more-btn.is-hidden{ display: none; }
+
+    @media (max-width: 768px){
+      #h-service-banners .h-banner{ height: 260px; border-radius: 24px; }
+      #h-service-banners .h-main-title{ font-size: 26px; }
+      #h-service-banners .h-dummy-title{ font-size: 22px; }
+      #h-service-banners .h-banner-text{ font-size: 15px; }
+      #h-service-banners #h-load-more-btn{ padding: 14px 44px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      #h-service-banners .h-banner,
+      #h-service-banners .h-banner::before,
+      #h-service-banners .h-banner::after{
+        transition: none !important;
+      }
+    }
+
+    /* =========================================================
+       🔒 Lock UI (ONLY inside #h-service-banners)
+       - Keep text visible
+       - Show white lock icon
+       ========================================================= */
+
+    /* 잠긴 배너 식별 클래스(스크립트가 추가) */
+    #h-service-banners .h-banner.is-locked{
+      cursor: not-allowed;
+    }
+
+    /* 소프트 오버레이: 기존 그라데이션(= .h-banner::after z-index:1) 위에 살짝만 */
+    #h-service-banners .h-banner.is-locked .h-banner-content{
+      position: relative;
+      z-index: 4; /* ✅ 글자가 항상 최상위(자물쇠보다 아래로만) */
+      opacity: 1 !important;
+      filter: none !important;
+    }
+
+    /* 추가 오버레이 */
+    #h-service-banners .h-banner.is-locked::marker{ content:""; } /* (무해) */
+
+    /* 잠금 오버레이 레이어 */
+    #h-service-banners .h-banner.is-locked .lock-overlay{
+      position:absolute;
+      inset:0;
+      z-index:3;
+      pointer-events:none;
+      background:rgba(0,0,0,.12);
+    }
+
+   /* ✅ 자물쇠 아이콘(흰색 단색 아이콘) */
+#h-service-banners .h-banner.is-locked .lock-badge{
+  position:absolute;
+  right:22px;
+  top:22px;
+  z-index:5;
+  pointer-events:none;
+
+  width:32px;
+  height:32px;
+
+  /* 배경/테두리/원 제거 */
+  border-radius:0;
+  background:transparent;
+  border:none;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+
+  /* 흰색 자물쇠 SVG */
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10V8a5 5 0 0 1 10 0v2' stroke='%23ffffff' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M6.5 10h11A2.5 2.5 0 0 1 20 12.5v6A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5v-6A2.5 2.5 0 0 1 6.5 10Z' stroke='%23ffffff' stroke-width='2'/%3E%3Cpath d='M12 14v3' stroke='%23ffffff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+
+  /* 기존 flex/폰트 영향 제거 */
+  display:block;
+}
+
+
+    /* 토스트(섹션 전용) */
+    #h-service-banners .col-unlock-toast{
+      position:fixed;
+      left:50%;
+      bottom:24px;
+      transform:translateX(-50%);
+      z-index:99999;
+
+      max-width:min(560px, calc(100vw - 28px));
+      padding:12px 14px;
+      border-radius:14px;
+
+      font-family:'Pretendard',-apple-system,system-ui,sans-serif;
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:-.01em;
+
+      color:#fff;
+      background:rgba(17,24,39,.92);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow:0 14px 40px rgba(0,0,0,.25);
+
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease, transform .25s ease;
+    }
+    #h-service-banners .col-unlock-toast.is-show{
+      opacity:1;
+      transform:translateX(-50%) translateY(-6px);
+    }
+  </style>
+
+  <script>
+    (function() {
+      var root = document.getElementById('h-service-banners');
+      if(!root) return;
+
+      /* =============================
+         (A) 기존 더보기 기능 유지
+         ============================= */
+      var btn = root.querySelector('#h-load-more-btn');
+      var hiddenItems = root.querySelectorAll('.h-banner.h-hidden');
+
+      if(btn){
+        btn.addEventListener('click', function() {
+          hiddenItems.forEach(function(item, index){
+            setTimeout(function(){
+              item.style.display = 'flex';
+              item.offsetHeight;
+              setTimeout(function(){
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+              }, 40);
+            }, index * 150);
+          });
+          btn.classList.add('is-hidden');
+
+          // 잠금 상태 다시 적용(새로 나타난 배너에도)
+          setTimeout(applyLocksToBanners, 80);
+        });
+      }
+
+      /* =============================
+         (B) 잠금/해제 (column.html 전용)
+         ============================= */
+      var MAX_COL = 6;
+      var LS_KEY = 'bi_column_unlocked_max';
+      var CK_KEY = 'bi_column_unlocked_max';
+      var COOKIE_DAYS = 365;
+
+      function setCookie(name, value, days){
+        try{
+          var d = new Date();
+          d.setTime(d.getTime() + (days*24*60*60*1000));
+          var expires = "expires=" + d.toUTCString();
+          document.cookie = name + "=" + encodeURIComponent(String(value)) + ";" + expires + ";path=/;SameSite=Lax";
+        }catch(e){}
+      }
+      function getCookie(name){
+        try{
+          var n = name + "=";
+          var parts = document.cookie.split(';');
+          for(var i=0;i<parts.length;i++){
+            var c = parts[i].trim();
+            if(c.indexOf(n) === 0){
+              return decodeURIComponent(c.substring(n.length, c.length));
+            }
+          }
+        }catch(e){}
+        return null;
+      }
+      function clampInt(v, min, max){
+        v = parseInt(v, 10);
+        if(isNaN(v)) v = min;
+        if(v < min) v = min;
+        if(v > max) v = max;
+        return v;
+      }
+      function getUnlockedMax(){
+        var ls = null, ck = null;
+        try{ ls = localStorage.getItem(LS_KEY); }catch(e){}
+        ck = getCookie(CK_KEY);
+
+        var a = clampInt(ls, 1, MAX_COL);
+        var b = clampInt(ck, 1, MAX_COL);
+        return Math.max(a, b, 1);
+      }
+      function setUnlockedMax(val){
+        val = clampInt(val, 1, MAX_COL);
+        try{ localStorage.setItem(LS_KEY, String(val)); }catch(e){}
+        setCookie(CK_KEY, String(val), COOKIE_DAYS);
+        return val;
+      }
+
+      /* 토스트 */
+      var toastEl = null, toastTimer = null;
+      function showToast(msg){
+        if(!toastEl){
+          toastEl = document.createElement('div');
+          toastEl.className = 'col-unlock-toast';
+          root.appendChild(toastEl);
+        }
+        toastEl.textContent = msg;
+        toastEl.classList.add('is-show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function(){
+          toastEl && toastEl.classList.remove('is-show');
+        }, 2200);
+      }
+
+      /* 잠금 UI 엘리먼트(오버레이/배지) 주입 */
+      function ensureLockElements(banner){
+        // overlay
+        var ov = banner.querySelector('.lock-overlay');
+        if(!ov){
+          ov = document.createElement('div');
+          ov.className = 'lock-overlay';
+          banner.appendChild(ov);
+        }
+        // badge
+        var bd = banner.querySelector('.lock-badge');
+        if(!bd){
+          bd = document.createElement('div');
+          bd.className = 'lock-badge';
+          bd.textContent = '';
+          banner.appendChild(bd);
+        }
+      }
+
+      function removeLockElements(banner){
+        var ov = banner.querySelector('.lock-overlay');
+        var bd = banner.querySelector('.lock-badge');
+        if(ov) ov.remove();
+        if(bd) bd.remove();
+      }
+
+      function applyLocksToBanners(){
+        // 값 없으면 1편만 열리도록 고정
+        setUnlockedMax(getUnlockedMax());
+        var unlockedMax = getUnlockedMax();
+
+        var links = root.querySelectorAll('a.h-banner[href*="column-"]');
+        links.forEach(function(a){
+          var href = a.getAttribute('href') || '';
+          var m = href.match(/column-(\d+)\.html/i);
+          if(!m) return;
+
+          var n = parseInt(m[1], 10);
+          if(isNaN(n) || n < 1 || n > MAX_COL) return;
+
+          var shouldLock = n > unlockedMax;
+
+          if(shouldLock){
+            a.classList.add('is-locked');
+            a.dataset.colLock = "1";
+            a.setAttribute('aria-disabled','true');
+
+            // 잠금 요소 주입
+            ensureLockElements(a);
+          }else{
+            a.classList.remove('is-locked');
+            delete a.dataset.colLock;
+            a.removeAttribute('aria-disabled');
+
+            // 잠금 요소 제거
+            removeLockElements(a);
+          }
+        });
+      }
+
+      /* 잠긴 배너 클릭 차단 + 안내 */
+      function bindLockedClickGuard(){
+        root.addEventListener('click', function(e){
+          var a = e.target && (e.target.closest ? e.target.closest('a.h-banner[data-col-lock="1"]') : null);
+          if(!a) return;
+
+          e.preventDefault();
+          e.stopPropagation();
+
+          var href = a.getAttribute('href') || '';
+          var m = href.match(/column-(\d+)\.html/i);
+          var targetN = m ? parseInt(m[1],10) : null;
+          var unlockedMax = getUnlockedMax();
+
+          if(targetN && targetN === unlockedMax + 1){
+            showToast('🔒 다음 편은 아직 잠겨있습니다. 이전 편을 읽으면 열립니다.');
+          }else{
+            showToast('🔒 1편부터 순서대로 열립니다. 먼저 이전 편을 읽어주세요.');
+          }
+          return false;
+        }, true);
+      }
+
+      // 초기 실행
+      applyLocksToBanners();
+      bindLockedClickGuard();
+
+    })();
+  </script>
+</section>
+
+<div id="footer_template"></div>
+
+
+
+
+
+</body>
+<script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./js/validation1.js"> </script>
+<script src="./js/main.js"> </script>
+<script src="./js/footer.js"></script>
+</html>
