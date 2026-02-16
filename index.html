@@ -1,10 +1,41 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <!-- ===== 기본 메타 ===== -->
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+ <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+<!-- 소유권 인증(각 도메인별 값으로 교체) -->
+<meta name="naver-site-verification" content="네이버_인증코드_여기에" />
+<meta name="google-site-verification" content="구글_인증코드_여기에" />
+
+<!-- Canonical (대표 URL로 고정) -->
+<link rel="canonical" href="https://biznovlab.com/" />
+<meta name="robots" content="index,follow" />
+<meta name="subject" content="비즈니스혁신연구소" />
+<meta name="title" content="비즈니스혁신연구소" />
+<meta name="author" content="비즈니스혁신연구소">
+<meta name="description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼."/>
+<meta name="keywords" content="비즈니스혁신연구소, 비즈니스 혁신 연구소, Business Innovation Lab, biznovlab, 현장혁신, 실행형 혁신, 혁신 플랫폼, 사업 혁신, 조직 혁신, 운영 혁신, 프로세스 개선, 업무 효율화, 성장 전략, 신사업, 지속 성장, 기업 혁신" />
+
+<meta property="og:type" content="website" />
+<meta property="og:rich_attachment" content="true" />
+<meta property="og:site_name" content="비즈니스혁신연구소" />
+<meta property="og:title" content="비즈니스혁신연구소" />
+<meta property="og:description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta property="og:image" content="https://biznovlab.com/img/og-biznovlab.jpg" />
+<meta property="og:url" content="https://biznovlab.com/" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="비즈니스혁신연구소" />
+<meta name="twitter:description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta name="twitter:image" content="https://biznovlab.com/img/og-biznovlab.jpg" />
+  
+<meta itemprop="name" content="비즈니스혁신연구소" />
+<meta itemprop="description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta itemprop="image" content="https://biznovlab.com/img/og-biznovlab.jpg" />
+<title>비즈니스혁신연구소</title>
   
   <link href="./css/reset.css" rel="stylesheet" type="text/css" />
    <link href="./css/style.css" rel="stylesheet" type="text/css" />
@@ -21,9 +52,24 @@
     #nwHero{
       --ink:#ffffff; --muted:rgba(255,255,255,.88);
       --slideDur:8000ms;
+
+      /* ✅ 오프닝 속도/부드러움 조절 (원하는 값으로 바꾸면 됨)
+         - openDur: 확장 총 시간
+         - openEase: 확장 가속도(부드러움)
+         - openHold: 흰 화면이 다 찬 뒤 잠깐 멈추는 시간
+      */
+      --openDur:2400ms; /* ✅ 느리게 */
+      --openEase:cubic-bezier(.12,.96,.12,1);
+      --openHold:160ms;
+
+      --videoFade:800ms;
+      --textDelay:260ms;
+      --textFade:980ms;
+
       font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       position:relative; overflow:hidden; color:#fff;
       background:#000;
+      isolation:isolate;
     }
 
     /* ✅ Slides */
@@ -164,8 +210,8 @@
     #nwHero .eyebrow{ font-size:1rem; color:var(--muted); margin-bottom:10px; display:block; }
     #nwHero .title{ font-size:3.3rem; font-weight:800; line-height:1.35; margin:0; }
 
-    #nwHero .content.text-in .eyebrow{ animation:textFadeEyebrow 1s ease forwards; }
-    #nwHero .content.text-in .title{ animation:textFadeTitle 1.2s ease forwards; }
+    #nwHero .content.text-in .eyebrow{ animation:textFadeEyebrow var(--textFade) ease forwards; }
+    #nwHero .content.text-in .title{ animation:textFadeTitle  calc(var(--textFade) + 200ms) ease forwards; }
 
     @keyframes textFadeEyebrow{
       from{opacity:0; transform:translateX(-30px);}
@@ -227,7 +273,129 @@
     @media (max-width:768px){
       #nwHero .title{font-size:2rem; padding-top:20px;}
     }
+
+    /* =========================================================
+       ✅ OPENING (요구사항 최종)
+       - 중앙 검은 선/커튼 디자인/그라데이션/엣지효과 전부 제거
+       - 시작부터 높이 100vh 꽉 찬 “흰색”이
+         가운데에서 좌/우로 천천히 부드럽게 확장
+       - 검정이 완전히 사라진 뒤 영상/텍스트 등장
+       ========================================================= */
+
+    /* 오프닝 중엔 내부 숨김 */
+    #nwHero.nw-opening .slides{
+      opacity:0;
+      transition:none;
+      pointer-events:none;
+    }
+    #nwHero.nw-opening .vignette,
+    #nwHero.nw-opening .content,
+    #nwHero.nw-opening .scrollHint{
+      opacity:0;
+      transform:translateY(10px);
+      transition:none;
+      pointer-events:none;
+    }
+
+    /* 오프닝 완료 후 내부 표시 */
+    #nwHero.nw-opened .slides{
+      opacity:1;
+      transition:opacity var(--videoFade) ease;
+      pointer-events:auto;
+    }
+    #nwHero.nw-opened .vignette{
+      opacity:1;
+      transition:opacity var(--videoFade) ease;
+    }
+    #nwHero.nw-opened .content{
+      opacity:1;
+      transform:none;
+      transition:opacity var(--textFade) ease, transform var(--textFade) ease;
+      transition-delay:var(--textDelay);
+      pointer-events:auto;
+    }
+    #nwHero.nw-opened .scrollHint{
+      opacity:1;
+      transform:none;
+      transition:opacity 650ms ease, transform 650ms ease;
+      transition-delay:calc(var(--textDelay) + 220ms);
+      pointer-events:auto;
+    }
+
+    /* ✅ 오프닝 레이어(검정 덮개 + 흰 확장) */
+    #nwHero .nwOpening{
+      position:absolute; inset:0;
+      z-index:50;
+      pointer-events:none;
+      overflow:hidden;
+      opacity:1;
+    }
+    #nwHero .nwOpening .nwBlack{
+      position:absolute; inset:0;
+      background:#000;
+    }
+
+    /* ✅ 흰색 확장: “전체 높이 유지 + 가로만 0 → 100%” */
+    #nwHero .nwOpening .nwWhiteSplit{
+      position:absolute; inset:0;
+    }
+    #nwHero .nwOpening .nwWhitePanel{
+      position:absolute;
+      top:0; bottom:0;     /* ✅ 위아래는 시작부터 최대 높이 */
+      width:50%;
+      background:#fff;     /* ✅ 흰색만 */
+      will-change:transform;
+      transform:scaleX(0); /* ✅ 가로만 0에서 시작 */
+    }
+    #nwHero .nwOpening .nwWhitePanel.left{
+      left:0;
+      transform-origin:100% 50%;
+    }
+    #nwHero .nwOpening .nwWhitePanel.right{
+      right:0;
+      transform-origin:0% 50%;
+    }
+
+    /* ✅ 오프닝 실행 */
+    #nwHero.nw-opening .nwOpening .nwWhitePanel.left{
+      animation:nwWhiteSplitOpen var(--openDur) var(--openEase) forwards;
+    }
+    #nwHero.nw-opening .nwOpening .nwWhitePanel.right{
+      animation:nwWhiteSplitOpen var(--openDur) var(--openEase) forwards;
+    }
+
+    /* ✅ 오프닝 종료: 레이어 페이드아웃 */
+    #nwHero.nw-opened .nwOpening{
+      opacity:0;
+      transition:opacity 520ms ease;
+    }
+
+    /* ✅ “천천히 부드럽게 확장” (오버슈트/디자인 효과 없음) */
+    @keyframes nwWhiteSplitOpen{
+      0%   { transform:scaleX(0); }
+      100% { transform:scaleX(1); }
+    }
+
+    /* 모션 최소화면 오프닝 스킵 */
+    @media (prefers-reduced-motion: reduce){
+      #nwHero .nwOpening{ display:none !important; }
+      #nwHero.nw-opening .slides,
+      #nwHero.nw-opening .vignette,
+      #nwHero.nw-opening .content,
+      #nwHero.nw-opening .scrollHint{
+        opacity:1 !important; transform:none !important; pointer-events:auto !important;
+      }
+    }
   </style>
+
+  <!-- ✅ 오프닝 레이어(검정 → 흰색이 중앙에서 좌/우로 확장) -->
+  <div class="nwOpening" aria-hidden="true">
+    <div class="nwBlack"></div>
+    <div class="nwWhiteSplit">
+      <div class="nwWhitePanel left"></div>
+      <div class="nwWhitePanel right"></div>
+    </div>
+  </div>
 
   <div class="slides">
     <!-- ✅ 1번 슬라이드: 로컬 mp4 -->
@@ -308,21 +476,28 @@
       const eyebrow = root.querySelector('.eyebrow');
       const title = root.querySelector('.title');
 
-      const DUR = 6000;
+      function readMsVar(name, fallback){
+        try{
+          const v = getComputedStyle(root).getPropertyValue(name).trim();
+          if(!v) return fallback;
+          if(v.endsWith('ms')) return parseFloat(v);
+          if(v.endsWith('s')) return parseFloat(v) * 1000;
+          const n = parseFloat(v);
+          return Number.isFinite(n) ? n : fallback;
+        }catch(e){ return fallback; }
+      }
+
+      const DUR = readMsVar('--slideDur', 8000);
+      const OPEN_DUR = readMsVar('--openDur', 2400);
+      const OPEN_HOLD = readMsVar('--openHold', 160);
+
       let i = 0;
       let timer = null;
 
-      // Vimeo
       const playerMap = new Map();
-
-      // Local video
       const localVideoMap = new Map();
-
       let userUnlocked = false;
 
-      /* =====================
-         ✅ “끊김 방지” 상태
-         ===================== */
       let watchdog = null;
       let lastKick = 0;
       let lastTime = -1;
@@ -382,9 +557,6 @@
 
       /* =========================
          ✅ Local Video (mp4) - “진짜 끊김 방지” 버전
-         - load()는 초기 1회만
-         - waiting/stalled/suspend/pause에서 모두 복구
-         - currentTime 진행 감시로 멈춤 감지
          ========================= */
       function ensureLocalVideo(slide){
         if(localVideoMap.has(slide)) return localVideoMap.get(slide);
@@ -392,7 +564,6 @@
         const video = slide.querySelector('video');
         if(!video) return null;
 
-        // ✅ 속성/프로퍼티 순서 중요: src 넣기 전에 무음/인라인/자동재생 고정
         video.muted = true;
         video.defaultMuted = true;
         video.volume = 0;
@@ -408,10 +579,8 @@
         video.setAttribute('loop', '');
         video.setAttribute('preload', 'auto');
         video.setAttribute('fetchpriority', 'high');
-        // 일부 Android/WebView 힌트(무해)
         video.setAttribute('x5-playsinline', '');
 
-        // PiP 금지(가능하면)
         try{ video.disablePictureInPicture = true; }catch(e){}
 
         const src = slide.dataset.localSrc || slide.getAttribute('data-local-src') || '';
@@ -419,7 +588,6 @@
           video.setAttribute('src', src);
         }
 
-        // ✅ “load() 1회만” (반복 load는 iOS에서 끊김/정지 유발)
         let loadedOnce = false;
 
         const safeLoadOnce = () => {
@@ -430,21 +598,14 @@
 
         const safePlay = async () => {
           try{
-            // iOS는 paused 상태에서 play()를 여러 번 호출해도 OK지만, 너무 자주하면 역효과라 throttle
             if(!canKick(350)) return false;
-
-            // 버퍼/네트워크 스타트
             safeLoadOnce();
-
             const p = video.play();
             if(p && typeof p.then === 'function') await p;
             return true;
-          }catch(e){
-            return false;
-          }
+          }catch(e){ return false; }
         };
 
-        // ✅ 첫 프레임/재생 준비 감지
         const onReady = () => markVideoReadyOnce(slide);
         try{
           if(typeof video.requestVideoFrameCallback === 'function'){
@@ -455,11 +616,9 @@
         video.addEventListener('canplay', onReady, { once:true });
         video.addEventListener('playing', onReady, { once:true });
 
-        // ✅ “끊김 원인 이벤트” 전부 잡아서 복구
         const recoverIfActive = () => {
           if(!slide.classList.contains('active')) return;
           if(!isVisible()) return;
-          // waiting/stalled 등으로 멈춘 상태면 다시 play
           safePlay();
         };
 
@@ -469,18 +628,16 @@
         video.addEventListener('suspend', recoverIfActive);
         video.addEventListener('emptied', recoverIfActive);
 
-        // ✅ 에러 나면 src 재주입 + 1회 load 후 재생 재시도
         video.addEventListener('error', () => {
           if(!slide.classList.contains('active')) return;
           if(!isVisible()) return;
 
           if(src){
             try{
-              // 일부 iOS에서 네트워크 에러 후 재시도 시 src 재할당이 필요
               video.removeAttribute('src');
               video.setAttribute('src', src);
             }catch(e){}
-            loadedOnce = false; // 다시 1회 load 허용
+            loadedOnce = false;
             safeLoadOnce();
             safePlay();
           }
@@ -489,9 +646,7 @@
         const entry = { video, safePlay, safeLoadOnce };
         localVideoMap.set(slide, entry);
 
-        // 초기 워밍업
         safeLoadOnce();
-
         return entry;
       }
 
@@ -508,7 +663,6 @@
         const entry = ensureLocalVideo(slide);
         if(!entry) return;
 
-        // ✅ 첫 재생 시도 (막히면 언락 대기)
         const ok = await entry.safePlay();
         if(!ok && !userUnlocked){
           // 포스터 유지
@@ -595,7 +749,6 @@
 
       function nextSlide(){ show(i + 1); }
 
-      // ✅ iOS/모바일 언락: 첫 사용자 제스처에서 현재 슬라이드 재생 재시도
       function unlockAndPlay(){
         if(userUnlocked) return;
         userUnlocked = true;
@@ -617,7 +770,6 @@
         }
       }
 
-      // ✅ currentTime 진행 감시로 “멈춘 상태” 복구 (진짜 강력)
       function startWatchdog(){
         if(watchdog) clearInterval(watchdog);
 
@@ -629,18 +781,14 @@
 
           const active = slides[i];
           if(!active || !active.classList.contains('active')) return;
-
           if(active.dataset.type !== 'local-video') return;
 
           const entry = localVideoMap.get(active) || ensureLocalVideo(active);
           if(!entry || !entry.video) return;
 
           const v = entry.video;
-
-          // 재생 중이어야 하는데 멈춤/정체 감지
           const t = v.currentTime;
 
-          // readyState 2 이상(첫 프레임 가능)인데 time이 안 움직이면 끊긴 것
           const timeNotMoving = (lastTime >= 0 && Math.abs(t - lastTime) < 0.001);
 
           if(v.readyState >= 2 && timeNotMoving){
@@ -651,22 +799,75 @@
 
           lastTime = t;
 
-          // 2~3회 연속 정체면(약 1.0~1.5초) 즉시 복구
           if(stillCount >= 2){
             stillCount = 0;
-            // paused든 waiting이든 상관없이 재생 재시도
             entry.safePlay();
           }
 
-          // paused 상태도 복구
           if(v.paused && !v.ended && v.readyState >= 2){
             entry.safePlay();
           }
         }, 500);
       }
 
+      function startTimer(){
+        if(timer) clearInterval(timer);
+        timer = setInterval(nextSlide, DUR);
+      }
+
+      /* =========================
+         ✅ OPENING TIMELINE
+         ========================= */
+      function whiteSplitOpenThenStart(){
+        const prefersReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(prefersReduce){
+          root.classList.remove('nw-opening');
+          root.classList.add('nw-opened');
+          show(0);
+          startTimer();
+          startWatchdog();
+          content.classList.remove('text-in'); void content.offsetWidth; content.classList.add('text-in');
+          return;
+        }
+
+        root.classList.add('nw-opening');
+        root.classList.remove('nw-opened');
+
+        // 오프닝 중간부터 첫 영상 워밍업(뒤에서 준비)
+        const warm = setTimeout(() => {
+          const first = slides[0];
+          if(!first) return;
+          if(first.dataset.type === 'local-video') playLocalVideo(first);
+          if(first.dataset.type === 'video') playVimeo(first);
+        }, Math.max(0, OPEN_DUR * 0.40));
+
+        // 거의 다 열릴 때 첫 슬라이드 확정(아직 안 보임)
+        const preShow = setTimeout(() => {
+          show(0);
+        }, Math.max(0, OPEN_DUR * 0.75));
+
+        // 오프닝 끝 → 홀드 → 내부 등장
+        const done = setTimeout(() => {
+          clearTimeout(warm);
+
+          setTimeout(() => {
+            root.classList.remove('nw-opening');
+            root.classList.add('nw-opened');
+
+            content.classList.remove('text-in');
+            void content.offsetWidth;
+            content.classList.add('text-in');
+
+            startTimer();
+            startWatchdog();
+          }, OPEN_HOLD);
+
+        }, Math.max(0, OPEN_DUR + 40));
+
+        root._nwOpenTimers = [warm, preShow, done];
+      }
+
       function init(){
-        // 포스터 + 워밍업
         slides.forEach((s, idx) => {
           setPoster(s);
 
@@ -676,20 +877,14 @@
 
             const entry = ensureLocalVideo(s);
             if(entry && entry.video){
-              // 첫 슬라이드 강 워밍업 & 빠른 재생 시도
-              if(idx === 0){
-                entry.safePlay();
-              }
+              if(idx === 0) entry.safePlay();
             }
           }else if(s.dataset.type === 'video'){
             ensureVimeoPlayer(s);
           }
         });
 
-        show(0);
-        timer = setInterval(nextSlide, DUR);
-
-        startWatchdog();
+        whiteSplitOpenThenStart();
 
         root.addEventListener('touchstart', unlockAndPlay, { passive:true, once:true });
         root.addEventListener('pointerdown', unlockAndPlay, { passive:true, once:true });
@@ -702,7 +897,6 @@
         init();
       }
 
-      // iOS 사파리: bfcache 복귀/pageshow에서 멈춤 복구
       window.addEventListener('pageshow', () => {
         const active = slides[i];
         if(!active) return;
@@ -728,6 +922,11 @@
     })();
   </script>
 </section>
+
+
+
+
+
 
 
 
