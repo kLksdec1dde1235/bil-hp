@@ -47,7 +47,7 @@
       z-index:1;
     }
 
-    /* Images (기본 Kenburns 제거 가능 시 제거) */
+    /* Images */
     #nwHero .slide img{
       position:absolute; inset:0;
       width:100%; height:100%;
@@ -66,12 +66,11 @@
       background-position:center center;
       opacity:1;
       transform:scale(1.05);
-      transition:opacity 140ms ease; /* ✅ 더 빠르게 */
+      transition:opacity 140ms ease;
       will-change:opacity, transform;
       z-index:3;
     }
 
-    /* ✅ 미리보기 이미지 확대 애니메이션: 기존 대비 2배 빠르게 (7s → 3.5s) */
     #nwHero .slide.active .vimeoPoster{
       animation:nwPosterZoom 3.5s ease-out forwards;
     }
@@ -85,7 +84,7 @@
       width:100%; height:100%;
       z-index:2;
       opacity:0;
-      transition:opacity 160ms ease; /* ✅ 영상 준비되면 더 빠르게 노출 */
+      transition:opacity 160ms ease;
       will-change:opacity;
       background:#000;
     }
@@ -110,12 +109,11 @@
       object-fit:cover;
       display:block;
       background:#000;
-      /* iOS에서 첫 프레임 도달 전 깜빡임 최소화 */
       transform:translateZ(0);
       will-change:transform;
     }
 
-    /* pos (좌/중/우) - Vimeo에만 의미 있으나 공용 유지 */
+    /* pos */
     #nwHero[data-video-pos="left"]   .vimeoFrame iframe{ left:35%; }
     #nwHero[data-video-pos="center"] .vimeoFrame iframe{ left:50%; }
     #nwHero[data-video-pos="right"]  .vimeoFrame iframe{ left:65%; }
@@ -124,7 +122,7 @@
     #nwHero[data-video-pos="center"] .vimeoPoster{ background-position:50% 50%; }
     #nwHero[data-video-pos="right"]  .vimeoPoster{ background-position:80% 50%; }
 
-    /* ✅ “첫 프레임 준비/재생” 되면 포스터 즉시 제거 + 영상 노출 */
+    /* ✅ ready */
     #nwHero .slide.video-ready .vimeoPoster{
       opacity:0;
       pointer-events:none;
@@ -179,10 +177,10 @@
       to{opacity:1; transform:translateX(0);}
     }
 
-    /* ===================== ✅ Dock 비활성화 ===================== */
+    /* ✅ Dock 비활성화 */
     #nwHero .dock{ display:none !important; }
 
-    /* ===================== ✅ Premium Scroll Indicator (center bottom) ===================== */
+    /* ✅ Scroll Indicator */
     #nwHero .scrollHint{
       position:absolute;
       left:50%;
@@ -233,13 +231,13 @@
   </style>
 
   <div class="slides">
-    <!-- ✅ 1번 슬라이드: 로컬 mp4 (iOS/Android 빠른 전환 최적화 버전) -->
+    <!-- ✅ 1번 슬라이드: 로컬 mp4 -->
     <div class="slide" data-eyebrow="비즈니스 혁신 연구소" data-title="급변하고 있는<br>시대의 흐름 속" data-type="local-video" data-poster="./img/intro-3-1.jpg" data-local-src="./video/video-1.mp4">
       <div class="media">
         <div class="vimeoCover">
           <div class="vimeoPoster" aria-hidden="true"></div>
           <div class="vimeoFrame" aria-hidden="true">
-            <!-- ✅ src는 JS에서 가장 먼저 세팅(모바일에서 첫 프레임 더 빨라짐) -->
+            <!-- ✅ src는 JS에서 세팅 -->
             <video
               muted
               playsinline
@@ -324,7 +322,14 @@
 
       let userUnlocked = false;
 
-      // ✅ iOS/Safari 힌트: 첫 슬라이드 로컬 비디오는 가장 높은 우선순위로 프리로드
+      // ✅ “멈춤 방지” 재생 감시(Watchdog)
+      let watchdog = null;
+      let lastKick = 0;
+
+      function isVisible(){
+        return document.visibilityState === 'visible' && !document.hidden;
+      }
+
       function injectPreloadVideoOnce(href){
         try{
           if(!href) return;
@@ -367,7 +372,9 @@
       }
 
       /* =========================
-         ✅ Local Video (mp4) - Mobile First Frame FAST
+         ✅ Local Video (mp4)
+         - pause 이벤트에서 즉시 복구
+         - watchdog로 “잠깐 재생 후 멈춤” 복구
          ========================= */
       function ensureLocalVideo(slide){
         if(localVideoMap.has(slide)) return localVideoMap.get(slide);
@@ -375,7 +382,7 @@
         const video = slide.querySelector('video');
         if(!video) return null;
 
-        // ✅ iOS/Android 자동재생 안정화: 속성 + 프로퍼티 모두 강제
+        // 강제 속성/프로퍼티
         video.muted = true;
         video.defaultMuted = true;
         video.playsInline = true;
@@ -390,38 +397,51 @@
         video.setAttribute('loop', '');
         video.setAttribute('preload', 'auto');
         video.setAttribute('fetchpriority', 'high');
+        // 일부 안드로이드/웹뷰 힌트(무해)
+        video.setAttribute('x5-playsinline', '');
+        video.setAttribute('x-webkit-airplay', 'deny');
 
-        // ✅ src는 "여기서" 세팅 (HTML에 박아두면 iOS에서 첫 프레임 늦는 케이스가 있음)
+        // PiP 금지(가능하면)
+        try{ video.disablePictureInPicture = true; }catch(e){}
+
+        // src를 JS에서 세팅
         const src = slide.dataset.localSrc || slide.getAttribute('data-local-src') || '';
         if(src && !video.getAttribute('src')){
           video.setAttribute('src', src);
         }
 
-        // ✅ 첫 프레임 감지(가능하면 rVFC로 더 빠르게)
-        const tryMarkReadyByFrame = () => {
-          try{
-            if(typeof video.requestVideoFrameCallback === 'function'){
-              video.requestVideoFrameCallback(() => markVideoReadyOnce(slide));
-              return true;
-            }
-          }catch(e){}
-          return false;
-        };
-
         const onReady = () => markVideoReadyOnce(slide);
 
-        // rVFC가 되면 이게 제일 빠름
-        const usedRVFC = tryMarkReadyByFrame();
+        // 첫 프레임 감지(가능하면 더 빠르게)
+        try{
+          if(typeof video.requestVideoFrameCallback === 'function'){
+            video.requestVideoFrameCallback(() => markVideoReadyOnce(slide));
+          }
+        }catch(e){}
 
-        // fallback 이벤트(브라우저마다 타이밍 다름)
         video.addEventListener('loadeddata', onReady, { once:true });
         video.addEventListener('canplay', onReady, { once:true });
         video.addEventListener('playing', onReady, { once:true });
 
-        // ✅ 네트워크 스타트 힌트: 가능하면 즉시 load()
+        // ✅ “잠깐 재생 후 pause”가 떨어질 때 즉시 복구
+        video.addEventListener('pause', () => {
+          // 사용자 의도 pause가 아니라면(현재 슬라이드 active + 화면 visible) 즉시 재시도
+          if(!slide.classList.contains('active')) return;
+          if(!isVisible()) return;
+
+          // 너무 잦은 반복 방지(쿨다운)
+          const now = Date.now();
+          if(now - lastKick < 600) return;
+          lastKick = now;
+
+          // 재시도
+          tryPlayLocal({ video }).catch(()=>{});
+        });
+
+        // 네트워크 스타트
         try{ video.load(); }catch(e){}
 
-        const entry = { video, usedRVFC };
+        const entry = { video };
         localVideoMap.set(slide, entry);
         return entry;
       }
@@ -429,7 +449,6 @@
       async function tryPlayLocal(entry){
         try{
           if(entry.video && entry.video.readyState < 2){
-            // load()는 일부 모바일에서 첫 프레임 도달에 도움
             try{ entry.video.load(); }catch(e){}
           }
           const p = entry.video.play();
@@ -441,7 +460,6 @@
       }
 
       async function playLocalVideo(slide){
-        // ✅ 이미 준비/재생된 적 있으면 포스터 재등장 X
         if(slide.dataset.videoReadyOnce === '1'){
           slide.classList.add('video-ready');
         }else{
@@ -456,7 +474,7 @@
 
         const ok = await tryPlayLocal(entry);
 
-        // ✅ autoplay 막히면(특히 iOS 일부 상황) 사용자 제스처 언락 대기
+        // autoplay 막히면 언락 대기
         if(!ok && !userUnlocked){
           // 포스터 유지
         }
@@ -479,11 +497,7 @@
         if(!iframe || !window.Vimeo) return null;
 
         const player = new Vimeo.Player(iframe);
-
-        // ✅ 모바일 자동재생 안정화: 무음 강제
         player.setVolume(0).catch(()=>{});
-
-        // ✅ "실제 재생(playing)" 시점에만 포스터 영구 제거
         player.on('playing', () => markVideoReadyOnce(slide));
 
         const entry = { player, readyPromise: player.ready().catch(()=>null) };
@@ -555,7 +569,7 @@
 
       function nextSlide(){ show(i + 1); }
 
-      // ✅ iOS/모바일 언락: 첫 사용자 제스처에서 현재 슬라이드 재생 재시도
+      // ✅ iOS/모바일 언락
       function unlockAndPlay(){
         if(userUnlocked) return;
         userUnlocked = true;
@@ -577,6 +591,38 @@
         }
       }
 
+      // ✅ watchdog: “active인데 paused로 멈춘 상태”를 주기적으로 복구
+      function startWatchdog(){
+        if(watchdog) clearInterval(watchdog);
+        watchdog = setInterval(() => {
+          if(!isVisible()) return;
+          const active = slides[i];
+          if(!active) return;
+          if(!active.classList.contains('active')) return;
+
+          if(active.dataset.type === 'local-video'){
+            const entry = localVideoMap.get(active) || ensureLocalVideo(active);
+            if(!entry || !entry.video) return;
+
+            // active인데 멈춰 있으면 재생 재시도
+            const v = entry.video;
+            const shouldResume =
+              v.paused &&
+              !v.ended &&
+              !v.seeking &&
+              // 첫 프레임이라도 진행된 적 있거나(= 잠깐 재생 후 멈춤 케이스)
+              (v.currentTime > 0 || v.readyState >= 2);
+
+            if(shouldResume){
+              const now = Date.now();
+              if(now - lastKick < 900) return; // 과도 재시도 방지
+              lastKick = now;
+              tryPlayLocal(entry);
+            }
+          }
+        }, 900);
+      }
+
       function init(){
         // 포스터 + 워밍업
         slides.forEach((s, idx) => {
@@ -588,10 +634,10 @@
 
             const entry = ensureLocalVideo(s);
             if(entry && entry.video){
-              // ✅ 첫 슬라이드는 특히 더 강하게 워밍업
+              // 첫 슬라이드 강 워밍업
               if(idx === 0){
                 try{ entry.video.load(); }catch(e){}
-                // 가능한 빨리 재생 시도(막혀도 catch)
+                // 가능한 빨리 play 시도(막혀도 OK)
                 tryPlayLocal(entry);
               }
             }
@@ -602,6 +648,8 @@
 
         show(0);
         timer = setInterval(nextSlide, DUR);
+
+        startWatchdog();
 
         root.addEventListener('touchstart', unlockAndPlay, { passive:true, once:true });
         root.addEventListener('pointerdown', unlockAndPlay, { passive:true, once:true });
@@ -615,6 +663,21 @@
         init();
       }
 
+      // ✅ iOS 사파리: bfcache 복귀/pageshow에서 멈춘 채로 돌아오는 케이스 복구
+      window.addEventListener('pageshow', () => {
+        const active = slides[i];
+        if(!active) return;
+        if(active.dataset.type === 'local-video') playLocalVideo(active);
+        if(active.dataset.type === 'video') playVimeo(active);
+      });
+
+      window.addEventListener('focus', () => {
+        const active = slides[i];
+        if(!active) return;
+        if(active.dataset.type === 'local-video') playLocalVideo(active);
+        if(active.dataset.type === 'video') playVimeo(active);
+      });
+
       document.addEventListener('visibilitychange', () => {
         if(document.visibilityState === 'visible'){
           const active = slides[i];
@@ -626,6 +689,7 @@
     })();
   </script>
 </section>
+
 
 
 
