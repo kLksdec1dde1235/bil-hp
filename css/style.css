@@ -198,7 +198,7 @@
       font-weight: 900;
     }
     #albuminWarn .t2 {
-      font-size: clamp(24px, 6vw, 44px);
+      font-size: clamp(30px, 6vw, 44px);
       font-weight: 900;
       line-height: 1.14;
       text-shadow: 0 4px 18px rgba(0, 0, 0, .4);
