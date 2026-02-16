@@ -315,7 +315,6 @@
   data-step="650" data-hold="1300" data-dark="600" data-dim="0.18" data-bright="1">
  
   <style>
-     /* ================= Scope: #energyHL only ================= */
     #energyHL{
       --maxW:800px;
       --hRow:168px;
@@ -329,7 +328,6 @@
       width:100%;max-width:var(--maxW);margin:0 auto;overflow:hidden;position:relative;
       background:#000;
 
-      /* ✅ 섹션 외곽 여백을 #000로 칠하기 (body는 변경 없음) */
       box-shadow:0 0 0 100vmax #000;
       clip-path:inset(0 -100vmax);
       padding-top:80px;
@@ -341,7 +339,6 @@
       overflow:hidden;
     }
 
-    /* 이미지 전용 레이어 */
     #energyHL .bg{
       position:absolute;inset:0;
       background-size:cover;background-repeat:no-repeat;background-color:#000;
@@ -350,11 +347,9 @@
       z-index:0;
     }
 
-    /* 좌/우 포지션 */
     #energyHL .left .bg{background-position:left center;}
     #energyHL .right .bg{background-position:right center;}
 
-    /* 어두운 오버레이 */
     #energyHL .shade{
       position:absolute;inset:0;
       background:rgba(0,0,0,.62);
@@ -363,7 +358,6 @@
       z-index:1;
     }
 
-    /* 텍스트 */
     #energyHL .txt{
       position:relative;z-index:2;
       color:#fff;line-height:1.42;font-weight:800;
@@ -373,7 +367,6 @@
     }
     #energyHL .hl{color:var(--yellow);font-weight:900;}
 
-    /* 칸막이 음영 */
     #energyHL .row::after{content:"";position:absolute;inset:auto 0 -10px 0;height:10px;background:var(--gapShade);} 
     #energyHL .row:first-child::before{content:"";position:absolute;inset:-10px 0 auto 0;height:10px;background:var(--gapShade);} 
 
@@ -382,51 +375,35 @@
       #energyHL .txt{font-size:1.36rem;}
     }
 
-    /* ===== 배경 이미지 ===== */
     #energyHL .r1 .bg{background-image:url('./img/3.jpg');}
-    #energyHL .r2 .bg{background-image:url('./img/2.jpg');}
-    #energyHL .r3 .bg{background-image:url('./img/1.jpg');}
+    #energyHL .r2 .bg{background-image:url('./img/1.jpg');}
+    #energyHL .r3 .bg{background-image:url('./img/5.jpg');}
     
 
 
   </style>
-  <!-- 1 -->
-  <div class="row r1 right" data-bright="0.7" data-dim="0.18">
+  <div class="row r1 right" data-bright="0.4" data-dim="0.18">
     <div class="bg"></div>
     <i class="shade"></i>
-    <p class="txt"><span class="hl">최선을 다하는데도</span><br>매출 성장이 멈춘 느낌이라면?</p>
+    <p class="txt">AI발 일자리 한파에<br><span class="hl">법률·회계·세무·의료·서비스 …<br>1년새 10만개 줄었다</span></p>
   </div>
-  <!-- 2 -->
-  <div class="row r2 right" data-bright="0.6" data-dim="0.18">
+  <div class="row r2 right" data-bright="0.5" data-dim="0.18">
     <div class="bg"></div>
     <i class="shade"></i>
-    <p class="txt">내가 멈추면 바로 흔들리는<br><span class="hl">비즈니스 구조라면?</span></p>
+    <p class="txt"><span class="hl">전세계 일자리 60% 위협</span><br>IMF 총리 경고</p>
   </div>
-  <!-- 3 -->
-  <div class="row r3 left" data-bright="0.8" data-dim="0.18">
+  <div class="row r3 left" data-bright="0.5" data-dim="0.18">
     <div class="bg"></div>
     <i class="shade"></i>
-    <p class="txt"><span class="hl">AI·시장 변화가 빠른데</span><br>어디로 가야 할지 모르겠다면?</p>
+    <p class="txt"><span class="hl">100만 폐업 도미노…</span><br>5년 만에 최대폭 증가</p>
   </div>
-  <!-- 4 -->
-  <!-- <div class="row r4 right" data-bright="0.6" data-dim="0.18">
-    <div class="bg"></div>
-    <i class="shade"></i>
-    <p class="txt"><span class="hl">지금은 벌고 있지만</span><br>5년 뒤 미래가 불안하다면?</p>
-  </div> -->
-  <!-- 5 -->
-  <!-- <div class="row r5 left" data-bright="0.8" data-dim="0.18">
-    <div class="bg"></div>
-    <i class="shade"></i>
-    <p class="txt"><span class="hl">차별화가 어려워</span><br>결국 가격 경쟁에 빠졌다면?</p>
-  </div> -->
+
 
 </section>
 
+
+
 <section id="albuminWarn" aria-label="중장년 건강관리 경고 톤">
-  <style>
-   
-  </style>
 
   <div class="wrap">
     <div class="head">
@@ -435,50 +412,41 @@
       <div class="t2">당신의 사업을 어떻게<br>준비하고 계신가요?</div>
       <img src="./img/cause.jpg" style="width:90%;max-width:500px;padding:30px 0;margin: 0 auto;" alt="">
       <hr style="margin:30px auto;padding:80px 0;width:0px;">
-      <div class="t2" style="margin:40px 0 80px;"><span class="em">지금 이 순간에도<br>급격한 변화를<br>마주하고 있는 현실</span></div>
+      <div class="t2" style="margin:40px 0 80px;"><span class="em">사업의 모든<br>규칙이 달라지는<br>시대의 격변 속에서</span></div>
     </div>
 
    <section id="withcareFeatureBanners" aria-label="한국위드케어협회 특징 배너 3종 (각 카드별 배경 이미지 교체 가능)">
 
 
   <!-- Card 1 -->
-  <div class="card c1" style="--bg:url('../img/4.jpg');">
+  <div class="card c1" style="--bg:url('https://cdn.ekoreanews.co.kr/news/photo/202303/65774_76459_313.jpg');object-position: top;">
     <i class="bg" aria-hidden="true"></i>
     <i class="shade" aria-hidden="true"></i>
     <div class="txt">
-      <span class="line">대기업, 전문직 가리지 않고</span>
-      <span class="line block" style="margin-top:6px;">AI로 인하여 3년만에 20만개 일자리 증발</span>
-      <span>* 한국은행 통계 (2024)</span>
+      <span class="line">AI는 불/전기에 비견될 만큼</span>
+      <span class="line block" style="margin-top:6px;">거대한 시대의 변곡점 입니다.</span>
+      <span>* 구글 CEO 순다르 피차이</span>
     </div>
   </div>
 
-  <!-- Card 2 -->
-  <div class="card c2" style="--bg:url('../img/5.jpg');">
-    <i class="bg" aria-hidden="true"></i>
-    <i class="shade" aria-hidden="true"></i>
-    <div class="txt">
-      <span class="line " style="margin-top:.25em;">위기의 자영업자</span>
-      <span class="line hl">10명 중 3명 월소득 최저임금 이하</span>
-      
-    </div>
-  </div>
+
 
   <!-- Card 3 -->
-  <div class="card c3" style="--bg:url('../img/6.jpg');">
+  <div class="card c3" style="--bg:url('https://img.hankyung.com/photo/202409/AD.37933078.1.jpg');">
     <i class="bg" aria-hidden="true"></i>
     <i class="shade" aria-hidden="true"></i>
     <div class="txt">
-      <span class="line">2030년까지 세계적으로</span>
-      <span class="line hl" style="margin-top:.25em;">AI로 약 9,200만개 일자리 소멸</span>
-         <span>* WEF (2025)</span>
+      <span class="line">AI 급속한 발전으로</span>
+      <span class="line hl" style="margin-top:.25em;">거의 모든 산업을 바꾸고 있다.</span>
+         <span>* 엔비디아 CEO 젠슨황</span>
     </div>
   </div>
 </section>
 
     <div class="head" style="margin:80px 0;">
-      <div class="t1" style="line-height:140%;">
+      <!-- <div class="t1" style="line-height:140%;">
         <span style="color:#fff">사업의 모든 규칙이 달라지는<br>시대의 격변 속에서</span><br><br>
-      </div>
+      </div> -->
       <div class="t2" style="line-height:120%;">
         예전 성공 방식은<br>이제는 더 이상<br>통하지 않는 만큼
       </div>
@@ -490,7 +458,7 @@
       <div class="onWhiteArea" style="margin: 26px 0 0px;">
         <!-- Lead (I로 넘어가는 전환 헤드라인) -->
         <div class="lead">
-          <span class="em-soft">새로운 시대의 룰에 맞게</span><br><span class="em-soft">비즈니스 혁신만이<br>유일한 돌파구가 되고 있습니다.</span>
+          <span class="em-soft">혁신은 선택이 아니라<br>생존이 되고 있습니다</span>
         </div>
         <!-- Sub copy (Implication을 구체화: 건강·생활·비용의 파급) -->
         <!-- <p class="sub">
@@ -577,7 +545,7 @@
       justify-self:start; align-self:center; 
       margin-left:36px; text-align:left;
     }
-    #withcareFeatureCards .c1 .block { 
+    #withcareFeatureCards .c1 .block {  
       display:inline-block; 
       background:#d78e0b94; 
       padding:10px 16px; 
@@ -624,65 +592,62 @@
       #withcareFeatureCards .line{ font-size:24px; }
     }
     @media (max-width:720px){
-      #withcareFeatureCards{ padding:60px 14px; row-gap:18px; }
+      #withcareFeatureCards{ padding:60px 14px 0; row-gap:18px; }
       #withcareFeatureCards .card{ height:220px; border-radius:20px; }
-      #withcareFeatureCards .line{ font-size:19px; }
+      #withcareFeatureCards .line{ font-size:19px;}
       #withcareFeatureCards .c2::before{ left:16px; top:16px; bottom:16px; right:52%; border-radius:16px; }
       #withcareFeatureCards .c2 .txt{ margin-right:20px; }
       #withcareFeatureCards .c3 .txt{ margin-left:20px; }
       #withcareFeatureCards .c1 .txt{ margin-left:20px; }
     }
+    @media (max-width:450px){
+
+      #withcareFeatureCards .line{ font-size:13px;}
+   
+    }
+
   </style>
 
   <!-- Card 1 -->
-  <div class="card c1" style="--bg:url('https://cdn.aitimes.kr/news/photo/202305/28113_42409_1951.jpg');">
+  <div class="card c1" style="--bg:url('https://img.hankyung.com/photo/202410/ZA.38168417.1.jpg');">
     <i class="bg" aria-hidden="true"></i>
     <i class="shade" aria-hidden="true"></i>
     <div class="txt">
-      <span class="line">예전 방식이 통하지 않는데도 반복하고 있다면?</span>
-      <span class="line block" style="margin-top:6px;">당신은 이미 시대의 흐름에서<br>뒤쳐지고 있는 것이다.</span>
-       <span>* OPEN AI 창업자 샘 알트먼</span>
+      <span class="line">시대 변화 속 혁신을 선택하지 않으면,</span>
+      <span class="line block" style="margin-top:6px;">시장이 우리를 선택에서 제외한다.</span>
+       <span>* 테슬라 CEO 일론 머스크</span>
     </div>
   </div>
 
   <!-- Card 2 -->
-  <div class="card c2" style="--bg:url('https://i.namu.wiki/i/ClnBmvtgS7eNHMtNnCLlFoYIA10cAUkcfhwNAfsLDJXof3XNVe65pQnZ-7SMVZFu_rY6O3h9mGtkcxGCHB3rFA.webp');background-position: top;">
+  <div class="card c2" style="--bg:url('https://nimage.g-enews.com/phpwas/restmb_allidxmake.php?idx=5&simg=2025032419453801269fbbec65dfb1161228193.jpg');background-position: top;">
     <i class="bg" aria-hidden="true"></i>
     <i class="shade" aria-hidden="true"></i>
     <div class="txt">
-      <span class="line" style="margin-top:.25em;">아이스 하키 웨인 그레츠키</span>
-      <span class="line hl">나는 공이 있는 곳이 아니라,<br>공이 갈 곳으로 움직인다.</span>
-      
+      <span class="line" style="margin-top:.25em;">지금 변화 국면에서 그대로 있으면</span>
+      <span class="line hl">회복할 수 없을 정도로 뒤쳐질 것이다.</span>
+      <span>* 소프트뱅크 회장 손정의</span>
     </div>
   </div>
 
   <!-- Card 3 -->
-  <div class="card c3" style="--bg:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxa21CQnh_e54bDNuOPC7GtpVwQ_y0l8ss2A&s');">
+  <div class="card c3" style="--bg:url('https://image.kmib.co.kr/online_image/2023/0113/2023011220550577120_1673524505_0924282734.jpg');">
     <i class="bg" aria-hidden="true"></i>
     <i class="shade" aria-hidden="true"></i>
     <div class="txt">
-      <span class="line">경영학 구루 피터 드러커</span>
-      <span class="line hl" style="margin-top:.25em;">혁신이란 단순히 새로운 일을 하는 것이 아니라,<br>기존의 일을 새로운 방식으로 하는 것이다.</span>
+      <span class="line">현재 시대의 흐름 속</span>
+      <span class="line hl" style="margin-top:.25em;">10년을 ‘생존+성장’하려면 근본적 전환이 필요</span>
+        <span>* WEF (World Economic Forum)</span>
     </div>
   </div>
 
-
-  <!-- Card 2 -->
-  <div class="card c2" style="--bg:url('https://mblogthumb-phinf.pstatic.net/MjAyMjAxMzFfMjgg/MDAxNjQzNjA1MTk5OTk0.OUpXXMJbJ30xnJ1E-e4IRhHgTkgTzmut1weTHnmpMTMg.p8nmuqEoer_HfLm2XrCC0_kNhbYqD0rgEfCeoNdT_Fwg.PNG.jislee1290/5555.png?type=w800');background-position: top;">
-    <i class="bg" aria-hidden="true"></i>
-    <i class="shade" aria-hidden="true"></i>
-    <div class="txt">
-       <span class="line">영화 '관상'의 대사</span>
-      <span class="line hl" style="margin-top:.25em;">"난 사람의 얼굴을 보았을 뿐<br>시대의 모습을 보지 못했소.<br>시시각각 변하는 파도만 본 격이지.<br>
-파도를 만드는 건 바람인데 말이오."</span>
-      
-    </div>
-  </div>
 
    
 
 
 </section>
+
+
 
 
     </div>
@@ -692,538 +657,378 @@
 </section>
 
 
-
-
-
-
-<section id="h-service-banners" style="position:relative;">
-  <div class="h-container">
-    <h2 class="h-main-title">시대의 흐름을 제대로 읽고<br>현장에서 실제 혁신을 이루기 위한<br>6가지 컨텐츠</h2>
-
-    <div class="h-banner-wrapper" id="h-banner-container">
-  <!-- 1편 -->
-  <a class="h-banner banner-1" href="column-1.html" aria-label="1편 : 혁신의 필요성을 느끼고 있는 사업자라면?으로 이동">
-    <div class="h-banner-content">
-      <h3 class="h-dummy-title">01. 혁신의 필요성을 느끼고 있는 사업자라면?</h3>
-      <p class="h-banner-text">
-        열심히 하는데 결과가 줄어든다면,<br>노력의 문제가 아니라, 비즈니스의 룰이 바뀌었을 수 있다.
-      </p>
-    </div>
-  </a>
-
-  <!-- 2편 -->
-  <a class="h-banner banner-2" href="column-2.html" aria-label="2편. 혁신을 위해 꼭 알아야 할 비즈니스의 본질로 이동">
-    <div class="h-banner-content">
-      <h3 class="h-dummy-title">02. 혁신을 위해 꼭 알아야 할 비즈니스의 본질</h3>
-      <p class="h-banner-text">
-        시대가 바뀌고, 기술이 바뀌고, 시장의 모습이 달라져도<br>
-비즈니스의 본질은 단 한 번도 바뀐 적이 없다는 것이다.
-      </p>
-    </div>
-  </a>
-
-  <!-- 3편 -->
-  <a class="h-banner banner-3" href="column-3.html" aria-label="3편. 성공하는 비즈니스 혁신의 4가지 형태로 이동">
-    <div class="h-banner-content">
-      <h3 class="h-dummy-title">03. 성공하는 비즈니스 혁신의 4가지 형태</h3>
-      <p class="h-banner-text">
-       비즈니스 혁신의 방식은 무수히 많아 보인다.<br>
-그러나 실제로 성과로 이어진 혁신은 대부분 네 가지 유형 안에서 반복된다.
-      </p>
-    </div>
-  </a>
-
-  <!-- 4편 -->
-  <a class="h-banner banner-4 h-hidden" href="column-4.html" aria-label="4편. 혁신을 위한 진정한 비즈니스의 흐름은 어떻게 읽어내는가?로 이동">
-    <div class="h-banner-content">
-      <h3 class="h-dummy-title">04. 혁신을 위한 진정한 비즈니스의 흐름은 어떻게 읽어내는가?</h3>
-      <p class="h-banner-text">
-        혁신을 위한 가장 중요한 능력은<br>
-시대의 바람을 읽어내는 힘이다.
-      </p>
-    </div>
-  </a>
-
-  <!-- 5편 -->
-  <a class="h-banner banner-5 h-hidden" href="column-5.html" aria-label="5편. 혁신은 아무나 못한다로 이동">
-    <div class="h-banner-content">
-      <h3 class="h-dummy-title">05. 혁신은 아무나 못한다</h3>
-      <p class="h-banner-text">
-        왜 혁신은 늘 소수의 선택으로 남을까?<br>
-        혁신을 가로막는 구조적인 장벽이 존재하기 때문이다.
-      </p>
-    </div>
-  </a>
-
-  <!-- 6편 -->
-  <a class="h-banner banner-6 h-hidden" href="column-6.html" aria-label="6편. 혁신은 개인적이지만, 이뤄내는 것은 함께로 이동">
-    <div class="h-banner-content">
-      <h3 class="h-dummy-title">06. 혁신은 개인적이지만, 이뤄내는 것은 함께</h3>
-      <p class="h-banner-text">
-        혁신의 출발은 개인이지만, 완주는 시스템과 팀이 만듭니다<br>
-        실행이 지속되는 협업 구조와 환경의 중요성
-      </p>
-    </div>
-  </a>
-</div>
-
-
-    <button id="h-load-more-btn">혁신 인사이트 더보기 <span class="arrow">▼</span></button>
-  </div>
-
+<section id="aiRobotHero" aria-label="AI 로봇 솔루션 히어로 섹션">
   <style>
-    /* ==============================
-       Scope: #h-service-banners only
-       ============================== */
-    #h-service-banners {
-      font-family: 'Pretendard', -apple-system, system-ui, sans-serif;
-      padding: 80px 20px;
-      margin: 0 auto;
-      text-align: center;
-      background: #fff;
+    /* ===============================
+       Scope: #aiRobotHero ONLY
+       =============================== */
+    #aiRobotHero{
+      --bg:#ffffff;
+      --ink:#0b0d12;
+      --muted:#5b6472;
+      --max:1120px;
+      --padX:20px;
+
+      --titleSize:clamp(20px, 3.2vw, 37px);
+      --subSize:clamp(15px, 1.3vw, 21px);
+
+      --radius:18px;
+      --shadow:0 18px 55px rgba(15, 23, 42, .14);
+      --line:rgba(15, 23, 42, .10);
+
+      font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      padding:clamp(34px, 5.5vw, 56px) 0 clamp(36px, 6vw, 72px);
     }
 
-    #h-service-banners .h-main-title{
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 50px;
-      line-height: 1.4;
-      color: #111;
-      letter-spacing: -0.02em;
+    #aiRobotHero .arh-wrap{max-width:var(--max); margin:0 auto; padding:0 var(--padX);}
+
+    #aiRobotHero .arh-head{ text-align:center; }
+    #aiRobotHero .arh-title{
+      margin:0;
+      font-size:var(--titleSize);
+      line-height:1.25;
+      font-weight:850;
+    }
+    #aiRobotHero .arh-sub{
+      margin:22px auto;
+      max-width:60ch;
+      font-size:var(--subSize);
+      line-height:1.6;
+      color:var(--muted);
+      font-weight:500;
     }
 
-    #h-service-banners .h-banner-wrapper{
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      margin-bottom: 40px;
+    #aiRobotHero .arh-media{
+      margin:clamp(22px, 3.6vw, 34px) auto 0;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:#eef2f7;
+      border:1px solid var(--line);
     }
 
-    /* 배경 이미지 줌을 위해 background-image를 ::before로 분리 */
-    #h-service-banners .h-banner{
-      position: relative;
-      height: 320px;
-      border-radius: 30px;
-      overflow: hidden;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      color: #fff;
-      transition: opacity 0.5s ease, transform 0.5s ease;
-
-      cursor: pointer;
-      outline: none;
-
-      text-decoration: none;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
+    #aiRobotHero .arh-frame{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      min-height:260px;
+      max-height:520px;
     }
 
-    /* 이미지 레이어 */
-    #h-service-banners .h-banner::before{
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: var(--h-bg);
-      background-size: cover;
-      background-position: center;
-      transform: scale(1);
-      transition: transform 600ms cubic-bezier(.2,.8,.2,1);
-      will-change: transform;
-      z-index: 0;
-    }
-
-    /* 어두운 오버레이 */
-    #h-service-banners .h-banner::after{
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52));
-      opacity: 1;
-      transition: opacity 350ms ease;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* 콘텐츠는 위로 */
-    #h-service-banners .h-banner-content{
-      position: relative;
-      z-index: 2;
-      padding: 0 18px;
-      max-width: 980px;
-    }
-
-    /* ✅ Hover: 이미지 확대 + 살짝 선명 */
-    @media (hover:hover){
-      #h-service-banners .h-banner:hover::before{ transform: scale(1.08); }
-      #h-service-banners .h-banner:hover::after{ opacity: .94; }
-    }
-
-    #h-service-banners .h-banner:focus-visible{
-      box-shadow: 0 0 0 4px rgba(17, 24, 39, .10), 0 0 0 2px rgba(255,255,255,.55) inset;
-    }
-
-    /* ✅ 숨김/등장 애니메이션 기존 유지 */
-    #h-service-banners .h-banner.h-hidden{
-      display: none;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    /* ✅ 각 배너별 이미지 */
-    #h-service-banners .banner-1{ --h-bg: url('https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?q=80&w=1000&auto=format&fit=crop'); }
-    #h-service-banners .banner-2{ --h-bg: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop'); }
-    #h-service-banners .banner-3{ --h-bg: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1000&auto=format&fit=crop'); }
-    #h-service-banners .banner-4{ --h-bg: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1000&auto=format&fit=crop'); }
-    #h-service-banners .banner-5{ --h-bg: url('https://images.unsplash.com/photo-1509391366360-fe5bb58583bb?q=80&w=1000&auto=format&fit=crop'); }
-    #h-service-banners .banner-6{ --h-bg: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop'); }
-    #h-service-banners .banner-7{ --h-bg: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop'); }
-
-    #h-service-banners .h-dummy-title{
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 15px;
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-    }
-    #h-service-banners .h-banner-text{
-      font-size: 18px;
-      opacity: 0.95;
-      line-height: 1.6;
-      word-break: keep-all;
-      letter-spacing: -0.01em;
-    }
-
-    #h-service-banners #h-load-more-btn{
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 16px 80px;
-      border-radius: 50px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #666;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    #h-service-banners #h-load-more-btn:hover{ background-color: #f5f5f5; color: #222; border-color: #bbb; }
-    #h-service-banners #h-load-more-btn.is-hidden{ display: none; }
-
-    @media (max-width: 768px){
-      #h-service-banners .h-banner{ height: 260px; border-radius: 24px; }
-      #h-service-banners .h-main-title{ font-size: 26px; }
-      #h-service-banners .h-dummy-title{ font-size: 22px; }
-      #h-service-banners .h-banner-text{ font-size: 15px; }
-      #h-service-banners #h-load-more-btn{ padding: 14px 44px; }
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      #h-service-banners .h-banner,
-      #h-service-banners .h-banner::before,
-      #h-service-banners .h-banner::after{
-        transition: none !important;
-      }
-    }
-
-    /* =========================================================
-       🔒 Lock UI (ONLY inside #h-service-banners)
-       - Keep text visible
-       - Show white lock icon
-       ========================================================= */
-
-    /* 잠긴 배너 식별 클래스(스크립트가 추가) */
-    #h-service-banners .h-banner.is-locked{
-      cursor: not-allowed;
-    }
-
-    /* 소프트 오버레이: 기존 그라데이션(= .h-banner::after z-index:1) 위에 살짝만 */
-    #h-service-banners .h-banner.is-locked .h-banner-content{
-      position: relative;
-      z-index: 4; /* ✅ 글자가 항상 최상위(자물쇠보다 아래로만) */
-      opacity: 1 !important;
-      filter: none !important;
-    }
-
-    /* 추가 오버레이 */
-    #h-service-banners .h-banner.is-locked::marker{ content:""; } /* (무해) */
-
-    /* 잠금 오버레이 레이어 */
-    #h-service-banners .h-banner.is-locked .lock-overlay{
+    #aiRobotHero .arh-img{
       position:absolute;
       inset:0;
-      z-index:3;
-      pointer-events:none;
-      background:rgba(0,0,0,.12);
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
-   /* ✅ 자물쇠 아이콘(흰색 단색 아이콘) */
-#h-service-banners .h-banner.is-locked .lock-badge{
-  position:absolute;
-  right:22px;
-  top:22px;
-  z-index:5;
-  pointer-events:none;
+    #aiRobotHero .arh-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.15) 100%);
+      pointer-events:none;
+    }
 
-  width:32px;
-  height:32px;
-
-  /* 배경/테두리/원 제거 */
-  border-radius:0;
-  background:transparent;
-  border:none;
-  backdrop-filter:none;
-  -webkit-backdrop-filter:none;
-
-  /* 흰색 자물쇠 SVG */
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10V8a5 5 0 0 1 10 0v2' stroke='%23ffffff' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M6.5 10h11A2.5 2.5 0 0 1 20 12.5v6A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5v-6A2.5 2.5 0 0 1 6.5 10Z' stroke='%23ffffff' stroke-width='2'/%3E%3Cpath d='M12 14v3' stroke='%23ffffff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:contain;
-
-  /* 기존 flex/폰트 영향 제거 */
-  display:block;
-}
-
-
-    /* 토스트(섹션 전용) */
-    #h-service-banners .col-unlock-toast{
-      position:fixed;
-      left:50%;
-      bottom:24px;
-      transform:translateX(-50%);
-      z-index:99999;
-
-      max-width:min(560px, calc(100vw - 28px));
-      padding:12px 14px;
-      border-radius:14px;
-
-      font-family:'Pretendard',-apple-system,system-ui,sans-serif;
-      font-size:14px;
-      font-weight:800;
-      letter-spacing:-.01em;
-
+    /* ✅ 중앙 정렬 텍스트 박스 */
+    #aiRobotHero .arh-textbox{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:clamp(18px, 3vw, 48px);
       color:#fff;
-      background:rgba(17,24,39,.92);
-      border:1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow:0 14px 40px rgba(0,0,0,.25);
-
-      opacity:0;
-      pointer-events:none;
-      transition:opacity .25s ease, transform .25s ease;
+      z-index:2;
     }
-    #h-service-banners .col-unlock-toast.is-show{
-      opacity:1;
-      transform:translateX(-50%) translateY(-6px);
+
+    #aiRobotHero .arh-imgtitle{
+      margin:0;
+      font-size:clamp(18px, 2.4vw, 34px);
+      line-height:1.45;
+      font-weight:850;
+      text-shadow:0 12px 32px rgba(0,0,0,.45);
+    }
+
+    #aiRobotHero .arh-imgdesc{
+      margin-top:14px;
+      font-size:clamp(14px, 1.5vw, 18px);
+      line-height:1.6;
+      color:rgba(255,255,255,.95);
+      text-shadow:0 10px 24px rgba(0,0,0,.4);
+    }
+
+    #aiRobotHero .arh-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:18px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(0,0,0,.28);
+      color:#fff;
+      font-size:12px;
+      backdrop-filter: blur(6px);
+    }
+
+    #aiRobotHero .arh-dot{
+      width:7px;height:7px;border-radius:99px;
+      background:#fff;
+      box-shadow:0 0 0 6px rgba(255,255,255,.25)
+    }
+
+    #aiRobotHero [contenteditable="true"]{
+      outline:none;
+      border-radius:12px;
+      padding:6px 12px;
+      background:rgba(0,0,0,0);
+      transition:.15s ease;
+    }
+
+    #aiRobotHero [contenteditable="true"]:focus{
+      background:rgba(0,0,0,.25);
+      box-shadow:0 0 0 2px rgba(255,255,255,.6);
     }
   </style>
 
+  <div class="arh-wrap">
+    <header class="arh-head">
+      <h1 class="arh-title">
+        급변하는 AI 시대<br>
+        변하지 않으면 생존하기 힘든 위기를<br>
+        기회로 바꾸는 혁신의 길을 전달합니다.
+      </h1>
+      <p class="arh-sub">
+        트렌드를 쫓는 것이 아니라 시대의 바람을 읽고<br>
+        새로운 비즈니스 흐름에 맞는 혁신의 길을 제시합니다.
+      </p>
+    </header>
+
+    <figure class="arh-media">
+      <div class="arh-frame">
+        <img class="arh-img" src="./img/business.jpg" alt="혁신 배경 이미지">
+
+        <div class="arh-textbox">
+          <h2 class="arh-imgtitle" contenteditable="true">
+           달라진 세상을 먼저 느끼고<br>비즈니스의 흐름과 판도를 바꾸는<br>생각 1% 사업자를 위한 혁신의 공간
+          </h2>
+
+        </div>
+
+        <div class="arh-overlay"></div>
+      </div>
+    </figure>
+  </div>
+
   <script>
-    (function() {
-      var root = document.getElementById('h-service-banners');
+    (function(){
+      const root = document.getElementById('aiRobotHero');
       if(!root) return;
 
-      /* =============================
-         (A) 기존 더보기 기능 유지
-         ============================= */
-      var btn = root.querySelector('#h-load-more-btn');
-      var hiddenItems = root.querySelectorAll('.h-banner.h-hidden');
+      const editables = root.querySelectorAll('[contenteditable="true"]');
 
-      if(btn){
-        btn.addEventListener('click', function() {
-          hiddenItems.forEach(function(item, index){
-            setTimeout(function(){
-              item.style.display = 'flex';
-              item.offsetHeight;
-              setTimeout(function(){
-                item.style.opacity = '1';
-                item.style.transform = 'translateY(0)';
-              }, 40);
-            }, index * 150);
-          });
-          btn.classList.add('is-hidden');
-
-          // 잠금 상태 다시 적용(새로 나타난 배너에도)
-          setTimeout(applyLocksToBanners, 80);
-        });
-      }
-
-      /* =============================
-         (B) 잠금/해제 (column.html 전용)
-         ============================= */
-      var MAX_COL = 6;
-      var LS_KEY = 'bi_column_unlocked_max';
-      var CK_KEY = 'bi_column_unlocked_max';
-      var COOKIE_DAYS = 365;
-
-      function setCookie(name, value, days){
-        try{
-          var d = new Date();
-          d.setTime(d.getTime() + (days*24*60*60*1000));
-          var expires = "expires=" + d.toUTCString();
-          document.cookie = name + "=" + encodeURIComponent(String(value)) + ";" + expires + ";path=/;SameSite=Lax";
-        }catch(e){}
-      }
-      function getCookie(name){
-        try{
-          var n = name + "=";
-          var parts = document.cookie.split(';');
-          for(var i=0;i<parts.length;i++){
-            var c = parts[i].trim();
-            if(c.indexOf(n) === 0){
-              return decodeURIComponent(c.substring(n.length, c.length));
-            }
-          }
-        }catch(e){}
-        return null;
-      }
-      function clampInt(v, min, max){
-        v = parseInt(v, 10);
-        if(isNaN(v)) v = min;
-        if(v < min) v = min;
-        if(v > max) v = max;
-        return v;
-      }
-      function getUnlockedMax(){
-        var ls = null, ck = null;
-        try{ ls = localStorage.getItem(LS_KEY); }catch(e){}
-        ck = getCookie(CK_KEY);
-
-        var a = clampInt(ls, 1, MAX_COL);
-        var b = clampInt(ck, 1, MAX_COL);
-        return Math.max(a, b, 1);
-      }
-      function setUnlockedMax(val){
-        val = clampInt(val, 1, MAX_COL);
-        try{ localStorage.setItem(LS_KEY, String(val)); }catch(e){}
-        setCookie(CK_KEY, String(val), COOKIE_DAYS);
-        return val;
-      }
-
-      /* 토스트 */
-      var toastEl = null, toastTimer = null;
-      function showToast(msg){
-        if(!toastEl){
-          toastEl = document.createElement('div');
-          toastEl.className = 'col-unlock-toast';
-          root.appendChild(toastEl);
-        }
-        toastEl.textContent = msg;
-        toastEl.classList.add('is-show');
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(function(){
-          toastEl && toastEl.classList.remove('is-show');
-        }, 2200);
-      }
-
-      /* 잠금 UI 엘리먼트(오버레이/배지) 주입 */
-      function ensureLockElements(banner){
-        // overlay
-        var ov = banner.querySelector('.lock-overlay');
-        if(!ov){
-          ov = document.createElement('div');
-          ov.className = 'lock-overlay';
-          banner.appendChild(ov);
-        }
-        // badge
-        var bd = banner.querySelector('.lock-badge');
-        if(!bd){
-          bd = document.createElement('div');
-          bd.className = 'lock-badge';
-          bd.textContent = '';
-          banner.appendChild(bd);
-        }
-      }
-
-      function removeLockElements(banner){
-        var ov = banner.querySelector('.lock-overlay');
-        var bd = banner.querySelector('.lock-badge');
-        if(ov) ov.remove();
-        if(bd) bd.remove();
-      }
-
-      function applyLocksToBanners(){
-        // 값 없으면 1편만 열리도록 고정
-        setUnlockedMax(getUnlockedMax());
-        var unlockedMax = getUnlockedMax();
-
-        var links = root.querySelectorAll('a.h-banner[href*="column-"]');
-        links.forEach(function(a){
-          var href = a.getAttribute('href') || '';
-          var m = href.match(/column-(\d+)\.html/i);
-          if(!m) return;
-
-          var n = parseInt(m[1], 10);
-          if(isNaN(n) || n < 1 || n > MAX_COL) return;
-
-          var shouldLock = n > unlockedMax;
-
-          if(shouldLock){
-            a.classList.add('is-locked');
-            a.dataset.colLock = "1";
-            a.setAttribute('aria-disabled','true');
-
-            // 잠금 요소 주입
-            ensureLockElements(a);
-          }else{
-            a.classList.remove('is-locked');
-            delete a.dataset.colLock;
-            a.removeAttribute('aria-disabled');
-
-            // 잠금 요소 제거
-            removeLockElements(a);
-          }
-        });
-      }
-
-      /* 잠긴 배너 클릭 차단 + 안내 */
-      function bindLockedClickGuard(){
-        root.addEventListener('click', function(e){
-          var a = e.target && (e.target.closest ? e.target.closest('a.h-banner[data-col-lock="1"]') : null);
-          if(!a) return;
-
+      editables.forEach(el => {
+        el.addEventListener('paste', e => {
           e.preventDefault();
-          e.stopPropagation();
+          const text = (e.clipboardData || window.clipboardData).getData('text/plain');
+          document.execCommand('insertText', false, text);
+        });
 
-          var href = a.getAttribute('href') || '';
-          var m = href.match(/column-(\d+)\.html/i);
-          var targetN = m ? parseInt(m[1],10) : null;
-          var unlockedMax = getUnlockedMax();
-
-          if(targetN && targetN === unlockedMax + 1){
-            showToast('🔒 다음 편은 아직 잠겨있습니다. 이전 편을 읽으면 열립니다.');
-          }else{
-            showToast('🔒 1편부터 순서대로 열립니다. 먼저 이전 편을 읽어주세요.');
+        el.addEventListener('keydown', e => {
+          if(e.key === 'Enter' && el.tagName === 'H2'){
+            e.preventDefault();
           }
-          return false;
-        }, true);
-      }
-
-      // 초기 실행
-      applyLocksToBanners();
-      bindLockedClickGuard();
-
+        });
+      });
     })();
   </script>
 </section>
 
+<section id="h-energy-info-section">
+  <div class="container1">
+    <h2 class="main-title">비즈니스 혁신 연구소는<br>실제 혁신을 이끌어갑니다.</h2>
+    
+    <div class="grid-container">
+      <div class="card card-large">
+        <div class="card-header">
+          <span class="category">기술 및 경영 혁신</span>
+          <span class="icon">🎖️</span>
+        </div>
+        <h3 class="card-title">동탑산업훈장 수상</h3>
+        <p class="card-desc">국가 산업 발전에 기여한 공로를 인정받았어요.</p>
+      </div>
+
+      <div class="card card-large">
+        <div class="card-header">
+          <span class="category">에너지 혁신</span>
+          <span class="icon">🏆</span>
+        </div>
+        <h3 class="card-title">기후에너지혁신상 수상</h3>
+        <p class="card-desc">친환경 기술 혁신성을 정부로부터 인정받았어요.</p>
+      </div>
+
+      <div class="card card-small">
+        <div class="card-header">
+          <span class="category">기술적 신뢰</span>
+          <span class="icon">📍</span>
+        </div>
+        <h3 class="card-title">기후테크 기업 선정</h3>
+        <p class="card-desc">기술력과 혁신성을 공식적으로 인정 받았어요.</p>
+      </div>
+
+      <div class="card card-small">
+        <div class="card-header">
+          <span class="category">에너지기술평가원 평가등급</span>
+          <span class="icon">🌐</span>
+        </div>
+        <h3 class="card-title">AA 등급</h3>
+        <p class="card-desc">국가 공인 기술력으로 안전하고 효율적으로 투자해요.</p>
+      </div>
+
+      <div class="card card-small">
+        <div class="card-header">
+          <span class="category">재무적 신뢰</span>
+          <span class="icon">📊</span>
+        </div>
+        <h3 class="card-title">BBB+ 등급</h3>
+        <p class="card-desc">기업신용등급평가에서 안정성과 신뢰도를 증명해요.</p>
+      </div>
+
+      <div class="card card-small">
+        <div class="card-header">
+          <span class="category">환경적 신뢰</span>
+          <span class="icon">🍃</span>
+        </div>
+        <h3 class="card-title">ISO 14001 인증</h3>
+        <p class="card-desc">국제 표준화 기구에서 친환경 운영 역량을 인증했어요.</p>
+      </div>
+
+      <div class="card card-small">
+        <div class="card-header">
+          <span class="category">운영 중인 누적 발전소</span>
+          <span class="icon">🏢</span>
+        </div>
+        <h3 class="card-title">5,000개 +</h3>
+        <p class="card-desc">다양한 유형의 발전소 운영 노하우를 제공해요.</p>
+      </div>
+
+      <div class="card card-small">
+        <div class="card-header">
+          <span class="category">누적 전기 생산량</span>
+          <span class="icon">⚡</span>
+        </div>
+        <h3 class="card-title">100,000 kW +</h3>
+        <p class="card-desc">수 많은 사용자의 비즈니스와 일상을 밝히고 있어요.</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Section Scoped CSS */
+    #h-energy-info-section {
+      background-color: #ffffff;
+      padding: 80px 20px;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+    }
+
+    #h-energy-info-section .container1 {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    #h-energy-info-section .main-title {
+      font-size: 36px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.4;
+      margin-bottom: 60px;
+      letter-spacing: -0.5px;
+    }
+
+    #h-energy-info-section .grid-container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr); /* 6컬럼 그리드로 유연한 배치 */
+      gap: 20px;
+    }
+
+    #h-energy-info-section .card {
+      background-color: #f4f6fa;
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+
+    /* Row 1: 2 Cards (3 columns each) */
+    #h-energy-info-section .card-large {
+      grid-column: span 3;
+      min-height: 180px;
+    }
+
+    /* Row 2 & 3: 3 Cards (2 columns each) */
+    #h-energy-info-section .card-small {
+      grid-column: span 2;
+      min-height: 200px;
+    }
+
+    #h-energy-info-section .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    #h-energy-info-section .category {
+      font-size: 14px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    #h-energy-info-section .icon {
+      font-size: 24px;
+      opacity: 0.3; /* 이미지의 연한 아이콘 느낌 재현 */
+      filter: grayscale(1);
+    }
+
+    #h-energy-info-section .card-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #001d6c; /* 진한 네이비 톤 */
+      margin: 0 0 15px 0;
+    }
+
+    #h-energy-info-section .card-desc {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.5;
+      margin: 0;
+      word-break: keep-all;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      #h-energy-info-section .card-large,
+      #h-energy-info-section .card-small {
+        grid-column: span 6;
+      }
+    }
+  </style>
+</section>
 
 
-<!-- ✅ 최신화 버전: 텍스트(span) 제거 + 전부 로고 이미지(img)로 교체 가능
-     - 롤링: 1줄 무한 롤링 (기존 방식 유지)
-     - 고정: PC 4열 / 모바일 2열 + 최대 8개 “한 번에” 보이도록(PC=2줄, Mobile=4줄)
-     - 이미지: object-fit:contain로 짤림 없이 카드 안에 맞춤
-     - 각 로고는 data-name + alt 로 접근성 유지
--->
 <section id="partner-logo-slider-section" aria-label="파트너 로고 슬라이더 섹션">
   <div class="pls-wrap">
     <h2 class="pls-title">
-      이미 많은 비즈니스의 혁신을<br>
+      또한 많은 비즈니스의 혁신을<br>
       함께 만들어가고 있습니다.
     </h2>
 
@@ -1986,268 +1791,532 @@
   </script>
 </section>
 
-
-
-<section id="h-energy-interview-section">
+<section id="h-service-banners" style="position:relative;">
   <div class="h-container">
-    <h2 class="h-section-title">함께하는 사람들과의 인터뷰</h2>
+    <h2 class="h-main-title">혁신을 원하지만<br>어떻게 해야할지 모르겠다면?<br><br>현장 혁신을 이루기 위한<br>6가지 컨텐츠 칼럼</h2>
 
-    <div class="h-slider-viewport" id="sliderViewport">
-      <div class="h-slide-track" id="slideTrack">
-        
-        <div class="h-slide">
-          <div class="h-video-card" onclick="handleCardClick('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-            <div class="h-grid-bg"></div>
-            <div class="h-card-content">
-              <div class="h-text-box">
-                <h3 class="h-card-main-txt">믿을 수 있는<br>에너지 혁신<br>플랫폼 모햇</h3>
-                <p class="h-author">에이치에너지 함일한 대표</p>
-              </div>
-              <div class="h-person-img-box">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" alt="함일한 대표" class="h-person-img">
-              </div>
-            </div>
-            <div class="h-play-btn">▶</div>
-            <div class="h-interview-badge">H interview</div>
-          </div>
-          <p class="h-caption">[임직원 인터뷰] 모햇을 선택해야 하는 이유, 에이치에너지 함일한 대표 '2부'</p>
-        </div>
-
-        <div class="h-slide">
-          <div class="h-video-card" style="background-color: #1a1a1a;" onclick="handleCardClick('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-            <div class="h-grid-bg"></div>
-            <div class="h-card-content">
-              <div class="h-text-box">
-                <h3 class="h-card-main-txt">현장에서 답을 찾는<br>안전 관리의 정석</h3>
-                <p class="h-author">에너지전략본부 김철수 팀장</p>
-              </div>
-              <div class="h-person-img-box">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600" alt="김철수 팀장" class="h-person-img">
-              </div>
-            </div>
-            <div class="h-play-btn">▶</div>
-            <div class="h-interview-badge">H interview</div>
-          </div>
-          <p class="h-caption">[임직원 인터뷰] 365일 무사고를 실현하는 H에너지 현장 관리 시스템</p>
-        </div>
-
-      </div>
-
-      <div class="h-slider-controls">
-        <div class="h-progress-container">
-          <div class="h-progress-bar" id="progressBar"></div>
-        </div>
-        <div class="h-nav-btns">
-          <button onclick="moveSlide(-1)">❮</button>
-          <button onclick="moveSlide(1)">❯</button>
-        </div>
-      </div>
+    <div class="h-banner-wrapper" id="h-banner-container">
+  <!-- 1편 -->
+  <a class="h-banner banner-1" href="column-1.html" aria-label="1편 : 혁신의 필요성을 느끼고 있는 사업자라면?으로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">01. 혁신의 필요성을 느끼고 있는 사업자라면?</h3>
+      <p class="h-banner-text">
+        열심히 하는데 결과가 줄어든다면,<br>노력의 문제가 아니라, 비즈니스의 룰이 바뀌었을 수 있다.
+      </p>
     </div>
-  </div>
+  </a>
 
-  <div id="videoModal" class="h-modal-overlay" onclick="closeVideoModal()">
-    <div class="h-modal-content" onclick="event.stopPropagation()">
-      <button class="h-modal-close" onclick="closeVideoModal()">&times;</button>
-      <div class="h-video-wrapper">
-        <iframe id="videoIframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </div>
+  <!-- 2편 -->
+  <a class="h-banner banner-2" href="column-2.html" aria-label="2편. 혁신을 위해 꼭 알아야 할 비즈니스의 본질로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">02. 혁신을 위해 꼭 알아야 할 비즈니스의 본질</h3>
+      <p class="h-banner-text">
+        시대가 바뀌고, 기술이 바뀌고, 시장의 모습이 달라져도<br>
+비즈니스의 본질은 단 한 번도 바뀐 적이 없다는 것이다.
+      </p>
     </div>
+  </a>
+
+  <!-- 3편 -->
+  <a class="h-banner banner-3" href="column-3.html" aria-label="3편. 성공하는 비즈니스 혁신의 4가지 형태로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">03. 성공하는 비즈니스 혁신의 4가지 형태</h3>
+      <p class="h-banner-text">
+       비즈니스 혁신의 방식은 무수히 많아 보인다.<br>
+그러나 실제로 성과로 이어진 혁신은 대부분 네 가지 유형 안에서 반복된다.
+      </p>
+    </div>
+  </a>
+
+  <!-- 4편 -->
+  <a class="h-banner banner-4 h-hidden" href="column-4.html" aria-label="4편. 혁신을 위한 진정한 비즈니스의 흐름은 어떻게 읽어내는가?로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">04. 혁신을 위한 진정한 비즈니스의 흐름은 어떻게 읽어내는가?</h3>
+      <p class="h-banner-text">
+        혁신을 위한 가장 중요한 능력은<br>
+시대의 바람을 읽어내는 힘이다.
+      </p>
+    </div>
+  </a>
+
+  <!-- 5편 -->
+  <a class="h-banner banner-5 h-hidden" href="column-5.html" aria-label="5편. 혁신은 아무나 못한다로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">05. 혁신은 아무나 못한다</h3>
+      <p class="h-banner-text">
+        왜 혁신은 늘 소수의 선택으로 남을까?<br>
+        혁신을 가로막는 구조적인 장벽이 존재하기 때문이다.
+      </p>
+    </div>
+  </a>
+
+  <!-- 6편 -->
+  <a class="h-banner banner-6 h-hidden" href="column-6.html" aria-label="6편. 혁신은 개인적이지만, 이뤄내는 것은 함께로 이동">
+    <div class="h-banner-content">
+      <h3 class="h-dummy-title">06. 혁신은 개인적이지만, 이뤄내는 것은 함께</h3>
+      <p class="h-banner-text">
+        혁신의 출발은 개인이지만, 완주는 시스템과 팀이 만듭니다<br>
+        실행이 지속되는 협업 구조와 환경의 중요성
+      </p>
+    </div>
+  </a>
+</div>
+
+
+    <button id="h-load-more-btn">혁신 인사이트 더보기 <span class="arrow">▼</span></button>
   </div>
 
   <style>
-    /* 기본 레이아웃 */
-    #h-energy-interview-section { padding: 60px 20px; font-family: 'Pretendard', sans-serif; max-width: 1000px; margin: 0 auto; user-select: none; }
-    #h-energy-interview-section .h-section-title { text-align: center; font-size: 26px; font-weight: 700; margin-bottom: 40px; color: #333; }
-    
-    /* 슬라이더 영역 */
-    .h-slider-viewport { position: relative; overflow: hidden; cursor: grab; }
-    .h-slider-viewport:active { cursor: grabbing; }
-    .h-slide-track { display: flex; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); will-change: transform; }
-    .h-slide { min-width: 100%; box-sizing: border-box; padding: 10px; }
-
-    /* 카드 디자인 */
-    .h-video-card {
-      position: relative; background-color: #000; border-radius: 24px; height: 480px; 
-      overflow: hidden; display: flex; align-items: center; justify-content: space-between;
-    }
-    .h-grid-bg {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background-image: linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
-      background-size: 30px 30px;
+    /* ==============================
+       Scope: #h-service-banners only
+       ============================== */
+    #h-service-banners {
+      font-family: 'Pretendard', -apple-system, system-ui, sans-serif;
+      padding: 80px 20px;
+      margin: 0 auto;
+      text-align: center;
+      background: #fff;
     }
 
-    /* 텍스트 박스 (데스크탑: 왼쪽 배치) */
-    .h-text-box {
-      background: #fff; padding: 40px; width: 340px; z-index: 10;
-      box-shadow: 15px 15px 0px rgba(0,0,0,0.3); margin-left: 60px;
+    #h-service-banners .h-main-title{
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 50px;
+      line-height: 1.4;
+      color: #111;
+      letter-spacing: -0.02em;
     }
-    .h-card-main-txt { font-size: 38px; font-weight: 800; line-height: 1.2; margin-bottom: 15px; color: #000; }
-    .h-author { font-size: 16px; color: #444; }
 
-    /* 인물 이미지 (데스크탑: 오른쪽 하단 고정) */
-    .h-person-img-box { position: absolute; right: 40px; bottom: 0; height: 90%; z-index: 5; display: flex; align-items: flex-end; }
-    .h-person-img { height: 100%; width: auto; object-fit: contain; pointer-events: none; }
-
-    /* 재생 버튼 및 배지 */
-    .h-play-btn {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 70px; height: 70px; background: rgba(255,255,255,0.8); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; font-size: 24px; z-index: 15;
+    #h-service-banners .h-banner-wrapper{
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 40px;
     }
-    .h-interview-badge {
-      position: absolute; top: 30px; right: 30px; background: #fff; padding: 8px 16px;
-      font-weight: 800; transform: rotate(2deg); box-shadow: 3px 3px 0 #333; z-index: 20;
-    }
-    .h-caption { margin-top: 15px; font-size: 15px; color: #666; font-weight: 500; }
 
-    /* 모바일 레이아웃 최적화: 글자가 그림을 덮지 않도록 상하 배치 전환 */
-    @media (max-width: 768px) {
-      .h-video-card { height: auto; flex-direction: column; align-items: center; padding: 60px 0 0 0; }
-      .h-text-box { 
-        width: 80%; margin-left: 0; margin-bottom: 20px; padding: 25px; 
-        box-shadow: 8px 8px 0px rgba(0,0,0,0.3); position: relative;
+    /* 배경 이미지 줌을 위해 background-image를 ::before로 분리 */
+    #h-service-banners .h-banner{
+      position: relative;
+      height: 320px;
+      border-radius: 30px;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #fff;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+
+      cursor: pointer;
+      outline: none;
+
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* 이미지 레이어 */
+    #h-service-banners .h-banner::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--h-bg);
+      background-size: cover;
+      background-position: center;
+      transform: scale(1);
+      transition: transform 600ms cubic-bezier(.2,.8,.2,1);
+      will-change: transform;
+      z-index: 0;
+    }
+
+    /* 어두운 오버레이 */
+    #h-service-banners .h-banner::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52));
+      opacity: 1;
+      transition: opacity 350ms ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* 콘텐츠는 위로 */
+    #h-service-banners .h-banner-content{
+      position: relative;
+      z-index: 2;
+      padding: 0 18px;
+      max-width: 980px;
+    }
+
+    /* ✅ Hover: 이미지 확대 + 살짝 선명 */
+    @media (hover:hover){
+      #h-service-banners .h-banner:hover::before{ transform: scale(1.08); }
+      #h-service-banners .h-banner:hover::after{ opacity: .94; }
+    }
+
+    #h-service-banners .h-banner:focus-visible{
+      box-shadow: 0 0 0 4px rgba(17, 24, 39, .10), 0 0 0 2px rgba(255,255,255,.55) inset;
+    }
+
+    /* ✅ 숨김/등장 애니메이션 기존 유지 */
+    #h-service-banners .h-banner.h-hidden{
+      display: none;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* ✅ 각 배너별 이미지 */
+    #h-service-banners .banner-1{ --h-bg: url('https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-2{ --h-bg: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-3{ --h-bg: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-4{ --h-bg: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-5{ --h-bg: url('https://images.unsplash.com/photo-1509391366360-fe5bb58583bb?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-6{ --h-bg: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop'); }
+    #h-service-banners .banner-7{ --h-bg: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop'); }
+
+    #h-service-banners .h-dummy-title{
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+    #h-service-banners .h-banner-text{
+      font-size: 18px;
+      opacity: 0.95;
+      line-height: 1.6;
+      word-break: keep-all;
+      letter-spacing: -0.01em;
+    }
+
+    #h-service-banners #h-load-more-btn{
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 16px 80px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #h-service-banners #h-load-more-btn:hover{ background-color: #f5f5f5; color: #222; border-color: #bbb; }
+    #h-service-banners #h-load-more-btn.is-hidden{ display: none; }
+
+    @media (max-width: 768px){
+      #h-service-banners .h-banner{ height: 260px; border-radius: 24px; }
+      #h-service-banners .h-main-title{ font-size: 26px; }
+      #h-service-banners .h-dummy-title{ font-size: 22px; }
+      #h-service-banners .h-banner-text{ font-size: 15px; }
+      #h-service-banners #h-load-more-btn{ padding: 14px 44px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      #h-service-banners .h-banner,
+      #h-service-banners .h-banner::before,
+      #h-service-banners .h-banner::after{
+        transition: none !important;
       }
-      .h-card-main-txt { font-size: 24px; }
-      .h-person-img-box { position: relative; right: auto; height: 280px; margin-top: 0; width: 100%; justify-content: center; }
-      .h-play-btn { width: 50px; height: 50px; font-size: 18px; top: 35%; }
-      .h-interview-badge { top: 15px; right: 15px; font-size: 13px; padding: 5px 10px; }
     }
 
-    /* 모달 팝업 스타일 */
-    .h-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 2000; }
-    .h-modal-content { width: 90%; max-width: 800px; aspect-ratio: 16/9; position: relative; background: #000; }
-    .h-video-wrapper { width: 100%; height: 100%; }
-    .h-video-wrapper iframe { width: 100%; height: 100%; }
-    .h-modal-close { position: absolute; top: -45px; right: 0; color: #fff; background: none; border: none; font-size: 40px; cursor: pointer; }
+    /* =========================================================
+       🔒 Lock UI (ONLY inside #h-service-banners)
+       - Keep text visible
+       - Show white lock icon
+       ========================================================= */
 
-    /* 컨트롤바 디자인 */
-    .h-slider-controls { margin-top: 25px; display: flex; align-items: center; gap: 15px; }
-    .h-progress-container { flex: 1; height: 3px; background: #eee; position: relative; overflow: hidden; }
-    .h-progress-bar { position: absolute; height: 100%; background: #000; width: 0; transition: transform 0.3s; }
-    .h-nav-btns button { background: none; border: none; font-size: 20px; cursor: pointer; color: #333; }
+    /* 잠긴 배너 식별 클래스(스크립트가 추가) */
+    #h-service-banners .h-banner.is-locked{
+      cursor: not-allowed;
+    }
+
+    /* 소프트 오버레이: 기존 그라데이션(= .h-banner::after z-index:1) 위에 살짝만 */
+    #h-service-banners .h-banner.is-locked .h-banner-content{
+      position: relative;
+      z-index: 4; /* ✅ 글자가 항상 최상위(자물쇠보다 아래로만) */
+      opacity: 1 !important;
+      filter: none !important;
+    }
+
+    /* 추가 오버레이 */
+    #h-service-banners .h-banner.is-locked::marker{ content:""; } /* (무해) */
+
+    /* 잠금 오버레이 레이어 */
+    #h-service-banners .h-banner.is-locked .lock-overlay{
+      position:absolute;
+      inset:0;
+      z-index:3;
+      pointer-events:none;
+      background:rgba(0,0,0,.12);
+    }
+
+   /* ✅ 자물쇠 아이콘(흰색 단색 아이콘) */
+#h-service-banners .h-banner.is-locked .lock-badge{
+  position:absolute;
+  right:22px;
+  top:22px;
+  z-index:5;
+  pointer-events:none;
+
+  width:32px;
+  height:32px;
+
+  /* 배경/테두리/원 제거 */
+  border-radius:0;
+  background:transparent;
+  border:none;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+
+  /* 흰색 자물쇠 SVG */
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10V8a5 5 0 0 1 10 0v2' stroke='%23ffffff' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M6.5 10h11A2.5 2.5 0 0 1 20 12.5v6A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5v-6A2.5 2.5 0 0 1 6.5 10Z' stroke='%23ffffff' stroke-width='2'/%3E%3Cpath d='M12 14v3' stroke='%23ffffff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+
+  /* 기존 flex/폰트 영향 제거 */
+  display:block;
+}
+
+
+    /* 토스트(섹션 전용) */
+    #h-service-banners .col-unlock-toast{
+      position:fixed;
+      left:50%;
+      bottom:24px;
+      transform:translateX(-50%);
+      z-index:99999;
+
+      max-width:min(560px, calc(100vw - 28px));
+      padding:12px 14px;
+      border-radius:14px;
+
+      font-family:'Pretendard',-apple-system,system-ui,sans-serif;
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:-.01em;
+
+      color:#fff;
+      background:rgba(17,24,39,.92);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow:0 14px 40px rgba(0,0,0,.25);
+
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease, transform .25s ease;
+    }
+    #h-service-banners .col-unlock-toast.is-show{
+      opacity:1;
+      transform:translateX(-50%) translateY(-6px);
+    }
   </style>
 
   <script>
-    const track = document.getElementById('slideTrack');
-    const viewport = document.getElementById('sliderViewport');
-    const progress = document.getElementById('progressBar');
-    const slides = document.querySelectorAll('.h-slide');
-    
-    let isDragging = false;
-    let startX = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let animationID = 0;
-    let currentIndex = 0;
-    let startPosTranslate = 0; // 드래그 시작 시점의 위치 저장용
+    (function() {
+      var root = document.getElementById('h-service-banners');
+      if(!root) return;
 
-    // 초기화
-    function initSlider() {
-      const per = 100 / slides.length;
-      progress.style.width = per + '%';
-      updateProgress();
-    }
+      /* =============================
+         (A) 기존 더보기 기능 유지
+         ============================= */
+      var btn = root.querySelector('#h-load-more-btn');
+      var hiddenItems = root.querySelectorAll('.h-banner.h-hidden');
 
-    // 마우스 및 터치 이벤트 리스너
-    viewport.addEventListener('mousedown', dragStart);
-    viewport.addEventListener('touchstart', dragStart, {passive: true});
-    viewport.addEventListener('mouseup', dragEnd);
-    viewport.addEventListener('touchend', dragEnd);
-    viewport.addEventListener('mousemove', dragAction);
-    viewport.addEventListener('touchmove', dragAction, {passive: true});
-    viewport.addEventListener('mouseleave', dragEnd);
+      if(btn){
+        btn.addEventListener('click', function() {
+          hiddenItems.forEach(function(item, index){
+            setTimeout(function(){
+              item.style.display = 'flex';
+              item.offsetHeight;
+              setTimeout(function(){
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+              }, 40);
+            }, index * 150);
+          });
+          btn.classList.add('is-hidden');
 
-    function dragStart(e) {
-      isDragging = true;
-      startX = getPositionX(e);
-      startPosTranslate = currentTranslate; // 시작 위치 기록
-      track.style.transition = 'none';
-      animationID = requestAnimationFrame(animation);
-    }
-
-    function dragAction(e) {
-      if (!isDragging) return;
-      const currentX = getPositionX(e);
-      currentTranslate = prevTranslate + currentX - startX;
-    }
-
-    function dragEnd() {
-      if (!isDragging) return;
-      isDragging = false;
-      cancelAnimationFrame(animationID);
-
-      const movedBy = currentTranslate - prevTranslate;
-
-      // 좌우 이동 판별 (100px 이상 움직였을 때 슬라이드 전환)
-      if (movedBy < -100 && currentIndex < slides.length - 1) currentIndex++;
-      else if (movedBy > 100 && currentIndex > 0) currentIndex--;
-
-      setPositionByIndex();
-    }
-
-    function getPositionX(e) {
-      return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-    }
-
-    function animation() {
-      setSliderTransform();
-      if (isDragging) requestAnimationFrame(animation);
-    }
-
-    function setSliderTransform() {
-      track.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-    function setPositionByIndex() {
-      currentTranslate = currentIndex * -viewport.offsetWidth;
-      prevTranslate = currentTranslate;
-      track.style.transition = 'transform 0.4s ease-out';
-      setSliderTransform();
-      updateProgress();
-    }
-
-    function updateProgress() {
-      progress.style.transform = `translateX(${currentIndex * 100}%)`;
-    }
-
-    function moveSlide(dir) {
-      currentIndex += dir;
-      if (currentIndex < 0) currentIndex = slides.length - 1;
-      else if (currentIndex >= slides.length) currentIndex = 0;
-      setPositionByIndex();
-    }
-
-    // [핵심 보완] 드래그 중에는 영상이 뜨지 않도록 판별
-    function handleCardClick(url) {
-      // 드래그 시작 시점과 종료 시점의 실제 이동 거리 계산
-      const dragDistance = Math.abs(currentTranslate - startPosTranslate);
-      
-      // 10px 미만으로 움직였다면 '단순 클릭'으로 간주하여 영상 실행
-      if (dragDistance < 10) {
-        openVideoModal(url);
-      } else {
-        // 드래그로 판정되면 클릭 이벤트 무시
-        console.log("드래그 감지됨: 영상 팝업을 차단합니다.");
+          // 잠금 상태 다시 적용(새로 나타난 배너에도)
+          setTimeout(applyLocksToBanners, 80);
+        });
       }
-    }
 
-    function openVideoModal(url) {
-      document.getElementById('videoIframe').src = url + "?autoplay=1";
-      document.getElementById('videoModal').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
+      /* =============================
+         (B) 잠금/해제 (column.html 전용)
+         ============================= */
+      var MAX_COL = 6;
+      var LS_KEY = 'bi_column_unlocked_max';
+      var CK_KEY = 'bi_column_unlocked_max';
+      var COOKIE_DAYS = 365;
 
-    function closeVideoModal() {
-      document.getElementById('videoModal').style.display = 'none';
-      document.getElementById('videoIframe').src = "";
-      document.body.style.overflow = 'auto';
-    }
+      function setCookie(name, value, days){
+        try{
+          var d = new Date();
+          d.setTime(d.getTime() + (days*24*60*60*1000));
+          var expires = "expires=" + d.toUTCString();
+          document.cookie = name + "=" + encodeURIComponent(String(value)) + ";" + expires + ";path=/;SameSite=Lax";
+        }catch(e){}
+      }
+      function getCookie(name){
+        try{
+          var n = name + "=";
+          var parts = document.cookie.split(';');
+          for(var i=0;i<parts.length;i++){
+            var c = parts[i].trim();
+            if(c.indexOf(n) === 0){
+              return decodeURIComponent(c.substring(n.length, c.length));
+            }
+          }
+        }catch(e){}
+        return null;
+      }
+      function clampInt(v, min, max){
+        v = parseInt(v, 10);
+        if(isNaN(v)) v = min;
+        if(v < min) v = min;
+        if(v > max) v = max;
+        return v;
+      }
+      function getUnlockedMax(){
+        var ls = null, ck = null;
+        try{ ls = localStorage.getItem(LS_KEY); }catch(e){}
+        ck = getCookie(CK_KEY);
 
-    window.addEventListener('resize', setPositionByIndex);
-    initSlider();
+        var a = clampInt(ls, 1, MAX_COL);
+        var b = clampInt(ck, 1, MAX_COL);
+        return Math.max(a, b, 1);
+      }
+      function setUnlockedMax(val){
+        val = clampInt(val, 1, MAX_COL);
+        try{ localStorage.setItem(LS_KEY, String(val)); }catch(e){}
+        setCookie(CK_KEY, String(val), COOKIE_DAYS);
+        return val;
+      }
+
+      /* 토스트 */
+      var toastEl = null, toastTimer = null;
+      function showToast(msg){
+        if(!toastEl){
+          toastEl = document.createElement('div');
+          toastEl.className = 'col-unlock-toast';
+          root.appendChild(toastEl);
+        }
+        toastEl.textContent = msg;
+        toastEl.classList.add('is-show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function(){
+          toastEl && toastEl.classList.remove('is-show');
+        }, 2200);
+      }
+
+      /* 잠금 UI 엘리먼트(오버레이/배지) 주입 */
+      function ensureLockElements(banner){
+        // overlay
+        var ov = banner.querySelector('.lock-overlay');
+        if(!ov){
+          ov = document.createElement('div');
+          ov.className = 'lock-overlay';
+          banner.appendChild(ov);
+        }
+        // badge
+        var bd = banner.querySelector('.lock-badge');
+        if(!bd){
+          bd = document.createElement('div');
+          bd.className = 'lock-badge';
+          bd.textContent = '';
+          banner.appendChild(bd);
+        }
+      }
+
+      function removeLockElements(banner){
+        var ov = banner.querySelector('.lock-overlay');
+        var bd = banner.querySelector('.lock-badge');
+        if(ov) ov.remove();
+        if(bd) bd.remove();
+      }
+
+      function applyLocksToBanners(){
+        // 값 없으면 1편만 열리도록 고정
+        setUnlockedMax(getUnlockedMax());
+        var unlockedMax = getUnlockedMax();
+
+        var links = root.querySelectorAll('a.h-banner[href*="column-"]');
+        links.forEach(function(a){
+          var href = a.getAttribute('href') || '';
+          var m = href.match(/column-(\d+)\.html/i);
+          if(!m) return;
+
+          var n = parseInt(m[1], 10);
+          if(isNaN(n) || n < 1 || n > MAX_COL) return;
+
+          var shouldLock = n > unlockedMax;
+
+          if(shouldLock){
+            a.classList.add('is-locked');
+            a.dataset.colLock = "1";
+            a.setAttribute('aria-disabled','true');
+
+            // 잠금 요소 주입
+            ensureLockElements(a);
+          }else{
+            a.classList.remove('is-locked');
+            delete a.dataset.colLock;
+            a.removeAttribute('aria-disabled');
+
+            // 잠금 요소 제거
+            removeLockElements(a);
+          }
+        });
+      }
+
+      /* 잠긴 배너 클릭 차단 + 안내 */
+      function bindLockedClickGuard(){
+        root.addEventListener('click', function(e){
+          var a = e.target && (e.target.closest ? e.target.closest('a.h-banner[data-col-lock="1"]') : null);
+          if(!a) return;
+
+          e.preventDefault();
+          e.stopPropagation();
+
+          var href = a.getAttribute('href') || '';
+          var m = href.match(/column-(\d+)\.html/i);
+          var targetN = m ? parseInt(m[1],10) : null;
+          var unlockedMax = getUnlockedMax();
+
+          if(targetN && targetN === unlockedMax + 1){
+            showToast('🔒 다음 편은 아직 잠겨있습니다. 이전 편을 읽으면 열립니다.');
+          }else{
+            showToast('🔒 1편부터 순서대로 열립니다. 먼저 이전 편을 읽어주세요.');
+          }
+          return false;
+        }, true);
+      }
+
+      // 초기 실행
+      applyLocksToBanners();
+      bindLockedClickGuard();
+
+    })();
   </script>
 </section>
+
+
+
+<!-- ✅ 최신화 버전: 텍스트(span) 제거 + 전부 로고 이미지(img)로 교체 가능
+     - 롤링: 1줄 무한 롤링 (기존 방식 유지)
+     - 고정: PC 4열 / 모바일 2열 + 최대 8개 “한 번에” 보이도록(PC=2줄, Mobile=4줄)
+     - 이미지: object-fit:contain로 짤림 없이 카드 안에 맞춤
+     - 각 로고는 data-name + alt 로 접근성 유지
+-->
+
+
 
 
 
@@ -2340,10 +2409,11 @@
   </style>
 
   <div class="inner">
-    <h2>혁신에는 용기와 결단이 필요합니다.<br>
-        당신은 새로운 도전을 맞이 할 준비가 되었나요?</h2>
-    <p class="sub">그렇다면 함께하며 멀리 갑시다.</p>
-    <a href="#" class="moreBtn">지금 바로 신청하기 ></a>
+    <h2>혁신의 마음은 개인으로 시작되지만.<br>
+        끝까지 가기 위해서는 함께 해야합니다.<br>
+        낯선 발걸음에 대한 용기와 결단을 응원합니다.</h2>
+    <!-- <p class="sub">- 비즈니스 혁신 연구소</p> -->
+    <!-- <a href="#" class="moreBtn">지금 바로 신청하기 ></a> -->
   </div>
 
   <div class="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">
