@@ -329,7 +329,7 @@
       background:#000;
 
       box-shadow:0 0 0 100vmax #000;
-      clip-path:inset(0 -100vmax);
+      /* clip-path:inset(0 -100vmax); */
       padding-top:80px;
     }
 
@@ -849,7 +849,7 @@
   </script>
 </section>
 
-<section id="h-energy-info-section">
+<!-- <section id="h-energy-info-section">
   <div class="container1">
     <h2 class="main-title">비즈니스 혁신 연구소는<br>실제 혁신을 이끌어갑니다.</h2>
     
@@ -1031,7 +1031,7 @@
       }
     }
   </style>
-</section>
+</section> -->
 
 
 <section id="partner-logo-slider-section" aria-label="파트너 로고 슬라이더 섹션">
@@ -2334,95 +2334,233 @@
     /* ================= Scope: #contactSection only ================= */
     #contactSection{
       --ink:#ffffff;
-      --muted:rgba(255,255,255,.85);
+      --muted:rgba(255,255,255,.82);
+      --muted2:rgba(255,255,255,.68);
       --accent:#ffffff;
+
+      /* 분위기용 토큰 */
+      --glass:rgba(255,255,255,.08);
+      --line:rgba(255,255,255,.14);
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+
       position:relative;
       font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       color:var(--ink);
-      height:500px;
+
+      min-height:520px;
       display:flex;
       align-items:center;
+      overflow:hidden;
+      isolation:isolate;
     }
 
+    /* 배경 이미지 */
     #contactSection::before{
       content:"";
       position:absolute;
       inset:0;
       background:url('./img/8.jpg') center/cover no-repeat;
-      filter:brightness(0.4);
       background-position: bottom;
+      transform:scale(1.03); /* 살짝 확장해 고급스럽게 */
+      /* filter:brightness(.58) contrast(1.06) saturate(.98); */
+      z-index:0;
     }
 
+    /* 분위기 오버레이 (그라데이션 + 비네팅) */
+    #contactSection::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      z-index:1;
+      /* background:
+        radial-gradient(80% 90% at 15% 30%, rgba(0,0,0,.35), rgba(0,0,0,.72) 70%),
+        linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.35) 55%, rgba(0,0,0,.62)); */
+        filter:brightness(0.3);
+      pointer-events:none;
+    }
+
+    /* 내부 컨테이너 */
     #contactSection .inner{
       position:relative;
-      z-index:1;
-      max-width:1200px;
-      margin:0 5%;
-      padding:80px 20px;
+      z-index:2;
+      width:min(1200px, 90vw);
+      margin:0 auto;
+      padding:92px 0;
       text-align:left;
     }
 
-    #contactSection h2{
-      font-size:2.5rem;
-      font-weight:600;
-      margin-bottom:16px;
-    }
-    #contactSection p.sub{
-      font-size:1rem;
-      color:var(--muted);
-      margin-bottom:32px;
-    }
-
-    #contactSection .moreBtn{
-      font-size:1rem;
-      font-weight:500;
-      color:var(--accent);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      cursor:pointer;
-      position:relative;
-    }
-    #contactSection .moreBtn::after{
+    /* 분위기 있는 “왼쪽 라인” 장식 */
+    #contactSection .inner::before{
       content:"";
       position:absolute;
-      bottom:-2px; left:0;
-      width:100%; height:1px;
-      background:var(--accent);
-      opacity:.6;
-      transition:opacity .3s;
+      left:0;
+      top:86px;
+      width:2px;
+      height:calc(100% - 172px);
+      background:linear-gradient(to bottom, rgba(255,255,255,.0), rgba(255,255,255,.22), rgba(255,255,255,.0));
+      opacity:.85;
     }
-    #contactSection .moreBtn:hover::after{
-      opacity:1;
+
+    /* 제목 */
+    #contactSection h2{
+      margin:0;
+      padding-left:18px; /* 라인과 간격 */
+      max-width: 34ch;   /* PC에서 “문장 폭” 잡아 분위기 */
+      font-weight:650;
+      letter-spacing:-.6px;
+      line-height:1.18;
+
+      /* 반응형 타이포: 모바일부터 PC까지 자연스럽게 */
+      font-size: clamp(22px, 2.6vw, 44px);
+
+      /* 미세한 광택 */
+      text-shadow:
+        0 10px 30px rgba(0,0,0,.55),
+        0 2px 10px rgba(0,0,0,.35);
+    }
+
+    /* 서브 문구(필요시 사용) */
+    #contactSection p.sub{
+      margin:18px 0 0;
+      padding-left:18px;
+      max-width: 54ch;
+      font-size: clamp(14px, 1.15vw, 16px);
+      line-height:1.8;
+      color:var(--muted);
+      letter-spacing:-.2px;
+    }
+
+    /* CTA 버튼(지금은 주석이지만, 살려두면 바로 고급스럽게 동작) */
+    #contactSection .moreBtn{
+      margin-top:28px;
+      margin-left:18px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      color:var(--ink);
+      background:linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 12px 34px rgba(0,0,0,.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      text-decoration:none;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:-.2px;
+      cursor:pointer;
+      transition:transform .22s ease, background .22s ease, border-color .22s ease;
+    }
+    #contactSection .moreBtn:hover{
+      transform:translateY(-2px);
+      background:linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.08));
+      border-color:rgba(255,255,255,.26);
     }
 
     /* 우측 하단 Top 버튼 */
     #contactSection .topBtn{
       position:fixed;
-      right:24px; bottom:24px;
+      right:22px; bottom:22px;
       width:46px; height:46px;
-      background:#0d2238;
+      border-radius:14px;
+      background:rgba(10,18,24,.62);
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 14px 34px rgba(0,0,0,.38);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       display:flex; align-items:center; justify-content:center;
-      border-radius:4px;
       cursor:pointer;
       z-index:10;
+      transition:transform .2s ease, background .2s ease;
+    }
+    #contactSection .topBtn:hover{
+      transform:translateY(-2px);
+      background:rgba(10,18,24,.75);
     }
     #contactSection .topBtn svg{
-      width:20px; height:20px; stroke:#fff;
+      width:20px; height:20px;
+      color:#fff;
     }
 
-    @media(max-width:768px){
-      #contactSection h2{font-size:2rem;}
-      #contactSection p.sub{font-size:.95rem;}
+    /* ================= Mobile ================= */
+    @media (max-width: 768px){
+      #contactSection{
+        min-height:520px;
+      }
+      #contactSection .inner{
+        padding:72px 0 84px;
+      }
+      #contactSection .inner::before{
+        left:0;
+        top:66px;
+        height:calc(100% - 132px);
+        opacity:.7;
+      }
+      #contactSection h2{
+        max-width: 22ch;      /* 모바일에서 너무 길게 늘어지지 않게 */
+        padding-left:14px;
+        line-height:1.22;
+        letter-spacing:-.5px;
+        text-wrap: balance;    /* 지원 브라우저에서 줄바꿈 더 예쁘게 */
+        word-break: keep-all;
+      }
+      #contactSection p.sub{
+        padding-left:14px;
+        margin-top:14px;
+      }
+      #contactSection .topBtn{
+        right:16px; bottom:16px;
+        width:44px; height:44px;
+        border-radius:13px;
+      }
+    }
+
+    /* ================= Small Mobile (370px~) ================= */
+    @media (max-width: 420px){
+      #contactSection .inner{
+        width:min(1200px, 92vw);
+        padding:64px 0 78px;
+      }
+      #contactSection h2{
+        font-size: clamp(20px, 6.1vw, 28px);
+        max-width: 20ch;
+      }
+      #contactSection p.sub{
+        font-size: 14px;
+        line-height:1.75;
+      }
+    }
+
+    /* ================= Large Desktop Mood ================= */
+    @media (min-width: 1024px){
+      #contactSection{
+        min-height:560px;
+      }
+      #contactSection .inner{
+        padding:110px 0;
+      }
+      /* PC에서 좌측 영역이 “무대”처럼 보이도록 살짝 카드 느낌 */
+      #contactSection .inner .moodCard{
+        display:inline-block;
+        padding:18px 18px 20px 0;
+        border-radius:18px;
+      }
     }
   </style>
 
   <div class="inner">
-    <h2>혁신의 마음은 개인으로 시작되지만.<br>
-        끝까지 가기 위해서는 함께 해야합니다.<br>
-        낯선 발걸음에 대한 용기와 결단을 응원합니다.</h2>
-    <!-- <p class="sub">- 비즈니스 혁신 연구소</p> -->
-    <!-- <a href="#" class="moreBtn">지금 바로 신청하기 ></a> -->
+    <div class="moodCard">
+      <h2>
+        혁신의 시작은 개인으로 시작되지만<br>
+        함께 해야 끝까지 갈 수 있습니다.<br><br>
+        낯설고 어려운 발걸음<br>
+        끝까지 갈 수 있도록 도와드립니다.
+      </h2>
+      <!-- 필요하면 아래 주석 해제 -->
+      <!-- <p class="sub">- 비즈니스 혁신 연구소</p> -->
+      <!-- <a href="#apply" class="moreBtn">지금 바로 신청하기 <span aria-hidden="true">→</span></a> -->
+    </div>
   </div>
 
   <div class="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">
