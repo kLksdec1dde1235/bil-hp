@@ -692,6 +692,58 @@
         height:200px;
       }
     }
+
+     @media (max-width: 480px){
+      #historyTimeline{
+        --axis:12px;
+        --gap:16px;
+        padding:28px 12px 54px;
+      }
+      #historyTimeline .ht-wrap::before{ left:var(--axis); }
+      #historyTimeline .ht-wrap::after{  left:var(--axis); }
+
+      #historyTimeline .ht-item{
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+        padding:28px 0;
+      }
+      #historyTimeline .ht-node{
+        left:var(--axis);
+        top:22px;
+      }
+
+      #historyTimeline .ht-text{ padding-left:52px; order:1; }
+      #historyTimeline .ht-media{
+        padding-left:52px;
+        justify-content:flex-start;
+        order:2;
+      }
+
+      #historyTimeline .ht-year{ font-size:34px; margin:0 0 14px; }
+      #historyTimeline .ht-bullet{ margin-top:12px; }
+
+      /* ✅ 모바일에서는 date 폭 살짝 축소 */
+      #historyTimeline .ht-li > div{
+        grid-template-columns: 96px 1fr;
+        column-gap:10px;
+        display:block;
+      }
+      #historyTimeline .ht-date{
+        font-size:20px;
+        padding-right:10px;
+      }
+      #historyTimeline .ht-desc{ font-size:14px; line-height:1.55; }
+
+      #historyTimeline figure{ width:100%; max-width:560px; }
+      #historyTimeline .ht-img{ transform:none !important; }
+
+      /* 모바일에서는 beam 폭 살짝 줄이기 */
+      #historyTimeline .ht-beam::before{
+        width:28px;
+        height:200px;
+      }
+    }
   </style>
 
   <div class="ht-wrap">
@@ -708,7 +760,8 @@
             <span class="ht-bullet" aria-hidden="true"></span>
             <div>
               <span class="ht-date">MD 저널</span>
-              <span class="ht-desc">대한민국 최고의 건강・의학 저널 (자본금 7억)<br>코로나 이후, 국민건강 패러다임의 변화</span>
+              <span class="ht-desc">코로나 이후, 국민건강 패러다임의 변화</span>
+              <span class="ht-desc">얼마나 오래 사느냐 -> 어떻게 오래 사느냐의<br>건강 관점 변화</span>
             </div>
             
           </li>
@@ -717,7 +770,6 @@
             <div>
               <span class="ht-date">대한민국을 건강하고 아름답게</span><br>
               <span class="ht-desc">◦ MD 건강일자리연구소 (2021.9)</span>
-              <span class="ht-desc">◦ MD 유지어터연구소 (2022.9)</span>
               
             </div>
           </li>
@@ -735,14 +787,24 @@
         <figure><img class="ht-img" src="https://khealthyaging.com/pub/images/common/og_image.jpg" alt="1969년 회의 현장 사진"></figure>
       </div>
       <div class="ht-text">
-        <h3 class="ht-year">2018.5</h3>
+        <h3 class="ht-year">2019.5</h3>
         <ul class="ht-list" role="list" aria-label="1969 주요 연혁">
           <li class="ht-li">
             <span class="ht-bullet" aria-hidden="true"></span>
             <div>
-              <span class="ht-date">한국헬시에이징학회</span><br>
-              <span class="ht-desc">얼마나 오래를 넘어, 어떻게 오래</span>
-              <span class="ht-desc">MD 저널 주도로 설립</span>
+               <span class="ht-date">헬스컨슈머</span><br>
+              <span class="ht-desc">건강소비자를 위한 대변지</span>
+              <span class="ht-desc">건강소비자연대 기관지</span>
+
+            </div>
+          </li>
+          
+
+             <li class="ht-li">
+            <span class="ht-bullet" aria-hidden="true"></span>
+            <div>
+              <span class="ht-date">한국헬스에이징학회</span><br>
+              <span class="ht-desc">건강소비자연대 기관지</span>
             </div>
           </li>
 
@@ -755,39 +817,39 @@
       <span class="ht-node" aria-hidden="true"></span>
           
       <div class="ht-text">
-        <h3 class="ht-year">2019.5</h3>
+        <h3 class="ht-year">2019.9</h3>
         <ul class="ht-list" role="list" aria-label="1969 주요 연혁">
           <li class="ht-li">
             <span class="ht-bullet" aria-hidden="true"></span>
             <div>
-              <span class="ht-date">헬스컨슈머</span><br>
-              <span class="ht-desc">건강소비자연대 기관지</span>
+              <span class="ht-date">건강소비자연대</span><br>
+              <span class="ht-desc">공정거래위원회 산하 비영리단체</span>
+              <span class="ht-desc">화이트컨슈머</span>
+              <span class="ht-desc">일자리가 건강이다</span>
             </div>
           </li>
 
         </ul>
       </div>
       <div class="ht-media">
-        <figure><img class="ht-img" src="https://lh5.googleusercontent.com/proxy/yepFm4w60k_BBFmJvf7eltJ0cBG5BH14IhpRn5WfSh0uodgGArvd_leQ_CwWfR5-uH0eQw6nyVXqcxU" alt="1968년 현판식 사진"></figure>
+        <figure><img class="ht-img" src="https://cdn.mdjournal.kr/news/photo/202411/41219_22181_364.jpg" alt="1968년 현판식 사진"></figure>
       </div>
     </article>
 
         <article class="ht-item" data-side="right">
       <span class="ht-node" aria-hidden="true"></span>
       <div class="ht-media">
-        <figure><img class="ht-img" src="https://cdn.mdjournal.kr/news/photo/202411/41219_22181_364.jpg" alt="1969년 회의 현장 사진"></figure>
+        <figure><img class="ht-img" src="https://crowdticket0.s3.ap-northeast-1.amazonaws.com/real/files/items/77336/1766535462228_thumb_img.jpg" alt="1969년 회의 현장 사진"></figure>
       </div>
 
             <div class="ht-text">
-        <h3 class="ht-year">2019.9</h3>
+        <!-- <h3 class="ht-year">2019.9</h3> -->
         <ul class="ht-list" role="list" aria-label="1968 주요 연혁">
           <li class="ht-li">
             <span class="ht-bullet" aria-hidden="true"></span>
             <div>
-              <span class="ht-date">(사)건강소비자연대</span><br>
-              <span class="ht-desc">공정거래위원회 산하 비영리 사단법인</span>
-              <span class="ht-desc">◦ 화이트컨슈머 (소비자와 기업의 상생)</span>
-              <span class="ht-desc">◦ 일자리가 건강이다 (노동의 종말/일자리 소멸시대)</span>
+               <span class="ht-date">MAXQ</span><br>
+              <span class="ht-desc">맥스큐인터내셔널</span>
             </div>
           </li>
        
@@ -795,6 +857,98 @@
       </div>
 
 
+    </article>
+
+      <article class="ht-item" data-side="left">
+      <span class="ht-node" aria-hidden="true"></span>
+          
+      <div class="ht-text">
+        <!-- <h3 class="ht-year">2019.9</h3> -->
+        <ul class="ht-list" role="list" aria-label="1969 주요 연혁">
+          <li class="ht-li">
+            <span class="ht-bullet" aria-hidden="true"></span>
+            <div>
+              <span class="ht-date">한국뷰티헬시에이징국제교류회</span><br>
+              <!-- <span class="ht-desc">맥스큐인터내셔널</span> -->
+              
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <div class="ht-media">
+        <figure><img class="ht-img" src="https://cdn.imweb.me/upload/S202403144961f3086847e/bc078cb9dd6df.png" alt="1968년 현판식 사진"></figure>
+      </div>
+    </article>
+
+        <article class="ht-item" data-side="right">
+      <span class="ht-node" aria-hidden="true"></span>
+      <div class="ht-media">
+        <figure><img class="ht-img" src="https://endo365.kr/assets/images/logo/logo.png" alt="1969년 회의 현장 사진"></figure>
+      </div>
+
+            <div class="ht-text">
+        <!-- <h3 class="ht-year">2019.9</h3> -->
+        <ul class="ht-list" role="list" aria-label="1968 주요 연혁">
+          <li class="ht-li">
+            <span class="ht-bullet" aria-hidden="true"></span>
+            <div>
+               <span class="ht-date">ENDO 저널/ 당뇨신문</span><br>
+              <!-- <span class="ht-desc">맥스큐인터내셔널</span> -->
+            </div>
+          </li>
+       
+        </ul>
+      </div>
+
+
+    </article>
+
+        <!-- 1970 -->
+    <article class="ht-item" data-side="left">
+      <span class="ht-node" aria-hidden="true"></span>
+      <div class="ht-text">
+        <h3 class="ht-year">2025.11</h3>
+        <ul class="ht-list" role="list" aria-label="1970 주요 연혁">
+          <li class="ht-li">
+            <span class="ht-bullet" aria-hidden="true"></span>
+            <div>
+              <span class="ht-date">HTU GLOBAL HOLDINGS 설립</span>
+              <span class="ht-desc">MD 저널, 건강소비자연대, 헬스컨슈머, 한국헬시에이징학회, MAXQ, ENDO저널/당뇨신문</span>
+              <span class="ht-desc">위 기관들이 연합하여 건강한 아름다움 그리고 새로운 기회를 이념으로 사회적 기업 형태의 HTU 탄생</span>
+            </div>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div class="ht-media">
+        <figure><img class="ht-img" src="./img/logo-g-htu.png" alt="1970년 현장 점검 사진"></figure>
+      </div>
+    </article>
+
+    <!-- 1969 -->
+    <article class="ht-item" data-side="right">
+      <span class="ht-node" aria-hidden="true"></span>
+      <div class="ht-media">
+        <figure><img class="ht-img" src="./img/logo-b.png" alt="1969년 회의 현장 사진"><img class="ht-img" src="./img/ceo-pic.jpg" alt="1969년 회의 현장 사진"></figure>
+        
+      </div>
+      <div class="ht-text">
+        <h3 class="ht-year">2026.1</h3>
+        <ul class="ht-list" role="list" aria-label="1969 주요 연혁">
+          <li class="ht-li">
+            <span class="ht-bullet" aria-hidden="true"></span>
+            <div>
+               <span class="ht-date">비즈니스 혁신 연구소</span><br>
+
+            </div>
+          </li>
+          
+
+
+        </ul>
+      </div>
     </article>
   </div>
 
@@ -917,11 +1071,9 @@
 
 
 
-<section id="doosanNewsSection" aria-label="비즈니스혁신연구소 수상 내역">
+<!-- <section id="doosanNewsSection" aria-label="비즈니스혁신연구소 수상 내역">
   <style>
-    /* ===============================
-       Scope: #doosanNewsSection ONLY
-       =============================== */
+
     #doosanNewsSection {
       --bg: #ffffff;
       --ink: #111111;
@@ -939,7 +1091,6 @@
 
     #doosanNewsSection * { box-sizing: border-box; }
 
-    /* 배경 장식 */
     #doosanNewsSection .dns-bg-arcs {
       position: absolute;
       inset: 0;
@@ -966,7 +1117,6 @@
       z-index: 1;
     }
 
-    /* [헤더 고정] 데스크톱 전용 */
     #doosanNewsSection .dns-intro {
       position: -webkit-sticky;
       position: sticky;
@@ -996,7 +1146,6 @@
       font-size: 16px;
     }
 
-    /* [카드 영역] */
     #doosanNewsSection .dns-cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1011,20 +1160,18 @@
       color: inherit;
     }
 
-    /* 데스크톱에서의 좌우/상하 위치 강제 지정 */
-    /* 1. 대통령 표창 (HTML상 첫번째이나 우측 상단 배치) */
     #doosanNewsSection .dns-item.pos-right-top { 
       grid-column: 2; 
       grid-row: 1;
       margin-top: 0; 
     } 
-    /* 2. 수상 내역 정리 (HTML상 두번째이나 좌측 배치) */
+
     #doosanNewsSection .dns-item.pos-left { 
       grid-column: 1; 
       grid-row: 1 / span 2;
       margin-top: 180px; 
     } 
-    /* 3. SMR 계약 (우측 하단 배치) */
+
     #doosanNewsSection .dns-item.pos-right-bottom { 
       grid-column: 2; 
       grid-row: 2;
@@ -1048,16 +1195,14 @@
       word-break: keep-all;
     }
 
-    /* ===============================
-       [Mobile Optimization] 
-       =============================== */
+
     @media (max-width: 1000px) {
       #doosanNewsSection { padding-top: 40px; }
 
       #doosanNewsSection .dns-wrap { display: block; }
 
       #doosanNewsSection .dns-intro {
-        position: relative; /* 모바일 고정 해제 */
+        position: relative;
         top: 0;
         padding: 20px 0;
         margin-bottom: 30px;
@@ -1066,11 +1211,10 @@
       #doosanNewsSection .dns-title { font-size: 28px; }
 
       #doosanNewsSection .dns-cards {
-        grid-template-columns: 1fr; /* 1열 배치 */
+        grid-template-columns: 1fr;
         gap: 60px;
       }
 
-      /* 모바일에서는 HTML 순서대로 나열되도록 속성 초기화 */
       #doosanNewsSection .dns-item.pos-left,
       #doosanNewsSection .dns-item.pos-right-top,
       #doosanNewsSection .dns-item.pos-right-bottom {
@@ -1123,347 +1267,15 @@
       </a>
     </div>
   </div>
-</section>
+</section> -->
 
+<div id="footer_template"></div>
 
-<section id="footerElite" aria-label="사이트 푸터" style="position:relative;">
-  <!-- 아이콘 킷: 유튜브/페북/인스타용 -->
-  <script src="https://kit.fontawesome.com/2d323a629b.js" crossorigin="anonymous"></script>
-
-  <style>
-    /* ================= Scope: #footerElite only ================= */
-    #footerElite{
-      --bg:#0a0a0b;
-      --ink:#e5e7eb;
-      --muted:#9aa1aa;
-      --line:rgba(255,255,255,.08);
-      --glass:rgba(255,255,255,.06);
-      --max:1280px;
-      --radius:16px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-
-      font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background:var(--bg);
-      color:var(--muted);
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-
-    #footerElite .wrap{max-width:var(--max);margin:0 auto;padding:3.5rem 1.25rem 2.25rem}
-
-    /* 상단 네비게이션 영역 */
-    #footerElite .navGrid{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:2.2rem;
-      border-bottom:1px solid var(--line);
-      padding-bottom:2rem;
-    }
-
-    /* 브랜드 컬럼 */
-    #footerElite .brandCol{grid-column:span 4;display:flex;flex-direction:column;gap:.9rem}
-    #footerElite .brandCol .logoRow{
-      display:flex;align-items:center;gap:.75rem;
-      color:#fff;font-weight:900;font-size:1.15rem;letter-spacing:.2px
-    }
-    #footerElite .brandCol .logoImg{
-      width:40px;height:40px;border-radius:10px;overflow:hidden;
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--line);
-      display:flex;align-items:center;justify-content:center;
-      flex:0 0 auto;
-    }
-    #footerElite .brandCol .logoImg img{
-      width:100%;height:100%;
-      object-fit:contain;display:block;
-      padding:6px;
-    }
-    #footerElite .brandCol .brandText{display:flex;flex-direction:column;line-height:1.15}
-    #footerElite .brandCol .brandText strong{font-size:1.05rem}
-    #footerElite .brandCol .brandText span{font-size:.82rem;color:#c6cbd3;font-weight:700;letter-spacing:.2px}
-    #footerElite .brandCol .slogan{font-size:.92rem;line-height:1.55;color:var(--muted);margin:0}
-
-    #footerElite .col{grid-column:span 2}
-    #footerElite h4{margin:.1rem 0 .85rem;font-size:1rem;font-weight:800;color:#fff}
-    #footerElite ul{list-style:none;margin:0;padding:0}
-    #footerElite li{margin:.48rem 0}
-    #footerElite a{position:relative;color:var(--muted);text-decoration:none;font-size:.92rem;transition:color .25s ease}
-    #footerElite a::after{content:"";position:absolute;left:0;bottom:-3px;height:1px;width:0;background:#ffffff66;transition:width .25s ease}
-    #footerElite a:hover{color:#fff}
-    #footerElite a:hover::after{width:100%}
-
-    /* 하단 바 */
-    #footerElite .footBar{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:1rem;
-      padding:1.15rem 0;
-    }
-    #footerElite .addr{font-size:.86rem;line-height:1.7;min-width:0}
-    #footerElite .policies{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem;margin:0 auto;}
-    @media screen and (max-width:760px) { #footerElite .policies{justify-content: center;} }
-    #footerElite .policies a{font-size:.86rem}
-
-    /* ✅ 하단 “법인정보 한 줄” (깔끔 정렬) */
-    #footerElite .corpLine{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:.45rem .55rem;
-      margin-bottom:.15rem;
-      min-width:0;
-    }
-    #footerElite .corpName{
-      color:var(--ink);
-      font-weight:800;
-      letter-spacing:.1px;
-      white-space:nowrap;
-    }
-    #footerElite .corpMeta{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:.35rem .55rem;
-      min-width:0;
-      color:#b9c0cb;
-    }
-    #footerElite .sep{
-      color:rgba(255,255,255,.22);
-      margin:0 .05rem;
-      user-select:none;
-    }
-    #footerElite .meta{
-      color:#b9c0cb;
-      white-space:nowrap;
-    }
-    #footerElite .meta b{
-      color:#d7dde6;
-      font-weight:700;
-    }
-    #footerElite .addrShort{
-      color:#88919c;
-      white-space:normal;
-      word-break:keep-all;
-      overflow-wrap:anywhere;
-    }
-
-    /* SNS */
-    #footerElite .social{
-      display:flex;align-items:center;gap:.65rem;
-      background:var(--glass);
-      border:1px solid var(--line);
-      padding:.5rem .7rem;border-radius:999px;
-      box-shadow:var(--shadow);
-      flex:0 0 auto;
-    }
-    #footerElite .social .tip{font-size:.78rem;color:#c6cbd3;margin-right:.25rem}
-    #footerElite .sns-btn{
-      --size:38px;width:var(--size);height:var(--size);border-radius:999px;
-      display:inline-flex;align-items:center;justify-content:center;color:#d0d4dc;
-      background:transparent;border:1px solid transparent;
-      transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease
-    }
-    #footerElite .sns-btn:hover{transform:translateY(-2px);background:#111318;border-color:#2a2f36;color:#fff}
-    #footerElite .sns-btn i{font-size:18px;line-height:1}
-    #footerElite .sns-btn svg{width:20px;height:20px;display:block;fill:currentColor}
-
-    #footerElite .sns-btn[data-brand="kakao"]:hover{background:#2b241e;color:#ffdf00;border-color:#473a2a}
-    #footerElite .sns-btn[data-brand="naver"]:hover{background:#0a2e13;color:#15c654;border-color:#164f2b}
-    #footerElite .sns-btn[data-brand="youtube"]:hover{background:#2d1111;color:#ff0033;border-color:#4a1c1c}
-    #footerElite .sns-btn[data-brand="facebook"]:hover{background:#0f2239;color:#2d8cff;border-color:#1c3351}
-    #footerElite .sns-btn[data-brand="instagram"]:hover{background:#261530;color:#ff6aa2;border-color:#3b1f4a}
-
-    #footerElite .copy{margin-top:.6rem;font-size:.8rem;color:#88919c}
-
-    /* 반응형 */
-    @media(max-width:1100px){
-      #footerElite .brandCol{grid-column:span 12}
-      #footerElite .col{grid-column:span 4}
-    }
-    @media(max-width:760px){
-      #footerElite .navGrid{grid-template-columns:repeat(6,1fr);gap:1.4rem}
-      #footerElite .brandCol{grid-column:span 6}
-      #footerElite .col{grid-column:span 3}
-      #footerElite .footBar{flex-direction:column;align-items:center;text-align:center;gap:.75rem}
-      #footerElite .social{order:-1}
-      #footerElite .corpLine{justify-content:center}
-      #footerElite .corpMeta{justify-content:center}
-      #footerElite .addr{width:100%}
-    }
-
-    @media (max-width:760px){
-      /* ✅ 6칸 그리드 유지 + 간격 정돈 */
-      #footerElite .navGrid{
-        grid-template-columns:repeat(6,1fr);
-        gap:1.1rem 1.1rem;
-      }
-      /* ✅ 브랜드는 1줄 전체 */
-      #footerElite .brandCol{ grid-column:1 / -1; }
-      /* ✅ 카테고리는 무조건 2열(= 6칸 중 3칸씩) */
-      #footerElite .col{ grid-column:span 3 !important; }
-      /* ✅ 하단바 정렬 */
-      #footerElite .footBar{
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-        gap:.75rem;
-      }
-      #footerElite .social{ order:-1; }
-      #footerElite .corpLine{ justify-content:center; }
-      #footerElite .corpMeta{ justify-content:center; }
-      #footerElite .addr{ width:100%; }
-    }
-  </style>
-
-  <div class="wrap">
-    <div class="navGrid">
-      <!-- ✅ 브랜드 영역 -->
-      <div class="brandCol">
-        <div class="logoRow" aria-label="비즈니스 혁신 연구소">
-          <img src="../5. 종합본/img/logo-w.png" alt="비즈니스 혁신 연구소 로고" style="width:200px;">
-        </div>
-
-        <p class="slogan">
-          시대의 바람을 읽고, 지속 가능한 성장 구조를 설계합니다.<br>
-        </p>
-      </div>
-
-      <!-- ✅ 메뉴 (헤더 4카테고리와 1:1 일치) -->
-      <div class="col">
-        <h4>연구소</h4>
-        <ul>
-           <li><a href="./introduce.html">연구소 소개</a></li>
-              <li><a href="./ceo.html">대표 인사말</a></li>
-              <li><a href="./vision.html">비전 &amp; 철학</a></li>
-              <li><a href="./history.html">연혁</a></li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h4>칼럼</h4>
-        <ul>
-          <li><a href="./columns.html">전체 칼럼</a></li>
-          <li><a href="./columns.html?cat=innovation">비즈니스 혁신</a></li>
-          <li><a href="./columns.html?cat=insight">산업 인사이트</a></li>
-          <li><a href="./columns.html?cat=ceo">CEO 인사이트</a></li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h4>오프라인 상담</h4>
-        <ul>
-          <!-- ✅ 요청대로 “상담신청” 버튼 1개만 -->
-          <li><a href="./consult.html">상담 신청</a></li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h4>오시는 길</h4>
-        <ul>
-          <li><a href="./location.html">오시는 길</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 하단 바 -->
-    <div class="footBar">
-      <div class="addr">
-        <div class="corpLine"
-             data-corp="[법인명 입력]"
-             data-ceo="[대표자 성함]"
-             data-corpno="[법인등록번호]"
-             data-bizno="[사업자등록번호]"
-             data-addr="[주소 한 줄 요약]">
-
-          <span class="corpName" id="corpName">비즈니스 혁신 연구소</span>
-
-          <span class="corpMeta" aria-label="법인 정보">
-            <span class="sep">·</span>
-            <span class="meta">회사명 : <b id="bizNo">HTU [헬스투유]</b></span>
-            <span class="sep">·</span>
-            <span class="meta">법인 : <b id="corpNo">110-230-129994</b></span>
-            <span class="sep">·</span>
-            <span class="meta">대표 : <b id="corpCEO">강영수</b></span>
-          </span>
-        </div>
-
-        <div class="policies">
-          <a href="#">개인정보처리방침</a>
-          <a href="#">이용약관</a>
-          <a href="#">법적고지</a>
-          <a href="#">사이트맵</a>
-        </div>
-
-        <div class="copy">
-          COPYRIGHT © 2025 BUSINESS INNOVATION LAB<br>ALL RIGHTS RESERVED
-        </div>
-      </div>
-
-      <!-- SNS 클러스터 -->
-      <div class="social" role="group" aria-label="공식 채널 바로가기">
-        <span class="tip">Follow</span>
-
-        <a class="sns-btn" data-brand="kakao" href="#" aria-label="KakaoTalk" rel="noopener">
-          <svg viewBox="0 0 36 36" aria-hidden="true">
-            <path d="M18 5C10.268 5 4 10.1 4 16.5c0 4.4 2.974 8.184 7.45 10.18L9.6 31.3c-.24.76.52 1.44 1.26 1.02l5.76-3.25c.46.05.93.07 1.38.07 7.732 0 14-5.1 14-11.44C32 10.1 25.732 5 18 5Z"/>
-          </svg>
-        </a>
-
-        <a class="sns-btn" data-brand="naver" href="#" aria-label="Naver Blog" rel="noopener">
-          <svg viewBox="0 0 36 36" aria-hidden="true">
-            <path d="M6 8.5C6 6.567 7.567 5 9.5 5h17c1.933 0 3.5 1.567 3.5 3.5v12c0 1.933-1.567 3.5-3.5 3.5H18.8l-4.2 3.1c-.73.55-1.6-.36-1.2-1.14l1.3-1.96H9.5C7.567 24 6 22.433 6 20.5v-12Z"/>
-            <g transform="translate(9 12)">
-              <path d="M2 0h2.2c1.4 0 2.3.8 2.3 2 0 1.1-.9 2-2.1 2H3.8V6H2V0Zm5.3 0H9.8v4.6c0 .9.5 1.4 1.3 1.4.8 0 1.3-.5 1.3-1.4V0h1.5v4.7c0 1.8-1.1 2.9-2.8 2.9s-2.8-1.1-2.8-2.9V0Zm8.5 0c1.7 0 2.8 1.1 2.8 2.9V6h-1.5V4.6c-.3.9-1  1.4-2.1 1.4-1.5 0-2.6-1-2.6-2.5S12.8 0 14.3 0Zm.4 1.4c-.8 0-1.3.5-1.3 1.3s.5 1.3 1.3 1.3 1.3-.5 1.3-1.3-.5-1.3-1.3-1.3ZM7 0h1.6v6H7V0Z"/>
-            </g>
-          </svg>
-        </a>
-
-        <!-- 필요 시 활성화 -->
-        <!--
-        <a class="sns-btn" data-brand="youtube" href="#" aria-label="YouTube" rel="noopener">
-          <i class="fab fa-youtube" aria-hidden="true"></i>
-        </a>
-        <a class="sns-btn" data-brand="instagram" href="#" aria-label="Instagram" rel="noopener">
-          <i class="fab fa-instagram" aria-hidden="true"></i>
-        </a>
-        -->
-      </div>
-    </div>
-  </div>
-
-  <!-- ✅ 값 자동 주입(선택): data-*만 바꾸면 텍스트가 자동 반영됨 -->
-  <script>
-    (function(){
-      const root = document.querySelector('#footerElite .corpLine');
-      if(!root) return;
-
-      const corp   = root.getAttribute('data-corp');
-      const ceo    = root.getAttribute('data-ceo');
-      const corpno = root.getAttribute('data-corpno');
-      const bizno  = root.getAttribute('data-bizno');
-      const addr   = root.getAttribute('data-addr');
-
-      const set = (id, val) => {
-        const el = document.getElementById(id);
-        if(el && val && val.trim() && !val.includes('[')) el.textContent = val.trim();
-      };
-
-      set('corpName', corp);
-      set('corpCEO', ceo);
-      set('corpNo', corpno);
-      set('bizNo', bizno);
-
-      // addrShort는 현재 마크업에 출력 위치가 없어서(요청 코드 그대로 유지) 필요하면 아래처럼 한 줄을 추가해서 쓰면 됩니다.
-      // <div class="addrShort" id="addrShort"></div>
-      // set('addrShort', addr);
-    })();
-  </script>
-</section>
 
 
     </body>
     <script src="./js/jquery-1.11.0.min.js"></script>
 <script src="./js/validation1.js"> </script>
 <script src="./js/main.js"> </script>
+<script src="./js/footer.js"></script>
   </html>

@@ -135,10 +135,10 @@
           <span class="corpName" id="corpName">비즈니스 혁신 연구소</span>
           <span class="corpMeta">
             <span class="sep">·</span>
-            <span class="meta">회사명 : <b id="bizNo">HTU [헬스투유]</b></span>
+          <!--  <span class="meta">회사명 : <b id="bizNo">HTU [헬스투유]</b></span>
             <span class="sep">·</span>
             <span class="meta">법인 : <b id="corpNo">110-230-129994</b></span>
-            <span class="sep">·</span>
+            <span class="sep">·</span> -->
             <span class="meta">대표 : <b id="corpCEO">강영수</b></span>
           </span>
         </div>
