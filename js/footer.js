@@ -109,7 +109,7 @@
       <div class="col">
         <h4>오프라인 상담</h4>
         <ul>
-         <li><a href="https://h2u.xyz/">HTU GLOBAL</a></li>
+         <li><a href="https://htuglobal.com">HTU GLOBAL</a></li>
               <li><a href="https://www.maxq.kr/">MAXQ</a></li>
               <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
               <li><a href="https://www.mdjournal.kr/">MD저널</a></li>

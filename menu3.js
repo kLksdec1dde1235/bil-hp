@@ -253,7 +253,7 @@
           <li role="none" data-col="2">
             <a role="menuitem" href="./consult.html">패밀리 사이트</a>
             <ul class="dep2" role="menu">
-              <li><a href="https://h2u.xyz/">HTU GLOBAL</a></li>
+              <li><a href="https://htuglobal.com/">HTU GLOBAL</a></li>
               <li><a href="https://www.maxq.kr/">MAXQ</a></li>
               <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
               <li><a href="https://www.mdjournal.kr/">MD저널</a></li>
@@ -307,7 +307,7 @@
           <div>
             <h4>패밀리 사이트</h4>
             <ul>
-                     <li><a href="https://h2u.xyz/">HTU GLOBAL</a></li>
+                     <li><a href="https://htuglobal.com/">HTU GLOBAL</a></li>
               <li><a href="https://www.maxq.kr/">MAXQ</a></li>
               <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
               <li><a href="https://www.mdjournal.kr/">MD저널</a></li>
@@ -372,7 +372,7 @@
           <div class="col" data-col="2">
             <h3>패밀리 사이트</h3>
             <ul>
-                       <li><a href="https://h2u.xyz/">HTU GLOBAL</a></li>
+                       <li><a href="https://htuglobal.com/">HTU GLOBAL</a></li>
               <li><a href="https://www.maxq.kr/">MAXQ</a></li>
               <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
               <li><a href="https://www.mdjournal.kr/">MD저널</a></li>
@@ -434,7 +434,7 @@
       <details>
         <summary>패밀리 사이트<span class="chev"></span></summary>
         <div class="gs2">
-              <a href="https://h2u.xyz/">HTU GLOBAL</a>
+              <a href="https://htuglobal.com/">HTU GLOBAL</a>
               <a href="https://www.maxq.kr/">MAXQ</a>
               <a href="http://hcn.or.kr/">건강소비자연대</a>
               <a href="https://www.mdjournal.kr/">MD저널</a>
