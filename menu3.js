@@ -249,6 +249,10 @@
             </ul>
           </li>
 
+            <li role="none" data-col="2">
+            <a role="menuitem" href="./consult.html">커뮤니티</a>
+          </li>
+
           <!-- 3) 오프라인 상담 (✅ 1개 버튼만) -->
           <li role="none" data-col="2">
             <a role="menuitem" href="./consult.html">패밀리 사이트</a>
@@ -301,6 +305,14 @@
               <!-- <li><a href="./column.html?cat=innovation">비즈니스 혁신</a></li>
               <li><a href="./column.html?cat=insight">산업 인사이트</a></li>
               <li><a href="./column.html?cat=ceo">CEO 인사이트</a></li> -->
+            </ul>
+          </div>
+
+             <div>
+            <h4>커뮤니티</h4>
+             <ul>
+            <li><a href="./community.html">커뮤니티</a></li>
+             
             </ul>
           </div>
 
@@ -369,7 +381,16 @@
             </ul>
           </div>
 
-          <div class="col" data-col="2">
+           <div class="col" data-col="2">
+            <h3>커뮤니티</h3>
+            <ul>
+              <li><a href="./community.html">커뮤니티</a></li>
+            
+            </ul>
+          </div>
+
+
+          <div class="col" data-col="3">
             <h3>패밀리 사이트</h3>
             <ul>
                        <li><a href="https://htuglobal.com/">HTU GLOBAL</a></li>
@@ -379,7 +400,7 @@
             </ul>
           </div>
 
-          <div class="col" data-col="3">
+          <div class="col" data-col="4">
             <h3>오시는 길</h3>
             <ul>
               <li><a href="./location.html">오시는 길</a></li>
@@ -430,6 +451,15 @@
           <a href="./column.html?cat=ceo">CEO 인사이트</a> -->
         </div>
       </details>
+
+          <details>
+        <summary>커뮤니티<span class="chev"></span></summary>
+        <div class="gs2">
+              <a href="./community.html">커뮤니티</a>
+          
+        </div>
+      </details>
+
 
       <details>
         <summary>패밀리 사이트<span class="chev"></span></summary>

@@ -350,6 +350,676 @@
   });
 </script>
 
+<section id="xqvmpnrz" style="margin:0;padding:0;overflow:hidden;position:relative;">
+<style>
+#xqvmpnrz {
+  --xq-bg: #252b32;
+  --xq-bg-deep: #1659b5;
+  --xq-white: #ffffff;
+  --xq-white-soft: rgba(255,255,255,0.92);
+  --xq-white-mid: rgba(255,255,255,0.82);
+  --xq-white-dim: rgba(255,255,255,0.62);
+  --xq-white-faint: rgba(255,255,255,0.38);
+
+  --xq-mint: #08cf53;
+  --xq-mint-soft: #dce9d7;
+  --xq-mint-text: #0b7a37;
+
+  --xq-blue-dark: #0f49a7;
+  --xq-blue-darker: #0a3f97;
+
+  --xq-line: rgba(255,255,255,0.34);
+
+  font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background: var(--xq-bg);
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#xqvmpnrz *,
+#xqvmpnrz *::before,
+#xqvmpnrz *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#xqvmpnrz .xq-shell {
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 54px 74px 44px;
+}
+
+/* 상단 */
+#xqvmpnrz .xq-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 34px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: none;
+}
+#xqvmpnrz .xq-header.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+#xqvmpnrz .xq-brand {
+  font-size: clamp(22px, 1.7vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #1ec8ff;
+  line-height: 1;
+}
+
+/* 메인 영역 */
+#xqvmpnrz .xq-panel-wrapper {
+  padding: 0;
+}
+#xqvmpnrz .xq-panel {
+  min-height: 720px;
+  display: flex;
+  align-items: stretch;
+  overflow: visible;
+  opacity: 0;
+  transform: translateY(56px);
+  transition: none;
+}
+#xqvmpnrz .xq-panel.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s cubic-bezier(0.22,1,0.36,1) 0.2s, transform 1s cubic-bezier(0.16,1,0.3,1) 0.2s;
+}
+
+/* 좌측 */
+#xqvmpnrz .xq-panel-left {
+  flex: 0 0 48%;
+  padding: 18px 24px 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#xqvmpnrz .xq-caption {
+  font-size: clamp(22px, 1.7vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #1ec8ff;
+  margin-bottom: 44px;
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(4px);
+  transition: none;
+}
+#xqvmpnrz .xq-caption.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+
+#xqvmpnrz .xq-headline {
+ font-size: clamp(29px, 5.1vw, 42px);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.055em;
+  color: var(--xq-white);
+  margin-bottom: 38px;
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(4px);
+  transition: none;
+}
+#xqvmpnrz .xq-headline.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.75s cubic-bezier(0.22,1,0.36,1) 0.1s, filter 0.75s cubic-bezier(0.22,1,0.36,1) 0.1s;
+}
+
+#xqvmpnrz .xq-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 86px;
+  background: var(--xq-mint);
+  border-radius: 0;
+  padding: 18px 34px;
+  margin-bottom: 34px;
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(4px);
+  transition: none;
+}
+#xqvmpnrz .xq-stat-pill.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1) 0.2s, transform 0.75s cubic-bezier(0.22,1,0.36,1) 0.2s, filter 0.75s cubic-bezier(0.22,1,0.36,1) 0.2s;
+}
+#xqvmpnrz .xq-stat-pill span {
+  font-size: clamp(20px, 1.9vw, 31px);
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  color: var(--xq-white);
+}
+
+#xqvmpnrz .xq-desc {
+  max-width: 760px;
+  font-size: clamp(19px, 1.34vw, 25px);
+  font-weight: 700;
+  line-height: 1.95;
+  letter-spacing: -0.03em;
+  color: var(--xq-white-soft);
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(4px);
+  transition: none;
+}
+#xqvmpnrz .xq-desc.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1) 0.3s, transform 0.75s cubic-bezier(0.22,1,0.36,1) 0.3s, filter 0.75s cubic-bezier(0.22,1,0.36,1) 0.3s;
+}
+
+/* 우측 */
+#xqvmpnrz .xq-panel-right {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 0 0 0 24px;
+}
+#xqvmpnrz .xq-right-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100%;
+}
+
+/* 그래프 */
+#xqvmpnrz .xq-bars-zone {
+  position: relative;
+  width: 100%;
+  min-height: 610px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 26px 0 0;
+}
+
+#xqvmpnrz .xq-baseline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 92px;
+  height: 3px;
+  background: var(--xq-line);
+  transform: scaleX(0.2);
+  transform-origin: center;
+  opacity: 0;
+  transition: none;
+}
+#xqvmpnrz .xq-baseline.xq-visible {
+  opacity: 1;
+  transform: scaleX(1);
+  transition: opacity 0.7s ease, transform 0.9s cubic-bezier(0.22,1,0.36,1);
+}
+
+#xqvmpnrz .xq-bars-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(26px, 2vw, 48px);
+  width: 100%;
+  padding: 0 18px 92px;
+}
+
+#xqvmpnrz .xq-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* 말풍선 */
+#xqvmpnrz .xq-bar-label-top {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 142px;
+  min-height: 74px;
+  padding: 14px 24px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: var(--xq-mint-soft);
+  color: var(--xq-mint-text);
+  font-size: clamp(20px, 1.55vw, 29px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: none;
+}
+#xqvmpnrz .xq-bar-label-top::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-top: 14px solid var(--xq-mint-soft);
+}
+#xqvmpnrz .xq-bar-label-top.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* 막대 */
+#xqvmpnrz .xq-bar {
+  width: clamp(108px, 9.3vw, 148px);
+  border-radius: 28px 28px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  opacity: 0.96;
+  transition: none;
+  padding: 18px 16px 24px;
+  will-change: transform;
+}
+#xqvmpnrz .xq-bar.xq-visible {
+  transform: scaleY(1);
+  transition: transform 1.15s cubic-bezier(0.16,1,0.3,1);
+}
+
+#xqvmpnrz .xq-bar-1 {
+  height: 505px;
+  background: var(--xq-mint);
+}
+#xqvmpnrz .xq-bar-2 {
+  height: 330px;
+  background: linear-gradient(180deg, #114eac 0%, #0a439f 100%);
+}
+#xqvmpnrz .xq-bar-3 {
+  height: 175px;
+  background: linear-gradient(180deg, #0d499f 0%, #083f8e 100%);
+}
+
+#xqvmpnrz .xq-bar-icon {
+  width: 78px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#xqvmpnrz .xq-bar-icon svg {
+  width: 74px;
+  height: 74px;
+  stroke: rgba(255,255,255,0.95);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+#xqvmpnrz .xq-bar-name {
+  font-size: clamp(22px, 1.75vw, 31px);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  color: var(--xq-white);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* 하단 */
+#xqvmpnrz .xq-chart-footer-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 16px 0 0;
+  opacity: 0;
+  transition: none;
+}
+#xqvmpnrz .xq-chart-footer-wrap.xq-visible {
+  opacity: 1;
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1) 0.2s;
+}
+#xqvmpnrz .xq-chart-label {
+  flex: 1;
+  text-align: center;
+  padding-left: 6%;
+  font-size: clamp(22px, 1.8vw, 30px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--xq-white);
+}
+#xqvmpnrz .xq-chart-source {
+  font-size: clamp(15px, 1.05vw, 19px);
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
+}
+
+/* 접근성 */
+@media (prefers-reduced-motion: reduce) {
+  #xqvmpnrz .xq-header,
+  #xqvmpnrz .xq-panel,
+  #xqvmpnrz .xq-caption,
+  #xqvmpnrz .xq-headline,
+  #xqvmpnrz .xq-stat-pill,
+  #xqvmpnrz .xq-desc,
+  #xqvmpnrz .xq-bar,
+  #xqvmpnrz .xq-bar-label-top,
+  #xqvmpnrz .xq-chart-footer-wrap,
+  #xqvmpnrz .xq-baseline {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+
+/* 태블릿 */
+@media (max-width: 1180px) {
+  #xqvmpnrz .xq-shell {
+    padding: 44px 34px 34px;
+  }
+  #xqvmpnrz .xq-panel {
+    min-height: 620px;
+  }
+  #xqvmpnrz .xq-panel-left {
+    flex: 0 0 50%;
+  }
+  #xqvmpnrz .xq-stat-pill {
+    min-height: 72px;
+    padding: 16px 24px;
+  }
+  #xqvmpnrz .xq-bars-zone {
+    min-height: 520px;
+  }
+  #xqvmpnrz .xq-baseline {
+    bottom: 78px;
+  }
+  #xqvmpnrz .xq-bars-row {
+    padding-bottom: 78px;
+  }
+  #xqvmpnrz .xq-bar-1 { height: 420px; }
+  #xqvmpnrz .xq-bar-2 { height: 288px; }
+  #xqvmpnrz .xq-bar-3 { height: 152px; }
+}
+
+/* 모바일 */
+@media (max-width: 820px) {
+  #xqvmpnrz .xq-shell {
+    padding: 28px 18px 24px;
+  }
+  #xqvmpnrz .xq-header {
+    padding-bottom: 18px;
+  }
+  #xqvmpnrz .xq-panel {
+    flex-direction: column;
+    min-height: auto;
+  }
+  #xqvmpnrz .xq-panel-left {
+    flex: none;
+    padding: 6px 0 22px;
+  }
+  #xqvmpnrz .xq-panel-right {
+    padding: 0;
+  }
+  #xqvmpnrz .xq-caption {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  #xqvmpnrz .xq-headline {
+    font-size: clamp(34px, 9vw, 52px);
+    margin-bottom: 20px;
+  }
+  #xqvmpnrz .xq-stat-pill {
+    width: 100%;
+    min-height: auto;
+    padding: 16px 16px;
+    margin-bottom: 20px;
+  }
+  #xqvmpnrz .xq-stat-pill span {
+    font-size: 20px;
+    text-align: center;
+  }
+  #xqvmpnrz .xq-desc {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  #xqvmpnrz .xq-bars-zone {
+    min-height: 380px;
+    padding-top: 10px;
+  }
+  #xqvmpnrz .xq-bars-row {
+    gap: 14px;
+    padding: 0 0 56px;
+  }
+  #xqvmpnrz .xq-baseline {
+    bottom: 56px;
+  }
+  #xqvmpnrz .xq-bar {
+    width: 84px;
+    border-radius: 18px 18px 0 0;
+    gap: 10px;
+    padding: 12px 8px 14px;
+  }
+  #xqvmpnrz .xq-bar-1 { height: 250px; }
+  #xqvmpnrz .xq-bar-2 { height: 168px; }
+  #xqvmpnrz .xq-bar-3 { height: 96px; }
+
+  #xqvmpnrz .xq-bar-label-top {
+    min-width: 92px;
+    min-height: 48px;
+    font-size: 16px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+  }
+  #xqvmpnrz .xq-bar-label-top::after {
+    bottom: -8px;
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-top-width: 10px;
+  }
+
+  #xqvmpnrz .xq-bar-icon {
+    width: 48px;
+    height: 56px;
+  }
+  #xqvmpnrz .xq-bar-icon svg {
+    width: 44px;
+    height: 44px;
+  }
+  #xqvmpnrz .xq-bar-name {
+    font-size: 15px;
+  }
+  #xqvmpnrz .xq-chart-footer-wrap {
+    padding-top: 10px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+  #xqvmpnrz .xq-chart-label {
+    width: 100%;
+    text-align: center;
+    padding-left: 0;
+    font-size: 18px;
+  }
+  #xqvmpnrz .xq-chart-source {
+    font-size: 13px;
+  }
+}
+</style>
+
+<div class="xq-shell">
+
+
+  <div class="xq-panel-wrapper">
+    <div class="xq-panel">
+      <div class="xq-panel-left">
+        <!-- <div class="xq-caption">비즈니스혁신연구소</div> -->
+
+        <div class="xq-headline">
+          한국인 건강 좌우하는<br>
+          1위 요인 유전 아닌 ‘돈’
+        </div>
+
+        <div class="xq-stat-pill">
+          <span>1위 수입 및 사회적 수준 33.3%<br>유전적 요인 12.8%보다 높게 조사</span>
+        </div>
+
+        <div class="xq-desc">
+          한국건강증진개발원 건강인식조사에 따르면<br>
+          건강에 가장 큰 영향을 미친다고 인식한 요인 1위는 ‘수입 및 사회적 수준’이었습니다.<br>
+          이어 2위는 ‘운동시설·공원 인프라 등 물리적 환경’, 3위는 ‘유전적 요인’으로 나타났습니다.<br>
+          건강은 개인의 타고난 조건뿐 아니라 사회·경제적 여건과 환경의 영향을 함께 받는다는 인식이 반영된 결과입니다.
+        </div>
+      </div>
+
+      <div class="xq-panel-right">
+        <div class="xq-right-inner">
+          <div class="xq-bars-zone">
+            <div class="xq-baseline"></div>
+
+            <div class="xq-bars-row">
+              <div class="xq-bar-group">
+                <div class="xq-bar-label-top" data-xq-label="1">33.3%</div>
+                <div class="xq-bar xq-bar-1" data-xq-bar="1">
+                 
+                  <span class="xq-bar-name">수입 및<br>사회적 수준</span>
+                </div>
+              </div>
+
+              <div class="xq-bar-group">
+                <div class="xq-bar-label-top" data-xq-label="2">14.8%</div>
+                <div class="xq-bar xq-bar-2" data-xq-bar="2">
+                  
+                  <span class="xq-bar-name">생활<br>환경</span>
+                </div>
+              </div>
+
+              <div class="xq-bar-group">
+                <div class="xq-bar-label-top" data-xq-label="3">12.8%</div>
+                <div class="xq-bar xq-bar-3" data-xq-bar="3">
+                
+                  <span class="xq-bar-name">유전적<br>요인</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="xq-chart-footer-wrap">
+            <!-- <span class="xq-chart-label">건강에 가장 큰 영향을 미친다고 인식한 요인</span> -->
+            <span class="xq-chart-source">자료 : 한국건강증진개발원, 2025년 건강인식조사</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var root = document.getElementById('xqvmpnrz');
+  if (!root) return;
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var animated = false;
+  var observer = null;
+
+  function q(sel) { return root.querySelector(sel); }
+  function qa(sel) { return root.querySelectorAll(sel); }
+
+  function runAnimation() {
+    if (animated) return;
+    animated = true;
+
+    var header = q('.xq-header');
+    var panel = q('.xq-panel');
+    var caption = q('.xq-caption');
+    var headline = q('.xq-headline');
+    var pill = q('.xq-stat-pill');
+    var desc = q('.xq-desc');
+    var bars = qa('.xq-bar');
+    var labels = qa('.xq-bar-label-top');
+    var footer = q('.xq-chart-footer-wrap');
+    var baseline = q('.xq-baseline');
+
+    if (prefersReduced) {
+      [header, panel, caption, headline, pill, desc, footer, baseline].forEach(function(el) {
+        if (el) el.classList.add('xq-visible');
+      });
+      bars.forEach(function(b) { b.classList.add('xq-visible'); });
+      labels.forEach(function(l) { l.classList.add('xq-visible'); });
+      return;
+    }
+
+    setTimeout(function() { if (header) header.classList.add('xq-visible'); }, 60);
+    setTimeout(function() { if (panel) panel.classList.add('xq-visible'); }, 180);
+
+    setTimeout(function() { if (caption) caption.classList.add('xq-visible'); }, 700);
+    setTimeout(function() { if (headline) headline.classList.add('xq-visible'); }, 900);
+    setTimeout(function() { if (pill) pill.classList.add('xq-visible'); }, 1120);
+    setTimeout(function() { if (desc) desc.classList.add('xq-visible'); }, 1320);
+
+    setTimeout(function() { if (baseline) baseline.classList.add('xq-visible'); }, 980);
+
+    setTimeout(function() { if (bars[0]) bars[0].classList.add('xq-visible'); }, 1120);
+    setTimeout(function() { if (bars[1]) bars[1].classList.add('xq-visible'); }, 1380);
+    setTimeout(function() { if (bars[2]) bars[2].classList.add('xq-visible'); }, 1640);
+
+    setTimeout(function() { if (labels[0]) labels[0].classList.add('xq-visible'); }, 1880);
+    setTimeout(function() { if (labels[1]) labels[1].classList.add('xq-visible'); }, 2060);
+    setTimeout(function() { if (labels[2]) labels[2].classList.add('xq-visible'); }, 2240);
+
+    setTimeout(function() { if (footer) footer.classList.add('xq-visible'); }, 1940);
+  }
+
+  if ('IntersectionObserver' in window) {
+    observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.22) {
+          runAnimation();
+
+          if (observer) {
+            observer.unobserve(root);
+            observer.disconnect();
+            observer = null;
+          }
+        }
+      });
+    }, { threshold: [0, 0.22, 0.5] });
+
+    observer.observe(root);
+  } else {
+    runAnimation();
+  }
+})();
+</script>
+</section>
 
 
 <section id="superEasyVideoSection" aria-label="SUPER EASY 비디오 피처 섹션">
@@ -451,7 +1121,7 @@
 
     #superEasyVideoSection .se-title{
       margin:0 0 18px;
-      font-size:clamp(26px, 3.2vw, 40px);
+      font-size:clamp(16px, 3.2vw, 30px);
       font-weight:900;
       letter-spacing:-.03em;
       line-height:1.15;
@@ -579,17 +1249,16 @@
 
       <!-- COPY -->
       <div class="se-copy" data-se-reveal="left" data-delay="0">
-            <h3 class="se-title">우리 모두는<br>행복하기를 원합니다.<br>행복하려면, 건강, 돈(경제), 관계가 중요한데, 노동의 종말 시대에 부족하면 건강에도 더 문제가 되고, 관계에도 영향을 주는 경제 문제가 특별히 더 부각되는 때입니다. 경제가 행복인 시대입니다.</h3>
+            <h3 class="se-title">AI로 인해
+일자리, 소득 구조, 비즈니스 환경까지
+모두 변하고 있는 시대 변화로</h3>
 
-        <p class="se-kicker">한국건강증진개발원</p>
-        <h3 class="se-title">한국인 건강 좌우하는<br>1위 요인 유전 아닌 ‘돈’</h3>
+<h3 class="se-title">
+단순한 산업의 문제가 아니라
+개인의 건강, 관계, 삶의 안정까지 영향을 미치는
+‘생존의 문제’로 확장되고 있습니다.</h3>
 
-        <p class="se-subtitle"></p>
-        <p class="se-desc">
-        한국 사회에서 건강의 문제는 유전이나 개인의 관리 차원을 넘어,<br>
-경제적 여건에 따라 건강에 직결되는 문제에 놓여 있습니다.
-
-        </p>
+       
       </div>
     </div>
   </div>
