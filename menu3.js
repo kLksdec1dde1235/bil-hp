@@ -250,7 +250,7 @@
           </li>
 
             <li role="none" data-col="2">
-            <a role="menuitem" href="./consult.html">커뮤니티</a>
+            <a role="menuitem" href="./community.html">커뮤니티</a>
           </li>
 
           <!-- 3) 오프라인 상담 (✅ 1개 버튼만) -->

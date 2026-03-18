@@ -1,0 +1,1832 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+
+<!-- 소유권 인증(각 도메인별 값으로 교체) -->
+<meta name="naver-site-verification" content="3d90b88f5b034dcafecbefafa2709d57a999bf64" />
+<meta name="google-site-verification" content="구글_인증코드_여기에" />
+
+<!-- Canonical (대표 URL로 고정) -->
+<link rel="canonical" href="https://biznovalab.com/" />
+<meta name="robots" content="index,follow" />
+<meta name="subject" content="비즈니스혁신연구소" />
+<meta name="title" content="비즈니스혁신연구소" />
+<meta name="author" content="비즈니스혁신연구소">
+<meta name="description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼."/>
+<meta name="keywords" content="비즈니스혁신연구소, 비즈니스 혁신 연구소, Business Innovation Lab, biznovlab, 현장혁신, 실행형 혁신, 혁신 플랫폼, 사업 혁신, 조직 혁신, 운영 혁신, 프로세스 개선, 업무 효율화, 성장 전략, 신사업, 지속 성장, 기업 혁신" />
+
+
+
+<link rel="icon" href="./img/favicon.png" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="./img/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.png">
+<link rel="icon" type="image/png" sizes="48x48" href="./img/favicon.png">
+
+<!-- Apple (iOS 홈화면 아이콘) -->
+<link rel="apple-touch-icon" sizes="180x180" href="./img/favicon.png">
+
+<!-- Android / Chrome -->
+<link rel="icon" type="image/png" sizes="192x192" href="./img/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./img/favicon.png">
+
+
+<meta property="og:type" content="website" />
+<meta property="og:rich_attachment" content="true" />
+<meta property="og:site_name" content="비즈니스혁신연구소" />
+<meta property="og:title" content="비즈니스혁신연구소" />
+<meta property="og:description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta property="og:image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+<meta property="og:url" content="https://biznovalab.com/" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="비즈니스혁신연구소" />
+<meta name="twitter:description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta name="twitter:image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+  
+<meta itemprop="name" content="비즈니스혁신연구소" />
+<meta itemprop="description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta itemprop="image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+<title>비즈니스혁신연구소</title>
+  
+  <link href="./css/reset.css" rel="stylesheet" type="text/css" />
+   <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="menu_navi"></div>
+
+<script src="./menu3.js"></script>
+
+
+
+  <style>
+    /* ── RESET & LAYOUT ── */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Pretendard',sans-serif;background:#111;color:#fff;overflow-x:hidden}
+    .container{display:flex}
+    #main{flex:1;position:relative;overflow:hidden}
+    #visualTransWrap{position:absolute;inset:0;pointer-events:none;z-index:5}
+
+    /* ── SWIPER & BG ── */
+    .mv_container{width:100%;height:90vh;position:relative}
+    .swiper-container,.swiper-wrapper,.swiper-slide{width:100%;height:100%}
+    .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 6s ease;filter:brightness(0.5)}
+    .swiper-slide-active .bg{transform:scale(1.12)}
+    .bg1{background-image:url('./img/intro-1.jpg')}
+    .bg2{background-image:url('./img/intro-2.jpg')}
+    .bg3{background-image:url('./img/page-3.jpg')}
+    .bg4{background-image:url('./img/repair.jpg')}
+
+    /* ── TEXT & BUTTON ── */
+    .mv_txt_box{position:absolute;top:20%;left:5%;max-width:640px;z-index:2}
+    .mv_cate{font-size:18px;font-weight:600;margin-bottom:14px;color:#ffeb55;display:inline-block}
+    .mv_tit{font-size:43px;line-height:1.4;margin:0 0 12px}
+    @media screen and (max-width:620px){ .mv_tit{font-size:34px !important;} }
+    @media screen and (max-width:500px){ .mv_tit{font-size:26px !important;} }
+    .mv_txt{font-size:18px;line-height:1.6;font-weight:300}
+    .mv_btn{
+      display:inline-block;margin-top:30px;padding:14px 36px;
+      border:2px solid #fff;border-radius:40px;
+      background:transparent;color:#fff;font-weight:600;letter-spacing:.3px;
+      opacity:0;pointer-events:none;
+      transition:opacity .6s,background .35s,box-shadow .35s,color .35s,transform .35s;
+      position:relative;overflow:hidden;text-decoration:none;
+    }
+    .swiper-slide-active .mv_btn{opacity:1;pointer-events:auto}
+    .mv_btn::after{
+      content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);
+      transform:translateX(-100%);transition:transform .4s;
+    }
+    .mv_btn:hover::after{transform:translateX(0)}
+    .mv_btn:hover{
+      background:#fff;color:#111;box-shadow:0 8px 24px rgba(0,0,0,.25);
+      transform:translateY(-2px);
+    }
+
+    /* ── WAVE ANIMATION ── */
+    .wave_anim .wave{display:inline-block;opacity:0;animation:wave 1.1s ease-out forwards}
+    @keyframes wave{0%{transform:translateY(25px);opacity:0}100%{transform:translateY(0);opacity:1}}
+    .wave_anim.custom .wave:nth-child(1){animation-delay:.15s}
+    .wave_anim.custom .wave:nth-child(2){animation-delay:.3s}
+    .wave_anim.custom .wave:nth-child(3){animation-delay:.45s}
+
+    /* ── PROGRESS BAR ── */
+    .progress-container{position:absolute;bottom:80px;left:5%;right:5%;height:4px;display:flex;gap:10px;z-index:3;width:150px;}
+    .progress-segment{flex:1;background:rgba(255,255,255,.25);border-radius:2px;overflow:hidden;cursor:pointer}
+    .progress-fill{width:0;height:100%;background:#fff;display:block}
+
+    .wheel_down{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:24px;opacity:.7;z-index:3;animation: wheel-bounce 2s ease-in-out infinite;}
+    .wheel_down .wheel {animation: wheel-fade 2s ease-in-out infinite;}
+    @keyframes wheel-fade {
+      0%{opacity:1;transform:translateY(0)}
+      80%{opacity:.2;transform:translateY(10px)}
+      100%{opacity:0;transform:translateY(14px)}
+    }
+    #sidebar{display:none}
+  </style>
+
+  <style>
+    /* ──────────────────────────────────────────
+          #visual-section 전용 스타일
+      ─────────────────────────────────────────── */
+    #visual-section{position:relative;width:100%;height:100vh;overflow:hidden}
+    #visual-section .video_wrap{position:absolute;inset:0;z-index:0}
+    #visual-section .video_wrap video{width:100%;height:100%;object-fit:cover;object-position:center}
+    #visual-section .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5)}
+    #visual-section .txt_container{
+      position:absolute;inset:0;z-index:2;
+      display:flex;flex-direction:column;
+      justify-content:space-evenly;align-items:center;
+      text-align:center;pointer-events:none
+    }
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    #visual-section .company,#visual-section .logo,#visual-section .exp{opacity:0}
+    #visual-section.animate .company{
+      color:#fff;font-size:2.5rem;font-weight:500;margin-bottom:.5em;
+      animation:fadeInUp 1s ease-out forwards;animation-delay:.2s
+    }
+    #visual-section.animate .logo{animation:fadeInUp 1s ease-out forwards;animation-delay:.7s}
+    #visual-section .logo .m_logo{
+      width:800px;height:130px;
+      background:url("../img/sm-logo.png") no-repeat center/contain;
+      margin-bottom:.5em
+    }
+    #visual-section.animate .exp{
+      color:#fff;font-size:1.25rem;line-height:1.6;max-width:80%;
+      animation:fadeInUp 1s ease-out forwards;animation-delay:1s
+    }
+    #visual-section .highlight{color:#e6d3a3;font-weight:600}
+    @media (max-width:768px){
+      #visual-section .company{font-size:2rem !important}
+      #visual-section .logo .m_logo{
+        background:url("../img/sm-font.png") no-repeat center/contain;
+        width:400px;height:300px
+      }
+      #visual-section .exp{font-size:1rem}
+      #visual-section .video_wrap video{object-position:right center}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 메뉴(외부 로드) -->
+<div id="menu"></div>
+
+
+<section id="nhnHeroSlider">
+
+<style>
+#nhnHeroSlider{
+  position:relative;
+  width:100%;
+  height:90vh;
+  min-height:600px;
+  overflow:hidden;
+  font-family:'Pretendard','Noto Sans KR',sans-serif;
+
+  --nhn-side-left: clamp(40px, 6vw, 120px);
+  --nhn-side-right: 40px;
+  --nhn-ui-width: 190px; /* 우측 페이지 + 버튼 영역 확보 */
+  --nhn-progress-bottom: 63px;
+}
+
+/* 슬라이드 래퍼 */
+#nhnHeroSlider .nhn-slider{
+  display:flex;
+  height:100%;
+  transition:transform 1s cubic-bezier(.77,0,.18,1);
+}
+
+/* 각 슬라이드 */
+#nhnHeroSlider .nhn-slide{
+  min-width:100%;
+  height:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:0 var(--nhn-side-left);
+  box-sizing:border-box;
+  overflow:hidden;
+}
+
+/* 배경 */
+#nhnHeroSlider .nhn-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+
+#nhnHeroSlider .nhn-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.28) 36%, rgba(0,0,0,.18) 62%, rgba(0,0,0,.30) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.14) 0%, rgba(0,0,0,.10) 30%, rgba(0,0,0,.26) 100%);
+  pointer-events:none;
+}
+
+#nhnHeroSlider .nhn-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.52);
+  transform:scale(1.05);
+  transition:transform 6s ease, filter .6s ease;
+}
+
+#nhnHeroSlider .nhn-slide.active .nhn-bg img{
+  transform:scale(1.12);
+  filter:brightness(.48);
+}
+
+/* 텍스트 */
+#nhnHeroSlider .nhn-content{
+  position:relative;
+  z-index:2;
+  max-width:700px;
+}
+
+#nhnHeroSlider .nhn-title{
+  font-size:clamp(28px,3vw,42px);
+  font-weight:300;
+  color:#fff;
+  margin-bottom:14px;
+  opacity:0;
+  transform:translateY(30px);
+  text-shadow:0 2px 14px rgba(0,0,0,.28);
+}
+
+#nhnHeroSlider .nhn-brand{
+  font-size:clamp(36px,4vw,60px);
+  font-weight:700;
+  color:#5da5ff;
+  margin-bottom:20px;
+  opacity:0;
+  transform:translateY(30px);
+  text-shadow:0 3px 18px rgba(0,0,0,.22);
+}
+
+#nhnHeroSlider .nhn-desc{
+  font-size:clamp(14px,1.2vw,18px);
+  color:rgba(255,255,255,.92);
+  line-height:1.7;
+  opacity:0;
+  transform:translateY(30px);
+  text-shadow:0 2px 12px rgba(0,0,0,.26);
+}
+
+/* 활성화 애니메이션 */
+#nhnHeroSlider .nhn-slide.active .nhn-title{
+  animation:fadeUp .8s forwards;
+}
+#nhnHeroSlider .nhn-slide.active .nhn-brand{
+  animation:fadeUp .8s .2s forwards;
+}
+#nhnHeroSlider .nhn-slide.active .nhn-desc{
+  animation:fadeUp .8s .4s forwards;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* 하단 프로그레스 */
+#nhnHeroSlider .nhn-progress{
+  position:absolute;
+  bottom:var(--nhn-progress-bottom);
+  left:var(--nhn-side-left);
+  right:calc(var(--nhn-side-right) + var(--nhn-ui-width));
+  height:2px;
+  background:rgba(255,255,255,.24);
+  z-index:2;
+  pointer-events:none;
+}
+
+#nhnHeroSlider .nhn-progress-bar{
+  height:100%;
+  width:0%;
+  background:#fff;
+  transition:width 4s linear;
+}
+
+/* 오른쪽 UI */
+#nhnHeroSlider .nhn-ui{
+  position:absolute;
+  bottom:40px;
+  right:var(--nhn-side-right);
+  display:flex;
+  align-items:center;
+  gap:20px;
+  color:#fff;
+  z-index:3;
+  min-width:var(--nhn-ui-width);
+  justify-content:flex-end;
+}
+
+#nhnHeroSlider .nhn-page{
+  font-size:14px;
+  opacity:.85;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+
+/* 버튼 */
+#nhnHeroSlider .nhn-btn{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.3s;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  user-select:none;
+}
+#nhnHeroSlider .nhn-btn:hover{
+  background:#fff;
+  color:#000;
+}
+
+/* 모바일 */
+@media(max-width:768px){
+  #nhnHeroSlider{
+    --nhn-side-left: 24px;
+    --nhn-side-right: 24px;
+    --nhn-ui-width: 136px;
+    --nhn-progress-bottom: 86px;
+  }
+
+  #nhnHeroSlider .nhn-slide{
+    padding:0 24px;
+    align-items:flex-end;
+    padding-bottom:140px;
+  }
+
+  #nhnHeroSlider .nhn-content{
+    max-width:100%;
+  }
+
+  #nhnHeroSlider .nhn-ui{
+    bottom:24px;
+    gap:12px;
+  }
+
+  #nhnHeroSlider .nhn-btn{
+    width:42px;
+    height:42px;
+  }
+
+  #nhnHeroSlider .nhn-page{
+    font-size:13px;
+  }
+}
+</style>
+
+
+<div class="nhn-slider">
+
+  <!-- slide 1 -->
+  <div class="nhn-slide active">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2070" alt="">
+    </div>
+
+    <div class="nhn-content">
+      <div class="nhn-title">검증된 기업만 연결되는,</div>
+      <div class="nhn-brand">Business Community</div>
+      <div class="nhn-desc">
+        업종별로 선별된 기업들이 모여<br>
+        협업 · 거래 · 성장을 만들어가는 프리미엄 네트워크
+      </div>
+    </div>
+  </div>
+
+  <!-- slide 2 -->
+  <div class="nhn-slide">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2070" alt="">
+    </div>
+
+    <div class="nhn-content">
+      <div class="nhn-title">업종의 경계를 넘어 혁신을 만들어갑니다.</div>
+      <div class="nhn-brand">Performance Network</div>
+      <div class="nhn-desc">
+        기존의 비즈니스 모델에서 다른 업종간의 융복합을 통해<br>
+        새로운 비즈니스의 흐름을 만들어갑니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- slide 3 -->
+  <div class="nhn-slide">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=2070" alt="">
+    </div>
+
+    <div class="nhn-content">
+      <div class="nhn-title">브랜드 · 경험 · 확장</div>
+      <div class="nhn-brand">Brand Collaboration</div>
+      <div class="nhn-desc">
+        다양한 업종의 기업이 연결되어<br>
+        새로운 기회와 비즈니스 확장을 만들어갑니다
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- progress -->
+<div class="nhn-progress">
+  <div class="nhn-progress-bar"></div>
+</div>
+
+<!-- UI -->
+<div class="nhn-ui">
+  <div class="nhn-page">01 / 03</div>
+  <div class="nhn-btn" data-dir="prev" aria-label="이전 슬라이드">←</div>
+  <div class="nhn-btn" data-dir="next" aria-label="다음 슬라이드">→</div>
+</div>
+
+
+<script>
+(function(){
+  const section = document.querySelector("#nhnHeroSlider");
+  const slider = section.querySelector(".nhn-slider");
+  const slides = section.querySelectorAll(".nhn-slide");
+  const bar = section.querySelector(".nhn-progress-bar");
+  const page = section.querySelector(".nhn-page");
+  const btns = section.querySelectorAll(".nhn-btn");
+
+  let index = 0;
+  let timer = null;
+  let rafId = null;
+
+  function restartProgress(){
+    bar.style.transition = "none";
+    bar.style.width = "0%";
+
+    cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(() => {
+      rafId = requestAnimationFrame(() => {
+        bar.style.transition = "width 4s linear";
+        bar.style.width = "100%";
+      });
+    });
+  }
+
+  function update(){
+    slider.style.transform = "translateX(-" + (index * 100) + "%)";
+    slides.forEach(s => s.classList.remove("active"));
+    slides[index].classList.add("active");
+
+    page.textContent =
+      String(index + 1).padStart(2, "0") + " / " +
+      String(slides.length).padStart(2, "0");
+
+    restartProgress();
+  }
+
+  function next(){
+    index = (index + 1) % slides.length;
+    update();
+  }
+
+  function prev(){
+    index = (index - 1 + slides.length) % slides.length;
+    update();
+  }
+
+  function auto(){
+    clearInterval(timer);
+    timer = setInterval(next, 4000);
+  }
+
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(btn.dataset.dir === "next") next();
+      else prev();
+      auto();
+    });
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        update();
+        auto();
+      }else{
+        clearInterval(timer);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  io.observe(section);
+})();
+</script>
+
+</section>
+
+<section id="philosophy" aria-label="업종별 업체 소개">
+<style>
+#philosophy {
+  --jp-bg: #ffffff;
+  --jp-bg-dark: #f7f7f5;
+  --jp-white: #111111;
+  --jp-gray-light: rgba(17,17,17,0.68);
+  --jp-gray-dim: rgba(17,17,17,0.5);
+  --jp-gray-faint: rgba(17,17,17,0.12);
+  --jp-transition: 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  font-family: 'Noto Sans KR', 'Pretendard', -apple-system, sans-serif;
+  background-color: var(--jp-bg);
+  color: var(--jp-white);
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#philosophy *,
+#philosophy *::before,
+#philosophy *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== MAIN ===== */
+#philosophy .jp-main {
+  position: relative;
+}
+
+/* ===== LEFT NAV ===== */
+#philosophy .jp-nav {
+  position: fixed;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  pointer-events: none;
+}
+
+#philosophy .jp-nav[data-floating="true"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#philosophy .jp-nav[data-stopped="true"] {
+  position: absolute;
+  left: 8%;
+  transform: none;
+  top: 0;
+}
+
+#philosophy .jp-nav-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--jp-gray-faint);
+  cursor: pointer;
+  transition: all var(--jp-transition);
+  position: relative;
+}
+
+#philosophy .jp-nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--jp-white);
+  transition: width var(--jp-transition);
+}
+
+#philosophy .jp-nav-item[data-active="true"]::after {
+  width: 100%;
+}
+
+#philosophy .jp-nav-num {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+  transition: color var(--jp-transition);
+  color: var(--jp-gray-dim);
+}
+
+#philosophy .jp-nav-label {
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  transition: color var(--jp-transition), font-weight var(--jp-transition);
+  color: var(--jp-gray-dim);
+}
+
+#philosophy .jp-nav-item[data-active="true"] .jp-nav-num,
+#philosophy .jp-nav-item[data-active="true"] .jp-nav-label {
+  color: var(--jp-white);
+  font-weight: 700;
+}
+
+/* ===== RIGHT CONTENT ===== */
+#philosophy .jp-content {
+  margin-left: calc(8% + 320px);
+  padding-right: 8%;
+  min-width: 0;
+}
+
+#philosophy .jp-content-item {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 0;
+  position: relative;
+}
+
+#philosophy .jp-content-title {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  color: var(--jp-white);
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(2px);
+  transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+}
+
+#philosophy .jp-content-lead {
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 500;
+  line-height: 1.7;
+  color: rgba(17,17,17,0.8);
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(25px);
+  filter: blur(2px);
+  transition: opacity 0.7s ease 0.08s, transform 0.7s ease 0.08s, filter 0.7s ease 0.08s;
+}
+
+#philosophy .jp-content-desc {
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--jp-gray-light);
+  max-width: 600px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(2px);
+  transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s, filter 0.7s ease 0.15s;
+}
+
+#philosophy .jp-content-img {
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 16 / 9;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+#philosophy .jp-content-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#philosophy .jp-content-item[data-visible="true"] .jp-content-title,
+#philosophy .jp-content-item[data-visible="true"] .jp-content-lead,
+#philosophy .jp-content-item[data-visible="true"] .jp-content-desc,
+#philosophy .jp-content-item[data-visible="true"] .jp-content-img {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+#philosophy .jp-content-item.jp-last-align {
+  justify-content: flex-start;
+}
+
+@media (max-width: 1100px) {
+  #philosophy .jp-nav {
+    width: 220px;
+    left: 5%;
+  }
+
+  #philosophy .jp-nav[data-stopped="true"] {
+    left: 5%;
+  }
+
+  #philosophy .jp-nav-label {
+    font-size: 14px;
+  }
+
+  #philosophy .jp-content {
+    margin-left: calc(5% + 260px);
+    padding-right: 5%;
+  }
+
+  #philosophy .jp-content-img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #philosophy .jp-nav {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100%;
+    height: auto;
+    padding: 16px 6%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    background: var(--jp-bg);
+    border-bottom: 1px solid var(--jp-gray-faint);
+    z-index: 100;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  #philosophy .jp-nav[data-stopped="true"] {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  #philosophy .jp-nav-item {
+    padding: 8px 4px;
+    border-bottom: none;
+    text-align: center;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  #philosophy .jp-nav-item::after {
+    display: none;
+  }
+
+  #philosophy .jp-nav-item[data-active="true"] {
+    background: rgba(0,0,0,0.05);
+  }
+
+  #philosophy .jp-nav-num {
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+
+  #philosophy .jp-nav-label {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #philosophy .jp-content {
+    margin-left: 0;
+    padding: 0 6%;
+  }
+
+  #philosophy .jp-content-item {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  #philosophy .jp-content-item.jp-last-align {
+    justify-content: center;
+    min-height: auto !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  #philosophy .jp-content-img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #philosophy .jp-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
+
+<div class="jp-main">
+  <nav class="jp-nav" data-floating="false" data-stopped="false" aria-label="업종별 카테고리 목록"></nav>
+  <div class="jp-content" role="region" aria-label="업종별 업체 상세 내용"></div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  var philosophyData = [
+    {
+      num: '01',
+      category: '병원 · 의료',
+      title: '서울아산병원',
+      lead: '국내 최고 수준의 의료 시스템을 갖춘 병원은 신뢰와 전문성이 핵심입니다.',
+      desc: '서울아산병원은 전문 의료진, 첨단 장비, 체계적인 진료 프로세스를 통해 환자에게 높은 신뢰를 제공합니다. 진료과별 상세 안내, 의료진 이력, 실제 치료 사례, 상담 및 예약 시스템까지 명확하게 구성되어 있어 처음 방문하는 환자도 안심하고 접근할 수 있습니다.',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=450&fit=crop&q=80'
+    },
+    {
+      num: '02',
+      category: '법률 · 세무',
+      title: '법무법인 김앤장',
+      lead: '복잡한 법률 문제를 명확하게 해결하는 전문성과 신뢰가 중요한 분야입니다.',
+      desc: '김앤장은 기업법무, 형사, 금융, 국제거래 등 다양한 분야에서 전문성을 갖춘 국내 대표 로펌입니다. 고객이 이해하기 어려운 법률 구조를 쉽게 풀어 설명하고, 명확한 해결 방향과 전략을 제시하는 것이 핵심이며, 상담 전 신뢰를 형성하는 정보 구조가 중요합니다.',
+      image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=450&fit=crop&q=80'
+    },
+    {
+      num: '03',
+      category: '뷰티 · 웰니스',
+      title: '차움 클리닉',
+      lead: '프리미엄 헬스케어와 라이프스타일을 결합한 고급 의료 서비스 브랜드입니다.',
+      desc: '차움은 단순 치료가 아닌 개인의 건강과 아름다움을 함께 관리하는 통합 웰니스 서비스를 제공합니다. 공간 디자인, 프로그램 구성, 전문 의료진, 고객 경험까지 모두 프리미엄 기준으로 설계되어 있으며, 고객에게 변화된 삶을 제안하는 것이 핵심입니다.',
+      image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&h=450&fit=crop&q=80'
+    },
+    {
+      num: '04',
+      category: '교육 · 컨설팅',
+      title: '패스트캠퍼스',
+      lead: '실무 중심 교육으로 빠르게 성과를 만드는 교육 플랫폼입니다.',
+      desc: '패스트캠퍼스는 직무 역량을 단기간에 향상시키는 교육 프로그램을 제공합니다. 커리큘럼 구성, 강사진 전문성, 수강 후 성과 사례까지 명확하게 보여주며, 학습이 실제 취업·이직·수익으로 이어진다는 확신을 주는 구조가 핵심입니다.',
+      image: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&h=450&fit=crop&q=80'
+    },
+    {
+      num: '05',
+      category: '제조 · B2B 기업',
+      title: '삼성전자',
+      lead: '기술력과 글로벌 신뢰도를 기반으로 한 대표 제조 기업입니다.',
+      desc: '삼성전자는 반도체, 디스플레이, 모바일 등 다양한 분야에서 세계적인 기술력을 보유하고 있습니다. 연구개발 역량, 생산 인프라, 글로벌 파트너십, 인증 및 납품 사례를 통해 기업의 경쟁력을 구조적으로 보여주며, 브랜드 자체가 신뢰의 기준이 되는 기업입니다.',
+      image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&h=450&fit=crop&q=80'
+    },
+    {
+      num: '06',
+      category: '외식 · 카페 · 로컬매장',
+      title: '스타벅스',
+      lead: '단순한 커피를 넘어 공간 경험을 제공하는 라이프스타일 브랜드입니다.',
+      desc: '스타벅스는 매장 분위기, 브랜드 감성, 메뉴 구성, 고객 경험을 통해 머무르고 싶은 공간을 만듭니다. 위치 접근성, 시즌 메뉴, MD 상품, 고객 후기까지 자연스럽게 연결되며 방문 욕구를 자극하는 구조가 핵심입니다.',
+      image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=450&fit=crop&q=80'
+    },
+    {
+      num: '07',
+      category: '부동산 · 인테리어 · 라이프스타일',
+      title: '한샘',
+      lead: '공간을 설계하는 기업은 결과물의 감각과 신뢰를 동시에 전달해야 합니다.',
+      desc: '한샘은 주거 공간을 중심으로 인테리어 솔루션을 제공하는 브랜드입니다. 시공 사례, 디자인 철학, 상담 프로세스, 맞춤 제안 시스템을 통해 고객이 실제로 변화된 공간을 상상할 수 있도록 돕습니다. 포트폴리오 중심의 설계가 핵심입니다.',
+      image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&h=450&fit=crop&q=80'
+    }
+  ];
+
+  var root = document.getElementById('philosophy');
+  var nav = root.querySelector('.jp-nav');
+  var content = root.querySelector('.jp-content');
+  var jpMain = root.querySelector('.jp-main');
+
+  philosophyData.forEach(function(item, i) {
+    var navEl = document.createElement('div');
+    navEl.className = 'jp-nav-item';
+    navEl.setAttribute('data-index', i);
+    navEl.setAttribute('data-active', i === 0 ? 'true' : 'false');
+    navEl.setAttribute('role', 'button');
+    navEl.setAttribute('aria-label', item.num + ' ' + item.category);
+    navEl.setAttribute('tabindex', '0');
+    navEl.innerHTML =
+      '<span class="jp-nav-num">' + item.num + '.</span>' +
+      '<span class="jp-nav-label">' + item.category + '</span>';
+    nav.appendChild(navEl);
+
+    var leadHtml = item.lead.replace(/\n/g, '<br>');
+    var contentEl = document.createElement('article');
+    contentEl.className = 'jp-content-item' + (i === philosophyData.length - 1 ? ' jp-last-align' : '');
+    contentEl.setAttribute('data-index', i);
+    contentEl.setAttribute('data-visible', 'false');
+    contentEl.setAttribute('aria-label', item.title);
+    contentEl.innerHTML =
+      '<h3 class="jp-content-title">' + item.title + '</h3>' +
+      '<p class="jp-content-lead">' + leadHtml + '</p>' +
+      '<p class="jp-content-desc">' + item.desc + '</p>' +
+      '<div class="jp-content-img">' +
+        '<img src="' + item.image + '" alt="' + item.title + ' 관련 이미지" loading="lazy">' +
+      '</div>';
+    content.appendChild(contentEl);
+  });
+
+  var navItems = nav.querySelectorAll('.jp-nav-item');
+  var contentItems = content.querySelectorAll('.jp-content-item');
+  var ticking = false;
+  var currentActive = -1;
+  var isMobile = false;
+
+  function checkMobile() {
+    isMobile = window.innerWidth <= 768;
+  }
+
+  function getOffsetTopWithin(ancestor, el) {
+    var top = 0;
+    var node = el;
+    while (node && node !== ancestor) {
+      top += node.offsetTop;
+      node = node.offsetParent;
+    }
+    return top;
+  }
+
+  function adjustLastSlideAlignment() {
+    var lastItem = contentItems[contentItems.length - 1];
+    if (!lastItem) return;
+
+    if (isMobile) {
+      lastItem.style.minHeight = '';
+      lastItem.style.paddingTop = '';
+      lastItem.style.paddingBottom = '';
+      return;
+    }
+
+    var title = lastItem.querySelector('.jp-content-title');
+    var imgWrap = lastItem.querySelector('.jp-content-img');
+    if (!title || !imgWrap) return;
+
+    var navHeight = nav.offsetHeight || 0;
+    var blockTop = title.offsetTop;
+    var blockBottom = imgWrap.offsetTop + imgWrap.offsetHeight;
+    var blockHeight = blockBottom - blockTop;
+    var paddingBottom = parseFloat(window.getComputedStyle(lastItem).paddingBottom) || 0;
+
+    var desiredPaddingTop = Math.max(80, Math.round(navHeight - blockHeight));
+    var desiredMinHeight = Math.max(window.innerHeight, desiredPaddingTop + blockHeight + paddingBottom);
+
+    lastItem.style.paddingTop = desiredPaddingTop + 'px';
+    lastItem.style.minHeight = desiredMinHeight + 'px';
+  }
+
+  function getStopNavTopInMain() {
+    var lastItem = contentItems[contentItems.length - 1];
+    var lastImg = lastItem ? lastItem.querySelector('.jp-content-img') : null;
+    if (!lastItem || !lastImg) return 0;
+
+    var lastImgBottomInMain = getOffsetTopWithin(jpMain, lastImg) + lastImg.offsetHeight;
+    var stopTop = Math.max(0, lastImgBottomInMain - nav.offsetHeight);
+    return stopTop;
+  }
+
+  function updateFloatingNavState() {
+    if (isMobile) {
+      nav.setAttribute('data-floating', 'true');
+      nav.setAttribute('data-stopped', 'false');
+      nav.style.top = '';
+      return;
+    }
+
+    var viewportH = window.innerHeight;
+    var mainRect = jpMain.getBoundingClientRect();
+    var navHeight = nav.offsetHeight;
+    var fixedNavTopInViewport = (viewportH - navHeight) / 2;
+    var currentFixedTopInMain = fixedNavTopInViewport - mainRect.top;
+    var stopNavTopInMain = getStopNavTopInMain();
+
+    var isBeforeMain = mainRect.top >= viewportH * 0.3;
+    var isAfterMain = mainRect.bottom <= 0;
+    var shouldStop = currentFixedTopInMain >= stopNavTopInMain;
+
+    if (isBeforeMain) {
+      nav.setAttribute('data-floating', 'false');
+      nav.setAttribute('data-stopped', 'false');
+      nav.style.top = '';
+      return;
+    }
+
+    if (isAfterMain) {
+      nav.setAttribute('data-floating', 'false');
+      nav.setAttribute('data-stopped', 'true');
+      nav.style.top = stopNavTopInMain + 'px';
+      return;
+    }
+
+    if (shouldStop) {
+      nav.setAttribute('data-floating', 'true');
+      nav.setAttribute('data-stopped', 'true');
+      nav.style.top = stopNavTopInMain + 'px';
+      return;
+    }
+
+    nav.setAttribute('data-floating', 'true');
+    nav.setAttribute('data-stopped', 'false');
+    nav.style.top = '';
+  }
+
+  function updateActiveState() {
+    var viewportH = window.innerHeight;
+    var triggerPoint = viewportH * 0.4;
+    var newActive = 0;
+
+    updateFloatingNavState();
+
+    for (var i = 0; i < contentItems.length; i++) {
+      var rect = contentItems[i].getBoundingClientRect();
+      if (rect.top <= triggerPoint) {
+        newActive = i;
+      }
+    }
+
+    if (newActive !== currentActive) {
+      currentActive = newActive;
+      for (var j = 0; j < navItems.length; j++) {
+        navItems[j].setAttribute('data-active', j === currentActive ? 'true' : 'false');
+      }
+    }
+
+    for (var k = 0; k < contentItems.length; k++) {
+      var r = contentItems[k].getBoundingClientRect();
+      var isVisible = r.top < viewportH * 0.75 && r.bottom > viewportH * 0.15;
+      contentItems[k].setAttribute('data-visible', isVisible ? 'true' : 'false');
+    }
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(updateActiveState);
+      ticking = true;
+    }
+  }
+
+  function fullRefresh() {
+    checkMobile();
+    nav.setAttribute('data-stopped', 'false');
+    nav.setAttribute('data-floating', 'false');
+    nav.style.top = '';
+    adjustLastSlideAlignment();
+    requestAnimationFrame(updateActiveState);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', fullRefresh, { passive: true });
+  window.addEventListener('load', fullRefresh);
+
+  navItems.forEach(function(navItem, idx) {
+    navItem.addEventListener('click', function() {
+      contentItems[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    navItem.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        contentItems[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+
+  var lastImgEl = contentItems[contentItems.length - 1].querySelector('img');
+  if (lastImgEl) {
+    if (lastImgEl.complete) {
+      fullRefresh();
+    } else {
+      lastImgEl.addEventListener('load', fullRefresh);
+    }
+  }
+
+  requestAnimationFrame(fullRefresh);
+})();
+</script>
+</section>
+
+<section id="livingRoomHorizontalScroll" aria-label="Large Horizontal Gallery Section">
+  <style>
+    #livingRoomHorizontalScroll {
+      --lrs-bg: #050505;
+      --lrs-text: #ffffff;
+      --lrs-muted: rgba(255, 255, 255, 0.92);
+      --lrs-dim: rgba(255, 255, 255, 0.92);
+      --lrs-line: rgba(255, 255, 255, 0.16);
+
+      --lrs-side: clamp(28px, 5.2vw, 120px);
+      --lrs-top: clamp(42px, 6vw, 96px);
+      --lrs-head-gap: clamp(34px, 4vw, 56px);
+      --lrs-gallery-gap: clamp(18px, 1.2vw, 26px);
+
+      --lrs-title: clamp(42px, 4.5vw, 58px);
+      --lrs-desc: clamp(14px, 1.02vw, 18px);
+      --lrs-card-title: clamp(14px, 3.25vw, 24px);
+      --lrs-card-sub: clamp(11px, 1.9vw, 19px);
+      --lrs-body: clamp(14px, 1vw, 18px);
+
+      --lrs-thumb-h-focus: 520px;
+      --lrs-thumb-h-side: 350px;
+
+      position: relative;
+      background: var(--lrs-bg);
+      overflow: clip;
+      color: var(--lrs-text);
+      font-family: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    #livingRoomHorizontalScroll .lrs-stage {
+      position: relative;
+      width: 100%;
+    }
+
+    #livingRoomHorizontalScroll .lrs-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--lrs-bg);
+    }
+
+    #livingRoomHorizontalScroll .lrs-inner {
+      height: 100%;
+      box-sizing: border-box;
+      padding: var(--lrs-top) var(--lrs-side) clamp(20px, 2.2vh, 34px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 제목/부제목 영역은 스크롤 효과와 무관하게 고정 */
+    #livingRoomHorizontalScroll .lrs-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: var(--lrs-head-gap);
+      flex: 0 0 auto;
+      transform: none !important;
+      opacity: 1 !important;
+      transition: none !important;
+      will-change: auto;
+    }
+
+    #livingRoomHorizontalScroll .lrs-head-left {
+      min-width: 0;
+      width: min(34vw, 460px);
+      padding-top: clamp(4px, 0.6vw, 10px);
+    }
+
+    /* 제목 항상 흰색 + 크기 고정 */
+    #livingRoomHorizontalScroll .lrs-title {
+      margin: 0;
+      color: #ffffff !important;
+      font-size: var(--lrs-title) !important;
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+      transform: none !important;
+      opacity: 1 !important;
+      transition: none !important;
+      will-change: auto;
+    }
+
+    /* 부제목도 항상 흰색 + 크기 고정 */
+    #livingRoomHorizontalScroll .lrs-desc {
+      margin: 22px 0 0;
+      color: #ffffff !important;
+      font-size: var(--lrs-desc) !important;
+      font-weight: 500;
+      line-height: 1.65;
+      letter-spacing: -0.02em;
+      max-width: 35ch;
+      transform: none !important;
+      opacity: 1 !important;
+      transition: none !important;
+      will-change: auto;
+    }
+
+    #livingRoomHorizontalScroll .lrs-gallery-wrap {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      align-items: flex-start;
+      overflow: visible;
+      padding-top: clamp(4px, 0.45vw, 10px);
+      padding-bottom: clamp(8px, 1.2vh, 16px);
+    }
+
+    #livingRoomHorizontalScroll .lrs-track {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--lrs-gallery-gap);
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      padding-right: 18vw;
+    }
+
+    #livingRoomHorizontalScroll .lrs-item {
+      flex: 0 0 auto;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      opacity: 0.34;
+      transform: translate3d(0, 54px, 0) scale(0.965);
+      transform-origin: center center;
+      transition:
+        opacity 0.5s ease,
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.45s ease;
+      filter: saturate(0.84) brightness(0.72);
+      will-change: transform, opacity, filter;
+    }
+
+    #livingRoomHorizontalScroll .lrs-item.is-inview {
+      opacity: 0.7;
+      transform: translate3d(0, 18px, 0) scale(0.985);
+      filter: saturate(0.92) brightness(0.88);
+    }
+
+    #livingRoomHorizontalScroll .lrs-item.is-focus {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: saturate(1) brightness(1);
+    }
+
+    #livingRoomHorizontalScroll .lrs-thumb {
+      width: 100%;
+      overflow: hidden;
+      background: #111;
+      height: var(--lrs-thumb-h-side);
+      transition:
+        height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #livingRoomHorizontalScroll .lrs-item.is-inview .lrs-thumb {
+      height: calc(var(--lrs-thumb-h-side) + (var(--lrs-thumb-h-focus) - var(--lrs-thumb-h-side)) * 0.42);
+    }
+
+    #livingRoomHorizontalScroll .lrs-item.is-focus .lrs-thumb {
+      height: var(--lrs-thumb-h-focus);
+    }
+
+    #livingRoomHorizontalScroll .lrs-thumb img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
+      transform: scale(1.04);
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    #livingRoomHorizontalScroll .lrs-item.is-inview .lrs-thumb img {
+      transform: scale(1.02);
+    }
+
+    #livingRoomHorizontalScroll .lrs-item.is-focus .lrs-thumb img {
+      transform: scale(1);
+    }
+
+    #livingRoomHorizontalScroll .lrs-meta {
+      padding-top: clamp(16px, 1.35vw, 24px);
+      padding-bottom: clamp(10px, 1.25vh, 18px);
+      max-width: min(90%, 980px);
+      opacity: 0.18;
+      transform: translate3d(0, 24px, 0);
+      transition:
+        opacity 0.45s ease,
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform, opacity;
+    }
+
+    #livingRoomHorizontalScroll .lrs-item.is-inview .lrs-meta {
+      opacity: 0.72;
+      transform: translate3d(0, 8px, 0);
+    }
+
+    #livingRoomHorizontalScroll .lrs-item.is-focus .lrs-meta {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    #livingRoomHorizontalScroll .lrs-label {
+      margin: 0;
+      color: var(--lrs-text);
+      font-size: var(--lrs-card-title);
+      font-weight: 800;
+      letter-spacing: -0.055em;
+      line-height: 1.02;
+    }
+
+    #livingRoomHorizontalScroll .lrs-subline {
+      margin: 6px 0 0;
+      color: var(--lrs-text);
+      font-size: var(--lrs-card-sub);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    #livingRoomHorizontalScroll .lrs-copy {
+      margin: 16px 0 0;
+      color: var(--lrs-muted);
+      font-size: var(--lrs-body);
+      font-weight: 500;
+      line-height: 1.68;
+      letter-spacing: -0.018em;
+      max-width: 64ch;
+      word-break: keep-all;
+    }
+
+    #livingRoomHorizontalScroll .lrs-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    #livingRoomHorizontalScroll .lrs-icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: #f4f4f1;
+      color: #050505;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    #livingRoomHorizontalScroll .lrs-icon-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    #livingRoomHorizontalScroll .lrs-icon-btn svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: currentColor;
+    }
+
+    #livingRoomHorizontalScroll .lrs-item.item-1 { width: min(58vw, 1080px); }
+    #livingRoomHorizontalScroll .lrs-item.item-2 { width: min(31vw, 570px); }
+    #livingRoomHorizontalScroll .lrs-item.item-3 { width: min(29vw, 520px); }
+    #livingRoomHorizontalScroll .lrs-item.item-4 { width: min(52vw, 940px); }
+    #livingRoomHorizontalScroll .lrs-item.item-5 { width: min(33vw, 600px); }
+
+    @media (max-width: 1024px) {
+      #livingRoomHorizontalScroll .lrs-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      #livingRoomHorizontalScroll .lrs-head-left {
+        width: 100%;
+      }
+
+      #livingRoomHorizontalScroll .lrs-item.item-1 { width: 82vw; }
+      #livingRoomHorizontalScroll .lrs-item.item-2 { width: 62vw; }
+      #livingRoomHorizontalScroll .lrs-item.item-3 { width: 54vw; }
+      #livingRoomHorizontalScroll .lrs-item.item-4 { width: 78vw; }
+      #livingRoomHorizontalScroll .lrs-item.item-5 { width: 58vw; }
+
+      #livingRoomHorizontalScroll {
+        --lrs-thumb-h-focus: 420px;
+        --lrs-thumb-h-side: 290px;
+      }
+
+      #livingRoomHorizontalScroll .lrs-meta {
+        max-width: 92%;
+      }
+
+      #livingRoomHorizontalScroll .lrs-copy {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      #livingRoomHorizontalScroll {
+        --lrs-side: 16px;
+        --lrs-top: 22px;
+        --lrs-gallery-gap: 14px;
+        --lrs-title: clamp(34px, 8.6vw, 52px);
+        --lrs-card-title: clamp(24px, 7vw, 38px);
+        --lrs-card-sub: clamp(18px, 5vw, 28px);
+        --lrs-thumb-h-focus: 300px;
+        --lrs-thumb-h-side: 220px;
+      }
+
+      #livingRoomHorizontalScroll .lrs-item.item-1 { width: 88vw; }
+      #livingRoomHorizontalScroll .lrs-item.item-2 { width: 74vw; }
+      #livingRoomHorizontalScroll .lrs-item.item-3 { width: 70vw; }
+      #livingRoomHorizontalScroll .lrs-item.item-4 { width: 84vw; }
+      #livingRoomHorizontalScroll .lrs-item.item-5 { width: 72vw; }
+
+      #livingRoomHorizontalScroll .lrs-meta {
+        max-width: 100%;
+        padding-top: 14px;
+        padding-bottom: 16px;
+      }
+
+      #livingRoomHorizontalScroll .lrs-copy {
+        margin-top: 14px;
+        line-height: 1.62;
+      }
+
+      #livingRoomHorizontalScroll .lrs-actions {
+        margin-top: 18px;
+      }
+    }
+  </style>
+
+  <div class="lrs-stage">
+    <div class="lrs-sticky">
+      <div class="lrs-inner">
+        <div class="lrs-head">
+          <div class="lrs-head-left">
+            <h2 class="lrs-title">1% 혁신 프로젝트</h2>
+            <p class="lrs-desc">이 업종별 융복합을 통해 진행되는 혁신 프로젝트</p>
+          </div>
+        </div>
+
+        <div class="lrs-gallery-wrap">
+          <div class="lrs-track">
+            <article class="lrs-item item-1">
+              <div class="lrs-thumb">
+                <img src="https://humanb.kr/img/main_sld1.jpg" alt="Living room style 1">
+              </div>
+              <div class="lrs-meta">
+                <h3 class="lrs-label">맥스큐 밸런스랩</h3>
+                <p class="lrs-subline">뷰티, 헬스, 재활의 융복합 프로젝트</p>
+                <p class="lrs-copy">
+                  몸의 밸런스 뿐만 아니라, 마인드, 영양의 밸런스를 통해 진정한 근본적인 뷰티 밸런스를 만들어가는 프로젝트
+                </p>
+                <div class="lrs-actions">
+                  <button class="lrs-icon-btn" type="button" aria-label="website">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm6.93 9h-3.02a15.7 15.7 0 0 0-1.38-4.18A8.03 8.03 0 0 1 18.93 11ZM12 4.04c.83 1.2 1.8 3.24 2.1 5.96H9.9c.3-2.72 1.27-4.76 2.1-5.96ZM4.26 13h3.03c.12 1.49.46 2.88.98 4.12A8.02 8.02 0 0 1 4.26 13Zm0-2a8.02 8.02 0 0 1 4.01-4.12A13.77 13.77 0 0 0 7.29 11H4.26Zm7.74 8c-.83-1.2-1.8-3.24-2.1-6h4.2c-.3 2.76-1.27 4.8-2.1 6Zm2.53-1.88c.52-1.24.86-2.63.98-4.12h3.03a8.02 8.02 0 0 1-4.01 4.12Z"/>
+                    </svg>
+                  </button>
+                  <button class="lrs-icon-btn" type="button" aria-label="instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.51 5.51 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5ZM18 6.3a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.3Z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="lrs-item item-2">
+              <div class="lrs-thumb">
+                <img src="https://egojin.com/web/product/big/202507/bcb5c546cf57d4adfba62c4504f0344a.jpg" alt="Living room style 2">
+              </div>
+              <div class="lrs-meta">
+                <h3 class="lrs-label">뷰티 필라</h3>
+                <p class="lrs-subline">뷰티 + 필라테스의 융복합 프로젝트</p>
+                <p class="lrs-copy">
+                  필라테스와 뷰티를 결합하여 몸의 라인 관리을 넘어 외모 관리까지 나아가는 뷰티 필라테스 프로젝트
+                </p>
+              </div>
+            </article>
+
+            <article class="lrs-item item-3">
+              <div class="lrs-thumb">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXbbzKXQ2cSjd-qaaFbqSBZmZHtYJLeoFqLg&s" alt="Living room style 3">
+              </div>
+              <div class="lrs-meta">
+                <h3 class="lrs-label">비만대사증후군연구소</h3>
+                <p class="lrs-subline">의사 + 약사 + 영양 융복합 프로젝트</p>
+                <p class="lrs-copy">
+                  약과 수술로는 근본적인 원인을 제거하기 힘든 비만대사증후군을 의사, 약사가 참여하여 비만의 근본적인 원인인 영양, 생활 관리를 통해 근본적인 다이어트 관리 솔루션
+                </p>
+              </div>
+            </article>
+
+         
+
+       
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const section = document.getElementById('livingRoomHorizontalScroll');
+      if (!section) return;
+
+      const stage = section.querySelector('.lrs-stage');
+      const sticky = section.querySelector('.lrs-sticky');
+      const track = section.querySelector('.lrs-track');
+      const items = Array.from(section.querySelectorAll('.lrs-item'));
+      const imgs = Array.from(section.querySelectorAll('img'));
+      const head = section.querySelector('.lrs-head');
+      const galleryWrap = section.querySelector('.lrs-gallery-wrap');
+      const metas = Array.from(section.querySelectorAll('.lrs-meta'));
+
+      let maxX = 0;
+      let targetProgress = 0;
+      let currentProgress = 0;
+      let ticking = false;
+      let rafId = 0;
+
+      const wheelWeight = 0.00042;
+      const touchWeight = 0.0011;
+      const lerpFactor = 0.082;
+
+      function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+      }
+
+      function inActiveZone() {
+        const rect = stage.getBoundingClientRect();
+        return rect.top <= 0 && rect.bottom >= window.innerHeight;
+      }
+
+      function updateCardStates() {
+        const viewportCenter = window.innerWidth / 2;
+
+        items.forEach(function (item) {
+          const rect = item.getBoundingClientRect();
+          const itemCenter = rect.left + (rect.width / 2);
+          const dist = Math.abs(viewportCenter - itemCenter);
+          const thresholdFocus = window.innerWidth * 0.18;
+          const thresholdInview = window.innerWidth * 0.42;
+
+          item.classList.remove('is-focus', 'is-inview');
+
+          if (dist <= thresholdFocus) {
+            item.classList.add('is-focus');
+          } else if (dist <= thresholdInview) {
+            item.classList.add('is-inview');
+          }
+        });
+      }
+
+      /* 제목/부제목은 스크롤 효과와 무관하게 고정 */
+      function updateHeadMotion() {
+        if (head) {
+          head.style.transform = 'none';
+          head.style.opacity = '1';
+        }
+      }
+
+      function setDynamicHeights() {
+        const inner = section.querySelector('.lrs-inner');
+        if (!inner) return;
+
+        const innerStyle = window.getComputedStyle(inner);
+        const galleryStyle = window.getComputedStyle(galleryWrap);
+
+        const innerPadTop = parseFloat(innerStyle.paddingTop) || 0;
+        const innerPadBottom = parseFloat(innerStyle.paddingBottom) || 0;
+        const headHeight = head ? head.offsetHeight : 0;
+        const headGap = parseFloat(window.getComputedStyle(head).marginBottom) || 0;
+        const galleryPadTop = parseFloat(galleryStyle.paddingTop) || 0;
+        const galleryPadBottom = parseFloat(galleryStyle.paddingBottom) || 0;
+
+        let maxMetaHeight = 0;
+        metas.forEach(function (meta) {
+          const prevOpacity = meta.style.opacity;
+          const prevTransform = meta.style.transform;
+          const prevTransition = meta.style.transition;
+
+          meta.style.opacity = '1';
+          meta.style.transform = 'translate3d(0,0,0)';
+          meta.style.transition = 'none';
+
+          maxMetaHeight = Math.max(maxMetaHeight, meta.offsetHeight);
+
+          meta.style.opacity = prevOpacity;
+          meta.style.transform = prevTransform;
+          meta.style.transition = prevTransition;
+        });
+
+        const safeBottomReserve = window.innerWidth <= 640 ? 18 : 22;
+
+        let metaReserve;
+        if (window.innerWidth <= 640) {
+          metaReserve = maxMetaHeight;
+        } else if (window.innerWidth <= 1024) {
+          metaReserve = Math.min(maxMetaHeight, 180);
+        } else {
+          metaReserve = Math.min(maxMetaHeight, 165);
+        }
+
+        const available =
+          window.innerHeight
+          - innerPadTop
+          - innerPadBottom
+          - headHeight
+          - headGap
+          - galleryPadTop
+          - galleryPadBottom
+          - metaReserve
+          - safeBottomReserve;
+
+        let focusH = Math.max(260, available);
+        let sideH = focusH * 0.68;
+
+        if (window.innerWidth <= 640) {
+          focusH = Math.min(focusH, 320);
+          sideH = Math.min(sideH, 230);
+        } else if (window.innerWidth <= 1024) {
+          focusH = Math.min(focusH, 440);
+          sideH = Math.min(sideH, 305);
+        } else {
+          focusH = Math.min(focusH, 560);
+          sideH = Math.min(sideH, 380);
+        }
+
+        sideH = Math.max(200, sideH);
+
+        section.style.setProperty('--lrs-thumb-h-focus', focusH + 'px');
+        section.style.setProperty('--lrs-thumb-h-side', sideH + 'px');
+      }
+
+      function measure() {
+        setDynamicHeights();
+
+        track.style.transform = 'translate3d(0,0,0)';
+
+        const stickyRect = sticky.getBoundingClientRect();
+        const viewportW = stickyRect.width;
+
+        const lastItem = items[items.length - 1];
+        const trackRect = track.getBoundingClientRect();
+        const lastRect = lastItem.getBoundingClientRect();
+
+        const lastCenterInTrack = (lastRect.left - trackRect.left) + (lastRect.width / 2);
+        maxX = Math.max(0, lastCenterInTrack - (viewportW / 2));
+
+        stage.style.height = (window.innerHeight + maxX + window.innerHeight * 0.22) + 'px';
+
+        const stageRect = stage.getBoundingClientRect();
+        const range = Math.max(1, stage.offsetHeight - window.innerHeight);
+        const fromScroll = clamp(-stageRect.top / range, 0, 1);
+
+        currentProgress = fromScroll;
+        targetProgress = fromScroll;
+        render();
+      }
+
+      function render() {
+        const x = maxX * currentProgress;
+        track.style.transform = 'translate3d(' + (-x) + 'px,0,0)';
+        updateCardStates();
+        updateHeadMotion();
+      }
+
+      function animate() {
+        ticking = false;
+
+        const diff = targetProgress - currentProgress;
+        if (Math.abs(diff) > 0.00008) {
+          currentProgress += diff * lerpFactor;
+        } else {
+          currentProgress = targetProgress;
+        }
+
+        render();
+
+        if (Math.abs(targetProgress - currentProgress) > 0.00008) {
+          rafId = requestAnimationFrame(animate);
+          ticking = true;
+        }
+      }
+
+      function requestAnimate() {
+        if (ticking) return;
+        ticking = true;
+        rafId = requestAnimationFrame(animate);
+      }
+
+      function syncByPageScroll() {
+        if (inActiveZone()) return;
+        const rect = stage.getBoundingClientRect();
+        const range = Math.max(1, stage.offsetHeight - window.innerHeight);
+        const progress = clamp(-rect.top / range, 0, 1);
+        currentProgress = progress;
+        targetProgress = progress;
+        render();
+      }
+
+      section.addEventListener('wheel', function (e) {
+        if (!inActiveZone()) return;
+
+        const direction = Math.sign(e.deltaY);
+
+        if (direction > 0 && targetProgress >= 0.9995) return;
+        if (direction < 0 && targetProgress <= 0.0005) return;
+
+        e.preventDefault();
+
+        const delta = e.deltaY * wheelWeight;
+        targetProgress = clamp(targetProgress + delta, 0, 1);
+        requestAnimate();
+      }, { passive: false });
+
+      let touchStartY = 0;
+      let touching = false;
+
+      section.addEventListener('touchstart', function (e) {
+        if (!inActiveZone()) return;
+        if (!e.touches || !e.touches.length) return;
+        touching = true;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      section.addEventListener('touchmove', function (e) {
+        if (!touching || !inActiveZone()) return;
+        if (!e.touches || !e.touches.length) return;
+
+        const y = e.touches[0].clientY;
+        const diffY = touchStartY - y;
+        const direction = Math.sign(diffY);
+
+        if ((direction > 0 && targetProgress < 0.9995) || (direction < 0 && targetProgress > 0.0005)) {
+          e.preventDefault();
+          targetProgress = clamp(targetProgress + diffY * touchWeight, 0, 1);
+          touchStartY = y;
+          requestAnimate();
+        }
+      }, { passive: false });
+
+      section.addEventListener('touchend', function () {
+        touching = false;
+      }, { passive: true });
+
+      window.addEventListener('scroll', syncByPageScroll, { passive: true });
+      window.addEventListener('resize', measure);
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(measure);
+      }
+
+      let loaded = 0;
+      function done() {
+        loaded += 1;
+        if (loaded >= imgs.length) measure();
+      }
+
+      if (imgs.length) {
+        imgs.forEach(function (img) {
+          if (img.complete) {
+            done();
+          } else {
+            img.addEventListener('load', done, { once: true });
+            img.addEventListener('error', done, { once: true });
+          }
+        });
+      } else {
+        measure();
+      }
+
+      setTimeout(measure, 80);
+      setTimeout(measure, 180);
+      setTimeout(measure, 420);
+    })();
+  </script>
+</section>
+
+
+
+<div id="footer_template"></div>
+
+
+
+    </body>
+    <script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./js/validation1.js"> </script>
+<script src="./js/main.js"> </script>
+<script src="./js/footer.js"></script>
+  </html>
