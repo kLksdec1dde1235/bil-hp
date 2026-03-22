@@ -1122,9 +1122,9 @@
 </script>
 </section>
 
-<section id="livingRoomHorizontalScroll" aria-label="Large Horizontal Gallery Section">
+<section id="HorizontalScroll" aria-label="Large Horizontal Gallery Section">
   <style>
-    #livingRoomHorizontalScroll {
+    #HorizontalScroll {
       --lrs-bg: #050505;
       --lrs-text: #ffffff;
       --lrs-muted: rgba(255, 255, 255, 0.92);
@@ -1152,12 +1152,12 @@
       font-family: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    #livingRoomHorizontalScroll .lrs-stage {
+    #HorizontalScroll .lrs-stage {
       position: relative;
       width: 100%;
     }
 
-    #livingRoomHorizontalScroll .lrs-sticky {
+    #HorizontalScroll .lrs-sticky {
       position: sticky;
       top: 0;
       height: 100vh;
@@ -1165,7 +1165,7 @@
       background: var(--lrs-bg);
     }
 
-    #livingRoomHorizontalScroll .lrs-inner {
+    #HorizontalScroll .lrs-inner {
       height: 100%;
       box-sizing: border-box;
       padding: var(--lrs-top) var(--lrs-side) clamp(20px, 2.2vh, 34px);
@@ -1174,7 +1174,7 @@
     }
 
     /* 제목/부제목 영역은 스크롤 효과와 무관하게 고정 */
-    #livingRoomHorizontalScroll .lrs-head {
+    #HorizontalScroll .lrs-head {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -1187,14 +1187,14 @@
       will-change: auto;
     }
 
-    #livingRoomHorizontalScroll .lrs-head-left {
+    #HorizontalScroll .lrs-head-left {
       min-width: 0;
       width: min(34vw, 460px);
       padding-top: clamp(4px, 0.6vw, 10px);
     }
 
     /* 제목 항상 흰색 + 크기 고정 */
-    #livingRoomHorizontalScroll .lrs-title {
+    #HorizontalScroll .lrs-title {
       margin: 0;
       color: #ffffff !important;
       font-size: var(--lrs-title) !important;
@@ -1208,7 +1208,7 @@
     }
 
     /* 부제목도 항상 흰색 + 크기 고정 */
-    #livingRoomHorizontalScroll .lrs-desc {
+    #HorizontalScroll .lrs-desc {
       margin: 22px 0 0;
       color: #ffffff !important;
       font-size: var(--lrs-desc) !important;
@@ -1222,7 +1222,7 @@
       will-change: auto;
     }
 
-    #livingRoomHorizontalScroll .lrs-gallery-wrap {
+    #HorizontalScroll .lrs-gallery-wrap {
       position: relative;
       flex: 1 1 auto;
       min-height: 0;
@@ -1233,7 +1233,7 @@
       padding-bottom: clamp(8px, 1.2vh, 16px);
     }
 
-    #livingRoomHorizontalScroll .lrs-track {
+    #HorizontalScroll .lrs-track {
       display: flex;
       align-items: flex-start;
       gap: var(--lrs-gallery-gap);
@@ -1242,7 +1242,7 @@
       padding-right: 18vw;
     }
 
-    #livingRoomHorizontalScroll .lrs-item {
+    #HorizontalScroll .lrs-item {
       flex: 0 0 auto;
       min-width: 0;
       display: flex;
@@ -1259,19 +1259,19 @@
       will-change: transform, opacity, filter;
     }
 
-    #livingRoomHorizontalScroll .lrs-item.is-inview {
+    #HorizontalScroll .lrs-item.is-inview {
       opacity: 0.7;
       transform: translate3d(0, 18px, 0) scale(0.985);
       filter: saturate(0.92) brightness(0.88);
     }
 
-    #livingRoomHorizontalScroll .lrs-item.is-focus {
+    #HorizontalScroll .lrs-item.is-focus {
       opacity: 1;
       transform: translate3d(0, 0, 0) scale(1);
       filter: saturate(1) brightness(1);
     }
 
-    #livingRoomHorizontalScroll .lrs-thumb {
+    #HorizontalScroll .lrs-thumb {
       width: 100%;
       overflow: hidden;
       background: #111;
@@ -1281,15 +1281,15 @@
         transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    #livingRoomHorizontalScroll .lrs-item.is-inview .lrs-thumb {
+    #HorizontalScroll .lrs-item.is-inview .lrs-thumb {
       height: calc(var(--lrs-thumb-h-side) + (var(--lrs-thumb-h-focus) - var(--lrs-thumb-h-side)) * 0.42);
     }
 
-    #livingRoomHorizontalScroll .lrs-item.is-focus .lrs-thumb {
+    #HorizontalScroll .lrs-item.is-focus .lrs-thumb {
       height: var(--lrs-thumb-h-focus);
     }
 
-    #livingRoomHorizontalScroll .lrs-thumb img {
+    #HorizontalScroll .lrs-thumb img {
       display: block;
       width: 100%;
       height: 100%;
@@ -1302,15 +1302,15 @@
       will-change: transform;
     }
 
-    #livingRoomHorizontalScroll .lrs-item.is-inview .lrs-thumb img {
+    #HorizontalScroll .lrs-item.is-inview .lrs-thumb img {
       transform: scale(1.02);
     }
 
-    #livingRoomHorizontalScroll .lrs-item.is-focus .lrs-thumb img {
+    #HorizontalScroll .lrs-item.is-focus .lrs-thumb img {
       transform: scale(1);
     }
 
-    #livingRoomHorizontalScroll .lrs-meta {
+    #HorizontalScroll .lrs-meta {
       padding-top: clamp(16px, 1.35vw, 24px);
       padding-bottom: clamp(10px, 1.25vh, 18px);
       max-width: min(90%, 980px);
@@ -1322,17 +1322,17 @@
       will-change: transform, opacity;
     }
 
-    #livingRoomHorizontalScroll .lrs-item.is-inview .lrs-meta {
+    #HorizontalScroll .lrs-item.is-inview .lrs-meta {
       opacity: 0.72;
       transform: translate3d(0, 8px, 0);
     }
 
-    #livingRoomHorizontalScroll .lrs-item.is-focus .lrs-meta {
+    #HorizontalScroll .lrs-item.is-focus .lrs-meta {
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }
 
-    #livingRoomHorizontalScroll .lrs-label {
+    #HorizontalScroll .lrs-label {
       margin: 0;
       color: var(--lrs-text);
       font-size: var(--lrs-card-title);
@@ -1341,7 +1341,7 @@
       line-height: 1.02;
     }
 
-    #livingRoomHorizontalScroll .lrs-subline {
+    #HorizontalScroll .lrs-subline {
       margin: 6px 0 0;
       color: var(--lrs-text);
       font-size: var(--lrs-card-sub);
@@ -1350,7 +1350,7 @@
       letter-spacing: -0.04em;
     }
 
-    #livingRoomHorizontalScroll .lrs-copy {
+    #HorizontalScroll .lrs-copy {
       margin: 16px 0 0;
       color: var(--lrs-muted);
       font-size: var(--lrs-body);
@@ -1361,14 +1361,14 @@
       word-break: keep-all;
     }
 
-    #livingRoomHorizontalScroll .lrs-actions {
+    #HorizontalScroll .lrs-actions {
       display: flex;
       align-items: center;
       gap: 16px;
       margin-top: 22px;
     }
 
-    #livingRoomHorizontalScroll .lrs-icon-btn {
+    #HorizontalScroll .lrs-icon-btn {
       width: 42px;
       height: 42px;
       border-radius: 50%;
@@ -1383,57 +1383,57 @@
       transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
-    #livingRoomHorizontalScroll .lrs-icon-btn:hover {
+    #HorizontalScroll .lrs-icon-btn:hover {
       transform: translateY(-2px);
       opacity: 0.92;
     }
 
-    #livingRoomHorizontalScroll .lrs-icon-btn svg {
+    #HorizontalScroll .lrs-icon-btn svg {
       width: 18px;
       height: 18px;
       display: block;
       fill: currentColor;
     }
 
-    #livingRoomHorizontalScroll .lrs-item.item-1 { width: min(58vw, 1080px); }
-    #livingRoomHorizontalScroll .lrs-item.item-2 { width: min(31vw, 570px); }
-    #livingRoomHorizontalScroll .lrs-item.item-3 { width: min(29vw, 520px); }
-    #livingRoomHorizontalScroll .lrs-item.item-4 { width: min(52vw, 940px); }
-    #livingRoomHorizontalScroll .lrs-item.item-5 { width: min(33vw, 600px); }
+    #HorizontalScroll .lrs-item.item-1 { width: min(58vw, 1080px); }
+    #HorizontalScroll .lrs-item.item-2 { width: min(31vw, 570px); }
+    #HorizontalScroll .lrs-item.item-3 { width: min(29vw, 520px); }
+    #HorizontalScroll .lrs-item.item-4 { width: min(52vw, 940px); }
+    #HorizontalScroll .lrs-item.item-5 { width: min(33vw, 600px); }
 
     @media (max-width: 1024px) {
-      #livingRoomHorizontalScroll .lrs-head {
+      #HorizontalScroll .lrs-head {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
       }
 
-      #livingRoomHorizontalScroll .lrs-head-left {
+      #HorizontalScroll .lrs-head-left {
         width: 100%;
       }
 
-      #livingRoomHorizontalScroll .lrs-item.item-1 { width: 82vw; }
-      #livingRoomHorizontalScroll .lrs-item.item-2 { width: 62vw; }
-      #livingRoomHorizontalScroll .lrs-item.item-3 { width: 54vw; }
-      #livingRoomHorizontalScroll .lrs-item.item-4 { width: 78vw; }
-      #livingRoomHorizontalScroll .lrs-item.item-5 { width: 58vw; }
+      #HorizontalScroll .lrs-item.item-1 { width: 82vw; }
+      #HorizontalScroll .lrs-item.item-2 { width: 62vw; }
+      #HorizontalScroll .lrs-item.item-3 { width: 54vw; }
+      #HorizontalScroll .lrs-item.item-4 { width: 78vw; }
+      #HorizontalScroll .lrs-item.item-5 { width: 58vw; }
 
-      #livingRoomHorizontalScroll {
+      #HorizontalScroll {
         --lrs-thumb-h-focus: 420px;
         --lrs-thumb-h-side: 290px;
       }
 
-      #livingRoomHorizontalScroll .lrs-meta {
+      #HorizontalScroll .lrs-meta {
         max-width: 92%;
       }
 
-      #livingRoomHorizontalScroll .lrs-copy {
+      #HorizontalScroll .lrs-copy {
         max-width: 100%;
       }
     }
 
     @media (max-width: 640px) {
-      #livingRoomHorizontalScroll {
+      #HorizontalScroll {
         --lrs-side: 16px;
         --lrs-top: 22px;
         --lrs-gallery-gap: 14px;
@@ -1444,24 +1444,24 @@
         --lrs-thumb-h-side: 220px;
       }
 
-      #livingRoomHorizontalScroll .lrs-item.item-1 { width: 88vw; }
-      #livingRoomHorizontalScroll .lrs-item.item-2 { width: 74vw; }
-      #livingRoomHorizontalScroll .lrs-item.item-3 { width: 70vw; }
-      #livingRoomHorizontalScroll .lrs-item.item-4 { width: 84vw; }
-      #livingRoomHorizontalScroll .lrs-item.item-5 { width: 72vw; }
+      #HorizontalScroll .lrs-item.item-1 { width: 88vw; }
+      #HorizontalScroll .lrs-item.item-2 { width: 74vw; }
+      #HorizontalScroll .lrs-item.item-3 { width: 70vw; }
+      #HorizontalScroll .lrs-item.item-4 { width: 84vw; }
+      #HorizontalScroll .lrs-item.item-5 { width: 72vw; }
 
-      #livingRoomHorizontalScroll .lrs-meta {
+      #HorizontalScroll .lrs-meta {
         max-width: 100%;
         padding-top: 14px;
         padding-bottom: 16px;
       }
 
-      #livingRoomHorizontalScroll .lrs-copy {
+      #HorizontalScroll .lrs-copy {
         margin-top: 14px;
         line-height: 1.62;
       }
 
-      #livingRoomHorizontalScroll .lrs-actions {
+      #HorizontalScroll .lrs-actions {
         margin-top: 18px;
       }
     }
@@ -1541,7 +1541,7 @@
 
   <script>
     (function () {
-      const section = document.getElementById('livingRoomHorizontalScroll');
+      const section = document.getElementById('HorizontalScroll');
       if (!section) return;
 
       const stage = section.querySelector('.lrs-stage');
