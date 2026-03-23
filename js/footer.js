@@ -105,9 +105,19 @@
           <li><a href="./columns.html?cat=ceo">CEO 인사이트</a></li> -->
         </ul>
       </div>
+      
+      <div class="col">
+        <h4>커뮤니티</h4>
+        <ul>
+          <li><a href="./community-company.html">사업자 커뮤니티</a></li>
+          <li><a href="./community-solution.html">문제해결 커뮤니티</a></li>
+          <!-- <li><a href="./columns.html?cat=insight">산업 인사이트</a></li>
+          <li><a href="./columns.html?cat=ceo">CEO 인사이트</a></li> -->
+        </ul>
+      </div>
 
       <div class="col">
-        <h4>오프라인 상담</h4>
+        <h4>패밀리 사이트</h4>
         <ul>
          <li><a href="https://htuglobal.com">HTU GLOBAL</a></li>
               <li><a href="https://www.maxq.kr/">MAXQ</a></li>
