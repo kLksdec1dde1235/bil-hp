@@ -24,7 +24,7 @@
 
     #footerElite .wrap{max-width:var(--max);margin:0 auto;padding:3.5rem 1.25rem 2.25rem}
     #footerElite .navGrid{
-      display:grid;grid-template-columns:repeat(12,1fr);gap:2.2rem;
+      display:grid;grid-template-columns:repeat(14,1fr);gap:2.2rem;
       border-bottom:1px solid var(--line);padding-bottom:2rem
     }
 

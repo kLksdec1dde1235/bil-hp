@@ -243,8 +243,8 @@
             <a role="menuitem" href="./column.html">칼럼</a>
             <ul class="dep2" role="menu">
               <li><a href="./column.html">혁신 칼럼</a></li>
-         <!-- <li><a href="./column.html?cat=innovation">비즈니스 혁신</a></li>
-              <li><a href="./column.html?cat=insight">산업 인사이트</a></li>
+         <li><a href="./special-column.html">확장 칼럼</a></li>
+             <!--  <li><a href="./column.html?cat=insight">산업 인사이트</a></li>
               <li><a href="./column.html?cat=ceo">CEO 인사이트</a></li> -->
             </ul>
           </li>
