@@ -139,7 +139,7 @@
     }
     #nbbioHeaderLocal .megalite.act{opacity:1; transform:translateY(0); visibility:visible; pointer-events:auto;}
     #nbbioHeaderLocal .megalite .inner{max-width:1440px;margin:0 auto;padding:24px 40px 28px;}
-    #nbbioHeaderLocal .megalite .grid{display:grid;grid-template-columns:repeat(4,minmax(160px,1fr));gap:60px;}
+    #nbbioHeaderLocal .megalite .grid{display:grid;grid-template-columns:repeat(5,minmax(160px,1fr));gap:60px;}
     #nbbioHeaderLocal .megalite h4{margin:0 0 10px;font-size:18px;letter-spacing:-.2px;color:#111;font-weight:800;}
     #nbbioHeaderLocal .megalite ul{margin:0;padding:0;list-style:none;}
     #nbbioHeaderLocal .megalite li a{display:block;padding:6px 0;color:#111;text-decoration:none;}
@@ -302,6 +302,7 @@
             <h4>칼럼</h4>
             <ul>
               <li><a href="./column.html">혁신 칼럼</a></li>
+              <li><a href="./special-column.html">확장 칼럼</a></li>
               <!-- <li><a href="./column.html?cat=innovation">비즈니스 혁신</a></li>
               <li><a href="./column.html?cat=insight">산업 인사이트</a></li>
               <li><a href="./column.html?cat=ceo">CEO 인사이트</a></li> -->
@@ -375,6 +376,7 @@
             <h3>칼럼</h3>
             <ul>
               <li><a href="./column.html">혁신 칼럼</a></li>
+              <li><a href="./special-column.html">확장 칼럼</a></li>
               <!-- <li><a href="./column.html?cat=innovation">비즈니스 혁신</a></li>
               <li><a href="./column.html?cat=insight">산업 인사이트</a></li>
               <li><a href="./column.html?cat=ceo">CEO 인사이트</a></li> -->
@@ -446,6 +448,7 @@
         <summary>칼럼 <span class="chev"></span></summary>
         <div class="gs2">
           <a href="./column.html">혁신 칼럼</a>
+          <a href="./special-column.html">확장 칼럼</a>
           <!-- <a href="./column.html?cat=innovation">비즈니스 혁신</a>
           <a href="./column.html?cat=insight">산업 인사이트</a>
           <a href="./column.html?cat=ceo">CEO 인사이트</a> -->
