@@ -11,8 +11,8 @@
   <div class="wrap">
     <!-- 좌측 카피 -->
     <div class="copy">
-      <span class="tag">오프라인 강의 상담 신청</span>
-      <h2 class="headline">혁신과 변화의 어려움<br>이젠 내려놓으세요.<br><b>지금 간편 신청 하기</b></h2>
+      <span class="tag">오프라인 강의 신청</span>
+      <h2 class="headline">시대 변화의 어려움<br>이젠 내려놓고<br>새로운 기회와 흐름을 잡으세요.<br><b>지금 간편 신청 하기</b></h2>
       <p class="sub">간단한 항목을 기반으로 혁신의 기회를 확보하세요!</p>
       <div class="points" aria-hidden="true">
         <div class="chip">✓ 전문가 1:1 무료 상담</div>
@@ -23,7 +23,7 @@
     <!-- 우측 폼 카드 -->
     <div class="card" id="applyForm">
       <form action="" id="form_e12" method="POST" target="hidden_iframe12" onsubmit="dll(); submitted=true;">
-        <input type="hidden" name="entry.1524668040" value="당근">
+        <input type="hidden" name="entry.1524668040" value="칼럼 후 연결">
 
         <h3>상담 신청 폼</h3>
         <p class="help">* 표시는 필수 입력</p>
@@ -40,23 +40,20 @@
             <input id="phone1" name="entry.1985153351" type="text" placeholder="01012345678" maxlength="11">
           </div>
 
-          <div class="field">
-            <label for="name">회사명 *</label>
-            <input id="company1" name="entry.54578187" type="text" placeholder="회사명" maxlength="10">
+        <div class="field">
+            <label for="name">연령 *</label>
+            <input id="company1" name="entry.54578187" type="text" placeholder="연령" maxlength="2">
           </div>
 
-          <div class="field">
-            <label for="region">지역 *</label>
+         <div class="field">
+            <label for="region">성별 *</label>
             <select id="region1" name="entry.2044065206">
-              <option value="" selected disabled>지역 선택</option>
-              <option>서울</option><option>부산</option><option>대구</option><option>인천</option>
-              <option>광주</option><option>대전</option><option>울산</option><option>경기</option>
-              <option>강원</option><option>충북</option><option>충남</option><option>전북</option>
-              <option>전남</option><option>경북</option><option>경남</option><option>제주</option>
+              <option value="" selected disabled>성별 선택</option>
+              <option>남성</option><option>여성</option>
             </select>
-          </div>
+          </div> 
 
-          <div class="field">
+        <!--  <div class="field">
             <label for="region">회사업종 *</label>
                <input id="type1" name="entry.17479036" type="text" placeholder="회사업종" maxlength="10">
           </div>
@@ -67,7 +64,7 @@
               <option value="" selected disabled>사업 연혁 선택</option>
               <option>1년 미만</option><option>1년 - 3년</option><option>3년 - 7년</option><option>7년 이상</option>
             </select>
-          </div>
+          </div> -->
 
          <!-- <div class="field">
             <label for="region">연매출 *</label>

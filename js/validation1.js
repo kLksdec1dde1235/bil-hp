@@ -149,19 +149,19 @@ function maxLengthCheck(object){
 
 
 
-                            if ( company1.length > 1)
+                            if ( regex.test(company1) && company1.length > 1 && company1 > 19)
                                 {
                                                     
 
                                     if (region1 != null)
                                         {
 
-                                              if(type1.length > 1 )
-                                                {
+                                            //   if(type1.length > 1 )
+                                            //     {
                                       
 
-                                                    if (runtime1 != null)
-                                                    {
+                                                    // if (runtime1 != null)
+                                                    // {
                                                         
                                                   
                                                             
@@ -244,25 +244,25 @@ function maxLengthCheck(object){
 
 
                                             
-                                                    }
-                                                    else
-                                                    {
-                                                        $('#send_message1').css({transition:"1s"});
-                                                        $('#send_message1').prop("disabled", true);
-                                                        $('#send_message1').prop("value", "사업 연혁을 확인하세요.");
-                                                        $('#send_message1').css({background:"#595959"});
-                                                        $('#send_message1').css({cursor:"default"});        
-                                                    }
+                                                    // }
+                                                    // else
+                                                    // {
+                                                    //     $('#send_message1').css({transition:"1s"});
+                                                    //     $('#send_message1').prop("disabled", true);
+                                                    //     $('#send_message1').prop("value", "사업 연혁을 확인하세요.");
+                                                    //     $('#send_message1').css({background:"#595959"});
+                                                    //     $('#send_message1').css({cursor:"default"});        
+                                                    // }
 
-                                                }
-                                                else
-                                                {
-                                                    $('#send_message1').css({transition:"1s"});
-                                                    $('#send_message1').prop("disabled", true);
-                                                    $('#send_message1').prop("value", "회사 업종을 확인하세요.");
-                                                    $('#send_message1').css({background:"#595959"});
-                                                    $('#sen d_message1').css({cursor:"default"});        
-                                                }
+                                                // }
+                                                // else
+                                                // {
+                                                //     $('#send_message1').css({transition:"1s"});
+                                                //     $('#send_message1').prop("disabled", true);
+                                                //     $('#send_message1').prop("value", "회사 업종을 확인하세요.");
+                                                //     $('#send_message1').css({background:"#595959"});
+                                                //     $('#sen d_message1').css({cursor:"default"});        
+                                                // }
                                                                                         
                                           
 
@@ -282,7 +282,7 @@ function maxLengthCheck(object){
                                 {
                                     $('#send_message1').css({transition:"1s"});
                                     $('#send_message1').prop("disabled", true);
-                                    $('#send_message1').prop("value", "회사명 입력을 확인하세요.");
+                                    $('#send_message1').prop("value", "연령을 확인하세요.");
                                     $('#send_message1').css({background:"#595959"});
                                     $('#send_message1').css({cursor:"default"});        
                                 }
