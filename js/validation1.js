@@ -61,7 +61,7 @@ $(document).ready(function(){
         if(error == false){
            // Disable submit button just after the form processed 1st time successfully.
           
-           $('#form_e12').prop("action", "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdWDzCkTT0KDAim4JeABTY5bi5jVkWwuD7lfx8lSCwkkWsSug/formResponse");
+           $('#form_e12').prop("action", "https://docs.google.com/forms/u/0/d/e/1FAIpQLSf5Dc2P2gbcpYNNDSpPwu46iZMP7SeBc62iLh7-Els1W8jxTw/formResponse");
           $('#send_message1').attr({'disabled' : 'true', 'value' : '잠시만 기다려주세요' });
         const messages = ['정보를 확인 중입니다', '전송 준비 중입니다', '곧 신청이 완료됩니다.'];
         let msgIndex = 0;
