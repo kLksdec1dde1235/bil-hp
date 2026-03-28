@@ -272,7 +272,7 @@ function maxLengthCheck(object){
                                         {
                                             $('#send_message1').css({transition:"1s"});
                                             $('#send_message1').prop("disabled", true);
-                                            $('#send_message1').prop("value", "지역 선택을 확인하세요.");
+                                            $('#send_message1').prop("value", "성별 선택을 확인하세요.");
                                             $('#send_message1').css({background:"#595959"});
                                             $('#send_message1').css({cursor:"default"});        
                                         }
