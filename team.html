@@ -1,0 +1,4007 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+<!-- 소유권 인증(각 도메인별 값으로 교체) -->
+<meta name="naver-site-verification" content="3d90b88f5b034dcafecbefafa2709d57a999bf64" />
+<meta name="google-site-verification" content="구글_인증코드_여기에" />
+
+<!-- Canonical (대표 URL로 고정) -->
+<link rel="canonical" href="https://biznovalab.com/" />
+<meta name="robots" content="index,follow" />
+<meta name="subject" content="비즈니스혁신연구소" />
+<meta name="title" content="비즈니스혁신연구소" />
+<meta name="author" content="비즈니스혁신연구소">
+<meta name="description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼."/>
+<meta name="keywords" content="비즈니스혁신연구소, 비즈니스 혁신 연구소, Business Innovation Lab, biznovlab, 현장혁신, 실행형 혁신, 혁신 플랫폼, 사업 혁신, 조직 혁신, 운영 혁신, 프로세스 개선, 업무 효율화, 성장 전략, 신사업, 지속 성장, 기업 혁신" />
+
+<link rel="icon" href="./img/favicon.png" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="./img/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.png">
+<link rel="icon" type="image/png" sizes="48x48" href="./img/favicon.png">
+
+<!-- Apple (iOS 홈화면 아이콘) -->
+<link rel="apple-touch-icon" sizes="180x180" href="./img/favicon.png">
+
+<!-- Android / Chrome -->
+<link rel="icon" type="image/png" sizes="192x192" href="./img/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./img/favicon.png">
+
+
+<meta property="og:type" content="website" />
+<meta property="og:rich_attachment" content="true" />
+<meta property="og:site_name" content="비즈니스혁신연구소" />
+<meta property="og:title" content="비즈니스혁신연구소" />
+<meta property="og:description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta property="og:image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+<meta property="og:url" content="https://biznovalab.com/" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="비즈니스혁신연구소" />
+<meta name="twitter:description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta name="twitter:image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+  
+<meta itemprop="name" content="비즈니스혁신연구소" />
+<meta itemprop="description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta itemprop="image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+<title>비즈니스혁신연구소</title>
+  
+  <link href="./css/reset.css" rel="stylesheet" type="text/css" />
+   <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="menu_navi"></div>
+
+<script src="./menu3.js"></script>
+
+
+
+  <style>
+    /* ── RESET & LAYOUT ── */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Pretendard',sans-serif;background:#ffffff;color:#fff;overflow-x:hidden}
+    .container{display:flex}
+    #main{flex:1;position:relative;overflow:hidden}
+    #visualTransWrap{position:absolute;inset:0;pointer-events:none;z-index:5}
+
+    /* ── SWIPER & BG ── */
+    .mv_container{width:100%;height:90vh;position:relative}
+    .swiper-container,.swiper-wrapper,.swiper-slide{width:100%;height:100%}
+    .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 6s ease;filter:brightness(0.5)}
+    .swiper-slide-active .bg{transform:scale(1.12)}
+    .bg1{background-image:url('./img/intro-1.jpg')}
+    .bg2{background-image:url('./img/intro-2.jpg')}
+    .bg3{background-image:url('./img/page-3.jpg')}
+    .bg4{background-image:url('./img/repair.jpg')}
+
+    /* ── TEXT & BUTTON ── */
+    .mv_txt_box{position:absolute;top:20%;left:5%;max-width:640px;z-index:2}
+    .mv_cate{font-size:18px;font-weight:600;margin-bottom:14px;color:#ffeb55;display:inline-block}
+    .mv_tit{font-size:43px;line-height:1.4;margin:0 0 12px}
+    @media screen and (max-width:620px){ .mv_tit{font-size:34px !important;} }
+    @media screen and (max-width:500px){ .mv_tit{font-size:26px !important;} }
+    .mv_txt{font-size:18px;line-height:1.6;font-weight:300}
+    .mv_btn{
+      display:inline-block;margin-top:30px;padding:14px 36px;
+      border:2px solid #fff;border-radius:40px;
+      background:transparent;color:#fff;font-weight:600;letter-spacing:.3px;
+      opacity:0;pointer-events:none;
+      transition:opacity .6s,background .35s,box-shadow .35s,color .35s,transform .35s;
+      position:relative;overflow:hidden;text-decoration:none;
+    }
+    .swiper-slide-active .mv_btn{opacity:1;pointer-events:auto}
+    .mv_btn::after{
+      content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);
+      transform:translateX(-100%);transition:transform .4s;
+    }
+    .mv_btn:hover::after{transform:translateX(0)}
+    .mv_btn:hover{
+      background:#fff;color:#111;box-shadow:0 8px 24px rgba(0,0,0,.25);
+      transform:translateY(-2px);
+    }
+
+    /* ── WAVE ANIMATION ── */
+    .wave_anim .wave{display:inline-block;opacity:0;animation:wave 1.1s ease-out forwards}
+    @keyframes wave{0%{transform:translateY(25px);opacity:0}100%{transform:translateY(0);opacity:1}}
+    .wave_anim.custom .wave:nth-child(1){animation-delay:.15s}
+    .wave_anim.custom .wave:nth-child(2){animation-delay:.3s}
+    .wave_anim.custom .wave:nth-child(3){animation-delay:.45s}
+
+    /* ── PROGRESS BAR ── */
+    .progress-container{position:absolute;bottom:80px;left:5%;right:5%;height:4px;display:flex;gap:10px;z-index:3;width:150px;}
+    .progress-segment{flex:1;background:rgba(255,255,255,.25);border-radius:2px;overflow:hidden;cursor:pointer}
+    .progress-fill{width:0;height:100%;background:#fff;display:block}
+
+    .wheel_down{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:24px;opacity:.7;z-index:3;animation: wheel-bounce 2s ease-in-out infinite;}
+    .wheel_down .wheel {animation: wheel-fade 2s ease-in-out infinite;}
+    @keyframes wheel-fade {
+      0%{opacity:1;transform:translateY(0)}
+      80%{opacity:.2;transform:translateY(10px)}
+      100%{opacity:0;transform:translateY(14px)}
+    }
+    #sidebar{display:none}
+  </style>
+
+  <style>
+    /* ──────────────────────────────────────────
+          #visual-section 전용 스타일
+      ─────────────────────────────────────────── */
+    #visual-section{position:relative;width:100%;height:100vh;overflow:hidden}
+    #visual-section .video_wrap{position:absolute;inset:0;z-index:0}
+    #visual-section .video_wrap video{width:100%;height:100%;object-fit:cover;object-position:center}
+    #visual-section .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5)}
+    #visual-section .txt_container{
+      position:absolute;inset:0;z-index:2;
+      display:flex;flex-direction:column;
+      justify-content:space-evenly;align-items:center;
+      text-align:center;pointer-events:none
+    }
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    #visual-section .company,#visual-section .logo,#visual-section .exp{opacity:0}
+    #visual-section.animate .company{
+      color:#fff;font-size:2.5rem;font-weight:500;margin-bottom:.5em;
+      animation:fadeInUp 1s ease-out forwards;animation-delay:.2s
+    }
+    #visual-section.animate .logo{animation:fadeInUp 1s ease-out forwards;animation-delay:.7s}
+    #visual-section .logo .m_logo{
+      width:800px;height:130px;
+      background:url("../img/sm-logo.png") no-repeat center/contain;
+      margin-bottom:.5em
+    }
+    #visual-section.animate .exp{
+      color:#fff;font-size:1.25rem;line-height:1.6;max-width:80%;
+      animation:fadeInUp 1s ease-out forwards;animation-delay:1s
+    }
+    #visual-section .highlight{color:#e6d3a3;font-weight:600}
+    @media (max-width:768px){
+      #visual-section .company{font-size:2rem !important}
+      #visual-section .logo .m_logo{
+        background:url("../img/sm-font.png") no-repeat center/contain;
+        width:400px;height:300px
+      }
+      #visual-section .exp{font-size:1rem}
+      #visual-section .video_wrap video{object-position:right center}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 메뉴(외부 로드) -->
+<div id="menu"></div>
+
+<section id="ReasonSection" aria-label="학원 강사 현실 공감 섹션">
+  <style>
+    #ReasonSection{
+      --srs-blue:#145fbe;
+      --srs-blue-deep:#0f57b4;
+      --srs-white:#ffffff;
+      --srs-bubble:#d7e8f6;
+      --srs-bubble-text:#154d99;
+      --srs-shadow:0 14px 34px rgba(5,34,84,.10);
+      --srs-title-size:clamp(34px,4.5vw,74px);
+      --srs-gap:clamp(20px,2.4vw,44px);
+      position:relative;
+      width:100%;
+      overflow:hidden;
+      background:var(--srs-blue);
+      font-family:'Pretendard','Noto Sans KR','Apple SD Gothic Neo',sans-serif;
+      box-sizing:border-box;
+      padding:clamp(80px,9vw,150px) clamp(20px,4vw,44px) clamp(72px,9vw,120px);
+      isolation:isolate;
+    }
+
+    #ReasonSection,
+    #ReasonSection *,
+    #ReasonSection *::before,
+    #ReasonSection *::after{
+      box-sizing:border-box;
+    }
+
+    #ReasonSection .srs-inner{
+      width:100%;
+      max-width:1920px;
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+
+    #ReasonSection .srs-head{
+      text-align:center;
+      margin:0 auto clamp(58px,8vw,118px);
+      max-width:1100px;
+    }
+
+    #ReasonSection .srs-title{
+      margin:0;
+      color:var(--srs-white);
+      font-size:var(--srs-title-size);
+      font-weight:800;
+      line-height:1.23;
+      letter-spacing:-0.045em;
+      word-break:keep-all;
+    }
+
+    #ReasonSection .srs-sub{
+      margin:20px auto 0;
+      max-width:820px;
+      color:rgba(255,255,255,0.82);
+      font-size:clamp(16px,1.6vw,24px);
+      font-weight:500;
+      line-height:1.6;
+      letter-spacing:-0.03em;
+      word-break:keep-all;
+    }
+
+    #ReasonSection .srs-track-wrap{
+      position:relative;
+      width:100%;
+      overflow:hidden;
+      padding:14px 0;
+    }
+
+    #ReasonSection .srs-track{
+      display:flex;
+      align-items:center;
+      gap:clamp(26px,3vw,54px);
+      width:max-content;
+      will-change:transform;
+      animation:srs-marquee 26s linear infinite;
+    }
+
+    #ReasonSection .srs-track:hover{
+      animation-play-state:paused;
+    }
+
+    #ReasonSection .srs-set{
+      display:flex;
+      align-items:center;
+      gap:clamp(26px,3vw,54px);
+      padding-right:clamp(26px,3vw,54px);
+      flex:none;
+    }
+
+    #ReasonSection .srs-item{
+      display:flex;
+      align-items:center;
+      gap:clamp(14px,1.5vw,22px);
+      flex:none;
+    }
+
+    #ReasonSection .srs-avatar{
+      width:clamp(92px,6.4vw,124px);
+      height:clamp(92px,6.4vw,124px);
+      border-radius:50%;
+      overflow:hidden;
+      flex:none;
+      background:#b8d3ea;
+      box-shadow:var(--srs-shadow);
+      position:relative;
+    }
+
+    #ReasonSection .srs-avatar img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    #ReasonSection .srs-bubble{
+      position:relative;
+      min-width:clamp(230px,18vw,340px);
+      max-width:clamp(230px,18vw,340px);
+      min-height:clamp(70px,5vw,102px);
+      border-radius:22px;
+      background:var(--srs-bubble);
+      color:var(--srs-bubble-text);
+      font-size:clamp(19px,1.4vw,34px);
+      font-weight:800;
+      line-height:1.4;
+      letter-spacing:-0.04em;
+      padding:clamp(18px,1.6vw,28px) clamp(26px,2vw,34px);
+      display:flex;
+      align-items:center;
+      box-shadow:var(--srs-shadow);
+      word-break:keep-all;
+      text-align:left;
+    }
+
+    #ReasonSection .srs-bubble::before{
+      content:'';
+      position:absolute;
+      left:-12px;
+      top:50%;
+      width:24px;
+      height:24px;
+      background:var(--srs-bubble);
+      clip-path:polygon(100% 0, 0 50%, 100% 100%);
+      transform:translateY(-50%);
+    }
+
+    #ReasonSection .srs-anim{
+      opacity:0;
+      transition:
+        opacity .9s cubic-bezier(.22,1,.36,1),
+        transform .9s cubic-bezier(.22,1,.36,1);
+      will-change:opacity,transform;
+    }
+
+    #ReasonSection .srs-anim.is-visible{
+      opacity:1;
+      transform:none;
+    }
+
+    #ReasonSection .fadeIn{transform:translate3d(0,24px,0)}
+    #ReasonSection .fadeInup{transform:translate3d(0,38px,0)}
+    #ReasonSection .fadeInleft{transform:translate3d(-36px,0,0)}
+    #ReasonSection .fadeInright{transform:translate3d(36px,0,0)}
+
+    @keyframes srs-marquee{
+      from{transform:translate3d(0,0,0)}
+      to{transform:translate3d(-50%,0,0)}
+    }
+
+    @media (max-width: 1280px){
+      #ReasonSection{
+        padding-top:90px;
+        padding-bottom:86px;
+      }
+
+      #ReasonSection .srs-head{
+        margin-bottom:64px;
+      }
+    }
+
+    @media (max-width: 820px){
+      #ReasonSection{
+        padding:64px 18px 62px;
+      }
+
+      #ReasonSection .srs-head{
+        margin-bottom:40px;
+      }
+
+      #ReasonSection .srs-title{
+        font-size:clamp(26px,8.2vw,46px);
+        line-height:1.28;
+      }
+
+      #ReasonSection .srs-sub{
+        margin-top:16px;
+        font-size:15px;
+        line-height:1.55;
+      }
+
+      #ReasonSection .srs-track{
+        gap:24px;
+        animation-duration:20s;
+      }
+
+      #ReasonSection .srs-set{
+        gap:24px;
+        padding-right:24px;
+      }
+
+      #ReasonSection .srs-item{
+        gap:12px;
+      }
+
+      #ReasonSection .srs-avatar{
+        width:74px;
+        height:74px;
+      }
+
+      #ReasonSection .srs-bubble{
+        min-width:190px;
+        max-width:190px;
+        min-height:62px;
+        padding:14px 18px;
+        border-radius:18px;
+        font-size:16px;
+      }
+
+      #ReasonSection .srs-bubble::before{
+        left:-10px;
+        width:20px;
+        height:20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      #ReasonSection .srs-track{
+        animation:none;
+      }
+      #ReasonSection .srs-anim{
+        opacity:1;
+        transform:none;
+        transition:none;
+      }
+    }
+  </style>
+
+  <div class="srs-inner">
+    <div class="srs-head srs-anim fadeInup" data-srs-anim>
+      <h2 class="srs-title">
+        요즘 학원 강사로서<br>
+        이런 고민하고 있진 않으신가요?
+      </h2>
+     
+    </div>
+
+    <div class="srs-track-wrap srs-anim fadeIn" data-srs-anim>
+      <div class="srs-track" aria-label="학원 강사 현실 공감 사례 흐름">
+        <div class="srs-set">
+          <div class="srs-item">
+            <!-- <div class="srs-avatar">
+              <img src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?auto=format&fit=crop&w=500&q=80" alt="학원 강사 여성">
+            </div> -->
+            <div class="srs-bubble">예전보다 학생이 확실히 줄었어요.</div>
+          </div>
+
+          <div class="srs-item">
+            <!-- <div class="srs-avatar">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt="학원 강사 남성">
+            </div> -->
+            <div class="srs-bubble">열심히 하는데도 수입은 그대로예요.</div>
+          </div>
+
+          <div class="srs-item">
+            <!-- <div class="srs-avatar">
+              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80" alt="미래를 고민하는 여성 강사">
+            </div> -->
+            <div class="srs-bubble">앞으로 이 일을 계속 해도 될지 불안해요.</div>
+          </div>
+
+          <div class="srs-item">
+            <!-- <div class="srs-avatar">
+              <img src="https://images.unsplash.com/photo-1594824388853-d0c4f0db3b9e?auto=format&fit=crop&w=500&q=80" alt="진로를 고민하는 여성">
+            </div> -->
+            <div class="srs-bubble">그만두자니, 뭘 해야 할지 모르겠어요.</div>
+          </div>
+        </div>
+
+        <div class="srs-set" aria-hidden="true">
+          <div class="srs-item">
+            <!-- <div class="srs-avatar">
+              <img src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?auto=format&fit=crop&w=500&q=80" alt="">
+            </div> -->
+            <div class="srs-bubble">예전보다 학생이 확실히 줄었어요.</div>
+          </div>
+
+          <div class="srs-item">
+            <!-- <div class="srs-avatar">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt="">
+            </div> -->
+            <div class="srs-bubble">열심히 하는데도 수입은 그대로예요.</div>
+          </div>
+
+          <div class="srs-item">
+            <!-- <div class="srs-avatar">
+              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80" alt="">
+            </div> -->
+            <div class="srs-bubble">앞으로 이 일을 계속 해도 될지 불안해요.</div>
+          </div>
+
+          <div class="srs-item">
+            <!-- <div class="srs-avatar">
+              <img src="https://images.unsplash.com/photo-1594824388853-d0c4f0db3b9e?auto=format&fit=crop&w=500&q=80" alt="">
+            </div> -->
+            <div class="srs-bubble">그만두자니, 뭘 해야 할지 모르겠어요.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="srs-head srs-anim fadeInup" data-srs-anim>
+    
+      <p class="srs-sub">
+        <br><br>
+        지금 많은 강사들이 비슷한 고민을 하고 있습니다.<br>
+        열심히 하고 있는데도 예전 같지 않은 현실 앞에서,<br>앞으로 무엇을 준비해야 할지 막막해지고 있습니다.
+      </p>
+    </div>
+
+
+  </div>
+
+  <script>
+    (function(){
+      var section = document.getElementById('ReasonSection');
+      if(!section) return;
+
+      var items = section.querySelectorAll('[data-srs-anim]');
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if(reduceMotion){
+        items.forEach(function(el){ el.classList.add('is-visible'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+          }else{
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      }, {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px'
+      });
+
+      items.forEach(function(el){ io.observe(el); });
+    })();
+  </script>
+</section>
+
+
+
+
+<section id="jointFunctionCenterSection" aria-label="Academy Market Shrink Section">
+  <style>
+    #jointFunctionCenterSection{
+      --bg:#008a5d;
+      --bg-deep:#007b53;
+      --white:#ffffff;
+      --white-soft:rgba(255,255,255,.9);
+      --panel:#dbe4da;
+      --panel-line:rgba(23,74,54,.12);
+      --green:#14bf77;
+      --green-deep:#0b8f5d;
+      --orange:#ff790a;
+      --orange-deep:#ff6f00;
+      --dark:#1f4f3d;
+      --gray:#878f98;
+      position:relative;
+      overflow:hidden;
+      width:100%;
+      background:
+        radial-gradient(42% 55% at 94% 30%, rgba(255,255,255,.06) 0%, rgba(255,255,255,.015) 42%, rgba(255,255,255,0) 78%),
+        radial-gradient(26% 34% at 95% 80%, rgba(255,255,255,.05) 0%, rgba(255,255,255,.015) 40%, rgba(255,255,255,0) 80%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+      font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+      color:var(--white);
+      box-sizing:border-box;
+    }
+
+    #jointFunctionCenterSection,
+    #jointFunctionCenterSection *{
+      box-sizing:border-box;
+    }
+
+    #jointFunctionCenterSection .jfc-inner{
+      position:relative;
+      width:100%;
+      max-width:1120px;
+      margin:0 auto;
+      padding:34px 42px 32px;
+    }
+
+    #jointFunctionCenterSection .jfc-kicker{
+      margin:0 0 24px;
+      font-size:14px;
+      line-height:1.2;
+      font-weight:700;
+      color:#e9f7b8;
+      letter-spacing:-0.02em;
+      opacity:0;
+      transform:translateY(20px);
+    }
+
+    #jointFunctionCenterSection .jfc-title{
+      margin:0;
+      max-width:720px;
+      font-size:clamp(34px,4.7vw,56px);
+      line-height:1.22;
+      letter-spacing:-0.055em;
+      font-weight:800;
+      word-break:keep-all;
+      opacity:0;
+      transform:translateY(22px);
+    }
+
+    #jointFunctionCenterSection .jfc-highlight{
+      display:inline-block;
+      margin-top:34px;
+      background:var(--orange);
+      color:var(--white);
+      padding:13px 18px 14px;
+      font-size:clamp(16px,1.8vw,20px);
+      line-height:1.35;
+      letter-spacing:-0.035em;
+      font-weight:800;
+      opacity:0;
+      transform:translateX(-24px);
+    }
+
+    #jointFunctionCenterSection .jfc-desc{
+      margin:18px 0 0;
+      max-width:650px;
+      font-size:13px;
+      line-height:1.9;
+      font-weight:700;
+      color:var(--white-soft);
+      letter-spacing:-0.02em;
+      word-break:keep-all;
+      opacity:0;
+      transform:translateY(20px);
+    }
+
+    #jointFunctionCenterSection .jfc-card{
+      margin-top:52px;
+      background:var(--panel);
+      border-radius:16px;
+      padding:50px 38px 26px;
+      box-shadow:0 24px 60px rgba(0,51,34,.16);
+      opacity:0;
+      transform:translateY(24px);
+    }
+
+    #jointFunctionCenterSection .jfc-pill{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:184px;
+      min-height:46px;
+      margin:0 auto 42px;
+      border-radius:999px;
+      background:var(--green-deep);
+      color:var(--white);
+      font-size:17px;
+      font-weight:800;
+      letter-spacing:-0.03em;
+      text-align:center;
+    }
+
+    #jointFunctionCenterSection .jfc-chart{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:32px;
+      align-items:end;
+      padding:10px 0 0;
+      border-bottom:1px solid var(--panel-line);
+    }
+
+    #jointFunctionCenterSection .jfc-item{
+      position:relative;
+      min-height:308px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+
+    #jointFunctionCenterSection .jfc-bars{
+      position:relative;
+      height:226px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-end;
+      gap:20px;
+    }
+
+    #jointFunctionCenterSection .jfc-svg{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      width:100%;
+      height:226px;
+      pointer-events:none;
+      overflow:visible;
+    }
+
+    #jointFunctionCenterSection .jfc-trend{
+      fill:none;
+      stroke:rgba(255,255,255,.9);
+      stroke-width:2;
+      stroke-dasharray:4 5;
+      opacity:0;
+    }
+
+    #jointFunctionCenterSection .jfc-bar-wrap{
+      position:relative;
+      width:88px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+    }
+
+    #jointFunctionCenterSection .jfc-bar{
+      position:relative;
+      width:88px;
+      border-radius:20px 20px 0 0;
+      transform-origin:bottom center;
+      transform:scaleY(.2);
+      opacity:0;
+    }
+
+    #jointFunctionCenterSection .jfc-bar.is-green{
+      background:linear-gradient(180deg,#19c97d 0%, #08af68 100%);
+    }
+
+    #jointFunctionCenterSection .jfc-bar.is-orange{
+      background:linear-gradient(180deg,#ff8618 0%, #ff7100 100%);
+    }
+
+    #jointFunctionCenterSection .jfc-dot{
+      position:absolute;
+      left:50%;
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      transform:translateX(-50%);
+      box-shadow:0 0 0 2px rgba(255,255,255,.95);
+      z-index:2;
+    }
+
+    #jointFunctionCenterSection .jfc-bar.is-green .jfc-dot{
+      background:#0fa166;
+      top:14px;
+    }
+
+    #jointFunctionCenterSection .jfc-bar.is-orange .jfc-dot{
+      background:#ff6c00;
+      top:14px;
+    }
+
+    #jointFunctionCenterSection .jfc-value{
+      position:absolute;
+      left:50%;
+      bottom:calc(100% + 14px);
+      transform:translateX(-50%);
+      font-size:13px;
+      line-height:1;
+      font-weight:800;
+      letter-spacing:-0.03em;
+      white-space:nowrap;
+    }
+
+    #jointFunctionCenterSection .jfc-bar-wrap.green .jfc-value{
+      color:var(--gray);
+    }
+
+    #jointFunctionCenterSection .jfc-bar-wrap.orange .jfc-value{
+      color:var(--orange-deep);
+    }
+
+    #jointFunctionCenterSection .jfc-year{
+      position:absolute;
+      left:50%;
+      bottom:10px;
+      transform:translateX(-50%);
+      font-size:13px;
+      line-height:1;
+      font-weight:800;
+      letter-spacing:-0.03em;
+      color:#fff;
+      white-space:nowrap;
+    }
+
+    #jointFunctionCenterSection .jfc-label{
+      margin-top:16px;
+      padding-bottom:20px;
+      text-align:center;
+      font-size:17px;
+      line-height:1.4;
+      font-weight:800;
+      letter-spacing:-0.03em;
+      color:var(--dark);
+      opacity:0;
+      transform:translateY(16px);
+      word-break:keep-all;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-kicker{
+      animation:jfcFadeInUp .8s ease forwards;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-title{
+      animation:jfcFadeInUp .9s cubic-bezier(.22,1,.36,1) .08s forwards;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-highlight{
+      animation:jfcFadeInLeft .9s cubic-bezier(.22,1,.36,1) .22s forwards;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-desc{
+      animation:jfcFadeInUp .9s cubic-bezier(.22,1,.36,1) .36s forwards;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-card{
+      animation:jfcFadeInUp .95s cubic-bezier(.22,1,.36,1) .52s forwards;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(1) .jfc-bar,
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(1) .jfc-trend,
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(1) .jfc-label{
+      animation-delay:.78s;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(2) .jfc-bar,
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(2) .jfc-trend,
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(2) .jfc-label{
+      animation-delay:.94s;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(3) .jfc-bar,
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(3) .jfc-trend,
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(3) .jfc-label{
+      animation-delay:1.1s;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(4) .jfc-bar,
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(4) .jfc-trend,
+    #jointFunctionCenterSection.is-active .jfc-item:nth-child(4) .jfc-label{
+      animation-delay:1.26s;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-bar{
+      animation:jfcBarGrow .95s cubic-bezier(.22,1,.36,1) forwards;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-trend{
+      animation:jfcFade .7s ease forwards;
+    }
+
+    #jointFunctionCenterSection.is-active .jfc-label{
+      animation:jfcFadeInUp .8s ease forwards;
+    }
+
+    @keyframes jfcFadeInUp{
+      0%{opacity:0;transform:translateY(24px);}
+      100%{opacity:1;transform:translateY(0);}
+    }
+
+    @keyframes jfcFadeInLeft{
+      0%{opacity:0;transform:translateX(-24px);}
+      100%{opacity:1;transform:translateX(0);}
+    }
+
+    @keyframes jfcFade{
+      0%{opacity:0;}
+      100%{opacity:1;}
+    }
+
+    @keyframes jfcBarGrow{
+      0%{opacity:0;transform:scaleY(.2);}
+      100%{opacity:1;transform:scaleY(1);}
+    }
+
+    @media (max-width:1024px){
+      #jointFunctionCenterSection .jfc-inner{
+        padding:30px 24px 28px;
+      }
+
+      #jointFunctionCenterSection .jfc-card{
+        padding:40px 24px 24px;
+      }
+
+      #jointFunctionCenterSection .jfc-chart{
+        gap:20px;
+      }
+
+      #jointFunctionCenterSection .jfc-bar-wrap,
+      #jointFunctionCenterSection .jfc-bar{
+        width:72px;
+      }
+    }
+
+    @media (max-width:820px){
+      #jointFunctionCenterSection .jfc-chart{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:24px 18px;
+      }
+    }
+
+    @media (max-width:560px){
+      #jointFunctionCenterSection .jfc-inner{
+        padding:24px 16px;
+      }
+
+      #jointFunctionCenterSection .jfc-title{
+        font-size:28px;
+        line-height:1.28;
+      }
+
+      #jointFunctionCenterSection .jfc-highlight{
+        display:block;
+        width:100%;
+        font-size:15px;
+        padding:14px 14px 15px;
+        margin-top:26px;
+      }
+
+      #jointFunctionCenterSection .jfc-desc{
+        font-size:12px;
+        line-height:1.8;
+      }
+
+      #jointFunctionCenterSection .jfc-card{
+        margin-top:34px;
+        padding:28px 14px 18px;
+      }
+
+      #jointFunctionCenterSection .jfc-pill{
+        width:156px;
+        min-height:42px;
+        margin-bottom:26px;
+        font-size:15px;
+      }
+
+      #jointFunctionCenterSection .jfc-chart{
+        grid-template-columns:1fr;
+        gap:16px;
+      }
+
+      #jointFunctionCenterSection .jfc-item{
+        min-height:250px;
+      }
+
+      #jointFunctionCenterSection .jfc-bars,
+      #jointFunctionCenterSection .jfc-svg{
+        height:190px;
+      }
+
+      #jointFunctionCenterSection .jfc-bar-wrap,
+      #jointFunctionCenterSection .jfc-bar{
+        width:80px;
+      }
+    }
+  </style>
+
+  <div class="jfc-inner">
+    <p class="jfc-kicker">Academy Market Insight</p>
+
+    <h2 class="jfc-title">
+      학생이 급격히 줄고 있는<br>
+      학원 강사 시장은 더 열악해지고 있습니다.
+    </h2>
+
+    <div class="jfc-highlight">저출생과 학령인구 감소는 학원 시장의 축소로 이어질 수 밖에 없습니다.</div>
+
+    <p class="jfc-desc">
+      출생아 수와 초중등 학생 수는 꾸준히 감소하고 있습니다. 즉, 학원을 찾는 절대 학생 자체가 줄어드는 흐름입니다.<br>
+      반면 사교육비 총액은 오르며 상위 브랜드·대형 학원·검증된 강사로 수요가 더 집중되고 있습니다.<br>
+      그렇지만, 인구 감소는 결국 시장의 급격한 축소로 이어질 수 밖에 없습니다. 
+    </p>
+
+    <div class="jfc-card">
+      <div class="jfc-pill">시장 축소 데이터</div>
+
+      <div class="jfc-chart">
+        <div class="jfc-item">
+          <div class="jfc-bars">
+            <svg class="jfc-svg" viewBox="0 0 240 226" preserveAspectRatio="none" aria-hidden="true">
+              <path class="jfc-trend" d="M70 78 C105 96, 130 112, 170 146"></path>
+            </svg>
+
+            <div class="jfc-bar-wrap green">
+              <div class="jfc-bar is-green" style="height:168px;">
+                <span class="jfc-dot"></span>
+                <span class="jfc-year">2014년</span>
+              </div>
+              <span class="jfc-value">43.5만명</span>
+            </div>
+
+            <div class="jfc-bar-wrap orange">
+              <div class="jfc-bar is-orange" style="height:92px;">
+                <span class="jfc-dot"></span>
+                <span class="jfc-year">2024년</span>
+              </div>
+              <span class="jfc-value">23.8만명</span>
+            </div>
+          </div>
+          <div class="jfc-label">출생아 수</div>
+        </div>
+
+        <div class="jfc-item">
+          <div class="jfc-bars">
+            <svg class="jfc-svg" viewBox="0 0 240 226" preserveAspectRatio="none" aria-hidden="true">
+              <path class="jfc-trend" d="M70 88 C105 98, 130 108, 170 122"></path>
+            </svg>
+
+            <div class="jfc-bar-wrap green">
+              <div class="jfc-bar is-green" style="height:160px;">
+                <span class="jfc-dot"></span>
+                <span class="jfc-year">2014년</span>
+              </div>
+              <span class="jfc-value">628.6만명</span>
+            </div>
+
+            <div class="jfc-bar-wrap orange">
+              <div class="jfc-bar is-orange" style="height:130px;">
+                <span class="jfc-dot"></span>
+                <span class="jfc-year">2024년</span>
+              </div>
+              <span class="jfc-value">513.2만명</span>
+            </div>
+          </div>
+          <div class="jfc-label">초중등 학생 수</div>
+        </div>
+
+        <div class="jfc-item">
+          <div class="jfc-bars">
+            <svg class="jfc-svg" viewBox="0 0 240 226" preserveAspectRatio="none" aria-hidden="true">
+              <path class="jfc-trend" d="M70 106 C104 110, 130 118, 170 128"></path>
+            </svg>
+
+            <div class="jfc-bar-wrap green">
+              <div class="jfc-bar is-green" style="height:138px;">
+                <span class="jfc-dot"></span>
+                <span class="jfc-year">2023년</span>
+              </div>
+              <span class="jfc-value">520.9만명</span>
+            </div>
+
+            <div class="jfc-bar-wrap orange">
+              <div class="jfc-bar is-orange" style="height:126px;">
+                <span class="jfc-dot"></span>
+                <span class="jfc-year">2025년</span>
+              </div>
+              <span class="jfc-value">501.5만명</span>
+            </div>
+          </div>
+          <div class="jfc-label">초중등 학생 수 추세</div>
+        </div>
+
+        <div class="jfc-item">
+          <div class="jfc-bars">
+            <svg class="jfc-svg" viewBox="0 0 240 226" preserveAspectRatio="none" aria-hidden="true">
+              <path class="jfc-trend" d="M70 154 C105 148, 130 140, 170 132"></path>
+            </svg>
+
+            <div class="jfc-bar-wrap green">
+              <div class="jfc-bar is-green" style="height:118px;">
+                <span class="jfc-dot"></span>
+                <span class="jfc-year">2023년</span>
+              </div>
+              <span class="jfc-value">27.1조원</span>
+            </div>
+
+            <div class="jfc-bar-wrap orange">
+              <div class="jfc-bar is-orange" style="height:140px;">
+                <span class="jfc-dot"></span>
+                <span class="jfc-year">2024년</span>
+              </div>
+              <span class="jfc-value">29.2조원</span>
+            </div>
+          </div>
+          <div class="jfc-label">사교육비 총액</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var section = document.getElementById('jointFunctionCenterSection');
+      if(!section) return;
+
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            section.classList.remove('is-active');
+            void section.offsetWidth;
+            section.classList.add('is-active');
+          }else{
+            section.classList.remove('is-active');
+          }
+        });
+      }, { threshold: 0.22 });
+
+      observer.observe(section);
+    })();
+  </script>
+</section>
+
+
+
+
+
+<section id="xqvmpnrz" style="margin:0;padding:0;overflow:hidden;position:relative;">
+<style>
+#xqvmpnrz {
+  --xq-bg: #252b32;
+  --xq-bg-deep: #1659b5;
+  --xq-white: #ffffff;
+  --xq-white-soft: rgba(255,255,255,0.92);
+  --xq-white-mid: rgba(255,255,255,0.82);
+  --xq-white-dim: rgba(255,255,255,0.62);
+  --xq-white-faint: rgba(255,255,255,0.38);
+
+  --xq-mint: #114ca5;
+  --xq-mint-soft: #dce9d7;
+  --xq-mint-text: #0b7a37;
+
+  --xq-blue-dark: #0f49a7;
+  --xq-blue-darker: #0a3f97;
+
+  --xq-line: rgba(255,255,255,0.34);
+
+  font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background: var(--xq-bg);
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#xqvmpnrz *,
+#xqvmpnrz *::before,
+#xqvmpnrz *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#xqvmpnrz .xq-shell {
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 54px 74px 44px;
+}
+
+/* 메인 영역 */
+#xqvmpnrz .xq-panel-wrapper {
+  padding: 0;
+}
+#xqvmpnrz .xq-panel {
+  min-height: 720px;
+  display: flex;
+  align-items: stretch;
+  overflow: visible;
+  opacity: 0;
+  transform: translateY(56px);
+  transition: none;
+}
+#xqvmpnrz .xq-panel.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s cubic-bezier(0.22,1,0.36,1) 0.2s, transform 1s cubic-bezier(0.16,1,0.3,1) 0.2s;
+}
+
+/* 좌측 */
+#xqvmpnrz .xq-panel-left {
+  flex: 0 0 46%;
+  padding: 18px 24px 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#xqvmpnrz .xq-headline {
+  font-size: clamp(29px, 4.4vw, 48px);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.055em;
+  color: var(--xq-white);
+  margin-bottom: 38px;
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(4px);
+  transition: none;
+}
+#xqvmpnrz .xq-headline.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.75s cubic-bezier(0.22,1,0.36,1) 0.1s, filter 0.75s cubic-bezier(0.22,1,0.36,1) 0.1s;
+}
+
+#xqvmpnrz .xq-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 86px;
+  background: #114ca5;
+  border-radius: 0;
+  padding: 18px 34px;
+  margin-bottom: 34px;
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(4px);
+  transition: none;
+}
+#xqvmpnrz .xq-stat-pill.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1) 0.2s, transform 0.75s cubic-bezier(0.22,1,0.36,1) 0.2s, filter 0.75s cubic-bezier(0.22,1,0.36,1) 0.2s;
+}
+#xqvmpnrz .xq-stat-pill span {
+  font-size: clamp(20px, 1.9vw, 31px);
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  color: var(--xq-white);
+}
+
+#xqvmpnrz .xq-desc {
+  max-width: 760px;
+  font-size: clamp(18px, 1.22vw, 24px);
+  font-weight: 700;
+  line-height: 1.9;
+  letter-spacing: -0.03em;
+  color: var(--xq-white-soft);
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(4px);
+  transition: none;
+}
+#xqvmpnrz .xq-desc.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1) 0.3s, transform 0.75s cubic-bezier(0.22,1,0.36,1) 0.3s, filter 0.75s cubic-bezier(0.22,1,0.36,1) 0.3s;
+}
+
+/* 우측 */
+#xqvmpnrz .xq-panel-right {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 0 0 0 24px;
+}
+#xqvmpnrz .xq-right-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100%;
+}
+
+/* 그래프 */
+#xqvmpnrz .xq-bars-zone {
+  position: relative;
+  width: 100%;
+  min-height: 610px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 26px 0 0;
+}
+
+#xqvmpnrz .xq-baseline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 92px;
+  height: 3px;
+  background: var(--xq-line);
+  transform: scaleX(0.2);
+  transform-origin: center;
+  opacity: 0;
+  transition: none;
+}
+#xqvmpnrz .xq-baseline.xq-visible {
+  opacity: 1;
+  transform: scaleX(1);
+  transition: opacity 0.7s ease, transform 0.9s cubic-bezier(0.22,1,0.36,1);
+}
+
+#xqvmpnrz .xq-bars-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(28px, 2.4vw, 56px);
+  width: 100%;
+  padding: 0 18px 92px;
+}
+
+#xqvmpnrz .xq-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* 말풍선 */
+#xqvmpnrz .xq-bar-label-top {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 122px;
+  min-height: 66px;
+  padding: 12px 18px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: var(--xq-mint-soft);
+  color: var(--xq-mint-text);
+  font-size: clamp(16px, 1.15vw, 22px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: none;
+}
+#xqvmpnrz .xq-bar-label-top::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-top: 14px solid var(--xq-mint-soft);
+}
+#xqvmpnrz .xq-bar-label-top.xq-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* 막대 */
+#xqvmpnrz .xq-bar {
+  width: clamp(110px, 9vw, 148px);
+  border-radius: 28px 28px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  opacity: 0.96;
+  transition: none;
+  padding: 18px 12px 22px;
+  will-change: transform;
+}
+#xqvmpnrz .xq-bar.xq-visible {
+  transform: scaleY(1);
+  transition: transform 1.15s cubic-bezier(0.16,1,0.3,1);
+}
+
+#xqvmpnrz .xq-bar-1 {
+  height: 160px;
+  background: linear-gradient(180deg, #7da6f2 0%, #4a73c9 100%);
+}
+#xqvmpnrz .xq-bar-2 {
+  height: 320px;
+  background: linear-gradient(180deg, #4f8df0 0%, #2065d0 100%);
+}
+#xqvmpnrz .xq-bar-3 {
+  height: 540px;
+  background: linear-gradient(180deg, #26a3ff 0%, #114ca5 100%);
+}
+
+#xqvmpnrz .xq-bar-name {
+  font-size: clamp(18px, 1.3vw, 23px);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  color: var(--xq-white);
+  text-align: center;
+  line-height: 1.28;
+}
+
+/* 하단 */
+#xqvmpnrz .xq-chart-footer-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 16px 0 0;
+  opacity: 0;
+  transition: none;
+}
+#xqvmpnrz .xq-chart-footer-wrap.xq-visible {
+  opacity: 1;
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1) 0.2s;
+}
+#xqvmpnrz .xq-chart-label {
+  flex: 1;
+  text-align: center;
+  padding-left: 2%;
+  font-size: clamp(20px, 1.55vw, 28px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--xq-white);
+}
+#xqvmpnrz .xq-chart-source {
+  font-size: clamp(14px, 1vw, 18px);
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
+}
+
+/* 접근성 */
+@media (prefers-reduced-motion: reduce) {
+  #xqvmpnrz .xq-panel,
+  #xqvmpnrz .xq-headline,
+  #xqvmpnrz .xq-stat-pill,
+  #xqvmpnrz .xq-desc,
+  #xqvmpnrz .xq-bar,
+  #xqvmpnrz .xq-bar-label-top,
+  #xqvmpnrz .xq-chart-footer-wrap,
+  #xqvmpnrz .xq-baseline {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+
+/* 태블릿 */
+@media (max-width: 1180px) {
+  #xqvmpnrz .xq-shell {
+    padding: 44px 34px 34px;
+  }
+  #xqvmpnrz .xq-panel {
+    min-height: 620px;
+  }
+  #xqvmpnrz .xq-panel-left {
+    flex: 0 0 48%;
+  }
+  #xqvmpnrz .xq-stat-pill {
+    min-height: 72px;
+    padding: 16px 24px;
+  }
+  #xqvmpnrz .xq-bars-zone {
+    min-height: 520px;
+  }
+  #xqvmpnrz .xq-baseline {
+    bottom: 78px;
+  }
+  #xqvmpnrz .xq-bars-row {
+    padding-bottom: 78px;
+  }
+  #xqvmpnrz .xq-bar-1 { height: 128px; }
+  #xqvmpnrz .xq-bar-2 { height: 256px; }
+  #xqvmpnrz .xq-bar-3 { height: 430px; }
+}
+
+/* 모바일 */
+@media (max-width: 820px) {
+  #xqvmpnrz .xq-shell {
+    padding: 28px 18px 24px;
+  }
+  #xqvmpnrz .xq-panel {
+    flex-direction: column;
+    min-height: auto;
+  }
+  #xqvmpnrz .xq-panel-left {
+    flex: none;
+    padding: 6px 0 22px;
+  }
+  #xqvmpnrz .xq-panel-right {
+    padding: 0;
+  }
+  #xqvmpnrz .xq-headline {
+    font-size: clamp(24px, 9vw, 32px);
+    margin-bottom: 20px;
+  }
+  #xqvmpnrz .xq-stat-pill {
+    width: 100%;
+    min-height: auto;
+    padding: 16px 16px;
+    margin-bottom: 20px;
+  }
+  #xqvmpnrz .xq-stat-pill span {
+    font-size: 20px;
+    text-align: center;
+  }
+  #xqvmpnrz .xq-desc {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  #xqvmpnrz .xq-bars-zone {
+    min-height: 360px;
+    padding-top: 10px;
+  }
+  #xqvmpnrz .xq-bars-row {
+    gap: 14px;
+    padding: 0 0 56px;
+  }
+  #xqvmpnrz .xq-baseline {
+    bottom: 56px;
+  }
+  #xqvmpnrz .xq-bar {
+    width: 78px;
+    border-radius: 16px 16px 0 0;
+    gap: 8px;
+    padding: 10px 6px 12px;
+  }
+  #xqvmpnrz .xq-bar-1 { height: 90px; }
+  #xqvmpnrz .xq-bar-2 { height: 180px; }
+  #xqvmpnrz .xq-bar-3 { height: 300px; }
+
+  #xqvmpnrz .xq-bar-label-top {
+    min-width: 78px;
+    min-height: 42px;
+    font-size: 12px;
+    padding: 6px 8px;
+    margin-bottom: 10px;
+  }
+  #xqvmpnrz .xq-bar-label-top::after {
+    bottom: -7px;
+    border-left-width: 7px;
+    border-right-width: 7px;
+    border-top-width: 9px;
+  }
+
+  #xqvmpnrz .xq-bar-name {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  #xqvmpnrz .xq-chart-footer-wrap {
+    padding-top: 10px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+  #xqvmpnrz .xq-chart-label {
+    width: 100%;
+    text-align: center;
+    padding-left: 0;
+    font-size: 17px;
+  }
+  #xqvmpnrz .xq-chart-source {
+    font-size: 12px;
+    white-space: normal;
+    text-align: right;
+  }
+}
+</style>
+
+<div class="xq-shell">
+  <div class="xq-panel-wrapper">
+    <div class="xq-panel">
+      <div class="xq-panel-left">
+        <div class="xq-headline">
+          AI 시대에 맞춰 교육 시장이<br>
+          완전히 달라지고 있는 상황.
+        </div>
+
+        <div class="xq-stat-pill">
+          <span>2028년 23.2억달러 전망<br>AI 교육 시장 고속 성장</span>
+        </div>
+
+        <div class="xq-desc">
+          교육 시장은 줄어드는 것이 아니라 더 빠르게 커지고 있습니다.<br>
+          하지만 성장의 중심은 기존 오프라인 강의만이 아닙니다.<br><br>
+
+          AI 기반 맞춤형 학습, 학습 챗봇, 자동화된 피드백, 온라인 교육 플랫폼이
+          교육 시장의 새로운 표준이 되기 시작했습니다.<br><br>
+
+          이제 교육 시장은 단순히 지식을 전달하는 구조가 아니라,
+          기술을 활용해 더 큰 가치와 새로운 수익 구조를 만드는 방향으로 재편되고 있습니다.
+        </div>
+      </div>
+
+      <div class="xq-panel-right">
+        <div class="xq-right-inner">
+          <div class="xq-bars-zone">
+            <div class="xq-baseline"></div>
+
+            <div class="xq-bars-row">
+              <div class="xq-bar-group">
+                <div class="xq-bar-label-top" data-xq-label="1">6.61억달러</div>
+                <div class="xq-bar xq-bar-1" data-xq-bar="1">
+                  <span class="xq-bar-name">2025년<br>예상 규모</span>
+                </div>
+              </div>
+
+              <div class="xq-bar-group">
+                <div class="xq-bar-label-top" data-xq-label="2">23.2억달러</div>
+                <div class="xq-bar xq-bar-2" data-xq-bar="2">
+                  <span class="xq-bar-name">2028년<br>예상 규모</span>
+                </div>
+              </div>
+
+              <div class="xq-bar-group">
+                <div class="xq-bar-label-top" data-xq-label="3">82.5억달러</div>
+                <div class="xq-bar xq-bar-3" data-xq-bar="3">
+                  <span class="xq-bar-name">2031년<br>추정 규모</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="xq-chart-footer-wrap">
+            <span class="xq-chart-label">글로벌 AI 교육 시장 예상 성장</span>
+            <span class="xq-chart-source">자료 : AI타임스 </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var root = document.getElementById('xqvmpnrz');
+  if (!root) return;
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var animated = false;
+  var observer = null;
+
+  function q(sel) { return root.querySelector(sel); }
+  function qa(sel) { return root.querySelectorAll(sel); }
+
+  function runAnimation() {
+    if (animated) return;
+    animated = true;
+
+    var panel = q('.xq-panel');
+    var headline = q('.xq-headline');
+    var pill = q('.xq-stat-pill');
+    var desc = q('.xq-desc');
+    var bars = qa('.xq-bar');
+    var labels = qa('.xq-bar-label-top');
+    var footer = q('.xq-chart-footer-wrap');
+    var baseline = q('.xq-baseline');
+
+    if (prefersReduced) {
+      [panel, headline, pill, desc, footer, baseline].forEach(function(el) {
+        if (el) el.classList.add('xq-visible');
+      });
+      bars.forEach(function(b) { b.classList.add('xq-visible'); });
+      labels.forEach(function(l) { l.classList.add('xq-visible'); });
+      return;
+    }
+
+    setTimeout(function() { if (panel) panel.classList.add('xq-visible'); }, 180);
+    setTimeout(function() { if (headline) headline.classList.add('xq-visible'); }, 700);
+    setTimeout(function() { if (pill) pill.classList.add('xq-visible'); }, 920);
+    setTimeout(function() { if (desc) desc.classList.add('xq-visible'); }, 1140);
+    setTimeout(function() { if (baseline) baseline.classList.add('xq-visible'); }, 980);
+
+    bars.forEach(function(bar, index) {
+      setTimeout(function() {
+        bar.classList.add('xq-visible');
+      }, 1120 + (index * 220));
+    });
+
+    labels.forEach(function(label, index) {
+      setTimeout(function() {
+        label.classList.add('xq-visible');
+      }, 1820 + (index * 180));
+    });
+
+    setTimeout(function() {
+      if (footer) footer.classList.add('xq-visible');
+    }, 2280);
+  }
+
+  if ('IntersectionObserver' in window) {
+    observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.22) {
+          runAnimation();
+
+          if (observer) {
+            observer.unobserve(root);
+            observer.disconnect();
+            observer = null;
+          }
+        }
+      });
+    }, { threshold: [0, 0.22, 0.5] });
+
+    observer.observe(root);
+  } else {
+    runAnimation();
+  }
+})();
+</script>
+</section>
+
+
+
+<section id="SymptomSection">
+  <style>
+    #SymptomSection{
+      --sss-bg:#dbe4eb;
+      --sss-text:#111111;
+      --sss-muted:#2d2d2d;
+      --sss-blue:#1f67c4;
+      --sss-max:1220px;
+      --sss-ease:cubic-bezier(.22,1,.36,1);
+      position:relative;
+      width:100%;
+      background:var(--sss-bg);
+      overflow:hidden;
+      box-sizing:border-box;
+      font-family:"Pretendard","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+      color:var(--sss-text);
+      padding:88px 24px 90px;
+    }
+
+    #SymptomSection,
+    #SymptomSection *,
+    #SymptomSection *::before,
+    #SymptomSection *::after{
+      box-sizing:border-box;
+    }
+
+    #SymptomSection .sss-wrap{
+      width:100%;
+      max-width:var(--sss-max);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:minmax(320px, 1.06fr) minmax(420px, 1.14fr);
+      align-items:start;
+      gap:72px;
+    }
+
+    #SymptomSection .sss-copy{
+      padding-top:4px;
+    }
+
+    #SymptomSection .sss-title{
+      margin:0;
+      font-size:clamp(34px,3.25vw,56px);
+      line-height:1.08;
+      letter-spacing:-0.04em;
+      font-weight:800;
+      color:#000;
+      opacity:0;
+      transform:translateY(26px);
+      transition:opacity .85s var(--sss-ease), transform .85s var(--sss-ease);
+    }
+
+    #SymptomSection .sss-desc{
+      margin:22px 0 0;
+      font-size:clamp(15px,1.02vw,18px);
+      line-height:1.8;
+      letter-spacing:-0.025em;
+      color:rgba(0,0,0,.88);
+      opacity:0;
+      transform:translateY(26px);
+      transition:opacity .85s var(--sss-ease) .08s, transform .85s var(--sss-ease) .08s;
+      word-break:keep-all;
+    }
+
+    #SymptomSection .sss-list-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(240px,1fr));
+      column-gap:58px;
+      row-gap:28px;
+      align-items:start;
+      padding-top:2px;
+    }
+
+    #SymptomSection .sss-col{
+      display:grid;
+      row-gap:28px;
+    }
+
+    #SymptomSection .sss-item{
+      display:flex;
+      align-items:flex-start;
+      gap:16px;
+      min-height:18px;
+      opacity:0;
+      transform:translateY(26px);
+      transition:
+        opacity .8s var(--sss-ease),
+        transform .8s var(--sss-ease);
+    }
+
+    #SymptomSection .sss-check{
+      width:20px;
+      height:20px;
+      border-radius:999px;
+      background:var(--sss-blue);
+      flex:0 0 20px;
+      position:relative;
+      margin-top:2px;
+      box-shadow:0 6px 14px rgba(31,103,196,.16);
+    }
+
+    #SymptomSection .sss-check::before{
+      content:"";
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:7px;
+      height:4px;
+      border-left:2px solid #fff;
+      border-bottom:2px solid #fff;
+      transform:translate(-50%,-50%) rotate(-45deg);
+    }
+
+    #SymptomSection .sss-text{
+      margin:0;
+      font-size:clamp(15px,1.02vw,17px);
+      line-height:1.55;
+      letter-spacing:-0.03em;
+      font-weight:700;
+      color:#111;
+      word-break:keep-all;
+    }
+
+    #SymptomSection.is-visible .sss-title,
+    #SymptomSection.is-visible .sss-desc,
+    #SymptomSection.is-visible .sss-item{
+      opacity:1;
+      transform:none;
+    }
+
+    #SymptomSection.is-visible .sss-item:nth-child(1){transition-delay:.12s;}
+    #SymptomSection.is-visible .sss-item:nth-child(2){transition-delay:.18s;}
+    #SymptomSection.is-visible .sss-item:nth-child(3){transition-delay:.24s;}
+    #SymptomSection.is-visible .sss-item:nth-child(4){transition-delay:.30s;}
+    #SymptomSection.is-visible .sss-item:nth-child(5){transition-delay:.36s;}
+    #SymptomSection.is-visible .sss-item:nth-child(6){transition-delay:.42s;}
+
+    @media (max-width: 1180px){
+      #SymptomSection{
+        padding:72px 22px 76px;
+      }
+      #SymptomSection .sss-wrap{
+        gap:44px;
+        grid-template-columns:minmax(280px,1fr) minmax(300px,1.15fr);
+      }
+      #SymptomSection .sss-list-grid{
+        column-gap:34px;
+      }
+    }
+
+    @media (max-width: 860px){
+      #SymptomSection{
+        padding:56px 18px 60px;
+      }
+      #SymptomSection .sss-wrap{
+        grid-template-columns:1fr;
+        gap:34px;
+      }
+      #SymptomSection .sss-copy{
+        max-width:100%;
+      }
+      #SymptomSection .sss-list-grid{
+        grid-template-columns:1fr;
+        row-gap:18px;
+        column-gap:0;
+      }
+      #SymptomSection .sss-col{
+        row-gap:18px;
+      }
+      #SymptomSection .sss-item{
+        gap:12px;
+      }
+      #SymptomSection .sss-title{
+        font-size:clamp(28px,8.2vw,40px);
+      }
+      #SymptomSection .sss-desc,
+      #SymptomSection .sss-text{
+        font-size:15px;
+      }
+    }
+  </style>
+
+  <div class="sss-wrap">
+    <div class="sss-copy">
+        <h2 class="sss-title">인류 역사상<br>가장 빠른 속도로<br>변하고 있는 AI 시대</h2>
+      <p class="sss-desc">이젠 변화하지 않으면 살아남기 어려운 시대가 되고 있습니다.<br>비슷한 경험을 겪고 있다면, 이젠 달라진 세상에 변화를 해야할 시기입니다.</p>
+    </div>
+
+    <div class="sss-list-grid" aria-label="시장 변화 공감 포인트">
+      <div class="sss-col">
+        <div class="sss-item">
+          <span class="sss-check" aria-hidden="true"></span>
+          <p class="sss-text">
+            예전에는 잘 되던 시장이<br>
+            점점 줄어들고 있다는 느낌이 든다.
+          </p>
+        </div>
+
+    
+        <div class="sss-item">
+          <span class="sss-check" aria-hidden="true"></span>
+          <p class="sss-text">
+            내가 하던 일을 대신하는<br>
+            새로운 방식들이 계속 등장하고 있다.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="sss-col">
+        <div class="sss-item">
+          <span class="sss-check" aria-hidden="true"></span>
+          <p class="sss-text">
+            예전처럼 하면 될 줄 알았는데<br>
+            더 이상 결과가 나오지 않는다.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="sss-col">
+        <div class="sss-item">
+          <span class="sss-check" aria-hidden="true"></span>
+          <p class="sss-text">
+            도대체 어디에서 부터<br>
+            어떻게 변화를 해야할지 모르겠다.
+          </p>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const section = document.getElementById('SymptomSection');
+      if(!section) return;
+
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach((entry)=>{
+          if(entry.isIntersecting){
+            section.classList.add('is-visible');
+          }else{
+            section.classList.remove('is-visible');
+          }
+        });
+      }, {
+        threshold: 0.18
+      });
+
+      observer.observe(section);
+    })();
+  </script>
+</section>
+
+
+
+
+
+<section id="lgStylerHero" style="--bg-brightness:0.9">
+  <!-- 배경은 확대(Ken Burns) 되며 동시에 페이드인. 나가는 이미지는 '확대한 상태' 그대로 페이드아웃만 하고, 절대 축소로 되돌아가지 않습니다. -->
+  <style>
+    /* ================= Scope: #lgStylerHero only ================= */
+    #lgStylerHero{
+
+      --ink:#ffffff;
+      --muted:#e7eaee;
+      --brand-red:#0336ff;
+      --brand-red-2:#0824f4;
+      --brand-black:#ffffff;
+      --glass:rgba(15,17,21,.70);
+      --glass-line:rgba(255,255,255,.14);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --max:1200px;
+      --padX: clamp(16px, 4vw, 36px);
+      --padY: clamp(16px, 5vw, 48px);
+
+      /* ⏱ 타이밍 */
+      --slide-duration: 3600ms; /* 확대(kenburns) 시간 */
+      --fade-duration: 900ms;   /* 교차 페이드 시간 */
+      --interval: 3800ms;       /* 다음 이미지로 바뀌는 간격(3~4초) */
+
+      position:relative; color:var(--ink);
+      font-family:Pretendard, "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      margin:0 auto; max-width:var(--max); min-height:600px; overflow:hidden;
+      border-radius:20px; background:var(--brand-black); isolation:isolate;
+
+      /* 하단 로고 티커 영역 여백 확보 */
+      padding-bottom:84px;
+      margin:100px auto;
+    }
+
+
+
+    /* ::before 는 사용 안함 */
+    #lgStylerHero::before{ content:""; display:none !important; }
+
+    /* 은은한 하이라이트 오버레이 */
+    #lgStylerHero::after{
+      content:""; position:absolute; inset:0; z-index:-1;
+      background:radial-gradient(60% 70% at 25% 55%, rgba(255,255,255,.22), rgba(0,0,0,0) 60%);
+      pointer-events:none;
+    }
+
+    /* ====== 배경 슬라이드 ====== */
+    #lgStylerHero .bg-deck{
+      position:absolute; inset:0; z-index:-2; overflow:hidden;
+    }
+    #lgStylerHero .bg-slide{
+      position:absolute; inset:0;
+      background-size:cover; background-position:center;
+      filter: brightness(var(--bg-brightness, 1));
+      transform: scale(1);
+      opacity:0;
+      z-index:0;
+      transition: opacity var(--fade-duration) ease;
+      will-change: transform, opacity;
+    }
+    /* 들어오는 슬라이드: 페이드인 + 확대 시작(동시) */
+    #lgStylerHero .bg-slide.active{
+      z-index:2;
+      opacity:1;
+      animation: kenburns var(--slide-duration) ease-in-out forwards;
+    }
+    /* 나가는 슬라이드: '확대 상태' 유지한 채 페이드아웃만 */
+    #lgStylerHero .bg-slide.leaving{
+      z-index:1;
+      opacity:0;
+      /* transform 은 JS가 현재값을 고정시켜줌(축소로 복귀 금지) */
+    }
+    @keyframes kenburns{
+      from{ transform: scale(1);   }
+      to  { transform: scale(1.08);}
+    }
+
+    /* ===== 레이아웃 ===== */
+    #lgStylerHero .inner{
+      position:relative; display:grid;
+      grid-template-rows: 1fr 1fr; grid-template-columns: 1fr 1fr;
+      min-height:600px; padding: var(--padY) var(--padX);
+    }
+
+    /* 제목/카피(고정) */
+    #lgStylerHero .copy{ grid-column:1 / 2; grid-row:1 / 2; align-self:center; justify-self:start; text-align:left; }
+    #lgStylerHero .eyebrow{
+      display:inline-block; padding:8px 14px; border-radius:999px;
+      background:linear-gradient(180deg, var(--brand-red) 0%, var(--brand-red-2) 100%);
+      color:#fff; font-size:clamp(13px, 1.5vw, 16px); font-weight:800; letter-spacing:.2px;
+      margin-bottom:12px;
+    }
+    #lgStylerHero .blink{ animation: blink 1.5s infinite; }
+    @keyframes blink { 0%, 49%, 100% { opacity: 1; } 50%, 70% { opacity: 0; } }
+
+    #lgStylerHero .title{
+      line-height:1.02; font-weight:900; font-size:50px;
+      margin:0 0 14px 0; text-shadow:0 6px 18px rgba(0,0,0,.35);
+    }
+    @media screen and (max-width:530px) { #lgStylerHero .title{ font-size:45px; } }
+    @media screen and (max-width:420px) { #lgStylerHero .title{ font-size:35px; } }
+
+    /* 리스트(고정) */
+    #lgStylerHero .feature-list{
+      grid-row:2 / 3; 
+      display:flex; flex-direction:column; gap:12px; width:min(420px, 92%);
+    }
+    #lgStylerHero .feature{
+      position:relative; background:var(--glass);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:14px; padding:16px 22px; text-align:center;
+      font-size:clamp(15px, 1.8vw, 18px); font-weight:800; letter-spacing:-.2px;
+      box-shadow:var(--shadow);
+    }
+    #lgStylerHero .feature::before{
+      content:""; position:absolute; left:10px; top:50%; transform:translateY(-50%);
+      width:6px; height:70%; border-radius:6px; background:linear-gradient(180deg, var(--brand-red-2), var(--brand-red));
+      box-shadow:0 0 0 1px rgba(255,255,255,.16) inset, 0 6px 16px rgba(230,0,18,.35);
+    }
+
+    /* 뱃지 */
+    #lgStylerHero .badge{
+      position:absolute; top:20px; right:20px; z-index:5;
+      background:var(--brand-red);
+      color:#fff; font-weight:900; font-size:clamp(14px, 2vw, 18px);
+      padding:16px 20px; border-radius:50%; text-align:center; line-height:1.2;
+      box-shadow:0 6px 16px rgba(0,0,0,.3);
+    }
+
+    /* 카운트 숫자 강조(선택사항) */
+    #lgStylerHero .count{
+      display:inline-block; min-width:1ch;
+      text-shadow:0 4px 14px rgba(0,0,0,.35);
+    }
+
+    /* ===== 하단 브랜드 로고 티커 ===== */
+    #lgStylerHero .brand-ticker{
+      position:absolute; left:0; right:0; bottom:0; height:72px;
+      z-index:3; /* 콘텐츠 위, 배경 위 */
+      background:#ffffff67;
+      border-top:1px solid rgba(255,255,255,.10);
+      /* backdrop-filter: blur(2px); */
+      display:flex; align-items:center; overflow:hidden;
+      pointer-events:auto;
+    }
+    #lgStylerHero .brand-ticker .track{
+      display:flex; align-items:center; gap:36px;
+      padding-inline:24px;
+      will-change: transform;
+      animation: ticker-move 28s linear infinite;
+      /* ✅ 어떤 상태에서도 멈추지 않도록 명시적으로 유지 */
+      animation-play-state: running !important;
+    }
+    /* 좌→우 흐름 */
+    @keyframes ticker-move{
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0%); }
+    }
+    /* ✅ hover/active/focus-within에도 절대 멈추지 않게 강제 */
+    #lgStylerHero .brand-ticker:hover .track,
+    #lgStylerHero .brand-ticker:active .track,
+    #lgStylerHero .brand-ticker:focus-within .track{
+      animation-play-state: running !important;
+    }
+
+    #lgStylerHero .brand-ticker img{
+      height:34px; width:auto; opacity:.92; filter:drop-shadow(0 2px 6px rgba(0,0,0,.35));
+      object-fit:contain; user-select:none; -webkit-user-drag:none;
+      pointer-events:none; /* 이미지 드래그/터치로 인한 hover 변동 방지 */
+    }
+
+    /* 반응형 */
+    @media (max-width: 900px){
+      #lgStylerHero .inner{ grid-template-columns:1fr; grid-template-rows:auto auto; text-align:center; }
+      #lgStylerHero .copy{ grid-column:1; grid-row:1; justify-self:center; align-self:center; text-align:center; }
+      #lgStylerHero .feature-list{ grid-column:1; grid-row:2; justify-self:center; align-self:center; width:min(520px, 95%); }
+      #lgStylerHero .feature::before{ left:14px; }
+      #lgStylerHero .badge{ top:10px; right:10px; font-size:14px; padding:12px 14px; }
+      #lgStylerHero{ padding-bottom:76px; }
+      #lgStylerHero .brand-ticker{ height:64px; }
+      #lgStylerHero .brand-ticker img{ height:28px; }
+      #lgStylerHero .brand-ticker .track{ gap:24px; }
+    }
+    @media (max-width: 530px){
+      #lgStylerHero .badge{ top:10px; right:10px; font-size:11px; padding:12px 14px; }
+    }
+
+    /* 모션 최소화 환경 */
+    @media (prefers-reduced-motion: reduce){
+      #lgStylerHero .bg-slide{ transition:none; animation:none; transform:none; }
+      #lgStylerHero .brand-ticker .track{ animation:none; transform:translateX(-25%); }
+    }
+  </style>
+
+  <!-- 배경 덱 -->
+  <div class="bg-deck" aria-hidden="true"></div>
+
+  <div class="inner">
+    <div class="copy">
+      <div class="eyebrow">달라진 세상에서의 혁신을 도와드립니다.</div>
+      <h2 class="title">비즈니스 혁신<br>프론티어 프로그램</b></h2>
+    </div>
+    <div class="feature-list" role="list">
+      <!-- ✅ 숫자 카운트가 적용되는 문구: 150만 / 100대 -->
+      <div class="feature" role="listitem">
+       변화를 위한 혁신 마인드 제공
+      </div>
+      <div class="feature" role="listitem">시대의 흐름을 파악하는 방법</div>
+      <div class="feature" role="listitem"><b style="color:#ffdaa9">1% 비즈니스 혁신 프로젝트 참여</b></div>
+    </div>
+  </div>
+
+  <!-- ===== 하단 브랜드 로고 티커 ===== -->
+  <div class="brand-ticker" aria-label="협력 브랜드 로고">
+    <div class="track" role="list">
+      <!-- 한 세트 -->
+      <img src="./img/logo-1.png" alt="LG" role="listitem">
+      <img src="./img/logo-2.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-3.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-4.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-5.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-6.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-7.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-8.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-9.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-10.png" alt="Samsung" role="listitem">
+
+         <img src="./img/logo-1.png" alt="LG" role="listitem">
+      <img src="./img/logo-2.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-3.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-4.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-5.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-6.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-7.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-8.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-9.png" alt="Samsung" role="listitem">
+      <img src="./img/logo-10.png" alt="Samsung" role="listitem">
+    </div>
+  </div>
+
+  <!-- 배경 슬라이더 스크립트 -->
+  <script>
+    (function(){
+      const hero = document.currentScript.closest('#lgStylerHero');
+      const deck = hero.querySelector('.bg-deck');
+
+      /* 원하는 배경 이미지들 */
+      const images = [
+        './img/column.jpg',
+        './img/speed1.jpg',
+        './img/solution-3-2.jpg',
+        './img/solution-3-3.jpg'
+      ];
+
+      const css = getComputedStyle(hero);
+      const interval = parseInt(css.getPropertyValue('--interval')) || 3800;
+      const fade = parseInt(css.getPropertyValue('--fade-duration')) || 900;
+
+      // 슬라이드 생성
+      const slides = images.map(src => {
+        const el = document.createElement('div');
+        el.className = 'bg-slide';
+        el.style.backgroundImage = `url('${src}')`;
+        deck.appendChild(el);
+        return el;
+      });
+
+      let curr = 0;
+      slides[curr].classList.add('active'); // 첫 장: 확대+페이드인 시작
+
+      function crossfade(next){
+        if(next === curr) return;
+
+        const prevEl = slides[curr];
+        const nextEl = slides[next];
+
+        // 1) 나가는 슬라이드: 현 시점의 transform(확대 상태)을 '고정'하고 페이드아웃만
+        if (prevEl){
+          const computed = getComputedStyle(prevEl).transform;
+          prevEl.style.transform = (computed && computed !== 'none') ? computed : 'scale(1.08)';
+          prevEl.style.animation = 'none';
+          prevEl.classList.remove('active');
+          prevEl.classList.add('leaving');
+          setTimeout(()=>{
+            prevEl.classList.remove('leaving');
+            prevEl.style.transform = '';
+            prevEl.style.animation = '';
+          }, fade + 50);
+        }
+
+        // 2) 들어오는 슬라이드
+        nextEl.classList.remove('leaving');
+        void nextEl.offsetWidth;
+        nextEl.classList.add('active');
+
+        curr = next;
+      }
+
+      // 순환 재생
+      setInterval(()=>{
+        const next = (curr + 1) % slides.length;
+        crossfade(next);
+      }, interval);
+
+      // 프리로드
+      images.forEach(src => { const img = new Image(); img.src = src; });
+    })();
+  </script>
+
+  <!-- ✅ 숫자 카운팅 + 재실행(스크롤 재등장 시) 스크립트 -->
+  <script>
+    (function(){
+      const root = document.currentScript.closest('#lgStylerHero');
+      const counters = Array.from(root.querySelectorAll('.count'));
+      const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 한국어 축약 표기(만 단위) or 천단위 콤마
+      function formatNumber(n, mode){
+        if(mode === 'compact'){
+          if(n >= 10000){
+            const man = Math.round(n / 10000);
+            return man + '만';
+          }
+          return n.toLocaleString();
+        }
+        // plain
+        return n.toLocaleString();
+      }
+
+      // 이징: easeOutCubic
+      function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+
+      // 카운터 실행
+      function runCount(el){
+        const target = parseInt(el.dataset.target, 10) || 0;
+        const dur = parseInt(el.dataset.duration, 10) || 1200;
+        const mode = el.dataset.format || 'plain';
+
+        if(prefersReduce){
+          // 모션 최소화: 즉시 목표값 반영
+          el.textContent = formatNumber(target, mode);
+          return;
+        }
+
+        const start = performance.now();
+        const startVal = 0;
+
+        function tick(now){
+          const t = Math.min(1, (now - start) / dur);
+          const eased = easeOutCubic(t);
+          const curr = Math.round(startVal + (target - startVal) * eased);
+          el.textContent = formatNumber(curr, mode);
+          if(t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      // 카운터 리셋(다시 등장 시 재실행)
+      function resetCount(el){
+        const mode = el.dataset.format || 'plain';
+        const zero = 0;
+        el.textContent = formatNumber(zero, mode);
+      }
+
+      // 한 번 실행했는지 표시
+      let ran = false;
+
+      // 가시성 관찰: Hero가 일정 비율 보이면 실행, 벗어나면 리셋
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.target !== root) return;
+          if(entry.isIntersecting){
+            // 화면에 다시 등장했을 때 재실행
+            counters.forEach(runCount);
+            ran = true;
+          }else if(ran){
+            // 화면을 벗어났다면 리셋해서 다음 등장 때 다시 애니메이션
+            counters.forEach(resetCount);
+            ran = false;
+          }
+        });
+      }, { threshold:[0, 0.35, 0.6] });
+
+      io.observe(root);
+    })();
+  </script>
+</section>
+
+
+
+
+
+<section id="aiRobotHero" aria-label="AI 로봇 솔루션 히어로 섹션">
+  <style>
+    /* ===============================
+       Scope: #aiRobotHero ONLY
+       =============================== */
+    #aiRobotHero{
+      --bg:#ffffff;
+      --ink:#0b0d12;
+      --muted:#5b6472;
+      --max:1120px;
+      --padX:20px;
+
+      --titleSize:clamp(20px, 3.2vw, 37px);
+      --subSize:clamp(15px, 1.3vw, 21px);
+
+      --radius:18px;
+      --shadow:0 18px 55px rgba(15, 23, 42, .14);
+      --line:rgba(15, 23, 42, .10);
+
+      font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      padding:clamp(34px, 5.5vw, 56px) 0 clamp(36px, 6vw, 72px);
+    }
+
+    #aiRobotHero .arh-wrap{max-width:var(--max); margin:0 auto; padding:0 var(--padX);}
+
+    #aiRobotHero .arh-head{ text-align:center; }
+    #aiRobotHero .arh-title{
+      margin:0;
+      font-size:var(--titleSize);
+      line-height:1.25;
+      font-weight:850;
+    }
+    #aiRobotHero .arh-sub{
+      margin:22px auto;
+      max-width:60ch;
+      font-size:var(--subSize);
+      line-height:1.6;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    #aiRobotHero .arh-media{
+      margin:clamp(22px, 3.6vw, 34px) auto 0;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:#eef2f7;
+      border:1px solid var(--line);
+    }
+
+    #aiRobotHero .arh-frame{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      min-height:260px;
+      max-height:520px;
+    }
+
+    #aiRobotHero .arh-img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    #aiRobotHero .arh-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.15) 100%);
+      pointer-events:none;
+    }
+
+    /* ✅ 중앙 정렬 텍스트 박스 */
+    #aiRobotHero .arh-textbox{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:clamp(18px, 3vw, 48px);
+      color:#fff;
+      z-index:2;
+    }
+
+    #aiRobotHero .arh-imgtitle{
+      margin:0;
+      font-size:clamp(18px, 2.4vw, 34px);
+      line-height:1.45;
+      font-weight:850;
+      text-shadow:0 12px 32px rgba(0,0,0,.45);
+    }
+
+    #aiRobotHero .arh-imgdesc{
+      margin-top:14px;
+      font-size:clamp(14px, 1.5vw, 18px);
+      line-height:1.6;
+      color:rgba(255,255,255,.95);
+      text-shadow:0 10px 24px rgba(0,0,0,.4);
+    }
+
+    #aiRobotHero .arh-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:18px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(0,0,0,.28);
+      color:#fff;
+      font-size:12px;
+      backdrop-filter: blur(6px);
+    }
+
+    #aiRobotHero .arh-dot{
+      width:7px;height:7px;border-radius:99px;
+      background:#fff;
+      box-shadow:0 0 0 6px rgba(255,255,255,.25)
+    }
+
+    #aiRobotHero [contenteditable="true"]{
+      outline:none;
+      border-radius:12px;
+      padding:6px 12px;
+      background:rgba(0,0,0,0);
+      transition:.15s ease;
+    }
+
+    #aiRobotHero [contenteditable="true"]:focus{
+      background:rgba(0,0,0,.25);
+      box-shadow:0 0 0 2px rgba(255,255,255,.6);
+    }
+  </style>
+
+  <div class="arh-wrap">
+    <header class="arh-head">
+      <h1 class="arh-title">
+        급변하는 AI 시대<br>
+        변하지 않으면 생존하기 힘든 위기를<br>
+        기회로 바꾸는 혁신의 길을 전달합니다.
+      </h1>
+      <p class="arh-sub">
+        유행을 쫓는 것이 아니라 시대의 바람을 읽고<br>
+        새로운 비즈니스 흐름에 맞는 혁신의 길을 제시합니다.
+      </p>
+    </header>
+
+    <figure class="arh-media">
+      <div class="arh-frame">
+        <img class="arh-img" src="./img/business.jpg" alt="혁신 배경 이미지">
+
+        <div class="arh-textbox">
+          <h2 class="arh-imgtitle" contenteditable="true">
+           달라진 세상을 먼저 느끼고<br>비즈니스의 흐름과 판도를 바꾸는<br>생각 1% 프론티어를 위한 혁신의 공간
+          </h2>
+
+        </div>
+
+        <div class="arh-overlay"></div>
+      </div>
+    </figure>
+  </div>
+
+  <script>
+    (function(){
+      const root = document.getElementById('aiRobotHero');
+      if(!root) return;
+
+      const editables = root.querySelectorAll('[contenteditable="true"]');
+
+      editables.forEach(el => {
+        el.addEventListener('paste', e => {
+          e.preventDefault();
+          const text = (e.clipboardData || window.clipboardData).getData('text/plain');
+          document.execCommand('insertText', false, text);
+        });
+
+        el.addEventListener('keydown', e => {
+          if(e.key === 'Enter' && el.tagName === 'H2'){
+            e.preventDefault();
+          }
+        });
+      });
+    })();
+  </script>
+</section>
+
+
+<section id="business-expansion-section">
+  <div class="biz-overlay"></div>
+  <div class="biz-container">
+    <h2 class="biz-main-title">
+      말로는 혁신을 외치지만<br>
+      어떻게 해야할지?<br>무엇을 해야할지 모르겠다면?<br><br>
+유행과 기술만 쫓아가다<br>다시 제자리로 돌아오는 반복을<br>이젠 끊고 싶은 프론티어를 위한 솔루션
+    </h2>
+
+    <div class="biz-card-wrapper">
+      <div class="biz-card">
+        <div class="biz-card-top">
+          <span class="biz-number">01</span>
+        </div>
+        <div class="biz-card-body">
+          <h3 class="biz-card-title">변화와 혁신의 필요성 인식</h3>
+          <p class="biz-card-desc">
+          혁신의 필요성을 인식하고 실제로 이해할 수 있는 교육을 제공
+          </p>
+        </div>
+      </div>
+
+      <div class="biz-card">
+        <div class="biz-card-top">
+          <span class="biz-number">02</span>
+        </div>
+        <div class="biz-card-body">
+          <h3 class="biz-card-title">혁신의 이해 및 실전 로드맵</h3>
+          <p class="biz-card-desc">
+            실제 현장의 혁신을 이룩할 수 있는 이해와 실전 방법을 통해 비즈니스에 직접 적용 가능하도록 도움
+          </p>
+        </div>
+      </div>
+
+      <div class="biz-card">
+        <div class="biz-card-top">
+          <span class="biz-number">03</span>
+        </div>
+        <div class="biz-card-body">
+          <h3 class="biz-card-title">실제 적용 및 성공사례</h3>
+          <p class="biz-card-desc">
+           국내 뿐만 아니라 전세계적인 혁신 성공 사례를 연구. 핵심 패턴을 전달하여, 시장에 통하는 비즈니스 혁신을 도와드립니다.
+          </p>
+        </div>
+      </div>
+
+         <div class="biz-card">
+        <div class="biz-card-top">
+          <span class="biz-number">04</span>
+        </div>
+        <div class="biz-card-body">
+          <h3 class="biz-card-title">함께 성장하는 혁신 환경 제공</h3>
+          <p class="biz-card-desc">
+           혼자서는 끝까지 하기 힘든 현장 혁신을 이룰 수 있도록 커뮤니티, 멘토 & 자문 지원, 실제 프로젝트 참여 기회를 제공 
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    #business-expansion-section {
+      position: relative;
+      font-family: 'Pretendard', -apple-system, sans-serif;
+      padding: 100px 20px;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('./img/city.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    #business-expansion-section .biz-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    #business-expansion-section .biz-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1500px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    #business-expansion-section .biz-main-title {
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 60px;
+      letter-spacing: -0.03em;
+      text-align: left;
+    }
+
+    #business-expansion-section .biz-card-wrapper {
+      display: flex;
+      gap: 24px;
+      justify-content: space-between;
+    }
+
+    #business-expansion-section .biz-card {
+      background-color: rgba(255, 255, 255, 0.886);
+      border-radius: 20px;
+      padding: 40px 30px;
+      flex: 1;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    #business-expansion-section .biz-card:hover {
+      transform: translateY(-10px);
+    }
+
+    #business-expansion-section .biz-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: #1a2b6d; /* 진한 네이비 */
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    #business-expansion-section .biz-card-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    #business-expansion-section .biz-card-desc {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555555;
+      word-break: keep-all;
+    }
+
+    @media (max-width: 1350px) {
+      #business-expansion-section .biz-card-wrapper {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      #business-expansion-section .biz-main-title {
+        font-size: 26px;
+        margin-bottom: 40px;
+      }
+
+      #business-expansion-section .biz-card {
+        min-height: auto;
+        padding: 30px;
+      }
+      
+      #business-expansion-section .biz-number {
+        margin-bottom: 20px;
+      }
+    }
+
+       @media (max-width: 500px) {
+      
+      #business-expansion-section .biz-main-title {
+        font-size: 20px;
+        margin-bottom: 40px;
+      }
+
+    }
+  </style>
+</section>
+
+<section id="industryLineupSection" aria-label="업계 최다 라인업 및 솔루션">
+
+
+  <h1>혁신을 현실로 이루기 위한<br>모든 환경을 제공합니다.</h1>
+
+  <div class="wrap">
+    <div class="grid">
+      <!-- LEFT CONTENT -->
+      <div class="left">
+        <h2>1. 생각 1% 커뮤니티</h2>
+        <p class="desc">
+         <br>
+          혁신이라는 낯설고 어려운 결단을 하려는 다양한 업종의 사람들이 모여,<br>
+          이업종 간의 융복합과 혁신을 지속할 수 있는 힘을 제공합니다.  
+        </p>
+
+        <!-- ✅ 각 장점마다 data-img로 오른쪽 이미지 연결 -->
+        <ul class="benefits" role="list" aria-label="핵심 장점">
+          <li class="benefit" tabindex="0" role="button" aria-pressed="false"
+              data-img="./img/solution-1-2.jpg" data-alt="업계 최다 제품 라인업">
+            <span class="dot" aria-hidden="true"></span>
+            <div class="txt">
+              <strong>다양한 업종별 생각의 1% 선별</strong>
+              <p>기존 시장에서 벗어나 시대의 흐름에 맞는 용기와 결단으로 혁신을 진행하려는 사업자 대표들만을 선별</p>
+            </div>
+          </li>
+          <li class="benefit" tabindex="0" role="button" aria-pressed="false"
+              data-img="./img/solution-1-3.jpg" data-alt="환경 맞춤형 적용 가능">
+            <span class="dot" aria-hidden="true"></span>
+            <div class="txt">
+              <strong>다른 업종간의 융복합을 할 기회 제공</strong>
+              <p>혁신의 핵심 요소인 새로운 업종간의 결합할 기회를 제공하여, 기존 비즈니스를 바꿀 수 있는 기회 제공</p>
+            </div>
+          </li>
+          <!-- <li class="benefit" tabindex="0" role="button" aria-pressed="false"
+              data-img="./img/world.jpg" data-alt="고객 니즈 최적화 솔루션">
+            <span class="dot" aria-hidden="true"></span>
+            <div class="txt">
+              <strong>혁신의 본질과 기본 마인드 제공</strong>
+              <p>혁신을 이룰 수 있는 본질적인 원리과 마인드를 제공하여 실제 현장에 적용할 수 있도록 학습 제공</p>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+
+      <!-- RIGHT MEDIA CARD -->
+      <div class="media" aria-label="라인업 대표 이미지">
+        <figure class="card" role="group" aria-label="제품 이미지 카드">
+          <div class="card-bg" aria-hidden="true"></div>
+
+          <!-- ✅ A/B 이미지 레이어로 부드러운 크로스페이드 -->
+          <img class="card-photo photo-a is-on" alt="" decoding="async" loading="eager" />
+          <img class="card-photo photo-b" alt="" decoding="async" loading="eager" />
+
+          <div class="card-inner" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+<section id="industryLineupSection" aria-label="업계 최다 라인업 및 솔루션">
+
+
+  <div class="wrap">
+    <div class="grid">
+      <!-- LEFT CONTENT -->
+      <div class="left">
+        <h2>2. 상담 및 지원</h2>
+     <p class="desc">
+      혁신 아이디어가 실제 성과로 이어질 수 있도록,<br>
+      현장 적용까지 고려한 맞춤 솔루션을 지원합니다.
+    </p>
+
+        <!-- ✅ 각 장점마다 data-img로 오른쪽 이미지 연결 -->
+        <ul class="benefits" role="list" aria-label="핵심 장점">
+          <li class="benefit" tabindex="0" role="button" aria-pressed="false"
+              data-img="./img/solution-2-1.jpg" data-alt="업계 최다 제품 라인업">
+            <span class="dot" aria-hidden="true"></span>
+            <div class="txt">
+            <strong>1:1 사업 맞춤 상담</strong>
+            <p>
+              업종·사업 단계·고민을 종합적으로 분석해<br>
+              지금 상황에 가장 현실적인 혁신 방향을 함께 설계합니다.
+            </p>
+          </div>
+          </li>
+          <li class="benefit" tabindex="0" role="button" aria-pressed="false"
+              data-img="./img/solution-2-2.jpg" data-alt="환경 맞춤형 적용 가능">
+            <span class="dot" aria-hidden="true"></span>
+            <div class="txt">
+          <strong>멘토 & 자문 지원</strong>
+          <p>
+            현장에서 뛰어난 결과를 내고 있는 자문 위원을 바탕으로,<br>
+            지금 단계에 필요한 조언과 전략을 제공합니다.
+          </p>
+            </div>
+          </li>
+          <li class="benefit" tabindex="0" role="button" aria-pressed="false"
+              data-img="./img/ceo-pic.jpg" data-alt="고객 니즈 최적화 솔루션">
+            <span class="dot" aria-hidden="true"></span>
+            <div class="txt">
+            <strong>매스컴 및 언론사 지원</strong>
+            <p>
+              언론 보도와 미디어 노출을 통해<br>
+              사업의 신뢰도를 높이고 상품 노출을 지원합니다.
+            </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- RIGHT MEDIA CARD -->
+      <div class="media" aria-label="라인업 대표 이미지">
+        <figure class="card" role="group" aria-label="제품 이미지 카드">
+          <div class="card-bg" aria-hidden="true"></div>
+
+          <!-- ✅ A/B 이미지 레이어로 부드러운 크로스페이드 -->
+          <img class="card-photo photo-a is-on" alt="" decoding="async" loading="eager" />
+          <img class="card-photo photo-b" alt="" decoding="async" loading="eager" />
+
+          <div class="card-inner" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+
+
+<section id="industryLineupSection" aria-label="업계 최다 라인업 및 솔루션">
+
+
+  <div class="wrap">
+    <div class="grid">
+      <!-- LEFT CONTENT -->
+      <div class="left">
+        <h2>3. 혁신 비즈니스 프로젝트 참여</h2>
+        <p class="desc">
+          진행 중이 혁신 비즈니스에 참여하여<br>
+          본업에 바로 적용하여 함께 성장할 수 있는 기반 제공 
+        </p>
+
+        <!-- ✅ 각 장점마다 data-img로 오른쪽 이미지 연결 -->
+       <ul class="benefits" role="list" aria-label="핵심 장점">
+
+  <li class="benefit" tabindex="0" role="button" aria-pressed="false"
+      data-img="./img/solution-3-1.jpg" data-alt="실행 중인 혁신 프로젝트 참여">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="txt">
+      <strong>실행 중인 혁신 비즈니스 직접 참여</strong>
+      <p>
+        이미 시장에서 검증 중인 혁신 프로젝트에 직접 참여합니다.
+      </p>
+    </div>
+  </li>
+
+  <li class="benefit" tabindex="0" role="button" aria-pressed="false"
+      data-img="./img/solution-3-2.jpg" data-alt="본업 즉시 적용 가능">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="txt">
+      <strong>본업에 바로 적용 가능한 구조</strong>
+      <p>
+        다양한 프로젝트 중에 적합한 모델을 찾아<br>
+        각자의 사업에 즉시 적용할 수 있도록 설계
+      </p>
+    </div>
+  </li>
+
+  <li class="benefit" tabindex="0" role="button" aria-pressed="false"
+      data-img="./img/solution-3-3.jpg" data-alt="함께 성장하는 협업 구조">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="txt">
+      <strong>혼자가 아닌, 함께 성장하는 협업</strong>
+      <p>
+        각자의 전문성과 경험이 연결되어<br>
+        혼자서는 만들 수 없는 성과를 함께 만들어갑니다.
+      </p>
+    </div>
+  </li>
+
+</ul>
+
+      </div>
+
+      <!-- RIGHT MEDIA CARD -->
+      <div class="media" aria-label="라인업 대표 이미지">
+        <figure class="card" role="group" aria-label="제품 이미지 카드">
+          <div class="card-bg" aria-hidden="true"></div>
+
+          <!-- ✅ A/B 이미지 레이어로 부드러운 크로스페이드 -->
+          <img class="card-photo photo-a is-on" alt="" decoding="async" loading="eager" />
+          <img class="card-photo photo-b" alt="" decoding="async" loading="eager" />
+
+          <div class="card-inner" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+<section id="industryLineupSection" aria-label="업계 최다 라인업 및 솔루션">
+  <style>
+    /* ===============================
+       Scope: #industryLineupSection ONLY
+       =============================== */
+    #industryLineupSection{
+      --bg:#f3f4f6;
+      --panel:#ffffff;
+      --ink:#111827;
+      --muted:#6b7280;
+      --stroke:rgba(15,23,42,.10);
+      --stroke2:rgba(15,23,42,.12);
+      --shadow:0 18px 60px rgba(15,23,42,.08);
+      --radius:26px;
+      --radius-card:18px;
+      --max:1320px;
+
+      font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      padding:44px 22px;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    #industryLineupSection *{box-sizing:border-box;}
+
+      #industryLineupSection h1{
+      text-align:center;
+      margin:30px 0 40px;
+    }
+
+
+
+    #industryLineupSection .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      background:rgba(255,255,255,.55);
+      border:1px solid rgba(255,255,255,.7);
+      border-radius:34px;
+      padding:54px 56px;
+      box-shadow:0 12px 34px rgba(15,23,42,.06);
+    }
+
+    #industryLineupSection .grid{
+      display:grid;
+      grid-template-columns:1.05fr 1.15fr;
+      gap:56px;
+      align-items:center;
+    }
+
+    /* Left */
+    #industryLineupSection h2{
+      margin:0 0 14px;
+      font-size:34px;
+      line-height:1.22;
+      letter-spacing:-.03em;
+      font-weight:900;
+    }
+    #industryLineupSection .desc{
+      margin:0 0 26px;
+      font-size:16px;
+      line-height:1.75;
+      color:#374151;
+      max-width:520px;
+      letter-spacing:-.01em;
+    }
+
+    /* Left benefits */
+    #industryLineupSection .benefits{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      max-width:520px;
+    }
+
+    #industryLineupSection .benefit{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--stroke2);
+      border-radius:16px;
+      padding:18px 18px;
+      box-shadow:0 10px 22px rgba(15,23,42,.06);
+      cursor:pointer;
+      position:relative;
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+      outline:none;
+    }
+
+    #industryLineupSection .benefit::after{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:17px;
+      pointer-events:none;
+      opacity:0;
+      transition:opacity .18s ease;
+      background:linear-gradient(135deg, rgba(59,130,246,.0), rgba(59,130,246,.22), rgba(29,78,216,.16));
+      mix-blend-mode:multiply;
+    }
+
+    #industryLineupSection .benefit .dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:linear-gradient(135deg,#3b82f6,#1d4ed8);
+      margin-top:6px;
+      flex:0 0 auto;
+      box-shadow:0 0 0 rgba(59,130,246,0);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+
+    #industryLineupSection .benefit strong{
+      font-size:16px;
+      font-weight:900;
+      letter-spacing:-.02em;
+      display:block;
+      margin-bottom:4px;
+    }
+    #industryLineupSection .benefit p{
+      margin:0;
+      font-size:14.5px;
+      line-height:1.6;
+      color:#374151;
+    }
+
+    /* Hover / Active */
+    #industryLineupSection .benefit:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 40px rgba(15,23,42,.10);
+      border-color:rgba(15,23,42,.20);
+      background:#fff;
+    }
+    #industryLineupSection .benefit:hover::after{opacity:1;}
+    #industryLineupSection .benefit:hover .dot{
+      transform:scale(1.08);
+      box-shadow:0 0 0 6px rgba(59,130,246,.10);
+    }
+
+    #industryLineupSection .benefit.is-active{
+      border-color:rgba(59,130,246,.35);
+      box-shadow:0 0 0 4px rgba(59,130,246,.14), 0 18px 40px rgba(15,23,42,.10);
+      background:#fff;
+      transform:translateY(-1px);
+    }
+    #industryLineupSection .benefit.is-active::after{opacity:1;}
+    #industryLineupSection .benefit.is-active .dot{
+      box-shadow:0 0 0 7px rgba(59,130,246,.14);
+      transform:scale(1.12);
+    }
+
+    #industryLineupSection .benefit:focus-visible{
+      box-shadow:0 0 0 4px rgba(59,130,246,.18), 0 18px 40px rgba(15,23,42,.10);
+      border-color:rgba(59,130,246,.40);
+    }
+
+    /* Right media card */
+    #industryLineupSection .media{display:flex;justify-content:flex-end;}
+
+    #industryLineupSection .card{
+      width:min(820px, 100%);
+      border-radius:20px;
+      overflow:hidden;
+      background:#0b1220;
+      box-shadow:var(--shadow);
+      border:0px solid rgba(255,255,255,.08);
+      position:relative;
+      min-height:360px;
+      isolation:isolate;
+    }
+
+    /* ✅ Crossfade image layers (A/B) */
+    #industryLineupSection .card-photo{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transform:scale(1.04);
+      transition:
+        opacity .8s cubic-bezier(.22,1,.36,1),
+        transform 1.2s cubic-bezier(.22,1,.36,1);
+      will-change:opacity, transform;
+      z-index:1;
+    }
+    #industryLineupSection .card-photo.is-on{
+      opacity:1;
+      transform:scale(1);
+      z-index:2;
+    }
+
+    /* fallback soft gradient (behind images) */
+    #industryLineupSection .card-bg{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:
+        linear-gradient(90deg, rgba(8,12,20,.55) 0%, rgba(8,12,20,.15) 55%, rgba(8,12,20,.55) 100%),
+        radial-gradient(70% 120% at 65% 55%, rgba(58,107,255,.22) 0%, rgba(0,0,0,0) 55%),
+        radial-gradient(70% 120% at 30% 40%, rgba(255,255,255,.08) 0%, rgba(0,0,0,0) 55%);
+    }
+
+    /* subtle blue scanlines */
+    #industryLineupSection .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(56,120,255,.22), rgba(0,0,0,0) 34%),
+        linear-gradient(180deg, rgba(59,130,246,.22) 0 1px, rgba(0,0,0,0) 1px 72px);
+      opacity:.22;
+      mix-blend-mode:screen;
+      z-index:3;
+    }
+
+    #industryLineupSection .card-inner{
+      position:relative;
+      z-index:4;
+      height:100%;
+      padding:26px 26px 18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1020px){
+      #industryLineupSection .wrap{padding:38px 24px;}
+      #industryLineupSection .grid{grid-template-columns:1fr; gap:26px;}
+      #industryLineupSection .media{justify-content:center;}
+      #industryLineupSection .desc{max-width:unset;}
+      #industryLineupSection .benefits{max-width:unset;}
+    }
+
+    @media (max-width: 520px){
+      #industryLineupSection{padding:26px 14px;}
+      #industryLineupSection .wrap{padding:22px 16px; border-radius:26px;}
+      #industryLineupSection h2{font-size:26px;}
+      #industryLineupSection .desc{font-size:15px;}
+      #industryLineupSection .card{min-height:300px; border-radius:16px;}
+      #industryLineupSection .card-inner{padding:18px 16px 14px;}
+      #industryLineupSection .benefit{padding:16px 16px;}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      #industryLineupSection .benefit,
+      #industryLineupSection .benefit .dot,
+      #industryLineupSection .benefit::after,
+      #industryLineupSection .card-photo{transition:none !important; transform:none !important;}
+      #industryLineupSection .card-photo{opacity:1 !important;}
+    }
+  </style>
+
+  <div class="wrap">
+    <div class="grid">
+      <!-- LEFT CONTENT -->
+      <div class="left">
+      <h2>4. 혁신몰</h2>
+    <p class="desc">
+      혁신으로 탄생한 상품과 서비스를<br>
+      자체 유통 채널을 통해 시장에 빠르게 진입할 수 있는 기회 제공 
+    </p>
+
+        <!-- ✅ 각 장점마다 data-img로 오른쪽 이미지 연결 -->
+       <ul class="benefits" role="list" aria-label="핵심 장점">
+
+ <li class="benefit" tabindex="0" role="button" aria-pressed="false"
+    data-img="./img/solution-4-1.jpg" data-alt="빠른 시장 안착 구조">
+  <span class="dot" aria-hidden="true"></span>
+  <div class="txt">
+    <strong>혁신 상품의 빠른 시장 안착</strong>
+    <p>
+      혁신을 통해 만들어진 상품이<br>
+      시행착오를 최소화하고 시장에 빠르게 자리 잡을 수 있도록 돕습니다.
+    </p>
+  </div>
+</li>
+
+
+<li class="benefit" tabindex="0" role="button" aria-pressed="false"
+    data-img="./img/solution-4-2.jpg" data-alt="빠른 성장 확장 설계">
+  <span class="dot" aria-hidden="true"></span>
+  <div class="txt">
+    <strong>성장을 가속하는 유통·확장 구조</strong>
+    <p>
+      검증된 반응을 기반으로 유통과 확장을 연결해<br>
+      짧은 시간 안에 성과와 성장을 동시에 만들어냅니다.
+    </p>
+  </div>
+</li>
+
+
+
+
+</ul>
+
+      </div>
+
+      <!-- RIGHT MEDIA CARD -->
+      <div class="media" aria-label="라인업 대표 이미지">
+        <figure class="card" role="group" aria-label="제품 이미지 카드">
+          <div class="card-bg" aria-hidden="true"></div>
+
+          <!-- ✅ A/B 이미지 레이어로 부드러운 크로스페이드 -->
+          <img class="card-photo photo-a is-on" alt="" decoding="async" loading="eager" />
+          <img class="card-photo photo-b" alt="" decoding="async" loading="eager" />
+
+          <div class="card-inner" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+      <script>
+    (function(){
+      // ✅ 여러 개 복사 사용 대비: 동일 id 섹션을 모두 초기화
+      const sections = document.querySelectorAll('section[id="industryLineupSection"]');
+      if(!sections.length) return;
+
+      sections.forEach((root)=>{
+        const items = Array.from(root.querySelectorAll('.benefit'));
+        const photoA = root.querySelector('.photo-a');
+        const photoB = root.querySelector('.photo-b');
+        if(!items.length || !photoA || !photoB) return;
+
+        let active = 0;
+        let current = 0; // 0 => A, 1 => B (현재 is-on)
+        let timer = null;
+        let paused = false;
+        let started = false;
+        let token = 0; // ✅ 최신 전환만 유효하게 만드는 토큰
+
+        // ✅ preload (초기 렌더에 영향 없이 캐시 적재)
+        items.forEach((el)=>{
+          const u = (el.dataset.img || '').trim();
+          if(!u) return;
+          const img = new Image();
+          img.decoding = 'async';
+          img.src = u;
+        });
+
+        function applyActive(index){
+          items.forEach((el,i)=>{
+            const on = i === index;
+            el.classList.toggle('is-active', on);
+            el.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+        }
+
+        function swapTo(url, alt){
+          // 이미 다른 레이어에 로드된 상태면 즉시 스왑
+          const onEl  = current === 0 ? photoA : photoB;
+          const offEl = current === 0 ? photoB : photoA;
+
+          if(offEl.dataset.current === url && offEl.complete && offEl.naturalWidth > 0){
+            offEl.alt = alt || '';
+            offEl.classList.add('is-on');
+            onEl.classList.remove('is-on');
+            current = current === 0 ? 1 : 0;
+            return true;
+          }
+          // 이미 현재 레이어가 같은 이미지면 스왑 불필요
+          if(onEl.dataset.current === url && onEl.classList.contains('is-on')) return true;
+          return false;
+        }
+
+        function setImage(index){
+          const item = items[index];
+          if(!item) return;
+          const url = (item.dataset.img || '').trim();
+          const alt = (item.dataset.alt || '').trim();
+          if(!url) return;
+
+          applyActive(index);
+
+          // ✅ 즉시 스왑 가능하면 끝
+          if(swapTo(url, alt)) return;
+
+          // ✅ 최신 요청만 반영
+          const my = ++token;
+
+          // 다음에 보여줄 레이어(현재 반대)
+          const next = (current + 1) % 2;
+          const showEl = next === 0 ? photoA : photoB;
+          const hideEl = next === 0 ? photoB : photoA;
+
+          // 이전 로드 핸들러 제거(레이스 방지)
+          showEl.onload = null;
+
+          // 같은 url을 로딩 중이었다면 그대로 두고 최신 토큰만 갱신
+          if(showEl.dataset.pending !== url){
+            showEl.dataset.pending = url;
+            showEl.src = url;
+          }
+          showEl.alt = alt;
+
+          const commit = ()=>{
+            if(my !== token) return; // 최신 요청이 아니면 무시
+            showEl.dataset.current = url;
+            showEl.dataset.pending = '';
+            requestAnimationFrame(()=>{
+              showEl.classList.add('is-on');
+              hideEl.classList.remove('is-on');
+              current = next;
+            });
+          };
+
+          // 캐시 히트면 즉시
+          if(showEl.complete && showEl.naturalWidth > 0){
+            commit();
+          } else {
+            showEl.onload = commit;
+          }
+        }
+
+        function go(index, byUser){
+          active = (index + items.length) % items.length;
+          setImage(active);
+          if(byUser) restart();
+        }
+
+        function next(){
+          if(paused) return;
+          go(active + 1, false);
+        }
+
+        function restart(){
+          stop();
+          timer = setInterval(next, 4200);
+        }
+
+        function stop(){
+          if(timer) clearInterval(timer);
+          timer = null;
+        }
+
+        // ✅ 빠르게 왔다 갔다 해도 바로 반응하도록 pointerenter 사용
+        items.forEach((el, i)=>{
+          el.addEventListener('pointerenter', ()=>{ paused = true; go(i, true); });
+          el.addEventListener('pointerleave', ()=>{ paused = false; });
+          el.addEventListener('focus', ()=>{ paused = true; go(i, true); });
+          el.addEventListener('blur', ()=>{ paused = false; });
+          el.addEventListener('click', ()=>{ paused = true; go(i, true); });
+
+          // 키보드 이동(옵션)
+          el.addEventListener('keydown', (e)=>{
+            if(e.key === 'Enter' || e.key === ' '){
+              e.preventDefault();
+              paused = true;
+              go(i, true);
+            }
+            if(e.key === 'ArrowDown' || e.key === 'ArrowRight'){
+              e.preventDefault();
+              paused = true;
+              go(active + 1, true);
+              items[active].focus({preventScroll:true});
+            }
+            if(e.key === 'ArrowUp' || e.key === 'ArrowLeft'){
+              e.preventDefault();
+              paused = true;
+              go(active - 1, true);
+              items[active].focus({preventScroll:true});
+            }
+          });
+        });
+
+        // 화면에 보일 때만 자동 재생
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach((entry)=>{
+            if(entry.isIntersecting){
+              if(!started){
+                started = true;
+                go(0, false);
+              }
+              restart();
+            } else {
+              stop();
+            }
+          });
+        },{threshold:0.2});
+        io.observe(root);
+
+        // 초기 표시
+        go(0, false);
+      });
+    })();
+  </script>
+</section>
+
+
+
+
+<section id="partner-logo-slider-section" aria-label="파트너 로고 슬라이더 섹션">
+  <div class="pls-wrap">
+    <h2 class="pls-title">
+     다양한 분야에서<br>
+    여러분의 혁신을 도와드립니다.
+    </h2>
+
+    <!-- =======================
+         1) 움직이는 무한 롤링 슬라이드
+         ======================= -->
+    <div class="pls-rolling" aria-label="협력사 로고 무한 롤링">
+      <div class="pls-viewport">
+        <div class="pls-track track-left" aria-hidden="true">
+          <div class="pls-group">
+            <!-- ✅ 로고 이미지로 교체: src만 바꿔서 쓰세요 -->
+            <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-20.png" alt="CHEIL TECH 로고" loading="lazy" decoding="async">
+            </div>
+            <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-10.png" alt="KB Investment 로고" loading="lazy" decoding="async">
+            </div>
+            <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-11.png" alt="posco 로고" loading="lazy" decoding="async">
+            </div>
+            <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-12.png" alt="화성도시공사 로고" loading="lazy" decoding="async">
+            </div>
+            <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-14.png" alt="Qcells 로고" loading="lazy" decoding="async">
+            </div>
+              <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-ccn.png" alt="Qcells 로고" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <!-- ✅ 동일 그룹 복제(무한 롤링용) -->
+        <div class="pls-group">
+            <!-- ✅ 로고 이미지로 교체: src만 바꿔서 쓰세요 -->
+            <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-15.png" alt="CHEIL TECH 로고" loading="lazy" decoding="async">
+            </div>
+            <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-16.png" alt="KB Investment 로고" loading="lazy" decoding="async">
+            </div>
+            <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-17.png" alt="posco 로고" loading="lazy" decoding="async">
+            </div>
+            <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-18.png" alt="화성도시공사 로고" loading="lazy" decoding="async">
+            </div>
+            <div class="pls-card">
+              <img class="pls-logo" src="./img/logo-19.png" alt="Qcells 로고" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =======================
+         2) 고정 로고 그리드
+         - PC: 4열 → 2줄이면 최대 8개 “한 번에”
+         - Mobile: 2열 → 4줄이면 최대 8개 “한 번에”
+         ======================= -->
+    <div class="pls-fixed" aria-label="협력사 로고 고정 바">
+      <div class="pls-fixed-grid">
+        <!-- ✅ 최대 8개: src/alt만 교체해서 사용 -->
+        <div class="pls-card is-fixed">
+          <img class="pls-logo" src="./img/logo-1.png" alt="CHEIL TECH 로고" loading="lazy" decoding="async">
+        </div>
+        <div class="pls-card is-fixed">
+          <img class="pls-logo" src="./img/logo-9.png" alt="KB Investment 로고" loading="lazy" decoding="async">
+        </div>
+        <div class="pls-card is-fixed">
+          <img class="pls-logo" src="./img/logo-3.png" alt="posco 로고" loading="lazy" decoding="async">
+        </div>
+        <div class="pls-card is-fixed">
+          <img class="pls-logo" src="./img/logo-4.png" alt="화성도시공사 로고" loading="lazy" decoding="async">
+        </div>
+
+        <div class="pls-card is-fixed">
+          <img class="pls-logo" src="./img/logo-5.png" alt="Qcells 로고" loading="lazy" decoding="async">
+        </div>
+        <div class="pls-card is-fixed">
+          <img class="pls-logo" src="./img/logo-6.png" alt="POSTECH 로고" loading="lazy" decoding="async">
+        </div>
+        <div class="pls-card is-fixed">
+          <img class="pls-logo" src="./img/logo-13.png" alt="한국전력공사 로고" loading="lazy" decoding="async">
+        </div>
+        <div class="pls-card is-fixed">
+          <img class="pls-logo" src="./img/logo-8.png" alt="STIC 로고" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* =========================================================
+       Scope: #partner-logo-slider-section ONLY
+       ========================================================= */
+    #partner-logo-slider-section{
+      --bg:#ffffff;
+      --ink:#0b1220;
+
+      /* 카드/라인 */
+      --card:#f7f8f9;
+      --card2:#ffffff;
+      --line:rgba(15,23,42,.10);
+      --shadow:0 10px 28px rgba(15,23,42,.08);
+
+      /* 사이즈 */
+      --rolling-card-w:250px;
+      --rolling-card-h:140px;
+
+      --fixed-card-h:140px;
+      --fixed-gap:14px;
+
+      padding:100px 0;
+      background:var(--bg);
+      font-family:'Pretendard', -apple-system, system-ui, Segoe UI, Roboto, sans-serif;
+      overflow:hidden;
+    }
+
+    #partner-logo-slider-section *{ box-sizing:border-box; }
+
+    #partner-logo-slider-section .pls-wrap{
+      width:min(1200px, calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    #partner-logo-slider-section .pls-title{
+      text-align:center;
+      font-size:32px;
+      font-weight:800;
+      line-height:1.4;
+      margin:0 0 60px;
+      color:var(--ink);
+      letter-spacing:-0.02em;
+    }
+
+    /* ======================
+       1) Rolling slider
+       ====================== */
+    #partner-logo-slider-section .pls-rolling{
+      margin-bottom:22px;
+    }
+
+    #partner-logo-slider-section .pls-viewport{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    #partner-logo-slider-section .pls-track{
+      display:flex;
+      width:fit-content;
+      will-change:transform;
+      transform:translateZ(0);
+    }
+
+    #partner-logo-slider-section .pls-group{
+      display:flex;
+      gap:20px;
+      padding-right:20px;
+    }
+
+    #partner-logo-slider-section .track-left{
+      animation:pls-scroll-left 40s linear infinite;
+    }
+
+    @keyframes pls-scroll-left{
+      0%{ transform:translateX(0); }
+      100%{ transform:translateX(-50%); }
+    }
+
+    #partner-logo-slider-section .pls-track:hover{
+      animation-play-state:paused;
+    }
+
+    /* ======================
+       Card style (공용)
+       ====================== */
+    #partner-logo-slider-section .pls-card{
+      width:var(--rolling-card-w);
+      height:var(--rolling-card-h);
+      /* background:var(--card); */
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      padding:14px 18px;          /* ✅ 로고 안전 여백 */
+      overflow:hidden;            /* ✅ 로고가 삐져나오지 않게 */
+    }
+
+    /* ✅ 텍스트 제거 → 로고 이미지 공용 스타일 */
+    #partner-logo-slider-section .pls-logo{
+      width:100%;
+      height:100%;
+      object-fit:contain;         /* ✅ 짤림 없이 */
+      object-position:center;
+      display:block;
+      filter:none;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    /* ======================
+       2) Fixed grid (PC 4 cols / Mobile 2 cols)
+       - 최대 8개가 "한 번에" 보이도록:
+         PC: 4열 → 2줄 = 8개
+         Mobile: 2열 → 4줄 = 8개
+       ====================== */
+    #partner-logo-slider-section .pls-fixed{
+      width:min(1100px, 100%);
+      margin:0 auto;
+      padding:0; /* 요청하신대로 바탕 박스 제거 유지 */
+      overflow:visible;
+    }
+
+    #partner-logo-slider-section .pls-fixed-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:var(--fixed-gap);
+      align-items:stretch;
+    }
+
+    /* ✅ 고정 그리드 카드: 칸을 꽉 채우고 로고는 contain */
+    #partner-logo-slider-section .pls-fixed-grid .pls-card{
+      width:100%;
+      height:var(--fixed-card-h);
+      /* background:var(--card2); */
+      /* border:1px solid var(--line); */
+      /* box-shadow:var(--shadow); */
+      /* border-radius:16px; */
+      padding:14px 18px;
+    }
+
+    /* ======================
+       Responsive
+       ====================== */
+    @media (max-width: 768px){
+      #partner-logo-slider-section{
+        padding:72px 0;
+
+        /* --rolling-card-w:160px; */
+        --rolling-card-h:120px;
+
+        --fixed-card-h:120px;
+        --fixed-gap:12px;
+      }
+
+      #partner-logo-slider-section .pls-wrap{
+        width:calc(100% - 24px);
+      }
+
+      #partner-logo-slider-section .pls-title{
+        font-size:24px;
+        margin-bottom:34px;
+        padding:0 6px;
+      }
+
+      #partner-logo-slider-section .pls-rolling{
+        margin-bottom:16px;
+      }
+
+      #partner-logo-slider-section .pls-group{
+        gap:14px;
+        padding-right:14px;
+      }
+      #partner-logo-slider-section .pls-viewport{
+        gap:14px;
+      }
+
+      /* ✅ 모바일: 한줄 2개 */
+      #partner-logo-slider-section .pls-fixed-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+
+      #partner-logo-slider-section .pls-card{
+        border-radius:14px;
+        padding:12px 14px;
+      }
+      #partner-logo-slider-section .pls-fixed-grid .pls-card{
+        border-radius:14px;
+        padding:12px 14px;
+      }
+    }
+
+    /* ✅ 사용자가 ‘움직임 최소화’ 설정이면 애니메이션 끔 */
+    @media (prefers-reduced-motion: reduce){
+      #partner-logo-slider-section .track-left{
+        animation:none !important;
+        transform:none !important;
+      }
+    }
+  </style>
+</section>
+
+<section id="reviewSection">
+  <style>
+    /* ===== Scope: #reviewSection only ===== */
+    #reviewSection{
+      /* ✅ body 영향과 무관하게 이 섹션은 항상 흰 배경 */
+      background:#fff;
+
+      --ink:#0f172a;
+      --sub:#475569;
+      --brand:#2563eb;   /* 포인트 블루 */
+      --hl:#cfe7ff;      /* 하이라이트 */
+      --line:#e5e7eb;
+      --card:#ffffff;
+      font-family: Pretendard, "Noto Sans KR", "Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 16px 64px;
+
+      /* ✅ full-bleed(좌우 끝까지) 배경 레이어 안정화 */
+      position:relative;
+      isolation:isolate;
+    }
+
+    /* ✅ 섹션 바깥(좌우)까지 흰색이 깔리도록 “전체폭 배경 레이어” */
+    #reviewSection::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:#fff;
+      z-index:-1;
+
+      /* full-bleed trick: 뷰포트 전체폭으로 확장 */
+      left:50%;
+      right:50%;
+      margin-left:-50vw;
+      margin-right:-50vw;
+    }
+
+    /* 제목 */
+    #reviewSection .title{
+      text-align:center;
+      font-weight:900;
+      line-height:1.2;
+      letter-spacing:-.4px;
+      margin: 0 auto 32px;
+    }
+    #reviewSection .title .l1{
+      display:block;
+      font-size:32px;
+      color:#111827;
+    }
+    #reviewSection .title .l2{
+      display:inline-block;
+      font-size:34px;
+      color:var(--brand);
+      background:linear-gradient(transparent 65%, var(--hl) 65% 100%);
+      border-radius:2px;
+      padding:0 .06em;
+    }
+
+    /* 후기 그리드 */
+    #reviewSection .grid{
+      display:grid;
+      gap:20px;
+      grid-template-columns: repeat(auto-fit, minmax(340px,1fr));
+    }
+
+    /* 카드 */
+    #reviewSection .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:0 1px 3px rgba(16,24,40,.06);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition: all .25s ease;
+    }
+    #reviewSection .card:hover{ box-shadow:0 6px 20px rgba(0,0,0,.08); transform:translateY(-2px); }
+
+    /* 썸네일 */
+    #reviewSection .thumb{
+      width:100%;
+      aspect-ratio: 16/9;
+      background:#f9fafb;
+      overflow:hidden;
+    }
+    #reviewSection .thumb img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition: transform .45s ease;
+    }
+    #reviewSection .card:hover .thumb img{ transform:scale(1.05); }
+
+    /* 내용 */
+    #reviewSection .content{ padding:20px; display:flex; flex-direction:column; gap:12px; }
+
+    #reviewSection .label{
+      font-size:15px; font-weight:700; color:var(--ink);
+    }
+    #reviewSection .highlight{
+      color:var(--brand); font-weight:900; font-size:20px;
+    }
+    #reviewSection .stars{ color:#fbbf24; font-size:18px; letter-spacing:2px; }
+
+    /* 본문 */
+    #reviewSection .text{
+      font-size:15px; line-height:1.6; color:#374151;
+      white-space:pre-line;
+    }
+
+    /* 작성자 */
+    #reviewSection .author{
+      display:flex; align-items:center; gap:12px; margin-top:auto;
+    }
+    #reviewSection .author img{
+      width:46px; height:46px; border-radius:50%; object-fit:cover; border:1px solid #e5e7eb;
+    }
+    #reviewSection .author .info{ display:flex; flex-direction:column; }
+    #reviewSection .author .name{ font-weight:700; color:var(--ink); font-size:15px; }
+    #reviewSection .author .role{ font-size:13px; color:#6b7280; }
+
+    /* 성과 Progress */
+    #reviewSection .progress-wrap{
+      background:#f3f4f6; border-radius:8px; overflow:hidden;
+      font-size:13px; margin-top:8px;
+    }
+    #reviewSection .progress-bar{
+      background:var(--brand); color:#fff; text-align:right;
+      font-weight:600; padding:4px 8px;
+      border-radius:8px; white-space:nowrap;
+      transition:width .6s ease;
+    }
+
+    /* 반응형 */
+    @media (max-width: 420px){
+      #reviewSection{ padding: 34px 14px 54px; }
+      #reviewSection .title .l1{ font-size:28px; }
+      #reviewSection .title .l2{ font-size:30px; }
+      #reviewSection .grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- 제목 -->
+  <h2 class="title">
+    <span class="l1">실제 후기</span>
+    <!-- <span class="l2">고객들의 생생 후기!</span> -->
+  </h2>
+
+  <div class="grid">
+    <!-- 후기 카드 01 -->
+    <div class="card">
+      <div class="content">
+        <div class="label">본업이 더이상 통하지 않던 대표님 (오프라인/운영형)</div>
+        <div class="highlight">“이제는 ‘뭘 먼저 바꿔야 하는지’가 현장에서 바로 보입니다.”</div>
+        <div class="stars">★★★★★</div>
+        <p class="text">"솔직히 광고비 늘리고 이런 문제가 아니었어요. 예전 방식이 더이상 안 먹히는데, 무엇부터 바꿔야 하는지 기준이 없었습니다.
+여기 와서 좋았던 건 ‘동기부여’가 아니라, 상황을 보면 바로 실행으로 옮길 수 있는 판단 순서(공식)를 알려준다는 점이었습니다.
+
+고객 반응이 왜 달라졌는지,
+어느 지점에서 구매가 멈추는지,
+지금 우리 업에서는 무엇을 먼저 검증해야 하는지
+
+이게 머릿속에 정리되니까, 가게 운영하면서도 바로바로 보이더라고요.
+예전에는 다양한 사람을 만나도 ‘좋은 얘기’로 끝났는데, 지금은 다른 업종 사람들과 대화해도 우리 사업에 적용할 액션이 바로 뽑힙니다.
+그게 제게 가장 큰 혁신이었습니다."</p>
+        <div class="author">
+          <div class="info">
+            <span class="name">김*준 대표님</span>
+            <span class="role">오프라인 기반 운영업 · 9년차</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 후기 카드 02 -->
+    <div class="card">
+      <div class="content">
+        <div class="label">기반 없이 막막했던 대표님 (B2B/서비스형)</div>
+        <div class="highlight">“환경이 바뀌면 ‘다음 수’를 뽑는 패턴이 생겼습니다.”</div>
+        <div class="stars">★★★★★</div>
+        <p class="text">"시장이 바뀐 건 느끼는데, 저는 아무 기반이 없었어요. 뭘 바꿔야 하는지, 뭘 먼저 검증해야 하는지 순서가 없어서 늘 불안했습니다.
+여기서는 ‘이걸 하세요’보다 훨씬 중요한 걸 배웠습니다.
+
+이런 환경이면
+1) 시대의 흐름을 먼저 깊이 파악하고
+2) 고객의 행동 변화를 어떻게 해석하고
+3) 어떻게 다르게 융합해가는지
+
+실전 공식과 패턴으로 알려주니까 이해가 빠르고, 바로 실행이 되더라고요.
+특히 다양한 업종 분들을 만나도 이제 대화가 산만해지지 않습니다.
+우리 사업에 적용하면 ‘첫 번째 실험이 뭔지’가 현장에서 바로 보이고, 팀 회의도 추상이 아니라 실행 설계로 바뀌었습니다.
+막막함이 사라지고 ‘전진하는 방식’을 얻은 느낌입니다."</p>
+        <div class="author">
+          <div class="info">
+            <span class="name">이*현 대표님</span>
+            <span class="role">B2B 서비스 · 프로젝트 수주형</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 후기 카드 03 -->
+    <div class="card">
+      <div class="content">
+        <div class="label">실행은 했지만 헛바퀴였던 대표님 (제조/유통/팀 운영)</div>
+        <div class="highlight">“실행이 ‘노동’이 아니라 ‘학습’으로 바뀌었습니다.”</div>
+        <div class="stars">★★★★★</div>
+        <p class="text">"저는 실행력은 있는 편이었습니다. 그런데 성과가 안 나오면 더 하고, 더 하다 지치고… 결국 헛바퀴였어요.
+문제는 ‘시대가 바뀌었을 때 무엇을 먼저 바꿔야 하는지’가 안 보였다는 겁니다.
+
+여기서는 딱 그걸 잡아줍니다.
+상황을 보면,
+‘지금 무너진 게 상품인지, 채널인지, 제안인지, 운영인지’
+그리고 ‘어떤 순서로 실험을 돌려야 손실이 적고 학습이 빠른지’
+
+이걸 패턴으로 익히니까, 현장에서 바로 적용됩니다.
+다른 업종 사람들과 이야기하다가도 ‘우리 업에선 이걸 먼저 체크해야겠다’가 바로 떠오르고,
+팀원들과도 감정이 아니라 실험 설계로 대화가 바뀌었습니다.
+지금은 한 번에 대박이 아니라, 매주 더 똑똑해지는 방식으로 성과를 만들어가고 있다는 확신이 생겼습니다."</p>
+        <div class="author">
+          <div class="info">
+            <span class="name">박*영 대표님</span>
+            <span class="role">제조/유통 · 팀 운영</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<div id="form_biz"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="footer_template"></div>
+
+
+
+    </body>
+    <script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./js/validation1.js"> </script>
+<script src="./js/main.js"> </script>
+<script src="./js/footer.js"></script>
+<script src="./js/form-row.js"> </script>
+
+ <script>
+$(function(){
+  $('input[name="entry.647140559"]').val('당근');
+});
+</script>
+
+  </html>
