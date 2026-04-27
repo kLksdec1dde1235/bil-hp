@@ -250,7 +250,7 @@
           </li>
 
             <li role="none" data-col="2">
-            <a role="menuitem" href="./community.html">커뮤니티</a>
+            <a role="menuitem" href="./community.html">혁신 광장</a>
           </li>
 
           <!-- 3) 오프라인 상담 (✅ 1개 버튼만) -->
@@ -310,9 +310,9 @@
           </div>
 
              <div>
-            <h4>커뮤니티</h4>
+            <h4>혁신 광장</h4>
              <ul>
-            <li><a href="./community.html">커뮤니티</a></li>
+            <li><a href="./community.html">혁신 광장</a></li>
              
             </ul>
           </div>
@@ -384,9 +384,9 @@
           </div>
 
            <div class="col" data-col="2">
-            <h3>커뮤니티</h3>
+            <h3>혁신 광장</h3>
             <ul>
-              <li><a href="./community.html">커뮤니티</a></li>
+              <li><a href="./community.html">혁신 광장</a></li>
             
             </ul>
           </div>
@@ -456,9 +456,9 @@
       </details>
 
           <details>
-        <summary>커뮤니티<span class="chev"></span></summary>
+        <summary>혁신 광장<span class="chev"></span></summary>
         <div class="gs2">
-              <a href="./community.html">커뮤니티</a>
+              <a href="./community.html">혁신 광장</a>
           
         </div>
       </details>
