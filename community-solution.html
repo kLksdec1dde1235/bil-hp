@@ -401,15 +401,14 @@
   <!-- slide 1 -->
   <div class="nhn-slide active">
     <div class="nhn-bg">
-      <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2070" alt="">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=760&h=570&fit=crop&q=80" alt="">
     </div>
 
     <div class="nhn-content">
-      <div class="nhn-title">검증된 기업만 연결되는,</div>
-      <div class="nhn-brand">Business Community</div>
+      <div class="nhn-title">R&D 기반 혁신으로 글로벌을 선도</div>
+      <div class="nhn-brand">아모레퍼시픽 | 뷰티기업</div>
       <div class="nhn-desc">
-        업종별로 선별된 기업들이 모여<br>
-        협업 · 거래 · 성장을 만들어가는 프리미엄 네트워크
+        국내 대표 화장품 기업의 브랜드 포트폴리오
       </div>
     </div>
   </div>
@@ -417,15 +416,14 @@
   <!-- slide 2 -->
   <div class="nhn-slide">
     <div class="nhn-bg">
-      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2070" alt="">
+      <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=760&h=570&fit=crop&q=80" alt="">
     </div>
 
     <div class="nhn-content">
-      <div class="nhn-title">업종의 경계를 넘어 혁신을 만들어갑니다.</div>
-      <div class="nhn-brand">Performance Network</div>
+      <div class="nhn-title">전국 체인 네트워크와 자유로운 이용 시스템</div>
+      <div class="nhn-brand">스포애니 | 24시 피트니스</div>
       <div class="nhn-desc">
-        기존의 비즈니스 모델에서 다른 업종간의 융복합을 통해<br>
-        새로운 비즈니스의 흐름을 만들어갑니다.
+        합리적 가격의 24시간 무인 피트니스
       </div>
     </div>
   </div>
@@ -433,15 +431,15 @@
   <!-- slide 3 -->
   <div class="nhn-slide">
     <div class="nhn-bg">
-      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=2070" alt="">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=760&h=570&fit=crop&q=80" alt="">
     </div>
 
     <div class="nhn-content">
-      <div class="nhn-title">브랜드 · 경험 · 확장</div>
-      <div class="nhn-brand">Brand Collaboration</div>
+      <div class="nhn-title">하타·빈야사·음양 요가 전문 수업 운영</div>
+      <div class="nhn-brand">코어요가 | 요가 스튜디오</div>
       <div class="nhn-desc">
-        다양한 업종의 기업이 연결되어<br>
-        새로운 기회와 비즈니스 확장을 만들어갑니다
+       명상과 움직임을 결합한 
+마인드풀 요가 프로그램
       </div>
     </div>
   </div>
@@ -539,1283 +537,896 @@
 
 </section>
 
-<section id="philosophy" aria-label="업종별 업체 소개">
+<section id="partnerDirectory">
 <style>
-#philosophy {
-  --jp-bg: #ffffff;
-  --jp-bg-dark: #f7f7f5;
-  --jp-white: #111111;
-  --jp-gray-light: rgba(17,17,17,0.68);
-  --jp-gray-dim: rgba(17,17,17,0.5);
-  --jp-gray-faint: rgba(17,17,17,0.12);
-  --jp-transition: 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+/* ══════════════════════════════════════════════════════════
+   #partnerDirectory — 모든 스타일은 이 ID 아래에서만 작동
+   글로벌 *, html, body 리셋 없음 / position:absolute 최소화
+   ══════════════════════════════════════════════════════════ */
 
-  font-family: 'Noto Sans KR', 'Pretendard', -apple-system, sans-serif;
-  background-color: var(--jp-bg);
-  color: var(--jp-white);
-  position: relative;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#partnerDirectory{
+  position:relative;
+  width:100%;
+  font-family:'Noto Sans KR','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  color:#1a1a1a;
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow:hidden;
+  line-height:1.5;
+  box-sizing:border-box;
 }
 
-#philosophy *,
-#philosophy *::before,
-#philosophy *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+#partnerDirectory *,
+#partnerDirectory *::before,
+#partnerDirectory *::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-/* ===== MAIN ===== */
-#philosophy .jp-main {
-  position: relative;
+/* ── STICKY CATEGORY NAV ── */
+#partnerDirectory .pd-nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid #e8e8e8;
+  transition:box-shadow .3s ease;
+  width:100%;
+}
+#partnerDirectory .pd-nav.scrolled{
+  box-shadow:0 2px 16px rgba(0,0,0,.06);
 }
 
-/* ===== LEFT NAV ===== */
-#philosophy .jp-nav {
-  position: fixed;
-  top: 50%;
-  left: 8%;
-  transform: translateY(-50%);
-  width: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 100;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
-  pointer-events: none;
+#partnerDirectory .pd-nav-inner{
+  max-width:1320px;
+  margin:0 auto;
+  padding:0 48px;
+  display:flex;
+  align-items:center;
+  height:56px;
+  gap:0;
 }
 
-#philosophy .jp-nav[data-floating="true"] {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+/* 탭 스크롤 영역 — 드래그 가능 */
+#partnerDirectory .pd-nav-tabs{
+  display:flex;
+  align-items:center;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scrollbar-width:none;
+  flex:1;
+  min-width:0;
+  height:56px;
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
+}
+#partnerDirectory .pd-nav-tabs::-webkit-scrollbar{display:none}
+#partnerDirectory .pd-nav-tabs.dragging{
+  cursor:grabbing;
+  scroll-behavior:auto;
 }
 
-#philosophy .jp-nav[data-stopped="true"] {
-  position: absolute;
-  left: 8%;
-  transform: none;
-  top: 0;
+#partnerDirectory .pd-nav-tab{
+  flex-shrink:0;
+  padding:0 18px;
+  height:56px;
+  display:flex;
+  align-items:center;
+  font-size:14px;
+  font-weight:500;
+  color:#999;
+  cursor:pointer;
+  position:relative;
+  transition:color .25s ease;
+  white-space:nowrap;
+  letter-spacing:-.01em;
+  border:none;
+  background:none;
+  outline:none;
+  font-family:inherit;
+}
+#partnerDirectory .pd-nav-tab::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:18px;
+  right:18px;
+  height:2.5px;
+  background:#1a1a1a;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s ease;
+}
+#partnerDirectory .pd-nav-tab[data-active="true"]{
+  color:#1a1a1a;
+  font-weight:700;
+}
+#partnerDirectory .pd-nav-tab[data-active="true"]::after{
+  transform:scaleX(1);
+}
+#partnerDirectory .pd-nav-tab:hover{
+  color:#555;
 }
 
-#philosophy .jp-nav-item {
-  padding: 14px 0;
-  border-bottom: 1px solid var(--jp-gray-faint);
-  cursor: pointer;
-  transition: all var(--jp-transition);
-  position: relative;
+/* 뷰 토글 */
+#partnerDirectory .pd-view-toggle{
+  display:flex;
+  gap:4px;
+  flex-shrink:0;
+  padding-left:20px;
+  margin-left:auto;
+}
+#partnerDirectory .pd-view-btn{
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  color:#bbb;
+  transition:all .2s ease;
+  padding:0;
+  outline:none;
+  font-family:inherit;
+}
+#partnerDirectory .pd-view-btn:hover{
+  border-color:#999;
+  color:#666;
+}
+#partnerDirectory .pd-view-btn[data-active="true"]{
+  border-color:#1a1a1a;
+  background:#1a1a1a;
+  color:#fff;
+}
+#partnerDirectory .pd-view-btn svg{
+  width:16px;
+  height:16px;
+  fill:currentColor;
 }
 
-#philosophy .jp-nav-item::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--jp-white);
-  transition: width var(--jp-transition);
+/* ── CATEGORY BLOCK ── */
+#partnerDirectory .pd-cat{
+  padding:72px 0 48px;
+  border-bottom:1px solid #eee;
+  scroll-margin-top:56px;
+}
+#partnerDirectory .pd-cat:last-child{
+  border-bottom:none;
+  padding-bottom:80px;
 }
 
-#philosophy .jp-nav-item[data-active="true"]::after {
-  width: 100%;
+#partnerDirectory .pd-cat-header{
+  max-width:1320px;
+  margin:0 auto;
+  padding:0 48px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:32px;
+}
+#partnerDirectory .pd-cat-title{
+  font-size:clamp(26px,3.2vw,38px);
+  font-weight:900;
+  letter-spacing:-.03em;
+  color:#1a1a1a;
+  line-height:1.2;
 }
 
-#philosophy .jp-nav-num {
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 4px;
-  display: block;
-  transition: color var(--jp-transition);
-  color: var(--jp-gray-dim);
+/* 슬라이드 화살표 */
+#partnerDirectory .pd-arrows{
+  display:flex;
+  gap:8px;
+}
+#partnerDirectory[data-view="list"] .pd-arrows{
+  display:none;
+}
+#partnerDirectory .pd-arrow{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid #d0d0d0;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:all .25s ease;
+  color:#888;
+  flex-shrink:0;
+  padding:0;
+  outline:none;
+  font-family:inherit;
+}
+#partnerDirectory .pd-arrow:hover{
+  border-color:#1a1a1a;
+  color:#1a1a1a;
+}
+#partnerDirectory .pd-arrow:active{
+  transform:scale(.95);
+}
+#partnerDirectory .pd-arrow svg{
+  width:18px;
+  height:18px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
 
-#philosophy .jp-nav-label {
-  font-size: 16px;
-  font-weight: 500;
-  display: block;
-  transition: color var(--jp-transition), font-weight var(--jp-transition);
-  color: var(--jp-gray-dim);
+/* ══════════════════════════════════
+   CARD VIEW (가로 슬라이더)
+   ══════════════════════════════════ */
+#partnerDirectory .pd-slider-wrap{
+  max-width:1320px;
+  margin:0 auto;
+  padding:0 48px;
+}
+#partnerDirectory[data-view="list"] .pd-slider-wrap{
+  display:none;
 }
 
-#philosophy .jp-nav-item[data-active="true"] .jp-nav-num,
-#philosophy .jp-nav-item[data-active="true"] .jp-nav-label {
-  color: var(--jp-white);
-  font-weight: 700;
+#partnerDirectory .pd-slider{
+  display:flex;
+  gap:24px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  scroll-snap-type:x mandatory;
+  padding-bottom:8px;
+}
+#partnerDirectory .pd-slider::-webkit-scrollbar{display:none}
+
+#partnerDirectory .pd-card{
+  flex:0 0 auto;
+  width:380px;
+  cursor:pointer;
+  scroll-snap-align:start;
+  transition:transform .3s ease;
+}
+#partnerDirectory .pd-card:hover{
+  transform:translateY(-3px);
 }
 
-/* ===== RIGHT CONTENT ===== */
-#philosophy .jp-content {
-  margin-left: calc(8% + 320px);
-  padding-right: 8%;
-  min-width: 0;
+#partnerDirectory .pd-card-thumb{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  border-radius:6px;
+  overflow:hidden;
+  background:#f0f0f0;
+}
+#partnerDirectory .pd-card-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+#partnerDirectory .pd-card:hover .pd-card-thumb img{
+  transform:scale(1.04);
 }
 
-#philosophy .jp-content-item {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 100px 0;
-  position: relative;
+#partnerDirectory .pd-card-overlay{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:24px 22px 20px;
+  background:linear-gradient(0deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.12) 70%,transparent 100%);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:12px;
+}
+#partnerDirectory .pd-card-ov-title{
+  font-size:clamp(15px,1.4vw,18px);
+  font-weight:700;
+  color:#fff;
+  line-height:1.45;
+  text-shadow:0 1px 6px rgba(0,0,0,.3);
+  flex:1;
+}
+#partnerDirectory .pd-card-ov-role{
+  font-size:12px;
+  font-weight:500;
+  color:rgba(255,255,255,.8);
+  white-space:nowrap;
+  text-shadow:0 1px 4px rgba(0,0,0,.3);
 }
 
-#philosophy .jp-content-title {
-  font-size: clamp(28px, 3.5vw, 42px);
-  font-weight: 900;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  margin-bottom: 28px;
-  color: var(--jp-white);
-  opacity: 0;
-  transform: translateY(30px);
-  filter: blur(2px);
-  transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+#partnerDirectory .pd-card-meta{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:14px;
+}
+#partnerDirectory .pd-card-meta-cat{
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+#partnerDirectory .pd-card-meta-sep{
+  width:1px;
+  height:12px;
+  background:#d0d0d0;
+  display:block;
+}
+#partnerDirectory .pd-card-meta-desc{
+  font-size:13px;
+  font-weight:400;
+  color:#888;
+}
+#partnerDirectory .pd-card-name{
+  font-size:clamp(15px,1.2vw,17px);
+  font-weight:700;
+  color:#1a1a1a;
+  margin-top:10px;
+  line-height:1.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+#partnerDirectory .pd-card-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:12px;
+}
+#partnerDirectory .pd-tag{
+  font-size:12px;
+  font-weight:400;
+  color:#666;
+  background:#f5f5f5;
+  border:1px solid #eee;
+  border-radius:3px;
+  padding:4px 10px;
+  line-height:1;
 }
 
-#philosophy .jp-content-lead {
-  font-size: clamp(14px, 1.15vw, 17px);
-  font-weight: 500;
-  line-height: 1.7;
-  color: rgba(17,17,17,0.8);
-  margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(25px);
-  filter: blur(2px);
-  transition: opacity 0.7s ease 0.08s, transform 0.7s ease 0.08s, filter 0.7s ease 0.08s;
+/* ══════════════════════════════════
+   LIST VIEW (보완)
+   ══════════════════════════════════ */
+#partnerDirectory .pd-list-wrap{
+  max-width:1320px;
+  margin:0 auto;
+  padding:0 48px;
+  display:none;
+}
+#partnerDirectory[data-view="list"] .pd-list-wrap{
+  display:block;
 }
 
-#philosophy .jp-content-desc {
-  font-size: clamp(13px, 1vw, 15px);
-  font-weight: 300;
-  line-height: 1.85;
-  color: var(--jp-gray-light);
-  max-width: 600px;
-  margin-bottom: 40px;
-  opacity: 0;
-  transform: translateY(20px);
-  filter: blur(2px);
-  transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s, filter 0.7s ease 0.15s;
+/* 리스트 카드 형태 */
+#partnerDirectory .pd-list-item{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:20px 24px;
+  border:1px solid #f0f0f0;
+  border-radius:10px;
+  margin-bottom:12px;
+  transition:all .25s ease;
+  cursor:pointer;
+  background:#fff;
+}
+#partnerDirectory .pd-list-item:hover{
+  border-color:#ddd;
+  box-shadow:0 4px 16px rgba(0,0,0,.05);
+  transform:translateY(-1px);
+}
+#partnerDirectory .pd-list-item:last-child{
+  margin-bottom:0;
 }
 
-#philosophy .jp-content-img {
-  width: 100%;
-  max-width: 700px;
-  aspect-ratio: 16 / 9;
-  background-color: rgba(0,0,0,0.04);
-  border-radius: 2px;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+#partnerDirectory .pd-list-num{
+  font-size:14px;
+  font-weight:700;
+  color:#ccc;
+  min-width:28px;
+  text-align:center;
+  flex-shrink:0;
 }
 
-#philosophy .jp-content-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+#partnerDirectory .pd-list-logo{
+  width:48px;
+  height:48px;
+  border-radius:10px;
+  background:#f5f5f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:800;
+  color:#888;
+  flex-shrink:0;
+  border:1px solid #eee;
 }
 
-#philosophy .jp-content-item[data-visible="true"] .jp-content-title,
-#philosophy .jp-content-item[data-visible="true"] .jp-content-lead,
-#philosophy .jp-content-item[data-visible="true"] .jp-content-desc,
-#philosophy .jp-content-item[data-visible="true"] .jp-content-img {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
+#partnerDirectory .pd-list-info{
+  flex:1;
+  min-width:0;
+}
+#partnerDirectory .pd-list-name{
+  font-size:16px;
+  font-weight:700;
+  color:#1a1a1a;
+  margin-bottom:3px;
+  line-height:1.3;
+}
+#partnerDirectory .pd-list-role{
+  font-size:13px;
+  font-weight:500;
+  color:#999;
 }
 
-#philosophy .jp-content-item.jp-last-align {
-  justify-content: flex-start;
+#partnerDirectory .pd-list-desc{
+  flex:1.5;
+  min-width:0;
+  font-size:13px;
+  font-weight:400;
+  color:#777;
+  line-height:1.6;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
 }
 
-@media (max-width: 1100px) {
-  #philosophy .jp-nav {
-    width: 220px;
-    left: 5%;
+#partnerDirectory .pd-list-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px;
+  flex-shrink:0;
+  max-width:220px;
+}
+#partnerDirectory .pd-list-tag{
+  font-size:11px;
+  font-weight:500;
+  color:#888;
+  background:#f7f7f7;
+  border:1px solid #eee;
+  border-radius:100px;
+  padding:4px 10px;
+  line-height:1;
+  white-space:nowrap;
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════ */
+@media(max-width:1024px){
+  #partnerDirectory .pd-nav-inner,
+  #partnerDirectory .pd-cat-header,
+  #partnerDirectory .pd-slider-wrap,
+  #partnerDirectory .pd-list-wrap{
+    padding-left:28px;
+    padding-right:28px;
   }
-
-  #philosophy .jp-nav[data-stopped="true"] {
-    left: 5%;
-  }
-
-  #philosophy .jp-nav-label {
-    font-size: 14px;
-  }
-
-  #philosophy .jp-content {
-    margin-left: calc(5% + 260px);
-    padding-right: 5%;
-  }
-
-  #philosophy .jp-content-img {
-    max-width: 100%;
-  }
+  #partnerDirectory .pd-card{width:340px}
+  #partnerDirectory .pd-list-desc{display:none}
 }
 
-@media (max-width: 768px) {
-  #philosophy .jp-nav {
-    position: sticky !important;
-    top: 0 !important;
-    left: 0 !important;
-    transform: none !important;
-    width: 100%;
-    height: auto;
-    padding: 16px 6%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    background: var(--jp-bg);
-    border-bottom: 1px solid var(--jp-gray-faint);
-    z-index: 100;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
+@media(max-width:768px){
+  #partnerDirectory .pd-nav-inner{
+    padding:0 16px;
+    height:50px;
   }
+  #partnerDirectory .pd-nav-tabs{height:50px}
+  #partnerDirectory .pd-nav-tab{
+    padding:0 12px;
+    height:50px;
+    font-size:13px;
+  }
+  #partnerDirectory .pd-view-toggle{padding-left:12px}
+  #partnerDirectory .pd-view-btn{width:32px;height:32px}
 
-  #philosophy .jp-nav[data-stopped="true"] {
-    position: sticky !important;
-    top: 0 !important;
-    left: 0 !important;
+  #partnerDirectory .pd-cat{
+    padding:52px 0 32px;
+    scroll-margin-top:50px;
   }
+  #partnerDirectory .pd-cat-header,
+  #partnerDirectory .pd-slider-wrap,
+  #partnerDirectory .pd-list-wrap{
+    padding-left:20px;
+    padding-right:20px;
+  }
+  #partnerDirectory .pd-cat-title{font-size:24px}
+  #partnerDirectory .pd-arrows{gap:6px}
+  #partnerDirectory .pd-arrow{width:38px;height:38px}
+  #partnerDirectory .pd-arrow svg{width:15px;height:15px}
+  #partnerDirectory .pd-slider{gap:16px}
+  #partnerDirectory .pd-card{width:300px}
+  #partnerDirectory .pd-card-overlay{padding:18px 16px 16px}
+  #partnerDirectory .pd-card-ov-title{font-size:15px}
 
-  #philosophy .jp-nav-item {
-    padding: 8px 4px;
-    border-bottom: none;
-    text-align: center;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+  /* 리스트 모바일 */
+  #partnerDirectory .pd-list-item{
+    flex-wrap:wrap;
+    gap:12px;
+    padding:16px 18px;
   }
-
-  #philosophy .jp-nav-item::after {
-    display: none;
-  }
-
-  #philosophy .jp-nav-item[data-active="true"] {
-    background: rgba(0,0,0,0.05);
-  }
-
-  #philosophy .jp-nav-num {
-    font-size: 11px;
-    margin-bottom: 2px;
-  }
-
-  #philosophy .jp-nav-label {
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  #philosophy .jp-content {
-    margin-left: 0;
-    padding: 0 6%;
-  }
-
-  #philosophy .jp-content-item {
-    min-height: auto;
-    padding: 60px 0;
-  }
-
-  #philosophy .jp-content-item.jp-last-align {
-    justify-content: center;
-    min-height: auto !important;
-    padding-top: 60px !important;
-    padding-bottom: 60px !important;
-  }
-
-  #philosophy .jp-content-img {
-    max-width: 100%;
-  }
+  #partnerDirectory .pd-list-num{display:none}
+  #partnerDirectory .pd-list-desc{display:none}
+  #partnerDirectory .pd-list-tags{max-width:100%}
 }
 
-@media (max-width: 480px) {
-  #philosophy .jp-nav {
-    grid-template-columns: repeat(3, 1fr);
+@media(max-width:480px){
+  #partnerDirectory .pd-cat-header,
+  #partnerDirectory .pd-slider-wrap,
+  #partnerDirectory .pd-list-wrap{
+    padding-left:16px;
+    padding-right:16px;
   }
+  #partnerDirectory .pd-card{width:calc(100vw - 56px)}
+  #partnerDirectory .pd-card-ov-title{font-size:14px}
+
+  #partnerDirectory .pd-list-logo{width:40px;height:40px;font-size:11px}
+  #partnerDirectory .pd-list-name{font-size:14px}
+  #partnerDirectory .pd-list-role{font-size:12px}
 }
 </style>
 
-<div class="jp-main">
-  <nav class="jp-nav" data-floating="false" data-stopped="false" aria-label="업종별 카테고리 목록"></nav>
-  <div class="jp-content" role="region" aria-label="업종별 업체 상세 내용"></div>
-</div>
+<!-- ══════ NAV ══════ -->
+<nav class="pd-nav" id="pdNav">
+  <div class="pd-nav-inner" id="pdNavInner">
+    <div class="pd-nav-tabs" id="pdNavTabs">
+      <!-- JS가 탭 삽입 -->
+    </div>
+    <div class="pd-view-toggle">
+      <button class="pd-view-btn" data-view="card" data-active="true" type="button" aria-label="카드 보기">
+        <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+      </button>
+      <button class="pd-view-btn" data-view="list" data-active="false" type="button" aria-label="리스트 보기">
+        <svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2" rx="1"/><rect x="1" y="7" width="14" height="2" rx="1"/><rect x="1" y="12" width="14" height="2" rx="1"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════ CONTENT ══════ -->
+<div id="pdContent"></div>
 
 <script>
-(function() {
+(function(){
   'use strict';
 
-  var philosophyData = [
+  var root = document.getElementById('partnerDirectory');
+  if(!root) return;
+  root.setAttribute('data-view','card');
+
+  var data = [
     {
-      num: '01',
-      category: '탈모',
-      title: '서울아산병원',
-      lead: '국내 최고 수준의 의료 시스템을 갖춘 병원은 신뢰와 전문성이 핵심입니다.',
-      desc: '서울아산병원은 전문 의료진, 첨단 장비, 체계적인 진료 프로세스를 통해 환자에게 높은 신뢰를 제공합니다. 진료과별 상세 안내, 의료진 이력, 실제 치료 사례, 상담 및 예약 시스템까지 명확하게 구성되어 있어 처음 방문하는 환자도 안심하고 접근할 수 있습니다.',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=450&fit=crop&q=80'
+      id:'pd_medical', category:'병원 · 의료', accent:'#e67e22',
+      companies:[
+        {name:'서울아산병원',logo:'아산',role:'종합병원',image:'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=760&h=570&fit=crop&q=80',overlay:'국내 최고 수준의 의료 시스템을\n갖춘 대표 종합병원',desc:'전문 의료진과 첨단 장비를 기반으로 한 체계적 진료',tags:['#종합병원','#전문의료','#첨단장비']},
+        {name:'세브란스병원',logo:'세브',role:'종합병원',image:'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=760&h=570&fit=crop&q=80',overlay:'글로벌 수준의 의료 기술과\n연구 역량의 중심',desc:'연세대학교 의료원 산하 최첨단 진료 시스템',tags:['#의료연구','#글로벌','#전문진료']},
+        {name:'강남세란의원',logo:'세란',role:'전문의원',image:'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=760&h=570&fit=crop&q=80',overlay:'맞춤형 뷰티 솔루션과\n비침습 시술 전문 클리닉',desc:'피부과·성형외과 중심 프리미엄 케어',tags:['#피부과','#성형','#맞춤시술']},
+        {name:'미래로한의원',logo:'미래',role:'한의원',image:'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=760&h=570&fit=crop&q=80',overlay:'전통 한의학과 현대 의학의\n통합 치료 시스템',desc:'만성 질환 관리 및 체질 개선 프로그램 운영',tags:['#한의학','#체질개선','#통합치료']}
+      ]
     },
     {
-      num: '02',
-      category: '고혈압',
-      title: '법무법인 김앤장',
-      lead: '복잡한 법률 문제를 명확하게 해결하는 전문성과 신뢰가 중요한 분야입니다.',
-      desc: '김앤장은 기업법무, 형사, 금융, 국제거래 등 다양한 분야에서 전문성을 갖춘 국내 대표 로펌입니다. 고객이 이해하기 어려운 법률 구조를 쉽게 풀어 설명하고, 명확한 해결 방향과 전략을 제시하는 것이 핵심이며, 상담 전 신뢰를 형성하는 정보 구조가 중요합니다.',
-      image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=450&fit=crop&q=80'
+      id:'pd_skin', category:'피부 · 성형', accent:'#d4508b',
+      companies:[
+        {name:'강남세란피부과',logo:'세란',role:'피부과 전문',image:'https://images.unsplash.com/photo-1570172619644-dfd03ed5d142?w=760&h=570&fit=crop&q=80',overlay:'레이저·리프팅·보톡스\n비침습 시술 전문 클리닉',desc:'최신 장비와 1:1 맞춤 시술 프로그램 운영',tags:['#피부과','#레이저','#리프팅']},
+        {name:'아이디병원',logo:'ID',role:'성형외과',image:'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=760&h=570&fit=crop&q=80',overlay:'자연스러운 아름다움을 추구하는\n얼굴 윤곽·눈·코 전문',desc:'개인별 얼굴 비율 분석 기반 맞춤 성형',tags:['#성형외과','#윤곽','#자연성형']},
+        {name:'뷰티풀의원',logo:'BF',role:'피부·체형',image:'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=760&h=570&fit=crop&q=80',overlay:'피부 관리와 체형 교정을\n함께 제공하는 토탈 클리닉',desc:'피부 시술 + 체형 보정 프로그램 원스톱 케어',tags:['#토탈케어','#체형교정','#피부관리']},
+        {name:'청담이지의원',logo:'이지',role:'안티에이징',image:'https://images.unsplash.com/photo-1598524374912-6b0b0bab31e8?w=760&h=570&fit=crop&q=80',overlay:'줄기세포·재생 치료 기반\n프리미엄 안티에이징',desc:'노화 방지 특화 프로그램과 재생 의학 결합',tags:['#안티에이징','#재생의학','#줄기세포']}
+      ]
     },
     {
-      num: '03',
-      category: '비만',
-      title: '차움 클리닉',
-      lead: '프리미엄 헬스케어와 라이프스타일을 결합한 고급 의료 서비스 브랜드입니다.',
-      desc: '차움은 단순 치료가 아닌 개인의 건강과 아름다움을 함께 관리하는 통합 웰니스 서비스를 제공합니다. 공간 디자인, 프로그램 구성, 전문 의료진, 고객 경험까지 모두 프리미엄 기준으로 설계되어 있으며, 고객에게 변화된 삶을 제안하는 것이 핵심입니다.',
-      image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&h=450&fit=crop&q=80'
+      id:'pd_hair', category:'헤어 · 두피', accent:'#8b6914',
+      companies:[
+        {name:'닥터포헤어',logo:'DFH',role:'두피 관리',image:'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=760&h=570&fit=crop&q=80',overlay:'의학적 근거 기반의\n두피·탈모 전문 솔루션',desc:'탈모 관리 전문 브랜드의 제품 및 케어 프로그램',tags:['#두피관리','#탈모솔루션','#전문브랜드']},
+        {name:'모우다헤어',logo:'모우',role:'프리미엄 헤어샵',image:'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=760&h=570&fit=crop&q=80',overlay:'트렌드와 개인 스타일을\n결합한 프리미엄 헤어 케어',desc:'디자이너 1:1 상담 기반 맞춤 헤어 디자인',tags:['#프리미엄헤어','#맞춤디자인','#트렌드']},
+        {name:'리안헤어',logo:'리안',role:'헤어 프랜차이즈',image:'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=760&h=570&fit=crop&q=80',overlay:'전국 네트워크 기반\n체계적인 헤어 서비스',desc:'표준화된 교육과 품질 관리의 프랜차이즈 시스템',tags:['#프랜차이즈','#전국망','#헤어살롱']}
+      ]
     },
     {
-      num: '04',
-      category: '웰다잉',
-      title: '패스트캠퍼스',
-      lead: '실무 중심 교육으로 빠르게 성과를 만드는 교육 플랫폼입니다.',
-      desc: '패스트캠퍼스는 직무 역량을 단기간에 향상시키는 교육 프로그램을 제공합니다. 커리큘럼 구성, 강사진 전문성, 수강 후 성과 사례까지 명확하게 보여주며, 학습이 실제 취업·이직·수익으로 이어진다는 확신을 주는 구조가 핵심입니다.',
-      image: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&h=450&fit=crop&q=80'
+      id:'pd_cosmetic', category:'뷰티 · 코스메틱', accent:'#c05d9e',
+      companies:[
+        {name:'아모레퍼시픽',logo:'AP',role:'뷰티 기업',image:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=760&h=570&fit=crop&q=80',overlay:'R&D 기반 혁신으로\n글로벌 뷰티를 선도',desc:'국내 대표 화장품 기업의 브랜드 포트폴리오',tags:['#글로벌뷰티','#R&D','#브랜드']},
+        {name:'LG생활건강',logo:'LGH',role:'화장품·생활용품',image:'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=760&h=570&fit=crop&q=80',overlay:'후·숨·오휘 등\n프리미엄 뷰티 브랜드 포트폴리오',desc:'럭셔리 화장품부터 생활용품까지 토탈 라이프스타일',tags:['#럭셔리뷰티','#생활용품','#프리미엄']},
+        {name:'닥터지',logo:'Dr.G',role:'더마 코스메틱',image:'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=760&h=570&fit=crop&q=80',overlay:'피부과 전문의가 만든\n더마코스메틱 브랜드',desc:'민감성·트러블 피부를 위한 기능성 스킨케어',tags:['#더마','#기능성','#스킨케어']},
+        {name:'클리오',logo:'CLIO',role:'메이크업 브랜드',image:'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=760&h=570&fit=crop&q=80',overlay:'K-뷰티를 대표하는\n메이크업 전문 브랜드',desc:'트렌디한 색조 라인과 글로벌 유통 채널 운영',tags:['#K뷰티','#메이크업','#색조']}
+      ]
     },
     {
-      num: '05',
-      category: '우울증',
-      title: '삼성전자',
-      lead: '기술력과 글로벌 신뢰도를 기반으로 한 대표 제조 기업입니다.',
-      desc: '삼성전자는 반도체, 디스플레이, 모바일 등 다양한 분야에서 세계적인 기술력을 보유하고 있습니다. 연구개발 역량, 생산 인프라, 글로벌 파트너십, 인증 및 납품 사례를 통해 기업의 경쟁력을 구조적으로 보여주며, 브랜드 자체가 신뢰의 기준이 되는 기업입니다.',
-      image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&h=450&fit=crop&q=80'
+      id:'pd_pilates', category:'필라테스 · 요가', accent:'#7b68ae',
+      companies:[
+        {name:'밸런스랩',logo:'BL',role:'뷰티 필라테스',image:'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=760&h=570&fit=crop&q=80',overlay:'바디 밸런스와 외적 관리를\n함께 제공하는 뷰티 필라테스',desc:'헬스와 뷰티를 결합한 프리미엄 스튜디오',tags:['#필라테스','#바디케어','#뷰티융합']},
+        {name:'클럽필라테스',logo:'CP',role:'글로벌 필라테스',image:'https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=760&h=570&fit=crop&q=80',overlay:'미국 본사 커리큘럼 기반\n체계적인 그룹·개인 수업',desc:'리포머 중심 전문 필라테스 글로벌 프랜차이즈',tags:['#리포머','#글로벌','#그룹수업']},
+        {name:'코어요가',logo:'CY',role:'요가 스튜디오',image:'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=760&h=570&fit=crop&q=80',overlay:'명상과 움직임을 결합한\n마인드풀 요가 프로그램',desc:'하타·빈야사·음양 요가 전문 수업 운영',tags:['#요가','#명상','#마인드풀']},
+        {name:'스튜디오 에이',logo:'SA',role:'프리미엄 필라테스',image:'https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=760&h=570&fit=crop&q=80',overlay:'1:1 개인 맞춤형\n프리미엄 필라테스 스튜디오',desc:'체형 분석 후 개인별 프로그램 설계',tags:['#1:1','#맞춤프로그램','#프리미엄']}
+      ]
     },
     {
-      num: '06',
-      category: '치매',
-      title: '스타벅스',
-      lead: '단순한 커피를 넘어 공간 경험을 제공하는 라이프스타일 브랜드입니다.',
-      desc: '스타벅스는 매장 분위기, 브랜드 감성, 메뉴 구성, 고객 경험을 통해 머무르고 싶은 공간을 만듭니다. 위치 접근성, 시즌 메뉴, MD 상품, 고객 후기까지 자연스럽게 연결되며 방문 욕구를 자극하는 구조가 핵심입니다.',
-      image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=450&fit=crop&q=80'
+      id:'pd_fitness', category:'헬스 · PT', accent:'#e05535',
+      companies:[
+        {name:'에이블짐',logo:'AG',role:'퍼스널 트레이닝',image:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=760&h=570&fit=crop&q=80',overlay:'체계적인 데이터 기반\n1:1 퍼스널 트레이닝',desc:'체성분 분석 + 운동 처방 + 식단 관리 통합 시스템',tags:['#PT','#데이터기반','#1:1트레이닝']},
+        {name:'스포애니',logo:'SA',role:'24시 피트니스',image:'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=760&h=570&fit=crop&q=80',overlay:'합리적 가격의\n24시간 무인 피트니스',desc:'전국 체인 네트워크와 자유로운 이용 시스템',tags:['#24시','#피트니스','#합리적']},
+        {name:'크로스핏 강남',logo:'CF',role:'크로스핏 박스',image:'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=760&h=570&fit=crop&q=80',overlay:'기능적 움직임 기반\n고강도 그룹 트레이닝',desc:'크로스핏 인증 코치의 체계적 WOD 프로그램',tags:['#크로스핏','#기능운동','#고강도']},
+        {name:'바디프로필랩',logo:'BPL',role:'바디프로필 전문',image:'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=760&h=570&fit=crop&q=80',overlay:'바디프로필 촬영을 위한\n단기 집중 트레이닝',desc:'12주 맞춤 프로그램 + 식단 + 촬영 패키지',tags:['#바디프로필','#단기집중','#다이어트']}
+      ]
     },
     {
-      num: '07',
-      category: '암',
-      title: '한샘',
-      lead: '공간을 설계하는 기업은 결과물의 감각과 신뢰를 동시에 전달해야 합니다.',
-      desc: '한샘은 주거 공간을 중심으로 인테리어 솔루션을 제공하는 브랜드입니다. 시공 사례, 디자인 철학, 상담 프로세스, 맞춤 제안 시스템을 통해 고객이 실제로 변화된 공간을 상상할 수 있도록 돕습니다. 포트폴리오 중심의 설계가 핵심입니다.',
-      image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&h=450&fit=crop&q=80'
+      id:'pd_wellness', category:'웰니스 · 힐링', accent:'#3a9e78',
+      companies:[
+        {name:'차움 클리닉',logo:'차움',role:'프리미엄 웰니스',image:'https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=760&h=570&fit=crop&q=80',overlay:'건강과 아름다움을 함께 관리하는\n통합 웰니스 서비스',desc:'공간·프로그램·의료진까지 프리미엄 기준 설계',tags:['#프리미엄','#통합관리','#맞춤헬스']},
+        {name:'힐리언스 선마을',logo:'선마',role:'힐링 리조트',image:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=760&h=570&fit=crop&q=80',overlay:'자연 속 디지털 디톡스와\n마음 치유 프로그램',desc:'강원도 홍천 기반 통합 힐링 리트릿 운영',tags:['#힐링','#디톡스','#리트릿']},
+        {name:'마인드카페',logo:'MC',role:'심리 상담',image:'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=760&h=570&fit=crop&q=80',overlay:'전문 심리상담사와 함께하는\n온라인 멘탈 케어 플랫폼',desc:'1:1 상담, 그룹 테라피, AI 감정 분석 서비스',tags:['#심리상담','#멘탈케어','#온라인']},
+        {name:'스파랜드',logo:'SL',role:'프리미엄 스파',image:'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=760&h=570&fit=crop&q=80',overlay:'신라호텔 기반\n도심 속 프리미엄 스파',desc:'한방·아로마·스톤 테라피 등 프리미엄 힐링 경험',tags:['#프리미엄스파','#아로마','#힐링']}
+      ]
+    },
+    {
+      id:'pd_legal', category:'법률 · 세무', accent:'#e67e22',
+      companies:[
+        {name:'법무법인 김앤장',logo:'K&C',role:'종합 로펌',image:'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=760&h=570&fit=crop&q=80',overlay:'기업법무·금융·국제거래\n국내 대표 종합 로펌',desc:'다양한 법률 분야의 깊은 전문성과 실행력',tags:['#기업법무','#국제거래','#M&A']},
+        {name:'세무법인 다솔',logo:'다솔',role:'세무법인',image:'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=760&h=570&fit=crop&q=80',overlay:'중소기업·스타트업 전문\n세무 컨설팅 파트너',desc:'절세 전략 수립부터 세무 신고까지 원스톱 서비스',tags:['#세무컨설팅','#절세전략','#신고대행']},
+        {name:'법무법인 율촌',logo:'율촌',role:'종합 로펌',image:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=760&h=570&fit=crop&q=80',overlay:'공정거래·조세·지적재산권\n전문 법률 자문',desc:'깊이 있는 분야별 전문 법률 서비스 제공',tags:['#공정거래','#조세','#IP']}
+      ]
+    },
+    {
+      id:'pd_education', category:'교육 · 컨설팅', accent:'#e67e22',
+      companies:[
+        {name:'패스트캠퍼스',logo:'FC',role:'교육 플랫폼',image:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=760&h=570&fit=crop&q=80',overlay:'실무 중심 교육으로\n빠르게 성과를 만드는 플랫폼',desc:'직무 역량 향상부터 취업·이직까지 연결',tags:['#실무교육','#온라인','#직무역량']},
+        {name:'맥킨지 코리아',logo:'McK',role:'경영 컨설팅',image:'https://images.unsplash.com/photo-1552664730-d307ca884978?w=760&h=570&fit=crop&q=80',overlay:'전략 수립부터 실행까지\n체계적인 경영 자문',desc:'글로벌 전략 컨설팅 기업의 한국 파트너십',tags:['#전략컨설팅','#경영혁신','#글로벌']},
+        {name:'클래스101',logo:'C101',role:'크리에이터 교육',image:'https://images.unsplash.com/photo-1513258496099-48168024aec0?w=760&h=570&fit=crop&q=80',overlay:'취미부터 부업까지\n실질적인 스킬을 전달',desc:'다양한 분야의 크리에이터 강의 플랫폼',tags:['#크리에이터','#취미교육','#부업']}
+      ]
+    },
+    {
+      id:'pd_manufacturing', category:'제조 · B2B', accent:'#e67e22',
+      companies:[
+        {name:'삼성전자',logo:'SEC',role:'종합 전자',image:'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=760&h=570&fit=crop&q=80',overlay:'세계적인 기술력을 보유한\n글로벌 대표 제조 기업',desc:'반도체·디스플레이·모바일 분야 리더',tags:['#반도체','#디스플레이','#글로벌']},
+        {name:'LG에너지솔루션',logo:'LGE',role:'배터리',image:'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=760&h=570&fit=crop&q=80',overlay:'전기차·ESS용 배터리\n글로벌 리더',desc:'차세대 에너지 기술 개발에 집중',tags:['#배터리','#전기차','#에너지']},
+        {name:'포스코홀딩스',logo:'PSC',role:'철강·소재',image:'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=760&h=570&fit=crop&q=80',overlay:'세계 최고 수준의 철강과\n미래 소재 산업 확장',desc:'이차전지 소재, 수소 사업으로 미래 성장',tags:['#철강','#이차전지소재','#수소']},
+        {name:'한화솔루션',logo:'HWS',role:'에너지·화학',image:'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=760&h=570&fit=crop&q=80',overlay:'친환경 에너지 솔루션과\n첨단 소재 개발',desc:'태양광·수소 기반 종합 솔루션 기업',tags:['#태양광','#친환경','#첨단소재']}
+      ]
+    },
+    {
+      id:'pd_fnb', category:'외식 · 카페', accent:'#e67e22',
+      companies:[
+        {name:'스타벅스 코리아',logo:'SBX',role:'카페 프랜차이즈',image:'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=760&h=570&fit=crop&q=80',overlay:'커피를 넘어 공간 경험을\n제공하는 라이프스타일 브랜드',desc:'브랜드 감성과 고객 경험이 핵심',tags:['#프리미엄카페','#글로벌','#공간경험']},
+        {name:'본아이에프',logo:'본IF',role:'외식 프랜차이즈',image:'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=760&h=570&fit=crop&q=80',overlay:'건강식 중심의\n체계적인 외식 프랜차이즈',desc:'본죽·본도시락 등 건강 브랜드 운영',tags:['#건강식','#프랜차이즈','#가맹']},
+        {name:'블루보틀 코리아',logo:'BB',role:'스페셜티 카페',image:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=760&h=570&fit=crop&q=80',overlay:'원두부터 추출까지\n장인 정신을 담은 커피',desc:'미니멀 공간 디자인의 스페셜티 브랜드',tags:['#스페셜티','#미니멀','#장인정신']}
+      ]
+    },
+    {
+      id:'pd_realestate', category:'부동산 · 인테리어', accent:'#e67e22',
+      companies:[
+        {name:'한샘',logo:'한샘',role:'인테리어',image:'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=760&h=570&fit=crop&q=80',overlay:'공간을 설계하는 기업의\n포트폴리오 중심 인테리어',desc:'시공 사례·디자인 철학·맞춤 제안 시스템',tags:['#인테리어','#주거공간','#맞춤설계']},
+        {name:'직방',logo:'직방',role:'부동산 플랫폼',image:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=760&h=570&fit=crop&q=80',overlay:'데이터 기반의\n스마트 부동산 탐색',desc:'다양한 주거 매물을 한눈에 비교',tags:['#부동산','#데이터','#매물탐색']},
+        {name:'현대리바트',logo:'리바',role:'가구·인테리어',image:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=760&h=570&fit=crop&q=80',overlay:'가정용·사무용 가구부터\n공간 솔루션까지',desc:'국내 대표 종합 인테리어 기업',tags:['#가구','#공간솔루션','#종합인테리어']}
+      ]
     }
   ];
 
-  var root = document.getElementById('philosophy');
-  var nav = root.querySelector('.jp-nav');
-  var content = root.querySelector('.jp-content');
-  var jpMain = root.querySelector('.jp-main');
+  /* ═══════════ DOM 생성 ═══════════ */
+  var navTabs = document.getElementById('pdNavTabs');
+  var content = document.getElementById('pdContent');
 
-  philosophyData.forEach(function(item, i) {
-    var navEl = document.createElement('div');
-    navEl.className = 'jp-nav-item';
-    navEl.setAttribute('data-index', i);
-    navEl.setAttribute('data-active', i === 0 ? 'true' : 'false');
-    navEl.setAttribute('role', 'button');
-    navEl.setAttribute('aria-label', item.num + ' ' + item.category);
-    navEl.setAttribute('tabindex', '0');
-    navEl.innerHTML =
-      '<span class="jp-nav-num">' + item.num + '.</span>' +
-      '<span class="jp-nav-label">' + item.category + '</span>';
-    nav.appendChild(navEl);
+  data.forEach(function(cat, ci){
+    /* NAV TAB */
+    var tab = document.createElement('button');
+    tab.className = 'pd-nav-tab';
+    tab.setAttribute('data-active', ci === 0 ? 'true' : 'false');
+    tab.setAttribute('data-target', cat.id);
+    tab.textContent = cat.category;
+    tab.type = 'button';
+    navTabs.appendChild(tab);
 
-    var leadHtml = item.lead.replace(/\n/g, '<br>');
-    var contentEl = document.createElement('article');
-    contentEl.className = 'jp-content-item' + (i === philosophyData.length - 1 ? ' jp-last-align' : '');
-    contentEl.setAttribute('data-index', i);
-    contentEl.setAttribute('data-visible', 'false');
-    contentEl.setAttribute('aria-label', item.title);
-    contentEl.innerHTML =
-      '<h3 class="jp-content-title">' + item.title + '</h3>' +
-      '<p class="jp-content-lead">' + leadHtml + '</p>' +
-      '<p class="jp-content-desc">' + item.desc + '</p>' +
-      '<div class="jp-content-img">' +
-        '<img src="' + item.image + '" alt="' + item.title + ' 관련 이미지" loading="lazy">' +
+    /* SECTION */
+    var sec = document.createElement('div');
+    sec.className = 'pd-cat';
+    sec.id = cat.id;
+    var sliderId = 'pdSlider_' + ci;
+
+    /* HEADER */
+    var hd = document.createElement('div');
+    hd.className = 'pd-cat-header';
+    hd.innerHTML =
+      '<h2 class="pd-cat-title">' + cat.category + '</h2>' +
+      '<div class="pd-arrows">' +
+        '<button type="button" class="pd-arrow" data-dir="prev" data-slider="' + sliderId + '" aria-label="이전"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>' +
+        '<button type="button" class="pd-arrow" data-dir="next" data-slider="' + sliderId + '" aria-label="다음"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>' +
       '</div>';
-    content.appendChild(contentEl);
+    sec.appendChild(hd);
+
+    /* CARD SLIDER */
+    var sw = document.createElement('div');
+    sw.className = 'pd-slider-wrap';
+    var sl = document.createElement('div');
+    sl.className = 'pd-slider';
+    sl.id = sliderId;
+
+    cat.companies.forEach(function(c){
+      var cd = document.createElement('article');
+      cd.className = 'pd-card';
+      cd.innerHTML =
+        '<div class="pd-card-thumb">' +
+          '<img src="' + c.image + '" alt="' + c.name + '" loading="lazy">' +
+          '<div class="pd-card-overlay">' +
+            '<div class="pd-card-ov-title">' + c.overlay.replace(/\n/g,'<br>') + '</div>' +
+            '<div class="pd-card-ov-role">' + c.name + ' ' + c.role + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="pd-card-meta">' +
+          '<span class="pd-card-meta-cat" style="color:' + cat.accent + '">' + cat.category + '</span>' +
+          '<span class="pd-card-meta-sep"></span>' +
+          '<span class="pd-card-meta-desc">' + c.desc + '</span>' +
+        '</div>' +
+        '<div class="pd-card-name">' + c.name + ' | ' + c.role + '</div>' +
+        '<div class="pd-card-tags">' + c.tags.map(function(t){return '<span class="pd-tag">'+t+'</span>'}).join('') + '</div>';
+      sl.appendChild(cd);
+    });
+    sw.appendChild(sl);
+    sec.appendChild(sw);
+
+    /* LIST VIEW */
+    var lw = document.createElement('div');
+    lw.className = 'pd-list-wrap';
+
+    cat.companies.forEach(function(c, idx){
+      var item = document.createElement('div');
+      item.className = 'pd-list-item';
+      item.innerHTML =
+        '<span class="pd-list-num">' + String(idx+1).padStart(2,'0') + '</span>' +
+        '<span class="pd-list-logo">' + c.logo + '</span>' +
+        '<div class="pd-list-info">' +
+          '<div class="pd-list-name">' + c.name + '</div>' +
+          '<div class="pd-list-role">' + c.role + '</div>' +
+        '</div>' +
+        '<div class="pd-list-desc">' + c.desc + '</div>' +
+        '<div class="pd-list-tags">' + c.tags.map(function(t){return '<span class="pd-list-tag">'+t+'</span>'}).join('') + '</div>';
+      lw.appendChild(item);
+    });
+    sec.appendChild(lw);
+
+    content.appendChild(sec);
   });
 
-  var navItems = nav.querySelectorAll('.jp-nav-item');
-  var contentItems = content.querySelectorAll('.jp-content-item');
+  /* ═══════════ 카테고리 탭 드래그 스크롤 ═══════════ */
+  (function(){
+    var el = navTabs;
+    var isDown = false;
+    var startX = 0;
+    var scrollLeft = 0;
+    var hasMoved = false;
+
+    el.addEventListener('mousedown', function(e){
+      isDown = true;
+      hasMoved = false;
+      el.classList.add('dragging');
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+      e.preventDefault();
+    });
+
+    el.addEventListener('mouseleave', function(){
+      isDown = false;
+      el.classList.remove('dragging');
+    });
+
+    el.addEventListener('mouseup', function(){
+      isDown = false;
+      el.classList.remove('dragging');
+    });
+
+    el.addEventListener('mousemove', function(e){
+      if(!isDown) return;
+      var x = e.pageX - el.offsetLeft;
+      var walk = (x - startX) * 1.5;
+      if(Math.abs(walk) > 4) hasMoved = true;
+      el.scrollLeft = scrollLeft - walk;
+    });
+
+    /* 드래그 후 클릭 방지 */
+    el.addEventListener('click', function(e){
+      if(hasMoved){
+        e.stopPropagation();
+        e.preventDefault();
+        hasMoved = false;
+      }
+    }, true);
+  })();
+
+  /* ═══════════ INTERACTIONS ═══════════ */
+  var allTabs = root.querySelectorAll('.pd-nav-tab');
+  var catBlocks = root.querySelectorAll('.pd-cat');
+  var pdNav = document.getElementById('pdNav');
   var ticking = false;
   var currentActive = -1;
-  var isMobile = false;
+  var isClickScrolling = false;
 
-  function checkMobile() {
-    isMobile = window.innerWidth <= 768;
-  }
-
-  function getOffsetTopWithin(ancestor, el) {
-    var top = 0;
-    var node = el;
-    while (node && node !== ancestor) {
-      top += node.offsetTop;
-      node = node.offsetParent;
-    }
-    return top;
-  }
-
-  function adjustLastSlideAlignment() {
-    var lastItem = contentItems[contentItems.length - 1];
-    if (!lastItem) return;
-
-    if (isMobile) {
-      lastItem.style.minHeight = '';
-      lastItem.style.paddingTop = '';
-      lastItem.style.paddingBottom = '';
-      return;
-    }
-
-    var title = lastItem.querySelector('.jp-content-title');
-    var imgWrap = lastItem.querySelector('.jp-content-img');
-    if (!title || !imgWrap) return;
-
-    var navHeight = nav.offsetHeight || 0;
-    var blockTop = title.offsetTop;
-    var blockBottom = imgWrap.offsetTop + imgWrap.offsetHeight;
-    var blockHeight = blockBottom - blockTop;
-    var paddingBottom = parseFloat(window.getComputedStyle(lastItem).paddingBottom) || 0;
-
-    var desiredPaddingTop = Math.max(80, Math.round(navHeight - blockHeight));
-    var desiredMinHeight = Math.max(window.innerHeight, desiredPaddingTop + blockHeight + paddingBottom);
-
-    lastItem.style.paddingTop = desiredPaddingTop + 'px';
-    lastItem.style.minHeight = desiredMinHeight + 'px';
-  }
-
-  function getStopNavTopInMain() {
-    var lastItem = contentItems[contentItems.length - 1];
-    var lastImg = lastItem ? lastItem.querySelector('.jp-content-img') : null;
-    if (!lastItem || !lastImg) return 0;
-
-    var lastImgBottomInMain = getOffsetTopWithin(jpMain, lastImg) + lastImg.offsetHeight;
-    var stopTop = Math.max(0, lastImgBottomInMain - nav.offsetHeight);
-    return stopTop;
-  }
-
-  function updateFloatingNavState() {
-    if (isMobile) {
-      nav.setAttribute('data-floating', 'true');
-      nav.setAttribute('data-stopped', 'false');
-      nav.style.top = '';
-      return;
-    }
-
-    var viewportH = window.innerHeight;
-    var mainRect = jpMain.getBoundingClientRect();
-    var navHeight = nav.offsetHeight;
-    var fixedNavTopInViewport = (viewportH - navHeight) / 2;
-    var currentFixedTopInMain = fixedNavTopInViewport - mainRect.top;
-    var stopNavTopInMain = getStopNavTopInMain();
-
-    var isBeforeMain = mainRect.top >= viewportH * 0.3;
-    var isAfterMain = mainRect.bottom <= 0;
-    var shouldStop = currentFixedTopInMain >= stopNavTopInMain;
-
-    if (isBeforeMain) {
-      nav.setAttribute('data-floating', 'false');
-      nav.setAttribute('data-stopped', 'false');
-      nav.style.top = '';
-      return;
-    }
-
-    if (isAfterMain) {
-      nav.setAttribute('data-floating', 'false');
-      nav.setAttribute('data-stopped', 'true');
-      nav.style.top = stopNavTopInMain + 'px';
-      return;
-    }
-
-    if (shouldStop) {
-      nav.setAttribute('data-floating', 'true');
-      nav.setAttribute('data-stopped', 'true');
-      nav.style.top = stopNavTopInMain + 'px';
-      return;
-    }
-
-    nav.setAttribute('data-floating', 'true');
-    nav.setAttribute('data-stopped', 'false');
-    nav.style.top = '';
-  }
-
-  function updateActiveState() {
-    var viewportH = window.innerHeight;
-    var triggerPoint = viewportH * 0.4;
-    var newActive = 0;
-
-    updateFloatingNavState();
-
-    for (var i = 0; i < contentItems.length; i++) {
-      var rect = contentItems[i].getBoundingClientRect();
-      if (rect.top <= triggerPoint) {
-        newActive = i;
+  /* 스크롤 → 활성 탭 */
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      pdNav.classList.toggle('scrolled', window.scrollY > 10);
+      if(!isClickScrolling){
+        var navH = pdNav.offsetHeight;
+        var newActive = 0;
+        for(var i = 0; i < catBlocks.length; i++){
+          if(catBlocks[i].getBoundingClientRect().top <= navH + 60) newActive = i;
+        }
+        if(newActive !== currentActive){
+          currentActive = newActive;
+          allTabs.forEach(function(n, j){n.setAttribute('data-active', j === currentActive ? 'true' : 'false')});
+          /* 탭 영역 안에서 활성 탭이 보이도록 */
+          var activeTab = allTabs[currentActive];
+          var tabsEl = navTabs;
+          var tabLeft = activeTab.offsetLeft;
+          var tabWidth = activeTab.offsetWidth;
+          var scrollL = tabsEl.scrollLeft;
+          var visibleW = tabsEl.clientWidth;
+          if(tabLeft < scrollL){
+            tabsEl.scrollTo({left:tabLeft - 16, behavior:'smooth'});
+          } else if(tabLeft + tabWidth > scrollL + visibleW){
+            tabsEl.scrollTo({left:tabLeft + tabWidth - visibleW + 16, behavior:'smooth'});
+          }
+        }
       }
-    }
-
-    if (newActive !== currentActive) {
-      currentActive = newActive;
-      for (var j = 0; j < navItems.length; j++) {
-        navItems[j].setAttribute('data-active', j === currentActive ? 'true' : 'false');
-      }
-    }
-
-    for (var k = 0; k < contentItems.length; k++) {
-      var r = contentItems[k].getBoundingClientRect();
-      var isVisible = r.top < viewportH * 0.75 && r.bottom > viewportH * 0.15;
-      contentItems[k].setAttribute('data-visible', isVisible ? 'true' : 'false');
-    }
-
-    ticking = false;
-  }
-
-  function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(updateActiveState);
-      ticking = true;
-    }
-  }
-
-  function fullRefresh() {
-    checkMobile();
-    nav.setAttribute('data-stopped', 'false');
-    nav.setAttribute('data-floating', 'false');
-    nav.style.top = '';
-    adjustLastSlideAlignment();
-    requestAnimationFrame(updateActiveState);
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', fullRefresh, { passive: true });
-  window.addEventListener('load', fullRefresh);
-
-  navItems.forEach(function(navItem, idx) {
-    navItem.addEventListener('click', function() {
-      contentItems[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      ticking = false;
     });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
 
-    navItem.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        contentItems[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+  /* 탭 클릭 */
+  allTabs.forEach(function(tab){
+    tab.addEventListener('click', function(e){
+      var target = document.getElementById(tab.getAttribute('data-target'));
+      if(!target) return;
+      allTabs.forEach(function(n){n.setAttribute('data-active','false')});
+      tab.setAttribute('data-active','true');
+      isClickScrolling = true;
+      target.scrollIntoView({behavior:'smooth'});
+      setTimeout(function(){ isClickScrolling = false; }, 800);
     });
   });
 
-  var lastImgEl = contentItems[contentItems.length - 1].querySelector('img');
-  if (lastImgEl) {
-    if (lastImgEl.complete) {
-      fullRefresh();
-    } else {
-      lastImgEl.addEventListener('load', fullRefresh);
-    }
-  }
+  /* 뷰 토글 */
+  var viewBtns = root.querySelectorAll('.pd-view-btn');
+  viewBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var mode = btn.getAttribute('data-view');
+      root.setAttribute('data-view', mode);
+      viewBtns.forEach(function(b){b.setAttribute('data-active', b.getAttribute('data-view') === mode ? 'true' : 'false')});
+    });
+  });
 
-  requestAnimationFrame(fullRefresh);
+  /* 카드 슬라이더 화살표 */
+  root.querySelectorAll('.pd-arrow').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var slider = document.getElementById(btn.getAttribute('data-slider'));
+      if(!slider) return;
+      var card = slider.querySelector('.pd-card');
+      var amt = card ? card.offsetWidth + 24 : 400;
+      slider.scrollBy({left: btn.getAttribute('data-dir') === 'prev' ? -amt : amt, behavior:'smooth'});
+    });
+  });
+
+  /* 카드 슬라이더 드래그 */
+  root.querySelectorAll('.pd-slider').forEach(function(sl){
+    var down=false, sx, sLeft;
+    sl.addEventListener('mousedown', function(e){down=true;sl.style.cursor='grabbing';sx=e.pageX-sl.offsetLeft;sLeft=sl.scrollLeft});
+    sl.addEventListener('mouseleave', function(){down=false;sl.style.cursor=''});
+    sl.addEventListener('mouseup', function(){down=false;sl.style.cursor=''});
+    sl.addEventListener('mousemove', function(e){if(!down)return;e.preventDefault();sl.scrollLeft=sLeft-((e.pageX-sl.offsetLeft)-sx)*1.2});
+  });
+
+  requestAnimationFrame(onScroll);
 })();
 </script>
-</section>
-
-<section id="HorizontalScroll" aria-label="Large Horizontal Gallery Section">
-  <style>
-    #HorizontalScroll {
-      --lrs-bg: #050505;
-      --lrs-text: #ffffff;
-      --lrs-muted: rgba(255, 255, 255, 0.92);
-      --lrs-dim: rgba(255, 255, 255, 0.92);
-      --lrs-line: rgba(255, 255, 255, 0.16);
-
-      --lrs-side: clamp(28px, 5.2vw, 120px);
-      --lrs-top: clamp(42px, 6vw, 96px);
-      --lrs-head-gap: clamp(34px, 4vw, 56px);
-      --lrs-gallery-gap: clamp(18px, 1.2vw, 26px);
-
-      --lrs-title: clamp(42px, 4.5vw, 58px);
-      --lrs-desc: clamp(14px, 1.02vw, 18px);
-      --lrs-card-title: clamp(14px, 3.25vw, 24px);
-      --lrs-card-sub: clamp(11px, 1.9vw, 19px);
-      --lrs-body: clamp(14px, 1vw, 18px);
-
-      --lrs-thumb-h-focus: 520px;
-      --lrs-thumb-h-side: 350px;
-
-      position: relative;
-      background: var(--lrs-bg);
-      overflow: clip;
-      color: var(--lrs-text);
-      font-family: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    #HorizontalScroll .lrs-stage {
-      position: relative;
-      width: 100%;
-    }
-
-    #HorizontalScroll .lrs-sticky {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow: hidden;
-      background: var(--lrs-bg);
-    }
-
-    #HorizontalScroll .lrs-inner {
-      height: 100%;
-      box-sizing: border-box;
-      padding: var(--lrs-top) var(--lrs-side) clamp(20px, 2.2vh, 34px);
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* 제목/부제목 영역은 스크롤 효과와 무관하게 고정 */
-    #HorizontalScroll .lrs-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 32px;
-      margin-bottom: var(--lrs-head-gap);
-      flex: 0 0 auto;
-      transform: none !important;
-      opacity: 1 !important;
-      transition: none !important;
-      will-change: auto;
-    }
-
-    #HorizontalScroll .lrs-head-left {
-      min-width: 0;
-      width: min(34vw, 460px);
-      padding-top: clamp(4px, 0.6vw, 10px);
-    }
-
-    /* 제목 항상 흰색 + 크기 고정 */
-    #HorizontalScroll .lrs-title {
-      margin: 0;
-      color: #ffffff !important;
-      font-size: var(--lrs-title) !important;
-      font-weight: 800;
-      line-height: 1.04;
-      letter-spacing: -0.055em;
-      transform: none !important;
-      opacity: 1 !important;
-      transition: none !important;
-      will-change: auto;
-    }
-
-    /* 부제목도 항상 흰색 + 크기 고정 */
-    #HorizontalScroll .lrs-desc {
-      margin: 22px 0 0;
-      color: #ffffff !important;
-      font-size: var(--lrs-desc) !important;
-      font-weight: 500;
-      line-height: 1.65;
-      letter-spacing: -0.02em;
-      max-width: 35ch;
-      transform: none !important;
-      opacity: 1 !important;
-      transition: none !important;
-      will-change: auto;
-    }
-
-    #HorizontalScroll .lrs-gallery-wrap {
-      position: relative;
-      flex: 1 1 auto;
-      min-height: 0;
-      display: flex;
-      align-items: flex-start;
-      overflow: visible;
-      padding-top: clamp(4px, 0.45vw, 10px);
-      padding-bottom: clamp(8px, 1.2vh, 16px);
-    }
-
-    #HorizontalScroll .lrs-track {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--lrs-gallery-gap);
-      will-change: transform;
-      transform: translate3d(0, 0, 0);
-      padding-right: 18vw;
-    }
-
-    #HorizontalScroll .lrs-item {
-      flex: 0 0 auto;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      opacity: 0.34;
-      transform: translate3d(0, 54px, 0) scale(0.965);
-      transform-origin: center center;
-      transition:
-        opacity 0.5s ease,
-        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 0.45s ease;
-      filter: saturate(0.84) brightness(0.72);
-      will-change: transform, opacity, filter;
-    }
-
-    #HorizontalScroll .lrs-item.is-inview {
-      opacity: 0.7;
-      transform: translate3d(0, 18px, 0) scale(0.985);
-      filter: saturate(0.92) brightness(0.88);
-    }
-
-    #HorizontalScroll .lrs-item.is-focus {
-      opacity: 1;
-      transform: translate3d(0, 0, 0) scale(1);
-      filter: saturate(1) brightness(1);
-    }
-
-    #HorizontalScroll .lrs-thumb {
-      width: 100%;
-      overflow: hidden;
-      background: #111;
-      height: var(--lrs-thumb-h-side);
-      transition:
-        height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    #HorizontalScroll .lrs-item.is-inview .lrs-thumb {
-      height: calc(var(--lrs-thumb-h-side) + (var(--lrs-thumb-h-focus) - var(--lrs-thumb-h-side)) * 0.42);
-    }
-
-    #HorizontalScroll .lrs-item.is-focus .lrs-thumb {
-      height: var(--lrs-thumb-h-focus);
-    }
-
-    #HorizontalScroll .lrs-thumb img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      user-select: none;
-      -webkit-user-drag: none;
-      pointer-events: none;
-      transform: scale(1.04);
-      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: transform;
-    }
-
-    #HorizontalScroll .lrs-item.is-inview .lrs-thumb img {
-      transform: scale(1.02);
-    }
-
-    #HorizontalScroll .lrs-item.is-focus .lrs-thumb img {
-      transform: scale(1);
-    }
-
-    #HorizontalScroll .lrs-meta {
-      padding-top: clamp(16px, 1.35vw, 24px);
-      padding-bottom: clamp(10px, 1.25vh, 18px);
-      max-width: min(90%, 980px);
-      opacity: 0.18;
-      transform: translate3d(0, 24px, 0);
-      transition:
-        opacity 0.45s ease,
-        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: transform, opacity;
-    }
-
-    #HorizontalScroll .lrs-item.is-inview .lrs-meta {
-      opacity: 0.72;
-      transform: translate3d(0, 8px, 0);
-    }
-
-    #HorizontalScroll .lrs-item.is-focus .lrs-meta {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-
-    #HorizontalScroll .lrs-label {
-      margin: 0;
-      color: var(--lrs-text);
-      font-size: var(--lrs-card-title);
-      font-weight: 800;
-      letter-spacing: -0.055em;
-      line-height: 1.02;
-    }
-
-    #HorizontalScroll .lrs-subline {
-      margin: 6px 0 0;
-      color: var(--lrs-text);
-      font-size: var(--lrs-card-sub);
-      font-weight: 800;
-      line-height: 1.04;
-      letter-spacing: -0.04em;
-    }
-
-    #HorizontalScroll .lrs-copy {
-      margin: 16px 0 0;
-      color: var(--lrs-muted);
-      font-size: var(--lrs-body);
-      font-weight: 500;
-      line-height: 1.68;
-      letter-spacing: -0.018em;
-      max-width: 64ch;
-      word-break: keep-all;
-    }
-
-    #HorizontalScroll .lrs-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 22px;
-    }
-
-    #HorizontalScroll .lrs-icon-btn {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: none;
-      background: #f4f4f1;
-      color: #050505;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      padding: 0;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
-
-    #HorizontalScroll .lrs-icon-btn:hover {
-      transform: translateY(-2px);
-      opacity: 0.92;
-    }
-
-    #HorizontalScroll .lrs-icon-btn svg {
-      width: 18px;
-      height: 18px;
-      display: block;
-      fill: currentColor;
-    }
-
-    #HorizontalScroll .lrs-item.item-1 { width: min(58vw, 1080px); }
-    #HorizontalScroll .lrs-item.item-2 { width: min(31vw, 570px); }
-    #HorizontalScroll .lrs-item.item-3 { width: min(29vw, 520px); }
-    #HorizontalScroll .lrs-item.item-4 { width: min(52vw, 940px); }
-    #HorizontalScroll .lrs-item.item-5 { width: min(33vw, 600px); }
-
-    @media (max-width: 1024px) {
-      #HorizontalScroll .lrs-head {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-      }
-
-      #HorizontalScroll .lrs-head-left {
-        width: 100%;
-      }
-
-      #HorizontalScroll .lrs-item.item-1 { width: 82vw; }
-      #HorizontalScroll .lrs-item.item-2 { width: 62vw; }
-      #HorizontalScroll .lrs-item.item-3 { width: 54vw; }
-      #HorizontalScroll .lrs-item.item-4 { width: 78vw; }
-      #HorizontalScroll .lrs-item.item-5 { width: 58vw; }
-
-      #HorizontalScroll {
-        --lrs-thumb-h-focus: 420px;
-        --lrs-thumb-h-side: 290px;
-      }
-
-      #HorizontalScroll .lrs-meta {
-        max-width: 92%;
-      }
-
-      #HorizontalScroll .lrs-copy {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 640px) {
-      #HorizontalScroll {
-        --lrs-side: 16px;
-        --lrs-top: 22px;
-        --lrs-gallery-gap: 14px;
-        --lrs-title: clamp(34px, 8.6vw, 52px);
-        --lrs-card-title: clamp(24px, 7vw, 38px);
-        --lrs-card-sub: clamp(18px, 5vw, 28px);
-        --lrs-thumb-h-focus: 300px;
-        --lrs-thumb-h-side: 220px;
-      }
-
-      #HorizontalScroll .lrs-item.item-1 { width: 88vw; }
-      #HorizontalScroll .lrs-item.item-2 { width: 74vw; }
-      #HorizontalScroll .lrs-item.item-3 { width: 70vw; }
-      #HorizontalScroll .lrs-item.item-4 { width: 84vw; }
-      #HorizontalScroll .lrs-item.item-5 { width: 72vw; }
-
-      #HorizontalScroll .lrs-meta {
-        max-width: 100%;
-        padding-top: 14px;
-        padding-bottom: 16px;
-      }
-
-      #HorizontalScroll .lrs-copy {
-        margin-top: 14px;
-        line-height: 1.62;
-      }
-
-      #HorizontalScroll .lrs-actions {
-        margin-top: 18px;
-      }
-    }
-  </style>
-
-  <div class="lrs-stage">
-    <div class="lrs-sticky">
-      <div class="lrs-inner">
-        <div class="lrs-head">
-          <div class="lrs-head-left">
-            <h2 class="lrs-title">1% 혁신 프로젝트</h2>
-            <p class="lrs-desc">이 업종별 융복합을 통해 진행되는 혁신 프로젝트</p>
-          </div>
-        </div>
-
-        <div class="lrs-gallery-wrap">
-          <div class="lrs-track">
-            <article class="lrs-item item-1">
-              <div class="lrs-thumb">
-                <img src="https://humanb.kr/img/main_sld1.jpg" alt="Living room style 1">
-              </div>
-              <div class="lrs-meta">
-                <h3 class="lrs-label">맥스큐 밸런스랩</h3>
-                <p class="lrs-subline">뷰티, 헬스, 재활의 융복합 프로젝트</p>
-                <p class="lrs-copy">
-                  몸의 밸런스 뿐만 아니라, 마인드, 영양의 밸런스를 통해 진정한 근본적인 뷰티 밸런스를 만들어가는 프로젝트
-                </p>
-                <div class="lrs-actions">
-                  <button class="lrs-icon-btn" type="button" aria-label="website">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm6.93 9h-3.02a15.7 15.7 0 0 0-1.38-4.18A8.03 8.03 0 0 1 18.93 11ZM12 4.04c.83 1.2 1.8 3.24 2.1 5.96H9.9c.3-2.72 1.27-4.76 2.1-5.96ZM4.26 13h3.03c.12 1.49.46 2.88.98 4.12A8.02 8.02 0 0 1 4.26 13Zm0-2a8.02 8.02 0 0 1 4.01-4.12A13.77 13.77 0 0 0 7.29 11H4.26Zm7.74 8c-.83-1.2-1.8-3.24-2.1-6h4.2c-.3 2.76-1.27 4.8-2.1 6Zm2.53-1.88c.52-1.24.86-2.63.98-4.12h3.03a8.02 8.02 0 0 1-4.01 4.12Z"/>
-                    </svg>
-                  </button>
-                  <button class="lrs-icon-btn" type="button" aria-label="instagram">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.51 5.51 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5ZM18 6.3a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.3Z"/>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <article class="lrs-item item-2">
-              <div class="lrs-thumb">
-                <img src="https://egojin.com/web/product/big/202507/bcb5c546cf57d4adfba62c4504f0344a.jpg" alt="Living room style 2">
-              </div>
-              <div class="lrs-meta">
-                <h3 class="lrs-label">뷰티 필라</h3>
-                <p class="lrs-subline">뷰티 + 필라테스의 융복합 프로젝트</p>
-                <p class="lrs-copy">
-                  필라테스와 뷰티를 결합하여 몸의 라인 관리을 넘어 외모 관리까지 나아가는 뷰티 필라테스 프로젝트
-                </p>
-              </div>
-            </article>
-
-            <article class="lrs-item item-3">
-              <div class="lrs-thumb">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXbbzKXQ2cSjd-qaaFbqSBZmZHtYJLeoFqLg&s" alt="Living room style 3">
-              </div>
-              <div class="lrs-meta">
-                <h3 class="lrs-label">비만대사증후군연구소</h3>
-                <p class="lrs-subline">의사 + 약사 + 영양 융복합 프로젝트</p>
-                <p class="lrs-copy">
-                  약과 수술로는 근본적인 원인을 제거하기 힘든 비만대사증후군을 의사, 약사가 참여하여 비만의 근본적인 원인인 영양, 생활 관리를 통해 근본적인 다이어트 관리 솔루션
-                </p>
-              </div>
-            </article>
-
-         
-
-       
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      const section = document.getElementById('HorizontalScroll');
-      if (!section) return;
-
-      const stage = section.querySelector('.lrs-stage');
-      const sticky = section.querySelector('.lrs-sticky');
-      const track = section.querySelector('.lrs-track');
-      const items = Array.from(section.querySelectorAll('.lrs-item'));
-      const imgs = Array.from(section.querySelectorAll('img'));
-      const head = section.querySelector('.lrs-head');
-      const galleryWrap = section.querySelector('.lrs-gallery-wrap');
-      const metas = Array.from(section.querySelectorAll('.lrs-meta'));
-
-      let maxX = 0;
-      let targetProgress = 0;
-      let currentProgress = 0;
-      let ticking = false;
-      let rafId = 0;
-
-      const wheelWeight = 0.00042;
-      const touchWeight = 0.0011;
-      const lerpFactor = 0.082;
-
-      function clamp(value, min, max) {
-        return Math.max(min, Math.min(max, value));
-      }
-
-      function inActiveZone() {
-        const rect = stage.getBoundingClientRect();
-        return rect.top <= 0 && rect.bottom >= window.innerHeight;
-      }
-
-      function updateCardStates() {
-        const viewportCenter = window.innerWidth / 2;
-
-        items.forEach(function (item) {
-          const rect = item.getBoundingClientRect();
-          const itemCenter = rect.left + (rect.width / 2);
-          const dist = Math.abs(viewportCenter - itemCenter);
-          const thresholdFocus = window.innerWidth * 0.18;
-          const thresholdInview = window.innerWidth * 0.42;
-
-          item.classList.remove('is-focus', 'is-inview');
-
-          if (dist <= thresholdFocus) {
-            item.classList.add('is-focus');
-          } else if (dist <= thresholdInview) {
-            item.classList.add('is-inview');
-          }
-        });
-      }
-
-      /* 제목/부제목은 스크롤 효과와 무관하게 고정 */
-      function updateHeadMotion() {
-        if (head) {
-          head.style.transform = 'none';
-          head.style.opacity = '1';
-        }
-      }
-
-      function setDynamicHeights() {
-        const inner = section.querySelector('.lrs-inner');
-        if (!inner) return;
-
-        const innerStyle = window.getComputedStyle(inner);
-        const galleryStyle = window.getComputedStyle(galleryWrap);
-
-        const innerPadTop = parseFloat(innerStyle.paddingTop) || 0;
-        const innerPadBottom = parseFloat(innerStyle.paddingBottom) || 0;
-        const headHeight = head ? head.offsetHeight : 0;
-        const headGap = parseFloat(window.getComputedStyle(head).marginBottom) || 0;
-        const galleryPadTop = parseFloat(galleryStyle.paddingTop) || 0;
-        const galleryPadBottom = parseFloat(galleryStyle.paddingBottom) || 0;
-
-        let maxMetaHeight = 0;
-        metas.forEach(function (meta) {
-          const prevOpacity = meta.style.opacity;
-          const prevTransform = meta.style.transform;
-          const prevTransition = meta.style.transition;
-
-          meta.style.opacity = '1';
-          meta.style.transform = 'translate3d(0,0,0)';
-          meta.style.transition = 'none';
-
-          maxMetaHeight = Math.max(maxMetaHeight, meta.offsetHeight);
-
-          meta.style.opacity = prevOpacity;
-          meta.style.transform = prevTransform;
-          meta.style.transition = prevTransition;
-        });
-
-        const safeBottomReserve = window.innerWidth <= 640 ? 18 : 22;
-
-        let metaReserve;
-        if (window.innerWidth <= 640) {
-          metaReserve = maxMetaHeight;
-        } else if (window.innerWidth <= 1024) {
-          metaReserve = Math.min(maxMetaHeight, 180);
-        } else {
-          metaReserve = Math.min(maxMetaHeight, 165);
-        }
-
-        const available =
-          window.innerHeight
-          - innerPadTop
-          - innerPadBottom
-          - headHeight
-          - headGap
-          - galleryPadTop
-          - galleryPadBottom
-          - metaReserve
-          - safeBottomReserve;
-
-        let focusH = Math.max(260, available);
-        let sideH = focusH * 0.68;
-
-        if (window.innerWidth <= 640) {
-          focusH = Math.min(focusH, 320);
-          sideH = Math.min(sideH, 230);
-        } else if (window.innerWidth <= 1024) {
-          focusH = Math.min(focusH, 440);
-          sideH = Math.min(sideH, 305);
-        } else {
-          focusH = Math.min(focusH, 560);
-          sideH = Math.min(sideH, 380);
-        }
-
-        sideH = Math.max(200, sideH);
-
-        section.style.setProperty('--lrs-thumb-h-focus', focusH + 'px');
-        section.style.setProperty('--lrs-thumb-h-side', sideH + 'px');
-      }
-
-      function measure() {
-        setDynamicHeights();
-
-        track.style.transform = 'translate3d(0,0,0)';
-
-        const stickyRect = sticky.getBoundingClientRect();
-        const viewportW = stickyRect.width;
-
-        const lastItem = items[items.length - 1];
-        const trackRect = track.getBoundingClientRect();
-        const lastRect = lastItem.getBoundingClientRect();
-
-        const lastCenterInTrack = (lastRect.left - trackRect.left) + (lastRect.width / 2);
-        maxX = Math.max(0, lastCenterInTrack - (viewportW / 2));
-
-        stage.style.height = (window.innerHeight + maxX + window.innerHeight * 0.22) + 'px';
-
-        const stageRect = stage.getBoundingClientRect();
-        const range = Math.max(1, stage.offsetHeight - window.innerHeight);
-        const fromScroll = clamp(-stageRect.top / range, 0, 1);
-
-        currentProgress = fromScroll;
-        targetProgress = fromScroll;
-        render();
-      }
-
-      function render() {
-        const x = maxX * currentProgress;
-        track.style.transform = 'translate3d(' + (-x) + 'px,0,0)';
-        updateCardStates();
-        updateHeadMotion();
-      }
-
-      function animate() {
-        ticking = false;
-
-        const diff = targetProgress - currentProgress;
-        if (Math.abs(diff) > 0.00008) {
-          currentProgress += diff * lerpFactor;
-        } else {
-          currentProgress = targetProgress;
-        }
-
-        render();
-
-        if (Math.abs(targetProgress - currentProgress) > 0.00008) {
-          rafId = requestAnimationFrame(animate);
-          ticking = true;
-        }
-      }
-
-      function requestAnimate() {
-        if (ticking) return;
-        ticking = true;
-        rafId = requestAnimationFrame(animate);
-      }
-
-      function syncByPageScroll() {
-        if (inActiveZone()) return;
-        const rect = stage.getBoundingClientRect();
-        const range = Math.max(1, stage.offsetHeight - window.innerHeight);
-        const progress = clamp(-rect.top / range, 0, 1);
-        currentProgress = progress;
-        targetProgress = progress;
-        render();
-      }
-
-      section.addEventListener('wheel', function (e) {
-        if (!inActiveZone()) return;
-
-        const direction = Math.sign(e.deltaY);
-
-        if (direction > 0 && targetProgress >= 0.9995) return;
-        if (direction < 0 && targetProgress <= 0.0005) return;
-
-        e.preventDefault();
-
-        const delta = e.deltaY * wheelWeight;
-        targetProgress = clamp(targetProgress + delta, 0, 1);
-        requestAnimate();
-      }, { passive: false });
-
-      let touchStartY = 0;
-      let touching = false;
-
-      section.addEventListener('touchstart', function (e) {
-        if (!inActiveZone()) return;
-        if (!e.touches || !e.touches.length) return;
-        touching = true;
-        touchStartY = e.touches[0].clientY;
-      }, { passive: true });
-
-      section.addEventListener('touchmove', function (e) {
-        if (!touching || !inActiveZone()) return;
-        if (!e.touches || !e.touches.length) return;
-
-        const y = e.touches[0].clientY;
-        const diffY = touchStartY - y;
-        const direction = Math.sign(diffY);
-
-        if ((direction > 0 && targetProgress < 0.9995) || (direction < 0 && targetProgress > 0.0005)) {
-          e.preventDefault();
-          targetProgress = clamp(targetProgress + diffY * touchWeight, 0, 1);
-          touchStartY = y;
-          requestAnimate();
-        }
-      }, { passive: false });
-
-      section.addEventListener('touchend', function () {
-        touching = false;
-      }, { passive: true });
-
-      window.addEventListener('scroll', syncByPageScroll, { passive: true });
-      window.addEventListener('resize', measure);
-
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(measure);
-      }
-
-      let loaded = 0;
-      function done() {
-        loaded += 1;
-        if (loaded >= imgs.length) measure();
-      }
-
-      if (imgs.length) {
-        imgs.forEach(function (img) {
-          if (img.complete) {
-            done();
-          } else {
-            img.addEventListener('load', done, { once: true });
-            img.addEventListener('error', done, { once: true });
-          }
-        });
-      } else {
-        measure();
-      }
-
-      setTimeout(measure, 80);
-      setTimeout(measure, 180);
-      setTimeout(measure, 420);
-    })();
-  </script>
 </section>
 
 

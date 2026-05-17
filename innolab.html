@@ -1,0 +1,1666 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+
+<!-- 소유권 인증(각 도메인별 값으로 교체) -->
+<meta name="naver-site-verification" content="3d90b88f5b034dcafecbefafa2709d57a999bf64" />
+<meta name="google-site-verification" content="구글_인증코드_여기에" />
+
+<!-- Canonical (대표 URL로 고정) -->
+<link rel="canonical" href="https://biznovalab.com/" />
+<meta name="robots" content="index,follow" />
+<meta name="subject" content="비즈니스혁신연구소" />
+<meta name="title" content="비즈니스혁신연구소" />
+<meta name="author" content="비즈니스혁신연구소">
+<meta name="description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼."/>
+<meta name="keywords" content="비즈니스혁신연구소, 비즈니스 혁신 연구소, Business Innovation Lab, biznovlab, 현장혁신, 실행형 혁신, 혁신 플랫폼, 사업 혁신, 조직 혁신, 운영 혁신, 프로세스 개선, 업무 효율화, 성장 전략, 신사업, 지속 성장, 기업 혁신" />
+
+
+
+<link rel="icon" href="./img/favicon.png" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="./img/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.png">
+<link rel="icon" type="image/png" sizes="48x48" href="./img/favicon.png">
+
+<!-- Apple (iOS 홈화면 아이콘) -->
+<link rel="apple-touch-icon" sizes="180x180" href="./img/favicon.png">
+
+<!-- Android / Chrome -->
+<link rel="icon" type="image/png" sizes="192x192" href="./img/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./img/favicon.png">
+
+
+<meta property="og:type" content="website" />
+<meta property="og:rich_attachment" content="true" />
+<meta property="og:site_name" content="비즈니스혁신연구소" />
+<meta property="og:title" content="비즈니스혁신연구소" />
+<meta property="og:description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta property="og:image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+<meta property="og:url" content="https://biznovalab.com/" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="비즈니스혁신연구소" />
+<meta name="twitter:description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta name="twitter:image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+  
+<meta itemprop="name" content="비즈니스혁신연구소" />
+<meta itemprop="description" content="비즈니스혁신연구소 — 현장 혁신을 일으킬 수 있는 환경을 제공하여, 새로운 시대의 성장하는 비즈니스로 전환하는 실행형 혁신 플랫폼." />
+<meta itemprop="image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+<title>비즈니스혁신연구소</title>
+  
+  <link href="./css/reset.css" rel="stylesheet" type="text/css" />
+   <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="menu_navi"></div>
+
+<script src="./menu3.js"></script>
+
+
+
+  <style>
+    /* ── RESET & LAYOUT ── */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Pretendard',sans-serif;background:#111;color:#fff;overflow-x:hidden}
+    .container{display:flex}
+    #main{flex:1;position:relative;overflow:hidden}
+    #visualTransWrap{position:absolute;inset:0;pointer-events:none;z-index:5}
+
+    /* ── SWIPER & BG ── */
+    .mv_container{width:100%;height:90vh;position:relative}
+    .swiper-container,.swiper-wrapper,.swiper-slide{width:100%;height:100%}
+    .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 6s ease;filter:brightness(0.5)}
+    .swiper-slide-active .bg{transform:scale(1.12)}
+    .bg1{background-image:url('./img/intro-1.jpg')}
+    .bg2{background-image:url('./img/intro-2.jpg')}
+    .bg3{background-image:url('./img/page-3.jpg')}
+    .bg4{background-image:url('./img/repair.jpg')}
+
+    /* ── TEXT & BUTTON ── */
+    .mv_txt_box{position:absolute;top:20%;left:5%;max-width:640px;z-index:2}
+    .mv_cate{font-size:18px;font-weight:600;margin-bottom:14px;color:#ffeb55;display:inline-block}
+    .mv_tit{font-size:43px;line-height:1.4;margin:0 0 12px}
+    @media screen and (max-width:620px){ .mv_tit{font-size:34px !important;} }
+    @media screen and (max-width:500px){ .mv_tit{font-size:26px !important;} }
+    .mv_txt{font-size:18px;line-height:1.6;font-weight:300}
+    .mv_btn{
+      display:inline-block;margin-top:30px;padding:14px 36px;
+      border:2px solid #fff;border-radius:40px;
+      background:transparent;color:#fff;font-weight:600;letter-spacing:.3px;
+      opacity:0;pointer-events:none;
+      transition:opacity .6s,background .35s,box-shadow .35s,color .35s,transform .35s;
+      position:relative;overflow:hidden;text-decoration:none;
+    }
+    .swiper-slide-active .mv_btn{opacity:1;pointer-events:auto}
+    .mv_btn::after{
+      content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);
+      transform:translateX(-100%);transition:transform .4s;
+    }
+    .mv_btn:hover::after{transform:translateX(0)}
+    .mv_btn:hover{
+      background:#fff;color:#111;box-shadow:0 8px 24px rgba(0,0,0,.25);
+      transform:translateY(-2px);
+    }
+
+    /* ── WAVE ANIMATION ── */
+    .wave_anim .wave{display:inline-block;opacity:0;animation:wave 1.1s ease-out forwards}
+    @keyframes wave{0%{transform:translateY(25px);opacity:0}100%{transform:translateY(0);opacity:1}}
+    .wave_anim.custom .wave:nth-child(1){animation-delay:.15s}
+    .wave_anim.custom .wave:nth-child(2){animation-delay:.3s}
+    .wave_anim.custom .wave:nth-child(3){animation-delay:.45s}
+
+    /* ── PROGRESS BAR ── */
+    .progress-container{position:absolute;bottom:80px;left:5%;right:5%;height:4px;display:flex;gap:10px;z-index:3;width:150px;}
+    .progress-segment{flex:1;background:rgba(255,255,255,.25);border-radius:2px;overflow:hidden;cursor:pointer}
+    .progress-fill{width:0;height:100%;background:#fff;display:block}
+
+    .wheel_down{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:24px;opacity:.7;z-index:3;animation: wheel-bounce 2s ease-in-out infinite;}
+    .wheel_down .wheel {animation: wheel-fade 2s ease-in-out infinite;}
+    @keyframes wheel-fade {
+      0%{opacity:1;transform:translateY(0)}
+      80%{opacity:.2;transform:translateY(10px)}
+      100%{opacity:0;transform:translateY(14px)}
+    }
+    #sidebar{display:none}
+  </style>
+
+  <style>
+    /* ──────────────────────────────────────────
+          #visual-section 전용 스타일
+      ─────────────────────────────────────────── */
+    #visual-section{position:relative;width:100%;height:100vh;overflow:hidden}
+    #visual-section .video_wrap{position:absolute;inset:0;z-index:0}
+    #visual-section .video_wrap video{width:100%;height:100%;object-fit:cover;object-position:center}
+    #visual-section .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5)}
+    #visual-section .txt_container{
+      position:absolute;inset:0;z-index:2;
+      display:flex;flex-direction:column;
+      justify-content:space-evenly;align-items:center;
+      text-align:center;pointer-events:none
+    }
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    #visual-section .company,#visual-section .logo,#visual-section .exp{opacity:0}
+    #visual-section.animate .company{
+      color:#fff;font-size:2.5rem;font-weight:500;margin-bottom:.5em;
+      animation:fadeInUp 1s ease-out forwards;animation-delay:.2s
+    }
+    #visual-section.animate .logo{animation:fadeInUp 1s ease-out forwards;animation-delay:.7s}
+    #visual-section .logo .m_logo{
+      width:800px;height:130px;
+      background:url("../img/sm-logo.png") no-repeat center/contain;
+      margin-bottom:.5em
+    }
+    #visual-section.animate .exp{
+      color:#fff;font-size:1.25rem;line-height:1.6;max-width:80%;
+      animation:fadeInUp 1s ease-out forwards;animation-delay:1s
+    }
+    #visual-section .highlight{color:#e6d3a3;font-weight:600}
+    @media (max-width:768px){
+      #visual-section .company{font-size:2rem !important}
+      #visual-section .logo .m_logo{
+        background:url("../img/sm-font.png") no-repeat center/contain;
+        width:400px;height:300px
+      }
+      #visual-section .exp{font-size:1rem}
+      #visual-section .video_wrap video{object-position:right center}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 메뉴(외부 로드) -->
+<div id="menu"></div>
+
+
+<section id="nhnHeroSlider">
+
+<style>
+#nhnHeroSlider{
+  position:relative;
+  width:100%;
+  height:90vh;
+  min-height:600px;
+  overflow:hidden;
+  font-family:'Pretendard','Noto Sans KR',sans-serif;
+  background:#111;
+  touch-action:pan-y;
+
+  --nhn-side-left:clamp(40px,6vw,120px);
+  --nhn-side-right:40px;
+  --nhn-ui-width:190px;
+  --nhn-progress-bottom:63px;
+}
+
+#nhnHeroSlider *{
+  box-sizing:border-box;
+}
+
+#nhnHeroSlider .nhn-viewport{
+  position:relative;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+#nhnHeroSlider .nhn-viewport.dragging{
+  cursor:grabbing;
+}
+
+#nhnHeroSlider .nhn-slider{
+  display:flex;
+  width:100%;
+  height:100%;
+  will-change:transform;
+  transition:transform 900ms cubic-bezier(.77,0,.18,1);
+}
+
+#nhnHeroSlider .nhn-slider.no-transition{
+  transition:none !important;
+}
+
+#nhnHeroSlider .nhn-slide{
+  flex:0 0 100%;
+  width:100%;
+  height:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:0 var(--nhn-side-left);
+  overflow:hidden;
+  cursor:pointer;
+}
+
+#nhnHeroSlider .nhn-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+#nhnHeroSlider .nhn-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.56) 0%,rgba(0,0,0,.36) 38%,rgba(0,0,0,.18) 62%,rgba(0,0,0,.36) 100%),
+    linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.08) 35%,rgba(0,0,0,.32) 100%);
+  pointer-events:none;
+}
+
+#nhnHeroSlider .nhn-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.05);
+  transition:transform 6s ease;
+  pointer-events:none;
+  -webkit-user-drag:none;
+}
+
+#nhnHeroSlider .nhn-slide.active .nhn-bg img{
+  transform:scale(1.12);
+}
+
+#nhnHeroSlider .nhn-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+  pointer-events:none;
+}
+
+#nhnHeroSlider .nhn-title,
+#nhnHeroSlider .nhn-brand,
+#nhnHeroSlider .nhn-desc{
+  opacity:0;
+  transform:translateY(30px);
+}
+
+#nhnHeroSlider .nhn-title{
+  font-size:clamp(28px,3vw,42px);
+  font-weight:300;
+  color:#fff;
+  margin-bottom:14px;
+  text-shadow:0 2px 14px rgba(0,0,0,.28);
+}
+
+#nhnHeroSlider .nhn-brand{
+  font-size:clamp(36px,4vw,60px);
+  font-weight:800;
+  color:#5da5ff;
+  margin-bottom:20px;
+  line-height:1.2;
+  letter-spacing:-.04em;
+  text-shadow:0 3px 18px rgba(0,0,0,.22);
+}
+
+#nhnHeroSlider .nhn-desc{
+  font-size:clamp(14px,1.2vw,18px);
+  color:rgba(255,255,255,.92);
+  line-height:1.7;
+  text-shadow:0 2px 12px rgba(0,0,0,.26);
+}
+
+#nhnHeroSlider .nhn-slide.active .nhn-title{
+  animation:nhnFadeUp .8s forwards;
+}
+
+#nhnHeroSlider .nhn-slide.active .nhn-brand{
+  animation:nhnFadeUp .8s .16s forwards;
+}
+
+#nhnHeroSlider .nhn-slide.active .nhn-desc{
+  animation:nhnFadeUp .8s .32s forwards;
+}
+
+@keyframes nhnFadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+#nhnHeroSlider .nhn-progress{
+  position:absolute;
+  bottom:var(--nhn-progress-bottom);
+  left:var(--nhn-side-left);
+  right:calc(var(--nhn-side-right) + var(--nhn-ui-width));
+  height:2px;
+  background:rgba(255,255,255,.24);
+  z-index:2;
+  pointer-events:none;
+}
+
+#nhnHeroSlider .nhn-progress-bar{
+  height:100%;
+  width:0%;
+  background:#fff;
+  transition:width 4s linear;
+}
+
+#nhnHeroSlider .nhn-ui{
+  position:absolute;
+  bottom:40px;
+  right:var(--nhn-side-right);
+  display:flex;
+  align-items:center;
+  gap:20px;
+  color:#fff;
+  z-index:3;
+  min-width:var(--nhn-ui-width);
+  justify-content:flex-end;
+}
+
+#nhnHeroSlider .nhn-page{
+  font-size:14px;
+  opacity:.85;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+
+#nhnHeroSlider .nhn-btn{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.3s;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  user-select:none;
+  color:#fff;
+}
+
+#nhnHeroSlider .nhn-btn:hover{
+  background:#fff;
+  color:#000;
+}
+
+@media(max-width:768px){
+  #nhnHeroSlider{
+    --nhn-side-left:24px;
+    --nhn-side-right:24px;
+    --nhn-ui-width:136px;
+    --nhn-progress-bottom:86px;
+    min-height:560px;
+  }
+
+  #nhnHeroSlider .nhn-slide{
+    padding:0 24px 140px;
+    align-items:flex-end;
+  }
+
+  #nhnHeroSlider .nhn-content{
+    max-width:100%;
+  }
+
+  #nhnHeroSlider .nhn-ui{
+    bottom:24px;
+    gap:12px;
+  }
+
+  #nhnHeroSlider .nhn-btn{
+    width:42px;
+    height:42px;
+  }
+
+  #nhnHeroSlider .nhn-page{
+    font-size:13px;
+  }
+}
+</style>
+
+<div class="nhn-viewport" aria-label="혁신 프로젝트 슬라이더">
+  <div class="nhn-slider">
+
+    <div class="nhn-slide active" data-link="https://example.com/beauty-ai-clinic" tabindex="0" role="link" aria-label="AI 피부 진단 뷰티 클리닉 자세히 보기">
+      <div class="nhn-bg">
+        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&h=1000&fit=crop&q=80" alt="AI 피부 진단 뷰티 클리닉">
+      </div>
+
+      <div class="nhn-content">
+        <div class="nhn-title">LAB-01</div>
+        <div class="nhn-brand">AI 피부 진단 뷰티 클리닉</div>
+        <div class="nhn-desc">
+          오프라인 피부 관리 서비스를 AI 분석과 맞춤형 홈케어 구조로 확장합니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="nhn-slide" data-link="https://example.com/beauty-brand-studio" tabindex="0" role="link" aria-label="뷰티 브랜드 체험 스튜디오 자세히 보기">
+      <div class="nhn-bg">
+        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&h=1000&fit=crop&q=80" alt="뷰티 브랜드 체험 스튜디오">
+      </div>
+
+      <div class="nhn-content">
+        <div class="nhn-title">LAB-02</div>
+        <div class="nhn-brand">뷰티 브랜드 체험 스튜디오</div>
+        <div class="nhn-desc">
+          뷰티 브랜드를 체험형 공간과 콘텐츠 중심 구조로 확장합니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="nhn-slide" data-link="https://example.com/ai-fitness-routine" tabindex="0" role="link" aria-label="AI 운동 루틴 자동화 서비스 자세히 보기">
+      <div class="nhn-bg">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1600&h=1000&fit=crop&q=80" alt="AI 운동 루틴 자동화 서비스">
+      </div>
+
+      <div class="nhn-content">
+        <div class="nhn-title">LAB-06</div>
+        <div class="nhn-brand">AI 운동 루틴 자동화 서비스</div>
+        <div class="nhn-desc">
+          운동 데이터를 기반으로 루틴과 식단을 자동 관리하는 헬스 프로젝트입니다.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="nhn-progress">
+  <div class="nhn-progress-bar"></div>
+</div>
+
+<div class="nhn-ui">
+  <div class="nhn-page">01 / 03</div>
+  <div class="nhn-btn" data-dir="prev" aria-label="이전 슬라이드">←</div>
+  <div class="nhn-btn" data-dir="next" aria-label="다음 슬라이드">→</div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  var section = document.getElementById('nhnHeroSlider');
+  if(!section) return;
+
+  var viewport = section.querySelector('.nhn-viewport');
+  var slider = section.querySelector('.nhn-slider');
+  var slides = Array.prototype.slice.call(section.querySelectorAll('.nhn-slide'));
+  var bar = section.querySelector('.nhn-progress-bar');
+  var page = section.querySelector('.nhn-page');
+  var btns = Array.prototype.slice.call(section.querySelectorAll('.nhn-btn'));
+
+  if(!viewport || !slider || !slides.length) return;
+
+  var index = 0;
+  var timer = null;
+  var rafId = null;
+  var duration = 4000;
+  var isVisible = false;
+
+  var isDragging = false;
+  var startX = 0;
+  var currentX = 0;
+  var startTranslate = 0;
+  var currentTranslate = 0;
+  var moved = false;
+  var width = 0;
+
+  function getWidth(){
+    width = viewport.clientWidth || section.clientWidth || window.innerWidth;
+    return width;
+  }
+
+  function setTranslate(value, noTransition){
+    if(noTransition){
+      slider.classList.add('no-transition');
+    }else{
+      slider.classList.remove('no-transition');
+    }
+    slider.style.transform = 'translate3d(' + value + 'px,0,0)';
+  }
+
+  function restartProgress(){
+    if(!bar) return;
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+
+    if(rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(function(){
+      rafId = requestAnimationFrame(function(){
+        bar.style.transition = 'width ' + duration + 'ms linear';
+        bar.style.width = '100%';
+      });
+    });
+  }
+
+  function setActive(){
+    slides.forEach(function(slide, i){
+      if(i === index) slide.classList.add('active');
+      else slide.classList.remove('active');
+    });
+
+    if(page){
+      page.textContent = String(index + 1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
+    }
+  }
+
+  function update(noTransition){
+    getWidth();
+    currentTranslate = -index * width;
+    setTranslate(currentTranslate, !!noTransition);
+    setActive();
+    restartProgress();
+  }
+
+  function goTo(nextIndex, noTransition){
+    var total = slides.length;
+    index = ((nextIndex % total) + total) % total;
+    update(!!noTransition);
+  }
+
+  function next(){
+    goTo(index + 1, false);
+  }
+
+  function prev(){
+    goTo(index - 1, false);
+  }
+
+  function stopAuto(){
+    if(timer){
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function startAuto(){
+    stopAuto();
+    if(!isVisible || slides.length <= 1) return;
+    timer = setInterval(next, duration);
+  }
+
+  function clientX(e){
+    if(e.touches && e.touches.length) return e.touches[0].clientX;
+    if(e.changedTouches && e.changedTouches.length) return e.changedTouches[0].clientX;
+    return e.clientX;
+  }
+
+  function onDragStart(e){
+    if(slides.length <= 1) return;
+
+    isDragging = true;
+    moved = false;
+    startX = clientX(e);
+    currentX = startX;
+    startTranslate = -index * getWidth();
+    currentTranslate = startTranslate;
+
+    viewport.classList.add('dragging');
+    slider.classList.add('no-transition');
+    stopAuto();
+
+    if(e.type === 'mousedown') e.preventDefault();
+  }
+
+  function onDragMove(e){
+    if(!isDragging) return;
+
+    currentX = clientX(e);
+    var diff = currentX - startX;
+
+    if(Math.abs(diff) > 4) moved = true;
+
+    var resistance = 1;
+    if((index === 0 && diff > 0) || (index === slides.length - 1 && diff < 0)){
+      resistance = 0.35;
+    }
+
+    currentTranslate = startTranslate + (diff * resistance);
+    setTranslate(currentTranslate, true);
+
+    if(e.cancelable) e.preventDefault();
+  }
+
+  function onDragEnd(){
+    if(!isDragging) return;
+
+    isDragging = false;
+    viewport.classList.remove('dragging');
+    slider.classList.remove('no-transition');
+
+    var diff = currentX - startX;
+    var threshold = Math.max(60, getWidth() * 0.12);
+
+    if(diff < -threshold){
+      goTo(index + 1, false);
+    }else if(diff > threshold){
+      goTo(index - 1, false);
+    }else{
+      update(false);
+    }
+
+    startAuto();
+  }
+
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(btn.getAttribute('data-dir') === 'next') next();
+      else prev();
+      startAuto();
+    });
+  });
+
+  viewport.addEventListener('mousedown', onDragStart);
+  window.addEventListener('mousemove', onDragMove, {passive:false});
+  window.addEventListener('mouseup', onDragEnd);
+
+  viewport.addEventListener('touchstart', onDragStart, {passive:true});
+  viewport.addEventListener('touchmove', onDragMove, {passive:false});
+  viewport.addEventListener('touchend', onDragEnd);
+  viewport.addEventListener('touchcancel', onDragEnd);
+
+  viewport.addEventListener('click', function(e){
+    if(moved){
+      e.preventDefault();
+      e.stopPropagation();
+      moved = false;
+      return;
+    }
+
+    var activeSlide = slides[index];
+    var link = activeSlide ? activeSlide.getAttribute('data-link') : '';
+    if(link){
+      window.location.href = link;
+    }
+  }, true);
+
+  slides.forEach(function(slide){
+    slide.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        var link = slide.getAttribute('data-link');
+        if(link) window.location.href = link;
+      }
+    });
+  });
+
+  window.addEventListener('resize', function(){
+    update(true);
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      isVisible = entry.isIntersecting;
+      if(isVisible){
+        update(true);
+        startAuto();
+      }else{
+        stopAuto();
+      }
+    });
+  }, { threshold:0.35 });
+
+  io.observe(section);
+  update(true);
+})();
+</script>
+
+</section>
+
+
+<section id="innovationIncubationLab">
+<style>
+/* ══════════════════════════════════════════════════════════
+   #innovationIncubationLab — 혁신 인큐베이션 랩 프로젝트 디렉토리
+   카드 보기 + 리스트 보기 전환 / 미리보기 정상 작동 / 전체 코드 복사용
+   글로벌 html, body, * 영향 없음
+   ══════════════════════════════════════════════════════════ */
+
+#innovationIncubationLab{
+  position:relative;
+  width:100%;
+  font-family:'Noto Sans KR','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  color:#1a1a1a;
+  background:#fff;
+  overflow:hidden;
+  line-height:1.5;
+  box-sizing:border-box;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+#innovationIncubationLab *,
+#innovationIncubationLab *::before,
+#innovationIncubationLab *::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+#innovationIncubationLab .iil-intro{
+  max-width:1320px;
+  margin:0 auto;
+  padding:96px 48px 56px;
+}
+
+#innovationIncubationLab .iil-intro-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:44px;
+  border-bottom:1px solid #e8e8e8;
+  padding-bottom:42px;
+}
+
+#innovationIncubationLab .iil-kicker{
+  font-size:13px;
+  font-weight:800;
+  color:#999;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+#innovationIncubationLab .iil-title{
+  font-size:clamp(34px,4.4vw,64px);
+  line-height:1.13;
+  font-weight:900;
+  letter-spacing:-.055em;
+  color:#111;
+  word-break:keep-all;
+}
+
+#innovationIncubationLab .iil-title span{
+  color:#2468db;
+}
+
+#innovationIncubationLab .iil-desc{
+  max-width:540px;
+  font-size:15px;
+  line-height:1.8;
+  color:#777;
+  word-break:keep-all;
+}
+
+#innovationIncubationLab .iil-desc strong{
+  color:#111;
+  font-weight:800;
+}
+
+/* ── STICKY NAV ── */
+#innovationIncubationLab .iil-nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-top:1px solid #f1f1f1;
+  border-bottom:1px solid #e8e8e8;
+  transition:box-shadow .3s ease;
+  width:100%;
+}
+
+#innovationIncubationLab .iil-nav.scrolled{
+  box-shadow:0 2px 16px rgba(0,0,0,.06);
+}
+
+#innovationIncubationLab .iil-nav-inner{
+  max-width:1320px;
+  margin:0 auto;
+  padding:0 48px;
+  display:flex;
+  align-items:center;
+  height:56px;
+  gap:0;
+}
+
+#innovationIncubationLab .iil-tabs{
+  display:flex;
+  align-items:center;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scrollbar-width:none;
+  flex:1;
+  min-width:0;
+  height:56px;
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+#innovationIncubationLab .iil-tabs::-webkit-scrollbar{display:none;}
+#innovationIncubationLab .iil-tabs.dragging{cursor:grabbing;scroll-behavior:auto;}
+
+#innovationIncubationLab .iil-tab{
+  flex-shrink:0;
+  padding:0 18px;
+  height:56px;
+  display:flex;
+  align-items:center;
+  font-size:14px;
+  font-weight:500;
+  color:#999;
+  cursor:pointer;
+  position:relative;
+  transition:color .25s ease;
+  white-space:nowrap;
+  letter-spacing:-.01em;
+  border:none;
+  background:none;
+  outline:none;
+  font-family:inherit;
+}
+
+#innovationIncubationLab .iil-tab::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:18px;
+  right:18px;
+  height:2.5px;
+  background:#1a1a1a;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s ease;
+}
+
+#innovationIncubationLab .iil-tab[data-active="true"]{
+  color:#1a1a1a;
+  font-weight:800;
+}
+
+#innovationIncubationLab .iil-tab[data-active="true"]::after{
+  transform:scaleX(1);
+}
+
+#innovationIncubationLab .iil-tab:hover{color:#555;}
+
+#innovationIncubationLab .iil-view-toggle{
+  display:flex;
+  gap:4px;
+  flex-shrink:0;
+  padding-left:20px;
+  margin-left:auto;
+}
+
+#innovationIncubationLab .iil-view-btn{
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  color:#bbb;
+  transition:all .2s ease;
+  padding:0;
+  outline:none;
+  font-family:inherit;
+}
+
+#innovationIncubationLab .iil-view-btn:hover{
+  border-color:#999;
+  color:#666;
+}
+
+#innovationIncubationLab .iil-view-btn[data-active="true"]{
+  border-color:#1a1a1a;
+  background:#1a1a1a;
+  color:#fff;
+}
+
+#innovationIncubationLab .iil-view-btn svg{
+  width:16px;
+  height:16px;
+  fill:currentColor;
+}
+
+/* ── CONTENT ── */
+#innovationIncubationLab .iil-content{
+  max-width:1320px;
+  margin:0 auto;
+  padding:72px 48px 96px;
+}
+
+#innovationIncubationLab .iil-cat-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:28px;
+  margin-bottom:32px;
+}
+
+#innovationIncubationLab .iil-cat-title{
+  font-size:clamp(26px,3.2vw,38px);
+  font-weight:900;
+  letter-spacing:-.03em;
+  color:#1a1a1a;
+  line-height:1.2;
+}
+
+#innovationIncubationLab .iil-cat-desc{
+  max-width:540px;
+  font-size:14px;
+  line-height:1.75;
+  color:#888;
+  text-align:right;
+  word-break:keep-all;
+}
+
+/* ── CARD VIEW ── */
+#innovationIncubationLab .iil-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:34px 24px;
+}
+
+#innovationIncubationLab[data-view="list"] .iil-grid{
+  display:none;
+}
+
+#innovationIncubationLab .iil-card{
+  cursor:pointer;
+  transition:transform .3s ease;
+}
+
+#innovationIncubationLab .iil-card:hover{transform:translateY(-3px);}
+
+#innovationIncubationLab .iil-card-thumb{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  border-radius:6px;
+  overflow:hidden;
+  background:#f0f0f0;
+}
+
+#innovationIncubationLab .iil-card-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+  filter:saturate(.96) contrast(1.02);
+}
+
+#innovationIncubationLab .iil-card:hover .iil-card-thumb img{transform:scale(1.04);}
+
+#innovationIncubationLab .iil-card-overlay{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:24px 22px 20px;
+  background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.18) 72%,transparent 100%);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:12px;
+}
+
+#innovationIncubationLab .iil-card-ov-title{
+  font-size:clamp(15px,1.4vw,18px);
+  font-weight:800;
+  color:#fff;
+  line-height:1.45;
+  text-shadow:0 1px 6px rgba(0,0,0,.3);
+  flex:1;
+  word-break:keep-all;
+}
+
+#innovationIncubationLab .iil-card-ov-role{
+  font-size:12px;
+  font-weight:600;
+  color:rgba(255,255,255,.82);
+  white-space:nowrap;
+  text-shadow:0 1px 4px rgba(0,0,0,.3);
+}
+
+#innovationIncubationLab .iil-card-meta{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:14px;
+}
+
+#innovationIncubationLab .iil-card-meta-cat{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+
+#innovationIncubationLab .iil-card-meta-sep{
+  width:1px;
+  height:12px;
+  background:#d0d0d0;
+  display:block;
+}
+
+#innovationIncubationLab .iil-card-meta-desc{
+  font-size:13px;
+  font-weight:400;
+  color:#888;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+#innovationIncubationLab .iil-card-name{
+  font-size:clamp(16px,1.25vw,18px);
+  font-weight:800;
+  color:#1a1a1a;
+  margin-top:10px;
+  line-height:1.5;
+  letter-spacing:-.02em;
+  word-break:keep-all;
+}
+
+#innovationIncubationLab .iil-mix-box{
+  margin-top:16px;
+  border:1px solid #eee;
+  border-radius:10px;
+  background:#fafafa;
+  padding:16px;
+}
+
+#innovationIncubationLab .iil-mix-label{
+  display:block;
+  font-size:12px;
+  font-weight:800;
+  color:#aaa;
+  margin-bottom:10px;
+}
+
+#innovationIncubationLab .iil-mix-line{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:7px;
+}
+
+#innovationIncubationLab .iil-tag{
+  font-size:12px;
+  font-weight:700;
+  color:#555;
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:100px;
+  padding:7px 11px;
+  line-height:1;
+}
+
+#innovationIncubationLab .iil-plus{
+  font-size:13px;
+  font-weight:900;
+  color:#b5b5b5;
+}
+
+#innovationIncubationLab .iil-result-box{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid #e8e8e8;
+}
+
+#innovationIncubationLab .iil-result-label{
+  display:block;
+  font-size:12px;
+  font-weight:800;
+  color:#2468db;
+  margin-bottom:5px;
+}
+
+#innovationIncubationLab .iil-result-text{
+  display:block;
+  font-size:14px;
+  line-height:1.65;
+  font-weight:700;
+  color:#222;
+  word-break:keep-all;
+}
+
+/* ── LIST VIEW ── */
+#innovationIncubationLab .iil-list{
+  display:none;
+}
+
+#innovationIncubationLab[data-view="list"] .iil-list{
+  display:block;
+}
+
+#innovationIncubationLab .iil-list-head,
+#innovationIncubationLab .iil-list-row{
+  display:grid;
+  grid-template-columns:72px minmax(210px,1fr) minmax(310px,1.35fr) minmax(280px,1.1fr) 120px;
+  gap:18px;
+  align-items:center;
+}
+
+#innovationIncubationLab .iil-list-head{
+  padding:0 24px 12px;
+  font-size:12px;
+  font-weight:800;
+  color:#aaa;
+  border-bottom:1px solid #eee;
+}
+
+#innovationIncubationLab .iil-list-row{
+  padding:20px 24px;
+  border:1px solid #f0f0f0;
+  border-radius:10px;
+  margin-bottom:12px;
+  transition:all .25s ease;
+  cursor:pointer;
+  background:#fff;
+}
+
+#innovationIncubationLab .iil-list-row:hover{
+  border-color:#ddd;
+  box-shadow:0 4px 16px rgba(0,0,0,.05);
+  transform:translateY(-1px);
+}
+
+#innovationIncubationLab .iil-list-code{
+  font-size:14px;
+  font-weight:800;
+  color:#ccc;
+}
+
+#innovationIncubationLab .iil-list-title{
+  font-size:16px;
+  font-weight:800;
+  color:#1a1a1a;
+  line-height:1.4;
+  letter-spacing:-.02em;
+}
+
+#innovationIncubationLab .iil-list-copy{
+  display:block;
+  margin-top:4px;
+  font-size:12px;
+  line-height:1.55;
+  color:#888;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+#innovationIncubationLab .iil-list-mix{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
+}
+
+#innovationIncubationLab .iil-list-mix span{
+  font-size:12px;
+  font-weight:700;
+  color:#555;
+  background:#f7f7f7;
+  border:1px solid #eee;
+  border-radius:100px;
+  padding:6px 10px;
+  line-height:1;
+  white-space:nowrap;
+}
+
+#innovationIncubationLab .iil-list-mix b{
+  font-size:13px;
+  color:#b8b8b8;
+}
+
+#innovationIncubationLab .iil-list-result{
+  font-size:14px;
+  font-weight:800;
+  color:#222;
+  line-height:1.55;
+  word-break:keep-all;
+}
+
+#innovationIncubationLab .iil-status-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:12px;
+  font-weight:800;
+  color:#1a1a1a;
+  background:#f7f7f7;
+  border:1px solid #eee;
+  border-radius:100px;
+  padding:7px 10px;
+}
+
+#innovationIncubationLab .iil-status-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#2468db;
+}
+
+#innovationIncubationLab .iil-empty{
+  display:none;
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:70px 20px;
+  text-align:center;
+  color:#999;
+}
+
+#innovationIncubationLab .iil-empty.show{display:block;}
+
+/* ── FADE ── */
+#innovationIncubationLab .iil-fade{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+#innovationIncubationLab .iil-fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1180px){
+  #innovationIncubationLab .iil-grid{grid-template-columns:repeat(2,1fr);}
+  #innovationIncubationLab .iil-list-head{display:none;}
+  #innovationIncubationLab .iil-list-row{grid-template-columns:1fr;gap:12px;}
+  #innovationIncubationLab .iil-list-code{color:#1a1a1a;}
+}
+
+@media(max-width:1024px){
+  #innovationIncubationLab .iil-intro,
+  #innovationIncubationLab .iil-nav-inner,
+  #innovationIncubationLab .iil-content{
+    padding-left:28px;
+    padding-right:28px;
+  }
+}
+
+@media(max-width:768px){
+  #innovationIncubationLab .iil-intro{padding:72px 20px 42px;}
+  #innovationIncubationLab .iil-intro-top{display:block;padding-bottom:32px;}
+  #innovationIncubationLab .iil-desc{margin-top:22px;}
+
+  #innovationIncubationLab .iil-nav-inner{
+    padding:0 16px;
+    height:50px;
+  }
+
+  #innovationIncubationLab .iil-tabs{height:50px;}
+
+  #innovationIncubationLab .iil-tab{
+    padding:0 12px;
+    height:50px;
+    font-size:13px;
+  }
+
+  #innovationIncubationLab .iil-view-toggle{padding-left:12px;}
+  #innovationIncubationLab .iil-view-btn{width:32px;height:32px;}
+
+  #innovationIncubationLab .iil-content{padding:52px 20px 76px;}
+  #innovationIncubationLab .iil-cat-header{display:block;}
+
+  #innovationIncubationLab .iil-cat-desc{
+    text-align:left;
+    margin-top:12px;
+  }
+
+  #innovationIncubationLab .iil-grid{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+}
+
+@media(max-width:480px){
+  #innovationIncubationLab .iil-content{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  #innovationIncubationLab .iil-card-ov-title{font-size:14px;}
+}
+</style>
+
+<div class="iil-intro iil-fade">
+  <div class="iil-intro-top">
+    <div>
+      <div class="iil-kicker">Innovation Incubation Lab</div>
+      <h2 class="iil-title">
+        새로운 시장을 혁신하는<br>
+        <span>생각 1% 프로젝트</span>를<br>
+        소개합니다.
+      </h2>
+    </div>
+
+    <p class="iil-desc">
+      기존 비즈니스의 한계를 넘어,<br>
+      <strong>새로운 기술, 이업종이 만나
+      새로운 시장을 선도하는 혁신 프로젝트</strong>
+    </p>
+  </div>
+</div>
+
+<nav class="iil-nav" id="iilNav">
+  <div class="iil-nav-inner">
+    <div class="iil-tabs" id="iilTabs"></div>
+
+    <div class="iil-view-toggle">
+      <button class="iil-view-btn" type="button" data-view="card" data-active="true" aria-label="카드 보기">
+        <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+      </button>
+      <button class="iil-view-btn" type="button" data-view="list" data-active="false" aria-label="리스트 보기">
+        <svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2" rx="1"/><rect x="1" y="7" width="14" height="2" rx="1"/><rect x="1" y="12" width="14" height="2" rx="1"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="iil-content">
+  <div class="iil-cat-header iil-fade">
+    <h3 class="iil-cat-title" id="iilCurrentTitle">전체 프로젝트</h3>
+    <p class="iil-cat-desc" id="iilCurrentDesc">
+      각 프로젝트가 어떤 업종과 기술을 결합해 만들어지는지 확인할 수 있습니다.
+    </p>
+  </div>
+
+  <div class="iil-grid" id="iilGrid"></div>
+
+  <div class="iil-list" id="iilList">
+    <div class="iil-list-head">
+      <div>CODE</div>
+      <div>PROJECT</div>
+      <div>BUSINESS MIX</div>
+      <div>PROJECT RESULT</div>
+      <div>STAGE</div>
+    </div>
+    <div id="iilListRows"></div>
+  </div>
+
+  <div class="iil-empty" id="iilEmpty">표시할 프로젝트가 없습니다.</div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  var root = document.getElementById('innovationIncubationLab');
+  if(!root) return;
+
+  root.setAttribute('data-view','card');
+
+  var filters = [
+    {key:'all', label:'전체', title:'전체 프로젝트', desc:'뷰티와 헬스 업종이 어떤 기술과 결합해 새로운 프로젝트가 되는지 한눈에 확인합니다.'},
+    {key:'beauty', label:'뷰티', title:'뷰티 혁신 프로젝트', desc:'피부관리, 화장품, 에스테틱, 스타일링을 AI와 콘텐츠 구조로 확장합니다.'},
+    {key:'health', label:'헬스', title:'헬스 혁신 프로젝트', desc:'피트니스, 건강관리, 회복, 웰니스 서비스를 데이터와 공간 경험으로 확장합니다.'},
+    {key:'ai', label:'AI 활용', title:'AI 활용 프로젝트', desc:'뷰티와 헬스 서비스에 AI 분석, 추천, 자동화 시스템을 결합합니다.'},
+    {key:'space', label:'공간/경험', title:'공간·경험 프로젝트', desc:'오프라인 공간을 체험형 브랜드와 프리미엄 서비스로 전환합니다.'},
+    {key:'commerce', label:'커머스', title:'커머스 프로젝트', desc:'상품 판매, 구독, 추천, D2C 구조로 확장하는 프로젝트입니다.'},
+    {key:'brand', label:'브랜드 확장', title:'브랜드 확장 프로젝트', desc:'서비스를 브랜드 콘텐츠, 커뮤니티, 반복 구매 구조로 확장합니다.'}
+  ];
+
+  var projects = [
+    {
+      code:'LAB-01', category:['beauty','ai','health','brand'], title:'AI 피부 진단 뷰티 클리닉',
+      base:'피부과 · 에스테틱', add:'AI 피부 분석', plus:'퍼스널 홈케어 추천',
+      result:'피부 진단부터 제품 추천, 홈케어 루틴까지 연결하는 AI 뷰티 프로젝트',
+      copy:'오프라인 피부 관리 서비스를 AI 분석과 맞춤형 홈케어 구조로 확장합니다.',
+      stage:'검증중', image:'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-02', category:['health','space','brand'], title:'프리미엄 웰니스 회복 공간',
+      base:'헬스케어 프로그램', add:'명상 · 수면 회복 콘텐츠', plus:'프리미엄 공간 경험',
+      result:'운동과 심리 회복을 함께 경험하는 고급 웰니스 공간 프로젝트',
+      copy:'운동과 힐링을 결합해 몸과 마음 회복 경험을 제공하는 웰니스 구조입니다.',
+      stage:'진행중', image:'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-03', category:['beauty','commerce','brand','ai'], title:'AI 뷰티 제품 추천 플랫폼',
+      base:'뷰티 쇼핑몰', add:'고객 피부 데이터', plus:'AI 추천 알고리즘',
+      result:'피부 상태와 라이프스타일에 맞는 제품을 자동 추천하는 커머스 프로젝트',
+      copy:'고객 데이터와 AI 분석을 기반으로 개인 맞춤형 뷰티 제품을 추천합니다.',
+      stage:'개발중', image:'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-04', category:['health','brand'], title:'전문가 건강 습관 코칭 랩',
+      base:'건강 코칭', add:'습관 데이터 분석', plus:'커뮤니티 챌린지',
+      result:'전문가 코칭을 습관 형성과 참여형 커뮤니티 구조로 확장하는 프로젝트',
+      copy:'건강 관리 프로그램을 데이터 기반 습관 코칭 구조로 전환합니다.',
+      stage:'실험중', image:'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-05', category:['beauty','space','brand'], title:'뷰티 브랜드 체험 스튜디오',
+      base:'화장품 브랜드', add:'오프라인 체험 공간', plus:'SNS 콘텐츠 제작',
+      result:'브랜드 체험과 콘텐츠 제작을 동시에 할 수 있는 뷰티 공간 프로젝트',
+      copy:'뷰티 브랜드를 체험형 공간과 콘텐츠 중심 구조로 확장합니다.',
+      stage:'운영중', image:'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-06', category:['health','ai','commerce'], title:'AI 운동 루틴 자동화 서비스',
+      base:'피트니스 센터', add:'AI 운동 분석', plus:'구독형 건강 관리',
+      result:'운동 데이터를 기반으로 루틴과 식단을 자동 관리하는 헬스 프로젝트',
+      copy:'피트니스 데이터를 기반으로 운동과 식단 관리를 자동화합니다.',
+      stage:'개발중', image:'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-07', category:['beauty','commerce','brand'], title:'프리미엄 이너뷰티 브랜드',
+      base:'건강 식품', add:'뷰티 브랜딩', plus:'구독 커머스',
+      result:'먹는 건강 제품을 프리미엄 뷰티 라이프스타일 브랜드로 확장하는 프로젝트',
+      copy:'건강식품 시장을 뷰티 라이프스타일 기반 브랜드로 재구성합니다.',
+      stage:'기획중', image:'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-08', category:['health','space','ai'], title:'스마트 리커버리 헬스 라운지',
+      base:'재활 · 회복 프로그램', add:'AI 건강 모니터링', plus:'프리미엄 라운지 경험',
+      result:'회복 데이터를 기반으로 맞춤형 건강 케어를 제공하는 스마트 헬스 공간',
+      copy:'헬스케어와 공간 경험을 결합한 회복 중심의 프리미엄 라운지입니다.',
+      stage:'검증중', image:'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-09', category:['beauty','ai','brand'], title:'AI 퍼스널 스타일링 미러',
+      base:'뷰티 디바이스', add:'AI 얼굴 분석', plus:'스타일 추천 콘텐츠',
+      result:'얼굴형과 피부톤에 맞는 메이크업과 스타일을 추천하는 AI 뷰티 프로젝트',
+      copy:'뷰티 디바이스와 AI 스타일 분석을 결합한 차세대 뷰티 경험입니다.',
+      stage:'실험중', image:'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900&h=675&fit=crop&q=80'
+    }
+  ];
+
+  var tabsEl = document.getElementById('iilTabs');
+  var gridEl = document.getElementById('iilGrid');
+  var listRowsEl = document.getElementById('iilListRows');
+  var emptyEl = document.getElementById('iilEmpty');
+  var currentTitleEl = document.getElementById('iilCurrentTitle');
+  var currentDescEl = document.getElementById('iilCurrentDesc');
+  var navEl = document.getElementById('iilNav');
+  var activeFilter = 'all';
+
+  function escapeText(str){
+    return String(str).replace(/[&<>'"]/g,function(s){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[s];
+    });
+  }
+
+  function getFiltered(){
+    if(activeFilter === 'all') return projects.slice();
+    return projects.filter(function(p){return p.category.indexOf(activeFilter) > -1;});
+  }
+
+  function statusColor(stage){
+    if(stage === '운영중') return '#2f9e5f';
+    if(stage === '진행중') return '#2468db';
+    if(stage === '검증중') return '#d28c00';
+    if(stage === '개발중') return '#6d59c7';
+    if(stage === '실험중') return '#d75b37';
+    return '#aaa';
+  }
+
+  function renderTabs(){
+    tabsEl.innerHTML = filters.map(function(f){
+      return '<button class="iil-tab" type="button" data-filter="' + f.key + '" data-active="' + (f.key === activeFilter ? 'true' : 'false') + '">' + escapeText(f.label) + '</button>';
+    }).join('');
+
+    tabsEl.querySelectorAll('.iil-tab').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        activeFilter = btn.getAttribute('data-filter');
+        renderAll();
+      });
+    });
+  }
+
+  function renderHeader(filtered){
+    var meta = filters.find(function(f){return f.key === activeFilter;}) || filters[0];
+    currentTitleEl.textContent = meta.title;
+    currentDescEl.textContent = meta.desc;
+  }
+
+  function renderCards(filtered){
+    gridEl.innerHTML = filtered.map(function(p){
+      return '' +
+      '<article class="iil-card iil-fade">' +
+        '<div class="iil-card-thumb">' +
+          '<img src="' + p.image + '" alt="' + escapeText(p.title) + '" loading="lazy">' +
+          '<div class="iil-card-overlay">' +
+            '<div class="iil-card-ov-title">' + escapeText(p.title) + '</div>' +
+            '<div class="iil-card-ov-role">' + escapeText(p.stage) + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="iil-card-meta">' +
+          '<span class="iil-card-meta-cat" style="color:' + statusColor(p.stage) + '">' + escapeText(p.code) + '</span>' +
+          '<span class="iil-card-meta-sep"></span>' +
+          '<span class="iil-card-meta-desc">업종 결합 프로젝트</span>' +
+        '</div>' +
+        '<div class="iil-card-name">' + escapeText(p.copy) + '</div>' +
+        '<div class="iil-mix-box">' +
+          '<span class="iil-mix-label">BUSINESS MIX</span>' +
+          '<div class="iil-mix-line">' +
+            '<span class="iil-tag">' + escapeText(p.base) + '</span>' +
+            '<span class="iil-plus">+</span>' +
+            '<span class="iil-tag">' + escapeText(p.add) + '</span>' +
+            '<span class="iil-plus">+</span>' +
+            '<span class="iil-tag">' + escapeText(p.plus) + '</span>' +
+          '</div>' +
+          '<div class="iil-result-box">' +
+            '<span class="iil-result-label">PROJECT RESULT</span>' +
+            '<span class="iil-result-text">' + escapeText(p.result) + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+  }
+
+  function renderList(filtered){
+    listRowsEl.innerHTML = filtered.map(function(p){
+      return '' +
+      '<article class="iil-list-row iil-fade">' +
+        '<div class="iil-list-code">' + escapeText(p.code) + '</div>' +
+        '<div><div class="iil-list-title">' + escapeText(p.title) + '</div><span class="iil-list-copy">' + escapeText(p.copy) + '</span></div>' +
+        '<div class="iil-list-mix">' +
+          '<span>' + escapeText(p.base) + '</span><b>+</b>' +
+          '<span>' + escapeText(p.add) + '</span><b>+</b>' +
+          '<span>' + escapeText(p.plus) + '</span>' +
+        '</div>' +
+        '<div class="iil-list-result">' + escapeText(p.result) + '</div>' +
+        '<div><span class="iil-status-pill"><span class="iil-status-dot" style="background:' + statusColor(p.stage) + '"></span>' + escapeText(p.stage) + '</span></div>' +
+      '</article>';
+    }).join('');
+  }
+
+  function playFade(){
+    root.querySelectorAll('.iil-fade').forEach(function(el,idx){
+      el.classList.remove('show');
+      setTimeout(function(){el.classList.add('show');},idx * 35);
+    });
+  }
+
+  function renderAll(){
+    renderTabs();
+    var filtered = getFiltered();
+    renderHeader(filtered);
+    renderCards(filtered);
+    renderList(filtered);
+    emptyEl.classList.toggle('show', filtered.length === 0);
+    playFade();
+  }
+
+  root.querySelectorAll('.iil-view-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var view = btn.getAttribute('data-view');
+      root.setAttribute('data-view',view);
+      root.querySelectorAll('.iil-view-btn').forEach(function(b){
+        b.setAttribute('data-active', b.getAttribute('data-view') === view ? 'true' : 'false');
+      });
+      playFade();
+    });
+  });
+
+  window.addEventListener('scroll',function(){
+    navEl.classList.toggle('scrolled', window.scrollY > root.offsetTop + 20);
+  },{passive:true});
+
+  (function(){
+    var el = tabsEl;
+    var isDown = false;
+    var startX = 0;
+    var scrollLeft = 0;
+    var hasMoved = false;
+
+    el.addEventListener('mousedown',function(e){
+      isDown = true;
+      hasMoved = false;
+      el.classList.add('dragging');
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+      e.preventDefault();
+    });
+
+    el.addEventListener('mouseleave',function(){isDown = false;el.classList.remove('dragging');});
+    el.addEventListener('mouseup',function(){isDown = false;el.classList.remove('dragging');});
+
+    el.addEventListener('mousemove',function(e){
+      if(!isDown) return;
+      var x = e.pageX - el.offsetLeft;
+      var walk = (x - startX) * 1.5;
+      if(Math.abs(walk) > 4) hasMoved = true;
+      el.scrollLeft = scrollLeft - walk;
+    });
+
+    el.addEventListener('click',function(e){
+      if(hasMoved){
+        e.preventDefault();
+        e.stopPropagation();
+        hasMoved = false;
+      }
+    },true);
+  })();
+
+  renderAll();
+})();
+</script>
+
+</section>
+
+
+
+
+
+
+
+<div id="footer_template"></div>
+
+
+
+    </body>
+    <script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./js/validation1.js"> </script>
+<script src="./js/main.js"> </script>
+<script src="./js/footer.js"></script>
+  </html>
