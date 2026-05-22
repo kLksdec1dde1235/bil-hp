@@ -178,6 +178,7 @@
 <div id="menu"></div>
 
 
+
 <section id="nhnHeroSlider">
 
 <style>
@@ -191,7 +192,7 @@
 
   --nhn-side-left: clamp(40px, 6vw, 120px);
   --nhn-side-right: 40px;
-  --nhn-ui-width: 190px; /* 우측 페이지 + 버튼 영역 확보 */
+  --nhn-ui-width: 190px;
   --nhn-progress-bottom: 63px;
 }
 
@@ -284,16 +285,16 @@
 
 /* 활성화 애니메이션 */
 #nhnHeroSlider .nhn-slide.active .nhn-title{
-  animation:fadeUp .8s forwards;
+  animation:nhnFadeUp .8s forwards;
 }
 #nhnHeroSlider .nhn-slide.active .nhn-brand{
-  animation:fadeUp .8s .2s forwards;
+  animation:nhnFadeUp .8s .2s forwards;
 }
 #nhnHeroSlider .nhn-slide.active .nhn-desc{
-  animation:fadeUp .8s .4s forwards;
+  animation:nhnFadeUp .8s .4s forwards;
 }
 
-@keyframes fadeUp{
+@keyframes nhnFadeUp{
   to{
     opacity:1;
     transform:translateY(0);
@@ -316,7 +317,6 @@
   height:100%;
   width:0%;
   background:#fff;
-  transition:width 4s linear;
 }
 
 /* 오른쪽 UI */
@@ -403,13 +403,10 @@
     <div class="nhn-bg">
       <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=760&h=570&fit=crop&q=80" alt="">
     </div>
-
     <div class="nhn-content">
       <div class="nhn-title">R&D 기반 혁신으로 글로벌을 선도</div>
       <div class="nhn-brand">아모레퍼시픽 | 뷰티기업</div>
-      <div class="nhn-desc">
-        국내 대표 화장품 기업의 브랜드 포트폴리오
-      </div>
+      <div class="nhn-desc">국내 대표 화장품 기업의 브랜드 포트폴리오</div>
     </div>
   </div>
 
@@ -418,13 +415,10 @@
     <div class="nhn-bg">
       <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=760&h=570&fit=crop&q=80" alt="">
     </div>
-
     <div class="nhn-content">
       <div class="nhn-title">전국 체인 네트워크와 자유로운 이용 시스템</div>
       <div class="nhn-brand">스포애니 | 24시 피트니스</div>
-      <div class="nhn-desc">
-        합리적 가격의 24시간 무인 피트니스
-      </div>
+      <div class="nhn-desc">합리적 가격의 24시간 무인 피트니스</div>
     </div>
   </div>
 
@@ -433,14 +427,10 @@
     <div class="nhn-bg">
       <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=760&h=570&fit=crop&q=80" alt="">
     </div>
-
     <div class="nhn-content">
       <div class="nhn-title">하타·빈야사·음양 요가 전문 수업 운영</div>
       <div class="nhn-brand">코어요가 | 요가 스튜디오</div>
-      <div class="nhn-desc">
-       명상과 움직임을 결합한 
-마인드풀 요가 프로그램
-      </div>
+      <div class="nhn-desc">명상과 움직임을 결합한 마인드풀 요가 프로그램</div>
     </div>
   </div>
 
@@ -461,75 +451,101 @@
 
 <script>
 (function(){
-  const section = document.querySelector("#nhnHeroSlider");
-  const slider = section.querySelector(".nhn-slider");
-  const slides = section.querySelectorAll(".nhn-slide");
-  const bar = section.querySelector(".nhn-progress-bar");
-  const page = section.querySelector(".nhn-page");
-  const btns = section.querySelectorAll(".nhn-btn");
+  var section = document.querySelector("#nhnHeroSlider");
+  if(!section) return;
 
-  let index = 0;
-  let timer = null;
-  let rafId = null;
+  var slider = section.querySelector(".nhn-slider");
+  var slides = section.querySelectorAll(".nhn-slide");
+  var bar = section.querySelector(".nhn-progress-bar");
+  var page = section.querySelector(".nhn-page");
+  var btns = section.querySelectorAll(".nhn-btn");
+
+  var index = 0;
+  var total = slides.length;
+  var timer = null;
+  var INTERVAL = 4000;
+
+  function resetAnimations(slide){
+    var els = slide.querySelectorAll(".nhn-title, .nhn-brand, .nhn-desc");
+    els.forEach(function(el){
+      el.style.animation = "none";
+      el.offsetHeight; /* reflow 강제 */
+      el.style.animation = "";
+    });
+  }
 
   function restartProgress(){
     bar.style.transition = "none";
     bar.style.width = "0%";
-
-    cancelAnimationFrame(rafId);
-    rafId = requestAnimationFrame(() => {
-      rafId = requestAnimationFrame(() => {
-        bar.style.transition = "width 4s linear";
-        bar.style.width = "100%";
-      });
-    });
+    bar.offsetHeight; /* reflow 강제 */
+    bar.style.transition = "width " + (INTERVAL / 1000) + "s linear";
+    bar.style.width = "100%";
   }
 
-  function update(){
+  function goTo(newIndex){
+    if(newIndex === index && slides[index].classList.contains("active")) return;
+
+    /* 이전 슬라이드 active 제거 */
+    slides.forEach(function(s){ s.classList.remove("active"); });
+
+    index = newIndex;
+
+    /* 슬라이더 이동 */
     slider.style.transform = "translateX(-" + (index * 100) + "%)";
-    slides.forEach(s => s.classList.remove("active"));
+
+    /* 새 슬라이드 애니메이션 리셋 후 active 추가 */
+    resetAnimations(slides[index]);
     slides[index].classList.add("active");
 
+    /* 페이지 표시 */
     page.textContent =
       String(index + 1).padStart(2, "0") + " / " +
-      String(slides.length).padStart(2, "0");
+      String(total).padStart(2, "0");
 
+    /* 프로그레스 바 */
     restartProgress();
   }
 
   function next(){
-    index = (index + 1) % slides.length;
-    update();
+    goTo((index + 1) % total);
   }
 
   function prev(){
-    index = (index - 1 + slides.length) % slides.length;
-    update();
+    goTo((index - 1 + total) % total);
   }
 
-  function auto(){
-    clearInterval(timer);
-    timer = setInterval(next, 4000);
+  function startAuto(){
+    stopAuto();
+    timer = setInterval(next, INTERVAL);
   }
 
-  btns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      if(btn.dataset.dir === "next") next();
+  function stopAuto(){
+    if(timer){
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  /* 버튼 클릭 */
+  btns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      if(btn.getAttribute("data-dir") === "next") next();
       else prev();
-      auto();
+      startAuto(); /* 클릭 후 타이머 리셋 */
     });
   });
 
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
+  /* 뷰포트 진입/이탈 감지 */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
       if(e.isIntersecting){
-        update();
-        auto();
-      }else{
-        clearInterval(timer);
+        goTo(index); /* 현재 index 유지하며 활성화 */
+        startAuto();
+      } else {
+        stopAuto();
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 });
 
   io.observe(section);
 })();

@@ -178,6 +178,7 @@
 <div id="menu"></div>
 
 
+
 <section id="nhnHeroSlider">
 
 <style>
@@ -188,62 +189,37 @@
   min-height:600px;
   overflow:hidden;
   font-family:'Pretendard','Noto Sans KR',sans-serif;
-  background:#111;
-  touch-action:pan-y;
 
-  --nhn-side-left:clamp(40px,6vw,120px);
-  --nhn-side-right:40px;
-  --nhn-ui-width:190px;
-  --nhn-progress-bottom:63px;
+  --nhn-side-left: clamp(40px, 6vw, 120px);
+  --nhn-side-right: 40px;
+  --nhn-ui-width: 190px;
+  --nhn-progress-bottom: 63px;
 }
 
-#nhnHeroSlider *{
-  box-sizing:border-box;
-}
-
-#nhnHeroSlider .nhn-viewport{
-  position:relative;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  cursor:grab;
-  user-select:none;
-  -webkit-user-select:none;
-}
-
-#nhnHeroSlider .nhn-viewport.dragging{
-  cursor:grabbing;
-}
-
+/* 슬라이드 래퍼 */
 #nhnHeroSlider .nhn-slider{
   display:flex;
-  width:100%;
   height:100%;
-  will-change:transform;
-  transition:transform 900ms cubic-bezier(.77,0,.18,1);
+  transition:transform 1s cubic-bezier(.77,0,.18,1);
 }
 
-#nhnHeroSlider .nhn-slider.no-transition{
-  transition:none !important;
-}
-
+/* 각 슬라이드 */
 #nhnHeroSlider .nhn-slide{
-  flex:0 0 100%;
-  width:100%;
+  min-width:100%;
   height:100%;
   position:relative;
   display:flex;
   align-items:center;
   padding:0 var(--nhn-side-left);
+  box-sizing:border-box;
   overflow:hidden;
-  cursor:pointer;
 }
 
+/* 배경 */
 #nhnHeroSlider .nhn-bg{
   position:absolute;
   inset:0;
   z-index:0;
-  pointer-events:none;
 }
 
 #nhnHeroSlider .nhn-bg::after{
@@ -252,8 +228,8 @@
   inset:0;
   z-index:1;
   background:
-    linear-gradient(90deg,rgba(0,0,0,.56) 0%,rgba(0,0,0,.36) 38%,rgba(0,0,0,.18) 62%,rgba(0,0,0,.36) 100%),
-    linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.08) 35%,rgba(0,0,0,.32) 100%);
+    linear-gradient(90deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.28) 36%, rgba(0,0,0,.18) 62%, rgba(0,0,0,.30) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.14) 0%, rgba(0,0,0,.10) 30%, rgba(0,0,0,.26) 100%);
   pointer-events:none;
 }
 
@@ -261,29 +237,21 @@
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
+  filter:brightness(.52);
   transform:scale(1.05);
-  transition:transform 6s ease;
-  pointer-events:none;
-  -webkit-user-drag:none;
+  transition:transform 6s ease, filter .6s ease;
 }
 
 #nhnHeroSlider .nhn-slide.active .nhn-bg img{
   transform:scale(1.12);
+  filter:brightness(.48);
 }
 
+/* 텍스트 */
 #nhnHeroSlider .nhn-content{
   position:relative;
   z-index:2;
-  max-width:760px;
-  pointer-events:none;
-}
-
-#nhnHeroSlider .nhn-title,
-#nhnHeroSlider .nhn-brand,
-#nhnHeroSlider .nhn-desc{
-  opacity:0;
-  transform:translateY(30px);
+  max-width:700px;
 }
 
 #nhnHeroSlider .nhn-title{
@@ -291,16 +259,18 @@
   font-weight:300;
   color:#fff;
   margin-bottom:14px;
+  opacity:0;
+  transform:translateY(30px);
   text-shadow:0 2px 14px rgba(0,0,0,.28);
 }
 
 #nhnHeroSlider .nhn-brand{
   font-size:clamp(36px,4vw,60px);
-  font-weight:800;
+  font-weight:700;
   color:#5da5ff;
   margin-bottom:20px;
-  line-height:1.2;
-  letter-spacing:-.04em;
+  opacity:0;
+  transform:translateY(30px);
   text-shadow:0 3px 18px rgba(0,0,0,.22);
 }
 
@@ -308,19 +278,20 @@
   font-size:clamp(14px,1.2vw,18px);
   color:rgba(255,255,255,.92);
   line-height:1.7;
+  opacity:0;
+  transform:translateY(30px);
   text-shadow:0 2px 12px rgba(0,0,0,.26);
 }
 
+/* 활성화 애니메이션 */
 #nhnHeroSlider .nhn-slide.active .nhn-title{
   animation:nhnFadeUp .8s forwards;
 }
-
 #nhnHeroSlider .nhn-slide.active .nhn-brand{
-  animation:nhnFadeUp .8s .16s forwards;
+  animation:nhnFadeUp .8s .2s forwards;
 }
-
 #nhnHeroSlider .nhn-slide.active .nhn-desc{
-  animation:nhnFadeUp .8s .32s forwards;
+  animation:nhnFadeUp .8s .4s forwards;
 }
 
 @keyframes nhnFadeUp{
@@ -330,6 +301,7 @@
   }
 }
 
+/* 하단 프로그레스 */
 #nhnHeroSlider .nhn-progress{
   position:absolute;
   bottom:var(--nhn-progress-bottom);
@@ -345,9 +317,9 @@
   height:100%;
   width:0%;
   background:#fff;
-  transition:width 4s linear;
 }
 
+/* 오른쪽 UI */
 #nhnHeroSlider .nhn-ui{
   position:absolute;
   bottom:40px;
@@ -368,6 +340,7 @@
   white-space:nowrap;
 }
 
+/* 버튼 */
 #nhnHeroSlider .nhn-btn{
   width:48px;
   height:48px;
@@ -381,26 +354,25 @@
   backdrop-filter:blur(4px);
   -webkit-backdrop-filter:blur(4px);
   user-select:none;
-  color:#fff;
 }
-
 #nhnHeroSlider .nhn-btn:hover{
   background:#fff;
   color:#000;
 }
 
+/* 모바일 */
 @media(max-width:768px){
   #nhnHeroSlider{
-    --nhn-side-left:24px;
-    --nhn-side-right:24px;
-    --nhn-ui-width:136px;
-    --nhn-progress-bottom:86px;
-    min-height:560px;
+    --nhn-side-left: 24px;
+    --nhn-side-right: 24px;
+    --nhn-ui-width: 136px;
+    --nhn-progress-bottom: 86px;
   }
 
   #nhnHeroSlider .nhn-slide{
-    padding:0 24px 140px;
+    padding:0 24px;
     align-items:flex-end;
+    padding-bottom:140px;
   }
 
   #nhnHeroSlider .nhn-content{
@@ -423,153 +395,128 @@
 }
 </style>
 
-<div class="nhn-viewport" aria-label="혁신 프로젝트 슬라이더">
-  <div class="nhn-slider">
 
-    <div class="nhn-slide active" data-link="https://example.com/beauty-ai-clinic" tabindex="0" role="link" aria-label="AI 피부 진단 뷰티 클리닉 자세히 보기">
-      <div class="nhn-bg">
-        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&h=1000&fit=crop&q=80" alt="AI 피부 진단 뷰티 클리닉">
-      </div>
+<div class="nhn-slider">
 
-      <div class="nhn-content">
-        <div class="nhn-title">LAB-01</div>
-        <div class="nhn-brand">AI 피부 진단 뷰티 클리닉</div>
-        <div class="nhn-desc">
-          오프라인 피부 관리 서비스를 AI 분석과 맞춤형 홈케어 구조로 확장합니다.
-        </div>
-      </div>
+  <!-- slide 1 -->
+  <div class="nhn-slide active">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=760&h=570&fit=crop&q=80" alt="">
     </div>
-
-    <div class="nhn-slide" data-link="https://example.com/beauty-brand-studio" tabindex="0" role="link" aria-label="뷰티 브랜드 체험 스튜디오 자세히 보기">
-      <div class="nhn-bg">
-        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&h=1000&fit=crop&q=80" alt="뷰티 브랜드 체험 스튜디오">
-      </div>
-
-      <div class="nhn-content">
-        <div class="nhn-title">LAB-02</div>
-        <div class="nhn-brand">뷰티 브랜드 체험 스튜디오</div>
-        <div class="nhn-desc">
-          뷰티 브랜드를 체험형 공간과 콘텐츠 중심 구조로 확장합니다.
-        </div>
-      </div>
+    <div class="nhn-content">
+      <div class="nhn-title">R&D 기반 혁신으로 글로벌을 선도</div>
+      <div class="nhn-brand">아모레퍼시픽 | 뷰티기업</div>
+      <div class="nhn-desc">국내 대표 화장품 기업의 브랜드 포트폴리오</div>
     </div>
-
-    <div class="nhn-slide" data-link="https://example.com/ai-fitness-routine" tabindex="0" role="link" aria-label="AI 운동 루틴 자동화 서비스 자세히 보기">
-      <div class="nhn-bg">
-        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1600&h=1000&fit=crop&q=80" alt="AI 운동 루틴 자동화 서비스">
-      </div>
-
-      <div class="nhn-content">
-        <div class="nhn-title">LAB-06</div>
-        <div class="nhn-brand">AI 운동 루틴 자동화 서비스</div>
-        <div class="nhn-desc">
-          운동 데이터를 기반으로 루틴과 식단을 자동 관리하는 헬스 프로젝트입니다.
-        </div>
-      </div>
-    </div>
-
   </div>
+
+  <!-- slide 2 -->
+  <div class="nhn-slide">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=760&h=570&fit=crop&q=80" alt="">
+    </div>
+    <div class="nhn-content">
+      <div class="nhn-title">전국 체인 네트워크와 자유로운 이용 시스템</div>
+      <div class="nhn-brand">스포애니 | 24시 피트니스</div>
+      <div class="nhn-desc">합리적 가격의 24시간 무인 피트니스</div>
+    </div>
+  </div>
+
+  <!-- slide 3 -->
+  <div class="nhn-slide">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=760&h=570&fit=crop&q=80" alt="">
+    </div>
+    <div class="nhn-content">
+      <div class="nhn-title">하타·빈야사·음양 요가 전문 수업 운영</div>
+      <div class="nhn-brand">코어요가 | 요가 스튜디오</div>
+      <div class="nhn-desc">명상과 움직임을 결합한 마인드풀 요가 프로그램</div>
+    </div>
+  </div>
+
 </div>
 
+<!-- progress -->
 <div class="nhn-progress">
   <div class="nhn-progress-bar"></div>
 </div>
 
+<!-- UI -->
 <div class="nhn-ui">
   <div class="nhn-page">01 / 03</div>
   <div class="nhn-btn" data-dir="prev" aria-label="이전 슬라이드">←</div>
   <div class="nhn-btn" data-dir="next" aria-label="다음 슬라이드">→</div>
 </div>
 
+
 <script>
 (function(){
-  'use strict';
-
-  var section = document.getElementById('nhnHeroSlider');
+  var section = document.querySelector("#nhnHeroSlider");
   if(!section) return;
 
-  var viewport = section.querySelector('.nhn-viewport');
-  var slider = section.querySelector('.nhn-slider');
-  var slides = Array.prototype.slice.call(section.querySelectorAll('.nhn-slide'));
-  var bar = section.querySelector('.nhn-progress-bar');
-  var page = section.querySelector('.nhn-page');
-  var btns = Array.prototype.slice.call(section.querySelectorAll('.nhn-btn'));
-
-  if(!viewport || !slider || !slides.length) return;
+  var slider = section.querySelector(".nhn-slider");
+  var slides = section.querySelectorAll(".nhn-slide");
+  var bar = section.querySelector(".nhn-progress-bar");
+  var page = section.querySelector(".nhn-page");
+  var btns = section.querySelectorAll(".nhn-btn");
 
   var index = 0;
+  var total = slides.length;
   var timer = null;
-  var rafId = null;
-  var duration = 4000;
-  var isVisible = false;
+  var INTERVAL = 4000;
 
-  var isDragging = false;
-  var startX = 0;
-  var currentX = 0;
-  var startTranslate = 0;
-  var currentTranslate = 0;
-  var moved = false;
-  var width = 0;
-
-  function getWidth(){
-    width = viewport.clientWidth || section.clientWidth || window.innerWidth;
-    return width;
-  }
-
-  function setTranslate(value, noTransition){
-    if(noTransition){
-      slider.classList.add('no-transition');
-    }else{
-      slider.classList.remove('no-transition');
-    }
-    slider.style.transform = 'translate3d(' + value + 'px,0,0)';
+  function resetAnimations(slide){
+    var els = slide.querySelectorAll(".nhn-title, .nhn-brand, .nhn-desc");
+    els.forEach(function(el){
+      el.style.animation = "none";
+      el.offsetHeight; /* reflow 강제 */
+      el.style.animation = "";
+    });
   }
 
   function restartProgress(){
-    if(!bar) return;
-    bar.style.transition = 'none';
-    bar.style.width = '0%';
-
-    if(rafId) cancelAnimationFrame(rafId);
-    rafId = requestAnimationFrame(function(){
-      rafId = requestAnimationFrame(function(){
-        bar.style.transition = 'width ' + duration + 'ms linear';
-        bar.style.width = '100%';
-      });
-    });
+    bar.style.transition = "none";
+    bar.style.width = "0%";
+    bar.offsetHeight; /* reflow 강제 */
+    bar.style.transition = "width " + (INTERVAL / 1000) + "s linear";
+    bar.style.width = "100%";
   }
 
-  function setActive(){
-    slides.forEach(function(slide, i){
-      if(i === index) slide.classList.add('active');
-      else slide.classList.remove('active');
-    });
+  function goTo(newIndex){
+    if(newIndex === index && slides[index].classList.contains("active")) return;
 
-    if(page){
-      page.textContent = String(index + 1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
-    }
-  }
+    /* 이전 슬라이드 active 제거 */
+    slides.forEach(function(s){ s.classList.remove("active"); });
 
-  function update(noTransition){
-    getWidth();
-    currentTranslate = -index * width;
-    setTranslate(currentTranslate, !!noTransition);
-    setActive();
+    index = newIndex;
+
+    /* 슬라이더 이동 */
+    slider.style.transform = "translateX(-" + (index * 100) + "%)";
+
+    /* 새 슬라이드 애니메이션 리셋 후 active 추가 */
+    resetAnimations(slides[index]);
+    slides[index].classList.add("active");
+
+    /* 페이지 표시 */
+    page.textContent =
+      String(index + 1).padStart(2, "0") + " / " +
+      String(total).padStart(2, "0");
+
+    /* 프로그레스 바 */
     restartProgress();
   }
 
-  function goTo(nextIndex, noTransition){
-    var total = slides.length;
-    index = ((nextIndex % total) + total) % total;
-    update(!!noTransition);
-  }
-
   function next(){
-    goTo(index + 1, false);
+    goTo((index + 1) % total);
   }
 
   function prev(){
-    goTo(index - 1, false);
+    goTo((index - 1 + total) % total);
+  }
+
+  function startAuto(){
+    stopAuto();
+    timer = setInterval(next, INTERVAL);
   }
 
   function stopAuto(){
@@ -579,135 +526,28 @@
     }
   }
 
-  function startAuto(){
-    stopAuto();
-    if(!isVisible || slides.length <= 1) return;
-    timer = setInterval(next, duration);
-  }
-
-  function clientX(e){
-    if(e.touches && e.touches.length) return e.touches[0].clientX;
-    if(e.changedTouches && e.changedTouches.length) return e.changedTouches[0].clientX;
-    return e.clientX;
-  }
-
-  function onDragStart(e){
-    if(slides.length <= 1) return;
-
-    isDragging = true;
-    moved = false;
-    startX = clientX(e);
-    currentX = startX;
-    startTranslate = -index * getWidth();
-    currentTranslate = startTranslate;
-
-    viewport.classList.add('dragging');
-    slider.classList.add('no-transition');
-    stopAuto();
-
-    if(e.type === 'mousedown') e.preventDefault();
-  }
-
-  function onDragMove(e){
-    if(!isDragging) return;
-
-    currentX = clientX(e);
-    var diff = currentX - startX;
-
-    if(Math.abs(diff) > 4) moved = true;
-
-    var resistance = 1;
-    if((index === 0 && diff > 0) || (index === slides.length - 1 && diff < 0)){
-      resistance = 0.35;
-    }
-
-    currentTranslate = startTranslate + (diff * resistance);
-    setTranslate(currentTranslate, true);
-
-    if(e.cancelable) e.preventDefault();
-  }
-
-  function onDragEnd(){
-    if(!isDragging) return;
-
-    isDragging = false;
-    viewport.classList.remove('dragging');
-    slider.classList.remove('no-transition');
-
-    var diff = currentX - startX;
-    var threshold = Math.max(60, getWidth() * 0.12);
-
-    if(diff < -threshold){
-      goTo(index + 1, false);
-    }else if(diff > threshold){
-      goTo(index - 1, false);
-    }else{
-      update(false);
-    }
-
-    startAuto();
-  }
-
+  /* 버튼 클릭 */
   btns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      if(btn.getAttribute('data-dir') === 'next') next();
+    btn.addEventListener("click", function(){
+      if(btn.getAttribute("data-dir") === "next") next();
       else prev();
-      startAuto();
+      startAuto(); /* 클릭 후 타이머 리셋 */
     });
   });
 
-  viewport.addEventListener('mousedown', onDragStart);
-  window.addEventListener('mousemove', onDragMove, {passive:false});
-  window.addEventListener('mouseup', onDragEnd);
-
-  viewport.addEventListener('touchstart', onDragStart, {passive:true});
-  viewport.addEventListener('touchmove', onDragMove, {passive:false});
-  viewport.addEventListener('touchend', onDragEnd);
-  viewport.addEventListener('touchcancel', onDragEnd);
-
-  viewport.addEventListener('click', function(e){
-    if(moved){
-      e.preventDefault();
-      e.stopPropagation();
-      moved = false;
-      return;
-    }
-
-    var activeSlide = slides[index];
-    var link = activeSlide ? activeSlide.getAttribute('data-link') : '';
-    if(link){
-      window.location.href = link;
-    }
-  }, true);
-
-  slides.forEach(function(slide){
-    slide.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        var link = slide.getAttribute('data-link');
-        if(link) window.location.href = link;
-      }
-    });
-  });
-
-  window.addEventListener('resize', function(){
-    update(true);
-  });
-
+  /* 뷰포트 진입/이탈 감지 */
   var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      isVisible = entry.isIntersecting;
-      if(isVisible){
-        update(true);
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        goTo(index); /* 현재 index 유지하며 활성화 */
         startAuto();
-      }else{
+      } else {
         stopAuto();
       }
     });
-  }, { threshold:0.35 });
+  }, { threshold: 0.3 });
 
   io.observe(section);
-  update(true);
 })();
 </script>
 

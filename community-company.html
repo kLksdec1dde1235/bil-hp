@@ -191,7 +191,7 @@
 
   --nhn-side-left: clamp(40px, 6vw, 120px);
   --nhn-side-right: 40px;
-  --nhn-ui-width: 190px; /* 우측 페이지 + 버튼 영역 확보 */
+  --nhn-ui-width: 190px;
   --nhn-progress-bottom: 63px;
 }
 
@@ -284,16 +284,16 @@
 
 /* 활성화 애니메이션 */
 #nhnHeroSlider .nhn-slide.active .nhn-title{
-  animation:fadeUp .8s forwards;
+  animation:nhnFadeUp .8s forwards;
 }
 #nhnHeroSlider .nhn-slide.active .nhn-brand{
-  animation:fadeUp .8s .2s forwards;
+  animation:nhnFadeUp .8s .2s forwards;
 }
 #nhnHeroSlider .nhn-slide.active .nhn-desc{
-  animation:fadeUp .8s .4s forwards;
+  animation:nhnFadeUp .8s .4s forwards;
 }
 
-@keyframes fadeUp{
+@keyframes nhnFadeUp{
   to{
     opacity:1;
     transform:translateY(0);
@@ -316,7 +316,6 @@
   height:100%;
   width:0%;
   background:#fff;
-  transition:width 4s linear;
 }
 
 /* 오른쪽 UI */
@@ -403,13 +402,10 @@
     <div class="nhn-bg">
       <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=760&h=570&fit=crop&q=80" alt="">
     </div>
-
     <div class="nhn-content">
       <div class="nhn-title">R&D 기반 혁신으로 글로벌을 선도</div>
       <div class="nhn-brand">아모레퍼시픽 | 뷰티기업</div>
-      <div class="nhn-desc">
-        국내 대표 화장품 기업의 브랜드 포트폴리오
-      </div>
+      <div class="nhn-desc">국내 대표 화장품 기업의 브랜드 포트폴리오</div>
     </div>
   </div>
 
@@ -418,13 +414,10 @@
     <div class="nhn-bg">
       <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=760&h=570&fit=crop&q=80" alt="">
     </div>
-
     <div class="nhn-content">
       <div class="nhn-title">전국 체인 네트워크와 자유로운 이용 시스템</div>
       <div class="nhn-brand">스포애니 | 24시 피트니스</div>
-      <div class="nhn-desc">
-        합리적 가격의 24시간 무인 피트니스
-      </div>
+      <div class="nhn-desc">합리적 가격의 24시간 무인 피트니스</div>
     </div>
   </div>
 
@@ -433,14 +426,10 @@
     <div class="nhn-bg">
       <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=760&h=570&fit=crop&q=80" alt="">
     </div>
-
     <div class="nhn-content">
       <div class="nhn-title">하타·빈야사·음양 요가 전문 수업 운영</div>
       <div class="nhn-brand">코어요가 | 요가 스튜디오</div>
-      <div class="nhn-desc">
-       명상과 움직임을 결합한 
-마인드풀 요가 프로그램
-      </div>
+      <div class="nhn-desc">명상과 움직임을 결합한 마인드풀 요가 프로그램</div>
     </div>
   </div>
 
@@ -461,75 +450,101 @@
 
 <script>
 (function(){
-  const section = document.querySelector("#nhnHeroSlider");
-  const slider = section.querySelector(".nhn-slider");
-  const slides = section.querySelectorAll(".nhn-slide");
-  const bar = section.querySelector(".nhn-progress-bar");
-  const page = section.querySelector(".nhn-page");
-  const btns = section.querySelectorAll(".nhn-btn");
+  var section = document.querySelector("#nhnHeroSlider");
+  if(!section) return;
 
-  let index = 0;
-  let timer = null;
-  let rafId = null;
+  var slider = section.querySelector(".nhn-slider");
+  var slides = section.querySelectorAll(".nhn-slide");
+  var bar = section.querySelector(".nhn-progress-bar");
+  var page = section.querySelector(".nhn-page");
+  var btns = section.querySelectorAll(".nhn-btn");
+
+  var index = 0;
+  var total = slides.length;
+  var timer = null;
+  var INTERVAL = 4000;
+
+  function resetAnimations(slide){
+    var els = slide.querySelectorAll(".nhn-title, .nhn-brand, .nhn-desc");
+    els.forEach(function(el){
+      el.style.animation = "none";
+      el.offsetHeight; /* reflow 강제 */
+      el.style.animation = "";
+    });
+  }
 
   function restartProgress(){
     bar.style.transition = "none";
     bar.style.width = "0%";
-
-    cancelAnimationFrame(rafId);
-    rafId = requestAnimationFrame(() => {
-      rafId = requestAnimationFrame(() => {
-        bar.style.transition = "width 4s linear";
-        bar.style.width = "100%";
-      });
-    });
+    bar.offsetHeight; /* reflow 강제 */
+    bar.style.transition = "width " + (INTERVAL / 1000) + "s linear";
+    bar.style.width = "100%";
   }
 
-  function update(){
+  function goTo(newIndex){
+    if(newIndex === index && slides[index].classList.contains("active")) return;
+
+    /* 이전 슬라이드 active 제거 */
+    slides.forEach(function(s){ s.classList.remove("active"); });
+
+    index = newIndex;
+
+    /* 슬라이더 이동 */
     slider.style.transform = "translateX(-" + (index * 100) + "%)";
-    slides.forEach(s => s.classList.remove("active"));
+
+    /* 새 슬라이드 애니메이션 리셋 후 active 추가 */
+    resetAnimations(slides[index]);
     slides[index].classList.add("active");
 
+    /* 페이지 표시 */
     page.textContent =
       String(index + 1).padStart(2, "0") + " / " +
-      String(slides.length).padStart(2, "0");
+      String(total).padStart(2, "0");
 
+    /* 프로그레스 바 */
     restartProgress();
   }
 
   function next(){
-    index = (index + 1) % slides.length;
-    update();
+    goTo((index + 1) % total);
   }
 
   function prev(){
-    index = (index - 1 + slides.length) % slides.length;
-    update();
+    goTo((index - 1 + total) % total);
   }
 
-  function auto(){
-    clearInterval(timer);
-    timer = setInterval(next, 4000);
+  function startAuto(){
+    stopAuto();
+    timer = setInterval(next, INTERVAL);
   }
 
-  btns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      if(btn.dataset.dir === "next") next();
+  function stopAuto(){
+    if(timer){
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  /* 버튼 클릭 */
+  btns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      if(btn.getAttribute("data-dir") === "next") next();
       else prev();
-      auto();
+      startAuto(); /* 클릭 후 타이머 리셋 */
     });
   });
 
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
+  /* 뷰포트 진입/이탈 감지 */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
       if(e.isIntersecting){
-        update();
-        auto();
-      }else{
-        clearInterval(timer);
+        goTo(index); /* 현재 index 유지하며 활성화 */
+        startAuto();
+      } else {
+        stopAuto();
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 });
 
   io.observe(section);
 })();
@@ -692,6 +707,200 @@
   fill:currentColor;
 }
 
+/* ── SEARCH BAR (추가) ── */
+#partnerDirectory .pd-search-bar{
+  max-width:1320px;
+  margin:0 auto;
+  padding:20px 48px 0;
+}
+#partnerDirectory .pd-search{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  max-width:540px;
+}
+#partnerDirectory .pd-search-field{
+  display:flex;
+  align-items:center;
+  flex:1;
+  min-width:0;
+  background:#f7f7f7;
+  border:1px solid #e8e8e8;
+  border-radius:12px;
+  overflow:hidden;
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+#partnerDirectory .pd-search-field:focus-within{
+  border-color:#1a1a1a;
+  box-shadow:0 0 0 3px rgba(26,26,26,.06);
+}
+#partnerDirectory .pd-search-icon{
+  padding:0 14px;
+  display:flex;
+  align-items:center;
+  flex-shrink:0;
+  color:#bbb;
+}
+#partnerDirectory .pd-search-icon svg{
+  width:18px;
+  height:18px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+#partnerDirectory .pd-search input{
+  flex:1;
+  border:none;
+  background:none;
+  outline:none;
+  font-size:14px;
+  font-family:inherit;
+  color:#1a1a1a;
+  padding:13px 14px 13px 0;
+  min-width:0;
+}
+#partnerDirectory .pd-search input::placeholder{color:#bbb}
+#partnerDirectory .pd-search-clear{
+  padding:0 12px;
+  display:none;
+  align-items:center;
+  cursor:pointer;
+  color:#ccc;
+  transition:color .2s;
+  flex-shrink:0;
+  border:none;
+  background:none;
+  font-family:inherit;
+  outline:none;
+}
+#partnerDirectory .pd-search-clear.visible{display:flex}
+#partnerDirectory .pd-search-clear:hover{color:#888}
+#partnerDirectory .pd-search-clear svg{
+  width:16px;
+  height:16px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+#partnerDirectory .pd-search-submit{
+  flex-shrink:0;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:none;
+  background:#1a1a1a;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:background .2s ease, transform .15s ease, box-shadow .2s ease;
+  outline:none;
+  padding:0;
+}
+#partnerDirectory .pd-search-submit:hover{
+  background:#333;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+  transform:translateY(-1px);
+}
+#partnerDirectory .pd-search-submit:active{
+  transform:scale(.96);
+  box-shadow:none;
+}
+#partnerDirectory .pd-search-submit svg{
+  width:18px;
+  height:18px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+#partnerDirectory .pd-search-count{
+  font-size:13px;
+  color:#bbb;
+  margin-top:10px;
+  min-height:20px;
+}
+#partnerDirectory .pd-no-result{
+  text-align:center;
+  padding:40px 20px;
+  color:#ccc;
+  font-size:14px;
+  display:none;
+}
+#partnerDirectory .pd-no-result.visible{display:block}
+
+/* 전체 검색 결과 없음 (글로벌) */
+#partnerDirectory .pd-empty-state{
+  display:none;
+  text-align:center;
+  padding:100px 24px 120px;
+  max-width:480px;
+  margin:0 auto;
+}
+#partnerDirectory .pd-empty-state.visible{display:block}
+#partnerDirectory .pd-empty-icon{
+  width:80px;
+  height:80px;
+  margin:0 auto 28px;
+  border-radius:50%;
+  background:#f5f5f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#partnerDirectory .pd-empty-icon svg{
+  width:36px;
+  height:36px;
+  fill:none;
+  stroke:#ccc;
+  stroke-width:1.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+#partnerDirectory .pd-empty-title{
+  font-size:22px;
+  font-weight:800;
+  color:#1a1a1a;
+  margin-bottom:10px;
+  letter-spacing:-.02em;
+}
+#partnerDirectory .pd-empty-keyword{
+  color:#e67e22;
+}
+#partnerDirectory .pd-empty-desc{
+  font-size:14px;
+  color:#999;
+  line-height:1.7;
+  margin-bottom:28px;
+}
+#partnerDirectory .pd-empty-tips{
+  display:inline-flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+}
+#partnerDirectory .pd-empty-tip{
+  font-size:12px;
+  font-weight:500;
+  color:#888;
+  background:#f7f7f7;
+  border:1px solid #eee;
+  border-radius:100px;
+  padding:6px 14px;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+#partnerDirectory .pd-empty-tip:hover{
+  background:#eee;
+  color:#555;
+}
+
 /* ── CATEGORY BLOCK ── */
 #partnerDirectory .pd-cat{
   padding:72px 0 48px;
@@ -701,6 +910,9 @@
 #partnerDirectory .pd-cat:last-child{
   border-bottom:none;
   padding-bottom:80px;
+}
+#partnerDirectory .pd-cat[data-hidden="true"]{
+  display:none;
 }
 
 #partnerDirectory .pd-cat-header{
@@ -794,6 +1006,9 @@
 }
 #partnerDirectory .pd-card:hover{
   transform:translateY(-3px);
+}
+#partnerDirectory .pd-card[data-hidden="true"]{
+  display:none;
 }
 
 #partnerDirectory .pd-card-thumb{
@@ -927,6 +1142,9 @@
 #partnerDirectory .pd-list-item:last-child{
   margin-bottom:0;
 }
+#partnerDirectory .pd-list-item[data-hidden="true"]{
+  display:none;
+}
 
 #partnerDirectory .pd-list-num{
   font-size:14px;
@@ -1008,7 +1226,8 @@
   #partnerDirectory .pd-nav-inner,
   #partnerDirectory .pd-cat-header,
   #partnerDirectory .pd-slider-wrap,
-  #partnerDirectory .pd-list-wrap{
+  #partnerDirectory .pd-list-wrap,
+  #partnerDirectory .pd-search-bar{
     padding-left:28px;
     padding-right:28px;
   }
@@ -1036,7 +1255,8 @@
   }
   #partnerDirectory .pd-cat-header,
   #partnerDirectory .pd-slider-wrap,
-  #partnerDirectory .pd-list-wrap{
+  #partnerDirectory .pd-list-wrap,
+  #partnerDirectory .pd-search-bar{
     padding-left:20px;
     padding-right:20px;
   }
@@ -1063,7 +1283,8 @@
 @media(max-width:480px){
   #partnerDirectory .pd-cat-header,
   #partnerDirectory .pd-slider-wrap,
-  #partnerDirectory .pd-list-wrap{
+  #partnerDirectory .pd-list-wrap,
+  #partnerDirectory .pd-search-bar{
     padding-left:16px;
     padding-right:16px;
   }
@@ -1092,6 +1313,36 @@
     </div>
   </div>
 </nav>
+
+<!-- ══════ SEARCH (추가) ══════ -->
+<div class="pd-search-bar">
+  <div class="pd-search">
+    <div class="pd-search-field">
+      <span class="pd-search-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+      <input type="text" id="pdSearchInput" placeholder="업체명, 해시태그로 검색 (예: 아산병원, #필라테스)">
+      <button class="pd-search-clear" id="pdSearchClear" type="button" aria-label="검색 초기화"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <button class="pd-search-submit" id="pdSearchSubmit" type="button" aria-label="검색"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="pd-search-count" id="pdSearchCount"></div>
+</div>
+
+<!-- ══════ EMPTY STATE ══════ -->
+<div class="pd-empty-state" id="pdEmptyState">
+  <div class="pd-empty-icon">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6"/></svg>
+  </div>
+  <div class="pd-empty-title">"<span class="pd-empty-keyword" id="pdEmptyKeyword"></span>"에 대한 검색 결과가 없습니다</div>
+  <div class="pd-empty-desc">다른 키워드로 검색하거나, 아래 추천 키워드를 눌러보세요.</div>
+  <div class="pd-empty-tips">
+    <span class="pd-empty-tip" data-q="병원">병원</span>
+    <span class="pd-empty-tip" data-q="필라테스">필라테스</span>
+    <span class="pd-empty-tip" data-q="#피부과">#피부과</span>
+    <span class="pd-empty-tip" data-q="헤어">헤어</span>
+    <span class="pd-empty-tip" data-q="#프리미엄">#프리미엄</span>
+    <span class="pd-empty-tip" data-q="스타벅스">스타벅스</span>
+  </div>
+</div>
 
 <!-- ══════ CONTENT ══════ -->
 <div id="pdContent"></div>
@@ -1228,6 +1479,7 @@
     var sec = document.createElement('div');
     sec.className = 'pd-cat';
     sec.id = cat.id;
+    sec.setAttribute('data-hidden','false');
     var sliderId = 'pdSlider_' + ci;
 
     /* HEADER */
@@ -1251,6 +1503,9 @@
     cat.companies.forEach(function(c){
       var cd = document.createElement('article');
       cd.className = 'pd-card';
+      cd.setAttribute('data-name', c.name.toLowerCase());
+      cd.setAttribute('data-tags', c.tags.join(' ').toLowerCase());
+      cd.setAttribute('data-hidden','false');
       cd.innerHTML =
         '<div class="pd-card-thumb">' +
           '<img src="' + c.image + '" alt="' + c.name + '" loading="lazy">' +
@@ -1278,6 +1533,9 @@
     cat.companies.forEach(function(c, idx){
       var item = document.createElement('div');
       item.className = 'pd-list-item';
+      item.setAttribute('data-name', c.name.toLowerCase());
+      item.setAttribute('data-tags', c.tags.join(' ').toLowerCase());
+      item.setAttribute('data-hidden','false');
       item.innerHTML =
         '<span class="pd-list-num">' + String(idx+1).padStart(2,'0') + '</span>' +
         '<span class="pd-list-logo">' + c.logo + '</span>' +
@@ -1290,6 +1548,12 @@
       lw.appendChild(item);
     });
     sec.appendChild(lw);
+
+    /* NO RESULT */
+    var nr = document.createElement('div');
+    nr.className = 'pd-no-result';
+    nr.textContent = '검색 결과가 없습니다.';
+    sec.appendChild(nr);
 
     content.appendChild(sec);
   });
@@ -1357,7 +1621,7 @@
         var navH = pdNav.offsetHeight;
         var newActive = 0;
         for(var i = 0; i < catBlocks.length; i++){
-          if(catBlocks[i].getBoundingClientRect().top <= navH + 60) newActive = i;
+          if(catBlocks[i].getAttribute('data-hidden') !== 'true' && catBlocks[i].getBoundingClientRect().top <= navH + 60) newActive = i;
         }
         if(newActive !== currentActive){
           currentActive = newActive;
@@ -1422,6 +1686,75 @@
     sl.addEventListener('mouseleave', function(){down=false;sl.style.cursor=''});
     sl.addEventListener('mouseup', function(){down=false;sl.style.cursor=''});
     sl.addEventListener('mousemove', function(e){if(!down)return;e.preventDefault();sl.scrollLeft=sLeft-((e.pageX-sl.offsetLeft)-sx)*1.2});
+  });
+
+  /* ═══════════ SEARCH (추가) ═══════════ */
+  var searchInput = document.getElementById('pdSearchInput');
+  var searchClear = document.getElementById('pdSearchClear');
+  var searchCount = document.getElementById('pdSearchCount');
+  var emptyState = document.getElementById('pdEmptyState');
+  var emptyKeyword = document.getElementById('pdEmptyKeyword');
+
+  function doSearch(){
+    var q = searchInput.value.trim().toLowerCase();
+    searchClear.classList.toggle('visible', q.length > 0);
+    var totalMatch = 0;
+
+    catBlocks.forEach(function(sec){
+      var cards = sec.querySelectorAll('.pd-card');
+      var listItems = sec.querySelectorAll('.pd-list-item');
+      var catMatch = 0;
+
+      cards.forEach(function(c){
+        if(q.length === 0){ c.setAttribute('data-hidden','false'); catMatch++; return; }
+        var n = c.getAttribute('data-name'), t = c.getAttribute('data-tags');
+        var match = n.indexOf(q) !== -1 || t.indexOf(q) !== -1;
+        c.setAttribute('data-hidden', match ? 'false' : 'true');
+        if(match) catMatch++;
+      });
+
+      listItems.forEach(function(l){
+        if(q.length === 0){ l.setAttribute('data-hidden','false'); return; }
+        var n = l.getAttribute('data-name'), t = l.getAttribute('data-tags');
+        var match = n.indexOf(q) !== -1 || t.indexOf(q) !== -1;
+        l.setAttribute('data-hidden', match ? 'false' : 'true');
+      });
+
+      totalMatch += catMatch;
+      sec.setAttribute('data-hidden', catMatch === 0 && q.length > 0 ? 'true' : 'false');
+      var nr = sec.querySelector('.pd-no-result');
+      if(nr){ catMatch === 0 && q.length > 0 ? nr.classList.add('visible') : nr.classList.remove('visible'); }
+    });
+
+    if(q.length > 0){
+      searchCount.textContent = '"' + searchInput.value.trim() + '" 검색 결과 ' + totalMatch + '개';
+      if(totalMatch === 0){
+        emptyKeyword.textContent = searchInput.value.trim();
+        emptyState.classList.add('visible');
+      } else {
+        emptyState.classList.remove('visible');
+      }
+    } else {
+      searchCount.textContent = '';
+      emptyState.classList.remove('visible');
+    }
+  }
+
+  searchInput.addEventListener('input', function(){
+    searchClear.classList.toggle('visible', searchInput.value.trim().length > 0);
+  });
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+  document.getElementById('pdSearchSubmit').addEventListener('click', doSearch);
+  searchClear.addEventListener('click', function(){ searchInput.value = ''; doSearch(); searchInput.focus(); });
+
+  /* 추천 키워드 클릭 */
+  root.querySelectorAll('.pd-empty-tip').forEach(function(tip){
+    tip.addEventListener('click', function(){
+      searchInput.value = tip.getAttribute('data-q');
+      doSearch();
+    });
   });
 
   requestAnimationFrame(onScroll);
