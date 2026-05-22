@@ -537,892 +537,725 @@
 
 </section>
 
-<section id="partnerDirectory">
+<section id="solutionMarket">
 <style>
-/* ══════════════════════════════════════════════════════════
-   #partnerDirectory — 모든 스타일은 이 ID 아래에서만 작동
-   글로벌 *, html, body 리셋 없음 / position:absolute 최소화
-   ══════════════════════════════════════════════════════════ */
-
-#partnerDirectory{
-  position:relative;
-  width:100%;
+#solutionMarket{
+  position:relative;width:100%;
   font-family:'Noto Sans KR','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
-  color:#1a1a1a;
-  background:#fff;
+  color:#1a1a1a;background:#fff;
   -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow:hidden;
-  line-height:1.5;
-  box-sizing:border-box;
+  overflow:hidden;line-height:1.5;box-sizing:border-box;
+}
+#solutionMarket *,#solutionMarket *::before,#solutionMarket *::after{
+  box-sizing:border-box;margin:0;padding:0;
 }
 
-#partnerDirectory *,
-#partnerDirectory *::before,
-#partnerDirectory *::after{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-/* ── STICKY CATEGORY NAV ── */
-#partnerDirectory .pd-nav{
-  position:sticky;
-  top:0;
-  z-index:100;
+/* ── STICKY NAV ── */
+#solutionMarket .sm-nav{
+  position:sticky;top:0;z-index:100;
   background:rgba(255,255,255,.96);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid #e8e8e8;
-  transition:box-shadow .3s ease;
-  width:100%;
+  transition:box-shadow .3s ease;width:100%;
 }
-#partnerDirectory .pd-nav.scrolled{
-  box-shadow:0 2px 16px rgba(0,0,0,.06);
+#solutionMarket .sm-nav.scrolled{box-shadow:0 2px 16px rgba(0,0,0,.06)}
+#solutionMarket .sm-nav-inner{
+  max-width:1320px;margin:0 auto;padding:0 48px;
+  display:flex;align-items:center;height:54px;
 }
+#solutionMarket .sm-nav-tabs{
+  display:flex;align-items:center;overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:none;flex:1;min-width:0;height:54px;
+  cursor:grab;user-select:none;-webkit-user-select:none;
+}
+#solutionMarket .sm-nav-tabs::-webkit-scrollbar{display:none}
+#solutionMarket .sm-nav-tabs.dragging{cursor:grabbing;scroll-behavior:auto}
 
-#partnerDirectory .pd-nav-inner{
-  max-width:1320px;
-  margin:0 auto;
-  padding:0 48px;
-  display:flex;
-  align-items:center;
-  height:56px;
-  gap:0;
+#solutionMarket .sm-nav-tab{
+  flex-shrink:0;padding:0 16px;height:54px;
+  display:flex;align-items:center;
+  font-size:14px;font-weight:500;color:#999;
+  cursor:pointer;position:relative;
+  transition:color .25s ease;white-space:nowrap;
+  letter-spacing:-.01em;border:none;background:none;
+  outline:none;font-family:inherit;
 }
-
-/* 탭 스크롤 영역 — 드래그 가능 */
-#partnerDirectory .pd-nav-tabs{
-  display:flex;
-  align-items:center;
-  overflow-x:auto;
-  overflow-y:hidden;
-  scrollbar-width:none;
-  flex:1;
-  min-width:0;
-  height:56px;
-  cursor:grab;
-  user-select:none;
-  -webkit-user-select:none;
+#solutionMarket .sm-nav-tab::after{
+  content:'';position:absolute;bottom:0;left:16px;right:16px;
+  height:2.5px;background:#e67e22;
+  transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
 }
-#partnerDirectory .pd-nav-tabs::-webkit-scrollbar{display:none}
-#partnerDirectory .pd-nav-tabs.dragging{
-  cursor:grabbing;
-  scroll-behavior:auto;
-}
-
-#partnerDirectory .pd-nav-tab{
-  flex-shrink:0;
-  padding:0 18px;
-  height:56px;
-  display:flex;
-  align-items:center;
-  font-size:14px;
-  font-weight:500;
-  color:#999;
-  cursor:pointer;
-  position:relative;
-  transition:color .25s ease;
-  white-space:nowrap;
-  letter-spacing:-.01em;
-  border:none;
-  background:none;
-  outline:none;
-  font-family:inherit;
-}
-#partnerDirectory .pd-nav-tab::after{
-  content:'';
-  position:absolute;
-  bottom:0;
-  left:18px;
-  right:18px;
-  height:2.5px;
-  background:#1a1a1a;
-  transform:scaleX(0);
-  transform-origin:left;
-  transition:transform .3s ease;
-}
-#partnerDirectory .pd-nav-tab[data-active="true"]{
-  color:#1a1a1a;
-  font-weight:700;
-}
-#partnerDirectory .pd-nav-tab[data-active="true"]::after{
-  transform:scaleX(1);
-}
-#partnerDirectory .pd-nav-tab:hover{
-  color:#555;
-}
+#solutionMarket .sm-nav-tab[data-active="true"]{color:#1a1a1a;font-weight:700}
+#solutionMarket .sm-nav-tab[data-active="true"]::after{transform:scaleX(1)}
+#solutionMarket .sm-nav-tab:hover{color:#555}
 
 /* 뷰 토글 */
-#partnerDirectory .pd-view-toggle{
-  display:flex;
-  gap:4px;
-  flex-shrink:0;
-  padding-left:20px;
-  margin-left:auto;
+#solutionMarket .sm-view-toggle{
+  display:flex;gap:4px;flex-shrink:0;padding-left:20px;margin-left:auto;
 }
-#partnerDirectory .pd-view-btn{
-  width:36px;
-  height:36px;
-  border-radius:8px;
-  border:1px solid #ddd;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  color:#bbb;
-  transition:all .2s ease;
-  padding:0;
-  outline:none;
-  font-family:inherit;
+#solutionMarket .sm-view-btn{
+  width:34px;height:34px;border-radius:8px;border:1px solid #ddd;
+  background:#fff;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:#bbb;transition:all .2s ease;
+  padding:0;outline:none;font-family:inherit;
 }
-#partnerDirectory .pd-view-btn:hover{
-  border-color:#999;
-  color:#666;
+#solutionMarket .sm-view-btn:hover{border-color:#999;color:#666}
+#solutionMarket .sm-view-btn[data-active="true"]{border-color:#1a1a1a;background:#1a1a1a;color:#fff}
+#solutionMarket .sm-view-btn svg{width:15px;height:15px;fill:currentColor}
+
+/* ── SEARCH (카테고리 탭 아래) ── */
+#solutionMarket .sm-search-bar{
+  max-width:1320px;margin:0 auto;
+  padding:20px 48px 0;
 }
-#partnerDirectory .pd-view-btn[data-active="true"]{
-  border-color:#1a1a1a;
-  background:#1a1a1a;
-  color:#fff;
+#solutionMarket .sm-search{
+  display:flex;align-items:center;gap:0;
+  background:#f7f7f7;border:1px solid #e8e8e8;
+  border-radius:12px;overflow:hidden;
+  max-width:480px;
+  transition:border-color .25s ease, box-shadow .25s ease;
 }
-#partnerDirectory .pd-view-btn svg{
-  width:16px;
-  height:16px;
-  fill:currentColor;
+#solutionMarket .sm-search:focus-within{
+  border-color:#e67e22;box-shadow:0 0 0 3px rgba(230,126,34,.1);
+}
+#solutionMarket .sm-search-icon{
+  padding:0 14px;display:flex;align-items:center;flex-shrink:0;color:#bbb;
+}
+#solutionMarket .sm-search-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#solutionMarket .sm-search input{
+  flex:1;border:none;background:none;outline:none;
+  font-size:14px;font-family:inherit;color:#1a1a1a;
+  padding:12px 14px 12px 0;min-width:0;
+}
+#solutionMarket .sm-search input::placeholder{color:#bbb}
+#solutionMarket .sm-search-clear{
+  padding:0 12px;display:none;align-items:center;
+  cursor:pointer;color:#ccc;transition:color .2s;flex-shrink:0;
+  border:none;background:none;font-family:inherit;outline:none;
+}
+#solutionMarket .sm-search-clear.visible{display:flex}
+#solutionMarket .sm-search-clear:hover{color:#888}
+#solutionMarket .sm-search-clear svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#solutionMarket .sm-search-count{
+  font-size:13px;color:#bbb;margin-top:10px;min-height:20px;
 }
 
 /* ── CATEGORY BLOCK ── */
-#partnerDirectory .pd-cat{
-  padding:72px 0 48px;
-  border-bottom:1px solid #eee;
-  scroll-margin-top:56px;
+#solutionMarket .sm-cat{
+  padding:60px 0 40px;border-bottom:1px solid #eee;scroll-margin-top:54px;
 }
-#partnerDirectory .pd-cat:last-child{
-  border-bottom:none;
-  padding-bottom:80px;
-}
+#solutionMarket .sm-cat:last-child{border-bottom:none;padding-bottom:72px}
+#solutionMarket .sm-cat[data-hidden="true"]{display:none}
 
-#partnerDirectory .pd-cat-header{
-  max-width:1320px;
-  margin:0 auto;
-  padding:0 48px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:32px;
-}
-#partnerDirectory .pd-cat-title{
-  font-size:clamp(26px,3.2vw,38px);
-  font-weight:900;
-  letter-spacing:-.03em;
-  color:#1a1a1a;
-  line-height:1.2;
-}
-
-/* 슬라이드 화살표 */
-#partnerDirectory .pd-arrows{
-  display:flex;
-  gap:8px;
-}
-#partnerDirectory[data-view="list"] .pd-arrows{
-  display:none;
-}
-#partnerDirectory .pd-arrow{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  border:1px solid #d0d0d0;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:all .25s ease;
-  color:#888;
-  flex-shrink:0;
-  padding:0;
-  outline:none;
-  font-family:inherit;
-}
-#partnerDirectory .pd-arrow:hover{
-  border-color:#1a1a1a;
-  color:#1a1a1a;
-}
-#partnerDirectory .pd-arrow:active{
-  transform:scale(.95);
-}
-#partnerDirectory .pd-arrow svg{
-  width:18px;
-  height:18px;
-  fill:none;
-  stroke:currentColor;
-  stroke-width:2;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-/* ══════════════════════════════════
-   CARD VIEW (가로 슬라이더)
-   ══════════════════════════════════ */
-#partnerDirectory .pd-slider-wrap{
-  max-width:1320px;
-  margin:0 auto;
-  padding:0 48px;
-}
-#partnerDirectory[data-view="list"] .pd-slider-wrap{
-  display:none;
-}
-
-#partnerDirectory .pd-slider{
-  display:flex;
-  gap:24px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  scrollbar-width:none;
-  scroll-snap-type:x mandatory;
-  padding-bottom:8px;
-}
-#partnerDirectory .pd-slider::-webkit-scrollbar{display:none}
-
-#partnerDirectory .pd-card{
-  flex:0 0 auto;
-  width:380px;
-  cursor:pointer;
-  scroll-snap-align:start;
-  transition:transform .3s ease;
-}
-#partnerDirectory .pd-card:hover{
-  transform:translateY(-3px);
-}
-
-#partnerDirectory .pd-card-thumb{
-  position:relative;
-  width:100%;
-  aspect-ratio:4/3;
-  border-radius:6px;
-  overflow:hidden;
-  background:#f0f0f0;
-}
-#partnerDirectory .pd-card-thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transition:transform .5s ease;
-}
-#partnerDirectory .pd-card:hover .pd-card-thumb img{
-  transform:scale(1.04);
-}
-
-#partnerDirectory .pd-card-overlay{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  padding:24px 22px 20px;
-  background:linear-gradient(0deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.12) 70%,transparent 100%);
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:12px;
-}
-#partnerDirectory .pd-card-ov-title{
-  font-size:clamp(15px,1.4vw,18px);
-  font-weight:700;
-  color:#fff;
-  line-height:1.45;
-  text-shadow:0 1px 6px rgba(0,0,0,.3);
-  flex:1;
-}
-#partnerDirectory .pd-card-ov-role{
-  font-size:12px;
-  font-weight:500;
-  color:rgba(255,255,255,.8);
-  white-space:nowrap;
-  text-shadow:0 1px 4px rgba(0,0,0,.3);
-}
-
-#partnerDirectory .pd-card-meta{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:14px;
-}
-#partnerDirectory .pd-card-meta-cat{
-  font-size:13px;
-  font-weight:600;
-  letter-spacing:-.01em;
-}
-#partnerDirectory .pd-card-meta-sep{
-  width:1px;
-  height:12px;
-  background:#d0d0d0;
-  display:block;
-}
-#partnerDirectory .pd-card-meta-desc{
-  font-size:13px;
-  font-weight:400;
-  color:#888;
-}
-#partnerDirectory .pd-card-name{
-  font-size:clamp(15px,1.2vw,17px);
-  font-weight:700;
-  color:#1a1a1a;
-  margin-top:10px;
-  line-height:1.5;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
-#partnerDirectory .pd-card-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin-top:12px;
-}
-#partnerDirectory .pd-tag{
-  font-size:12px;
-  font-weight:400;
-  color:#666;
-  background:#f5f5f5;
-  border:1px solid #eee;
-  border-radius:3px;
-  padding:4px 10px;
-  line-height:1;
-}
-
-/* ══════════════════════════════════
-   LIST VIEW (보완)
-   ══════════════════════════════════ */
-#partnerDirectory .pd-list-wrap{
-  max-width:1320px;
-  margin:0 auto;
-  padding:0 48px;
-  display:none;
-}
-#partnerDirectory[data-view="list"] .pd-list-wrap{
-  display:block;
-}
-
-/* 리스트 카드 형태 */
-#partnerDirectory .pd-list-item{
-  display:flex;
-  align-items:center;
-  gap:20px;
-  padding:20px 24px;
-  border:1px solid #f0f0f0;
-  border-radius:10px;
+#solutionMarket .sm-cat-header{
+  max-width:1320px;margin:0 auto;padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
   margin-bottom:12px;
-  transition:all .25s ease;
-  cursor:pointer;
-  background:#fff;
 }
-#partnerDirectory .pd-list-item:hover{
-  border-color:#ddd;
-  box-shadow:0 4px 16px rgba(0,0,0,.05);
-  transform:translateY(-1px);
-}
-#partnerDirectory .pd-list-item:last-child{
-  margin-bottom:0;
+#solutionMarket .sm-cat-title{
+  font-size:clamp(24px,2.8vw,34px);font-weight:900;
+  letter-spacing:-.03em;color:#1a1a1a;line-height:1.2;
 }
 
-#partnerDirectory .pd-list-num{
-  font-size:14px;
-  font-weight:700;
-  color:#ccc;
-  min-width:28px;
-  text-align:center;
-  flex-shrink:0;
+/* 서브카테고리 */
+#solutionMarket .sm-sub-wrap{
+  max-width:1320px;margin:0 auto;padding:0 48px;margin-bottom:28px;
+}
+#solutionMarket .sm-sub-list{display:flex;flex-wrap:wrap;gap:8px}
+#solutionMarket .sm-sub-btn{
+  font-size:13px;font-weight:500;color:#888;
+  background:#f5f5f5;border:1px solid #eee;
+  border-radius:100px;padding:7px 16px;
+  cursor:pointer;transition:all .2s ease;
+  outline:none;font-family:inherit;white-space:nowrap;
+}
+#solutionMarket .sm-sub-btn:hover{border-color:#ccc;color:#555}
+#solutionMarket .sm-sub-btn[data-active="true"]{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+
+/* 화살표 */
+#solutionMarket .sm-arrows{display:flex;gap:8px}
+#solutionMarket[data-view="list"] .sm-arrows{display:none}
+#solutionMarket .sm-arrow{
+  width:42px;height:42px;border-radius:50%;border:1px solid #d0d0d0;
+  background:#fff;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .25s ease;color:#888;flex-shrink:0;
+  padding:0;outline:none;font-family:inherit;
+}
+#solutionMarket .sm-arrow:hover{border-color:#1a1a1a;color:#1a1a1a}
+#solutionMarket .sm-arrow svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── CARD SLIDER ── */
+#solutionMarket .sm-slider-wrap{max-width:1320px;margin:0 auto;padding:0 48px}
+#solutionMarket[data-view="list"] .sm-slider-wrap{display:none}
+#solutionMarket .sm-slider{
+  display:flex;gap:20px;overflow-x:auto;
+  scrollbar-width:none;padding-bottom:8px;
+}
+#solutionMarket .sm-slider::-webkit-scrollbar{display:none}
+
+#solutionMarket .sm-card{
+  flex:0 0 auto;width:320px;cursor:pointer;
+  transition:transform .3s ease;
+  border:1px solid #f0f0f0;border-radius:12px;overflow:hidden;background:#fff;
+}
+#solutionMarket .sm-card[data-hidden="true"]{display:none}
+#solutionMarket .sm-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+
+#solutionMarket .sm-card-thumb{
+  position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:#f0f0f0;
+}
+#solutionMarket .sm-card-thumb img{
+  width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;
+}
+#solutionMarket .sm-card:hover .sm-card-thumb img{transform:scale(1.04)}
+#solutionMarket .sm-card-badge{
+  position:absolute;top:12px;left:12px;
+  font-size:11px;font-weight:700;color:#fff;
+  background:rgba(230,126,34,.9);border-radius:6px;
+  padding:4px 10px;letter-spacing:.02em;
 }
 
-#partnerDirectory .pd-list-logo{
-  width:48px;
-  height:48px;
-  border-radius:10px;
-  background:#f5f5f5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:13px;
-  font-weight:800;
-  color:#888;
-  flex-shrink:0;
-  border:1px solid #eee;
+#solutionMarket .sm-card-body{padding:18px 20px 20px}
+#solutionMarket .sm-card-sub{font-size:11px;font-weight:600;color:#e67e22;margin-bottom:6px}
+#solutionMarket .sm-card-name{
+  font-size:16px;font-weight:700;color:#1a1a1a;
+  margin-bottom:6px;line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+#solutionMarket .sm-card-desc{
+  font-size:13px;color:#888;line-height:1.6;margin-bottom:14px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+#solutionMarket .sm-card-tags{display:flex;flex-wrap:wrap;gap:5px}
+#solutionMarket .sm-card-tag{
+  font-size:11px;font-weight:500;color:#999;
+  background:#f7f7f7;border:1px solid #eee;
+  border-radius:100px;padding:3px 10px;line-height:1;
 }
 
-#partnerDirectory .pd-list-info{
-  flex:1;
-  min-width:0;
+/* ── LIST VIEW ── */
+#solutionMarket .sm-list-wrap{max-width:1320px;margin:0 auto;padding:0 48px;display:none}
+#solutionMarket[data-view="list"] .sm-list-wrap{display:block}
+#solutionMarket .sm-list-item{
+  display:flex;align-items:center;gap:20px;
+  padding:18px 22px;border:1px solid #f0f0f0;
+  border-radius:10px;margin-bottom:10px;
+  transition:all .25s ease;cursor:pointer;background:#fff;
 }
-#partnerDirectory .pd-list-name{
-  font-size:16px;
-  font-weight:700;
-  color:#1a1a1a;
-  margin-bottom:3px;
-  line-height:1.3;
+#solutionMarket .sm-list-item[data-hidden="true"]{display:none}
+#solutionMarket .sm-list-item:hover{border-color:#ddd;box-shadow:0 4px 16px rgba(0,0,0,.04);transform:translateY(-1px)}
+#solutionMarket .sm-list-logo{
+  width:44px;height:44px;border-radius:10px;background:#f5f5f5;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;color:#888;flex-shrink:0;border:1px solid #eee;
 }
-#partnerDirectory .pd-list-role{
-  font-size:13px;
-  font-weight:500;
-  color:#999;
+#solutionMarket .sm-list-info{flex:1;min-width:0}
+#solutionMarket .sm-list-name{font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:2px}
+#solutionMarket .sm-list-sub{font-size:12px;font-weight:500;color:#e67e22}
+#solutionMarket .sm-list-desc{
+  flex:1.2;min-width:0;font-size:13px;color:#888;line-height:1.5;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
-
-#partnerDirectory .pd-list-desc{
-  flex:1.5;
-  min-width:0;
-  font-size:13px;
-  font-weight:400;
-  color:#777;
-  line-height:1.6;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
-
-#partnerDirectory .pd-list-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:4px;
-  flex-shrink:0;
-  max-width:220px;
-}
-#partnerDirectory .pd-list-tag{
-  font-size:11px;
-  font-weight:500;
-  color:#888;
-  background:#f7f7f7;
-  border:1px solid #eee;
-  border-radius:100px;
-  padding:4px 10px;
-  line-height:1;
-  white-space:nowrap;
+#solutionMarket .sm-list-tags{display:flex;flex-wrap:wrap;gap:4px;flex-shrink:0;max-width:200px}
+#solutionMarket .sm-list-tag{
+  font-size:10px;font-weight:500;color:#999;background:#f7f7f7;
+  border:1px solid #eee;border-radius:100px;padding:3px 8px;line-height:1;
 }
 
-/* ══════════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════════ */
+/* ── NO RESULT ── */
+#solutionMarket .sm-no-result{
+  text-align:center;padding:48px 20px;color:#ccc;font-size:15px;display:none;
+}
+#solutionMarket .sm-no-result.visible{display:block}
+
+/* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  #partnerDirectory .pd-nav-inner,
-  #partnerDirectory .pd-cat-header,
-  #partnerDirectory .pd-slider-wrap,
-  #partnerDirectory .pd-list-wrap{
-    padding-left:28px;
-    padding-right:28px;
-  }
-  #partnerDirectory .pd-card{width:340px}
-  #partnerDirectory .pd-list-desc{display:none}
+  #solutionMarket .sm-search-bar,
+  #solutionMarket .sm-nav-inner,
+  #solutionMarket .sm-cat-header,
+  #solutionMarket .sm-sub-wrap,
+  #solutionMarket .sm-slider-wrap,
+  #solutionMarket .sm-list-wrap{padding-left:28px;padding-right:28px}
+  #solutionMarket .sm-card{width:300px}
+  #solutionMarket .sm-list-desc{display:none}
 }
-
 @media(max-width:768px){
-  #partnerDirectory .pd-nav-inner{
-    padding:0 16px;
-    height:50px;
-  }
-  #partnerDirectory .pd-nav-tabs{height:50px}
-  #partnerDirectory .pd-nav-tab{
-    padding:0 12px;
-    height:50px;
-    font-size:13px;
-  }
-  #partnerDirectory .pd-view-toggle{padding-left:12px}
-  #partnerDirectory .pd-view-btn{width:32px;height:32px}
-
-  #partnerDirectory .pd-cat{
-    padding:52px 0 32px;
-    scroll-margin-top:50px;
-  }
-  #partnerDirectory .pd-cat-header,
-  #partnerDirectory .pd-slider-wrap,
-  #partnerDirectory .pd-list-wrap{
-    padding-left:20px;
-    padding-right:20px;
-  }
-  #partnerDirectory .pd-cat-title{font-size:24px}
-  #partnerDirectory .pd-arrows{gap:6px}
-  #partnerDirectory .pd-arrow{width:38px;height:38px}
-  #partnerDirectory .pd-arrow svg{width:15px;height:15px}
-  #partnerDirectory .pd-slider{gap:16px}
-  #partnerDirectory .pd-card{width:300px}
-  #partnerDirectory .pd-card-overlay{padding:18px 16px 16px}
-  #partnerDirectory .pd-card-ov-title{font-size:15px}
-
-  /* 리스트 모바일 */
-  #partnerDirectory .pd-list-item{
-    flex-wrap:wrap;
-    gap:12px;
-    padding:16px 18px;
-  }
-  #partnerDirectory .pd-list-num{display:none}
-  #partnerDirectory .pd-list-desc{display:none}
-  #partnerDirectory .pd-list-tags{max-width:100%}
+  #solutionMarket .sm-search-bar{padding-left:20px;padding-right:20px}
+  #solutionMarket .sm-nav-inner{padding:0 16px;height:48px}
+  #solutionMarket .sm-nav-tabs{height:48px}
+  #solutionMarket .sm-nav-tab{padding:0 12px;height:48px;font-size:13px}
+  #solutionMarket .sm-cat{padding:44px 0 28px;scroll-margin-top:48px}
+  #solutionMarket .sm-cat-header,
+  #solutionMarket .sm-sub-wrap,
+  #solutionMarket .sm-slider-wrap,
+  #solutionMarket .sm-list-wrap{padding-left:20px;padding-right:20px}
+  #solutionMarket .sm-cat-title{font-size:22px}
+  #solutionMarket .sm-slider{gap:14px}
+  #solutionMarket .sm-card{width:270px}
+  #solutionMarket .sm-list-item{flex-wrap:wrap;gap:12px;padding:14px 16px}
+  #solutionMarket .sm-list-tags{max-width:100%}
+  #solutionMarket .sm-list-desc{display:none}
 }
-
 @media(max-width:480px){
-  #partnerDirectory .pd-cat-header,
-  #partnerDirectory .pd-slider-wrap,
-  #partnerDirectory .pd-list-wrap{
-    padding-left:16px;
-    padding-right:16px;
-  }
-  #partnerDirectory .pd-card{width:calc(100vw - 56px)}
-  #partnerDirectory .pd-card-ov-title{font-size:14px}
-
-  #partnerDirectory .pd-list-logo{width:40px;height:40px;font-size:11px}
-  #partnerDirectory .pd-list-name{font-size:14px}
-  #partnerDirectory .pd-list-role{font-size:12px}
+  #solutionMarket .sm-search-bar,
+  #solutionMarket .sm-cat-header,
+  #solutionMarket .sm-sub-wrap,
+  #solutionMarket .sm-slider-wrap,
+  #solutionMarket .sm-list-wrap{padding-left:16px;padding-right:16px}
+  #solutionMarket .sm-card{width:calc(100vw - 52px)}
+  #solutionMarket .sm-list-logo{width:36px;height:36px;font-size:10px}
 }
 </style>
 
-<!-- ══════ NAV ══════ -->
-<nav class="pd-nav" id="pdNav">
-  <div class="pd-nav-inner" id="pdNavInner">
-    <div class="pd-nav-tabs" id="pdNavTabs">
-      <!-- JS가 탭 삽입 -->
-    </div>
-    <div class="pd-view-toggle">
-      <button class="pd-view-btn" data-view="card" data-active="true" type="button" aria-label="카드 보기">
-        <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
-      </button>
-      <button class="pd-view-btn" data-view="list" data-active="false" type="button" aria-label="리스트 보기">
-        <svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2" rx="1"/><rect x="1" y="7" width="14" height="2" rx="1"/><rect x="1" y="12" width="14" height="2" rx="1"/></svg>
-      </button>
+<!-- STICKY NAV -->
+<nav class="sm-nav" id="smNav">
+  <div class="sm-nav-inner">
+    <div class="sm-nav-tabs" id="smNavTabs"></div>
+    <div class="sm-view-toggle">
+      <button class="sm-view-btn" data-view="card" data-active="true" type="button" aria-label="카드"><svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></button>
+      <button class="sm-view-btn" data-view="list" data-active="false" type="button" aria-label="리스트"><svg viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2" rx="1"/><rect x="1" y="7" width="14" height="2" rx="1"/><rect x="1" y="12" width="14" height="2" rx="1"/></svg></button>
     </div>
   </div>
 </nav>
 
-<!-- ══════ CONTENT ══════ -->
-<div id="pdContent"></div>
+<!-- SEARCH (카테고리 탭 아래) -->
+<div class="sm-search-bar">
+  <div class="sm-search">
+    <span class="sm-search-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+    <input type="text" id="smSearchInput" placeholder="솔루션명, 해시태그로 검색 (예: 당뇨, #혈당관리)">
+    <button class="sm-search-clear" id="smSearchClear" type="button" aria-label="검색 초기화"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="sm-search-count" id="smSearchCount"></div>
+</div>
+
+<!-- CONTENT -->
+<div id="smContent"></div>
 
 <script>
 (function(){
   'use strict';
-
-  var root = document.getElementById('partnerDirectory');
+  var root = document.getElementById('solutionMarket');
   if(!root) return;
   root.setAttribute('data-view','card');
 
   var data = [
     {
-      id:'pd_medical', category:'병원 · 의료', accent:'#e67e22',
-      companies:[
-        {name:'서울아산병원',logo:'아산',role:'종합병원',image:'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=760&h=570&fit=crop&q=80',overlay:'국내 최고 수준의 의료 시스템을\n갖춘 대표 종합병원',desc:'전문 의료진과 첨단 장비를 기반으로 한 체계적 진료',tags:['#종합병원','#전문의료','#첨단장비']},
-        {name:'세브란스병원',logo:'세브',role:'종합병원',image:'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=760&h=570&fit=crop&q=80',overlay:'글로벌 수준의 의료 기술과\n연구 역량의 중심',desc:'연세대학교 의료원 산하 최첨단 진료 시스템',tags:['#의료연구','#글로벌','#전문진료']},
-        {name:'강남세란의원',logo:'세란',role:'전문의원',image:'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=760&h=570&fit=crop&q=80',overlay:'맞춤형 뷰티 솔루션과\n비침습 시술 전문 클리닉',desc:'피부과·성형외과 중심 프리미엄 케어',tags:['#피부과','#성형','#맞춤시술']},
-        {name:'미래로한의원',logo:'미래',role:'한의원',image:'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=760&h=570&fit=crop&q=80',overlay:'전통 한의학과 현대 의학의\n통합 치료 시스템',desc:'만성 질환 관리 및 체질 개선 프로그램 운영',tags:['#한의학','#체질개선','#통합치료']}
+      id:'sm_metabolic', category:'대사질환 관리', subs:['전체','당뇨·혈당','고혈압·혈관','고지혈증·콜레스테롤','비만·체중'],
+      items:[
+        {name:'스마트 혈당 밸런스 프로그램',logo:'혈당',sub:'당뇨·혈당',image:'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=640&h=400&fit=crop&q=80',desc:'연속혈당측정기(CGM) 데이터 기반 식단·운동·생활습관을 통합 관리하는 12주 맞춤 프로그램',tags:['#당뇨','#혈당관리','#CGM','#식단관리']},
+        {name:'당뇨 역전 영양 코칭',logo:'영양',sub:'당뇨·혈당',image:'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=640&h=400&fit=crop&q=80',desc:'전문 영양사의 1:1 코칭으로 혈당 스파이크를 줄이고 약물 의존도를 낮추는 식이 솔루션',tags:['#당뇨역전','#영양코칭','#혈당스파이크','#식이요법']},
+        {name:'혈압 안심 모니터링 키트',logo:'혈압',sub:'고혈압·혈관',image:'https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=640&h=400&fit=crop&q=80',desc:'가정용 혈압계 + 앱 연동으로 매일 혈압 추이를 기록하고 전문의 원격 상담을 받는 패키지',tags:['#고혈압','#혈압모니터링','#원격상담','#가정관리']},
+        {name:'혈관 나이 검사 + 개선 솔루션',logo:'혈관',sub:'고혈압·혈관',image:'https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=640&h=400&fit=crop&q=80',desc:'혈관 탄성도·경직도 정밀 검사 후 운동·영양·보충제 맞춤 개선 프로그램 제공',tags:['#혈관건강','#혈관나이','#동맥경화','#정밀검사']},
+        {name:'콜레스테롤 제로 플랜',logo:'지질',sub:'고지혈증·콜레스테롤',image:'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=640&h=400&fit=crop&q=80',desc:'고지혈증 수치 개선을 위한 8주 식단 프로그램 + 오메가3·식이섬유 보충제 키트',tags:['#고지혈증','#콜레스테롤','#오메가3','#식단프로그램']},
+        {name:'비만대사증후군 통합 관리',logo:'대사',sub:'비만·체중',image:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&h=400&fit=crop&q=80',desc:'의사·약사·영양사 협진으로 비만의 근본 원인인 대사 불균형을 교정하는 16주 프로그램',tags:['#비만대사','#체중관리','#협진','#근본치료']},
+        {name:'간헐적 단식 가이드 솔루션',logo:'단식',sub:'비만·체중',image:'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=640&h=400&fit=crop&q=80',desc:'16:8, 5:2 등 개인 체질에 맞는 간헐적 단식 방법을 설계하고 실행을 돕는 앱 기반 코칭',tags:['#간헐적단식','#다이어트','#체질분석','#앱코칭']}
       ]
     },
     {
-      id:'pd_skin', category:'피부 · 성형', accent:'#d4508b',
-      companies:[
-        {name:'강남세란피부과',logo:'세란',role:'피부과 전문',image:'https://images.unsplash.com/photo-1570172619644-dfd03ed5d142?w=760&h=570&fit=crop&q=80',overlay:'레이저·리프팅·보톡스\n비침습 시술 전문 클리닉',desc:'최신 장비와 1:1 맞춤 시술 프로그램 운영',tags:['#피부과','#레이저','#리프팅']},
-        {name:'아이디병원',logo:'ID',role:'성형외과',image:'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=760&h=570&fit=crop&q=80',overlay:'자연스러운 아름다움을 추구하는\n얼굴 윤곽·눈·코 전문',desc:'개인별 얼굴 비율 분석 기반 맞춤 성형',tags:['#성형외과','#윤곽','#자연성형']},
-        {name:'뷰티풀의원',logo:'BF',role:'피부·체형',image:'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=760&h=570&fit=crop&q=80',overlay:'피부 관리와 체형 교정을\n함께 제공하는 토탈 클리닉',desc:'피부 시술 + 체형 보정 프로그램 원스톱 케어',tags:['#토탈케어','#체형교정','#피부관리']},
-        {name:'청담이지의원',logo:'이지',role:'안티에이징',image:'https://images.unsplash.com/photo-1598524374912-6b0b0bab31e8?w=760&h=570&fit=crop&q=80',overlay:'줄기세포·재생 치료 기반\n프리미엄 안티에이징',desc:'노화 방지 특화 프로그램과 재생 의학 결합',tags:['#안티에이징','#재생의학','#줄기세포']}
+      id:'sm_body', category:'체형·통증 교정', subs:['전체','골반·체형 비대칭','거북목·일자목','허리·척추','어깨·관절'],
+      items:[
+        {name:'3D 체형 분석 + 교정 프로그램',logo:'체형',sub:'골반·체형 비대칭',image:'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=640&h=400&fit=crop&q=80',desc:'3D 바디스캐너로 비대칭을 정밀 분석하고 필라테스·도수치료를 결합한 12주 교정 과정',tags:['#체형비대칭','#골반교정','#3D분석','#도수치료']},
+        {name:'골반 밸런스 필라테스',logo:'골반',sub:'골반·체형 비대칭',image:'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=640&h=400&fit=crop&q=80',desc:'골반 틀어짐과 좌우 불균형을 교정하는 전문 필라테스 1:1 세션',tags:['#골반교정','#필라테스','#비대칭','#1:1']},
+        {name:'거북목 리셋 솔루션',logo:'목',sub:'거북목·일자목',image:'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=640&h=400&fit=crop&q=80',desc:'자세 센서 디바이스 + 8주 스트레칭·근력 프로그램으로 거북목을 근본 교정',tags:['#거북목','#일자목','#자세교정','#스트레칭']},
+        {name:'디스크·척추 재활 프로그램',logo:'척추',sub:'허리·척추',image:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&h=400&fit=crop&q=80',desc:'정형외과 전문의 감수 하에 진행되는 허리 디스크·척추관 협착증 맞춤 운동 재활',tags:['#디스크','#척추재활','#허리통증','#운동처방']},
+        {name:'오십견·회전근개 회복 키트',logo:'어깨',sub:'어깨·관절',image:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=640&h=400&fit=crop&q=80',desc:'어깨 통증의 단계별 자가 재활 가이드 + 탄력밴드·폼롤러 키트 + 전문가 영상 코칭',tags:['#오십견','#회전근개','#어깨재활','#자가재활']},
+        {name:'무릎 관절 보호 솔루션',logo:'무릎',sub:'어깨·관절',image:'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=640&h=400&fit=crop&q=80',desc:'무릎 연골 보호를 위한 근력 강화 운동 + 관절 영양제 + 보호대 통합 패키지',tags:['#무릎관절','#연골보호','#근력강화','#관절영양']}
       ]
     },
     {
-      id:'pd_hair', category:'헤어 · 두피', accent:'#8b6914',
-      companies:[
-        {name:'닥터포헤어',logo:'DFH',role:'두피 관리',image:'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=760&h=570&fit=crop&q=80',overlay:'의학적 근거 기반의\n두피·탈모 전문 솔루션',desc:'탈모 관리 전문 브랜드의 제품 및 케어 프로그램',tags:['#두피관리','#탈모솔루션','#전문브랜드']},
-        {name:'모우다헤어',logo:'모우',role:'프리미엄 헤어샵',image:'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=760&h=570&fit=crop&q=80',overlay:'트렌드와 개인 스타일을\n결합한 프리미엄 헤어 케어',desc:'디자이너 1:1 상담 기반 맞춤 헤어 디자인',tags:['#프리미엄헤어','#맞춤디자인','#트렌드']},
-        {name:'리안헤어',logo:'리안',role:'헤어 프랜차이즈',image:'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=760&h=570&fit=crop&q=80',overlay:'전국 네트워크 기반\n체계적인 헤어 서비스',desc:'표준화된 교육과 품질 관리의 프랜차이즈 시스템',tags:['#프랜차이즈','#전국망','#헤어살롱']}
+      id:'sm_skin', category:'피부·탈모 솔루션', subs:['전체','여드름·트러블','색소·기미','주름·탄력','탈모·두피'],
+      items:[
+        {name:'AI 피부 진단 + 맞춤 스킨케어',logo:'피부',sub:'여드름·트러블',image:'https://images.unsplash.com/photo-1570172619644-dfd03ed5d142?w=640&h=400&fit=crop&q=80',desc:'AI가 피부 상태를 분석하고 성분 기반 맞춤 스킨케어 루틴과 제품을 추천하는 서비스',tags:['#AI진단','#여드름','#맞춤스킨케어','#성분분석']},
+        {name:'피지·모공 집중 관리 프로그램',logo:'모공',sub:'여드름·트러블',image:'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=640&h=400&fit=crop&q=80',desc:'피부과 전문의 감수 4주 프로그램으로 피지 조절·모공 축소·트러블 예방까지',tags:['#피지조절','#모공관리','#트러블케어','#피부과']},
+        {name:'기미·색소 브라이트닝 솔루션',logo:'색소',sub:'색소·기미',image:'https://images.unsplash.com/photo-1598524374912-6b0b0bab31e8?w=640&h=400&fit=crop&q=80',desc:'비타민C·나이아신아마이드 기반 홈케어 + 주 1회 전문 시술 조합 프로그램',tags:['#기미','#색소침착','#브라이트닝','#비타민C']},
+        {name:'콜라겐 부스팅 안티에이징',logo:'탄력',sub:'주름·탄력',image:'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=640&h=400&fit=crop&q=80',desc:'먹는 콜라겐 + 바르는 레티놀 + LED 마스크 3단계 홈케어 안티에이징 시스템',tags:['#콜라겐','#안티에이징','#주름개선','#레티놀']},
+        {name:'두피 정밀 진단 + 탈모 방지 케어',logo:'두피',sub:'탈모·두피',image:'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=640&h=400&fit=crop&q=80',desc:'200배 두피 현미경 진단 후 샴푸·앰플·영양제를 맞춤 처방하는 탈모 관리 솔루션',tags:['#탈모','#두피진단','#탈모방지','#맞춤처방']},
+        {name:'여성 탈모 전문 프로그램',logo:'여탈',sub:'탈모·두피',image:'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=640&h=400&fit=crop&q=80',desc:'호르몬·스트레스·영양 불균형 등 여성 탈모 원인별 맞춤 치료 플랜',tags:['#여성탈모','#호르몬','#스트레스탈모','#원인별치료']}
       ]
     },
     {
-      id:'pd_cosmetic', category:'뷰티 · 코스메틱', accent:'#c05d9e',
-      companies:[
-        {name:'아모레퍼시픽',logo:'AP',role:'뷰티 기업',image:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=760&h=570&fit=crop&q=80',overlay:'R&D 기반 혁신으로\n글로벌 뷰티를 선도',desc:'국내 대표 화장품 기업의 브랜드 포트폴리오',tags:['#글로벌뷰티','#R&D','#브랜드']},
-        {name:'LG생활건강',logo:'LGH',role:'화장품·생활용품',image:'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=760&h=570&fit=crop&q=80',overlay:'후·숨·오휘 등\n프리미엄 뷰티 브랜드 포트폴리오',desc:'럭셔리 화장품부터 생활용품까지 토탈 라이프스타일',tags:['#럭셔리뷰티','#생활용품','#프리미엄']},
-        {name:'닥터지',logo:'Dr.G',role:'더마 코스메틱',image:'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=760&h=570&fit=crop&q=80',overlay:'피부과 전문의가 만든\n더마코스메틱 브랜드',desc:'민감성·트러블 피부를 위한 기능성 스킨케어',tags:['#더마','#기능성','#스킨케어']},
-        {name:'클리오',logo:'CLIO',role:'메이크업 브랜드',image:'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=760&h=570&fit=crop&q=80',overlay:'K-뷰티를 대표하는\n메이크업 전문 브랜드',desc:'트렌디한 색조 라인과 글로벌 유통 채널 운영',tags:['#K뷰티','#메이크업','#색조']}
+      id:'sm_mental', category:'멘탈·스트레스 관리', subs:['전체','수면 장애','번아웃·스트레스','불안·우울','집중력·브레인'],
+      items:[
+        {name:'수면 리듬 회복 코칭',logo:'수면',sub:'수면 장애',image:'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=640&h=400&fit=crop&q=80',desc:'수면 전문가의 4주 코칭으로 불면증·수면 무호흡·뒤척임을 개선하는 비약물 프로그램',tags:['#수면장애','#불면증','#수면코칭','#비약물']},
+        {name:'스마트 수면 환경 키트',logo:'환경',sub:'수면 장애',image:'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=640&h=400&fit=crop&q=80',desc:'수면 센서 매트 + 아로마 디퓨저 + 차단 커튼 + 맞춤 수면 앱으로 구성된 토탈 키트',tags:['#수면환경','#수면센서','#아로마','#숙면키트']},
+        {name:'번아웃 탈출 8주 프로그램',logo:'번아웃',sub:'번아웃·스트레스',image:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=640&h=400&fit=crop&q=80',desc:'심리상담 + 마인드풀니스 + 운동 처방을 결합한 직장인 번아웃 회복 통합 프로그램',tags:['#번아웃','#직장인','#마인드풀니스','#심리상담']},
+        {name:'일상 스트레스 해소 구독 박스',logo:'해소',sub:'번아웃·스트레스',image:'https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=640&h=400&fit=crop&q=80',desc:'매월 배송되는 힐링 아이템(차, 아로마, 저널, 명상가이드) + 주 1회 온라인 명상 클래스',tags:['#스트레스해소','#구독박스','#명상','#힐링']},
+        {name:'불안·우울 CBT 자가관리 앱',logo:'CBT',sub:'불안·우울',image:'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=640&h=400&fit=crop&q=80',desc:'인지행동치료(CBT) 기반 앱으로 감정 일기·사고 기록·행동 실험을 체계적으로 관리',tags:['#불안','#우울','#CBT','#인지행동치료']},
+        {name:'집중력 부스터 브레인 트레이닝',logo:'뇌',sub:'집중력·브레인',image:'https://images.unsplash.com/photo-1513258496099-48168024aec0?w=640&h=400&fit=crop&q=80',desc:'뉴로피드백 기기 + 뇌파 기반 집중력 훈련 게임 + 전문가 월 1회 리포트',tags:['#집중력','#뇌훈련','#뉴로피드백','#브레인']}
       ]
     },
     {
-      id:'pd_pilates', category:'필라테스 · 요가', accent:'#7b68ae',
-      companies:[
-        {name:'밸런스랩',logo:'BL',role:'뷰티 필라테스',image:'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=760&h=570&fit=crop&q=80',overlay:'바디 밸런스와 외적 관리를\n함께 제공하는 뷰티 필라테스',desc:'헬스와 뷰티를 결합한 프리미엄 스튜디오',tags:['#필라테스','#바디케어','#뷰티융합']},
-        {name:'클럽필라테스',logo:'CP',role:'글로벌 필라테스',image:'https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=760&h=570&fit=crop&q=80',overlay:'미국 본사 커리큘럼 기반\n체계적인 그룹·개인 수업',desc:'리포머 중심 전문 필라테스 글로벌 프랜차이즈',tags:['#리포머','#글로벌','#그룹수업']},
-        {name:'코어요가',logo:'CY',role:'요가 스튜디오',image:'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=760&h=570&fit=crop&q=80',overlay:'명상과 움직임을 결합한\n마인드풀 요가 프로그램',desc:'하타·빈야사·음양 요가 전문 수업 운영',tags:['#요가','#명상','#마인드풀']},
-        {name:'스튜디오 에이',logo:'SA',role:'프리미엄 필라테스',image:'https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=760&h=570&fit=crop&q=80',overlay:'1:1 개인 맞춤형\n프리미엄 필라테스 스튜디오',desc:'체형 분석 후 개인별 프로그램 설계',tags:['#1:1','#맞춤프로그램','#프리미엄']}
+      id:'sm_nutrition', category:'영양·식단 솔루션', subs:['전체','맞춤 영양제','식단 배달','장 건강','해독·디톡스'],
+      items:[
+        {name:'혈액 검사 기반 맞춤 영양제',logo:'영양',sub:'맞춤 영양제',image:'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=640&h=400&fit=crop&q=80',desc:'혈액 검사 결과를 분석해 부족한 영양소를 정확히 보충하는 개인 맞춤 영양제 구독',tags:['#맞춤영양제','#혈액검사','#영양분석','#구독']},
+        {name:'목적별 건강 식단 배달',logo:'식단',sub:'식단 배달',image:'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=640&h=400&fit=crop&q=80',desc:'당뇨식·저염식·근육증가식·다이어트식 등 목적에 맞는 전문 영양사 설계 도시락 배달',tags:['#건강식단','#도시락배달','#당뇨식','#다이어트식']},
+        {name:'장 마이크로바이옴 분석 솔루션',logo:'장',sub:'장 건강',image:'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=640&h=400&fit=crop&q=80',desc:'장내 미생물 유전자 분석 키트 + 프로바이오틱스 맞춤 처방 + 식이섬유 가이드',tags:['#장건강','#마이크로바이옴','#프로바이오틱스','#유전자분석']},
+        {name:'7일 주스 디톡스 프로그램',logo:'디톡',sub:'해독·디톡스',image:'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=640&h=400&fit=crop&q=80',desc:'유기농 콜드프레스 주스 7일분 + 디톡스 가이드북 + 전문가 카카오톡 실시간 케어',tags:['#디톡스','#주스클렌즈','#해독','#유기농']}
       ]
     },
     {
-      id:'pd_fitness', category:'헬스 · PT', accent:'#e05535',
-      companies:[
-        {name:'에이블짐',logo:'AG',role:'퍼스널 트레이닝',image:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=760&h=570&fit=crop&q=80',overlay:'체계적인 데이터 기반\n1:1 퍼스널 트레이닝',desc:'체성분 분석 + 운동 처방 + 식단 관리 통합 시스템',tags:['#PT','#데이터기반','#1:1트레이닝']},
-        {name:'스포애니',logo:'SA',role:'24시 피트니스',image:'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=760&h=570&fit=crop&q=80',overlay:'합리적 가격의\n24시간 무인 피트니스',desc:'전국 체인 네트워크와 자유로운 이용 시스템',tags:['#24시','#피트니스','#합리적']},
-        {name:'크로스핏 강남',logo:'CF',role:'크로스핏 박스',image:'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=760&h=570&fit=crop&q=80',overlay:'기능적 움직임 기반\n고강도 그룹 트레이닝',desc:'크로스핏 인증 코치의 체계적 WOD 프로그램',tags:['#크로스핏','#기능운동','#고강도']},
-        {name:'바디프로필랩',logo:'BPL',role:'바디프로필 전문',image:'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=760&h=570&fit=crop&q=80',overlay:'바디프로필 촬영을 위한\n단기 집중 트레이닝',desc:'12주 맞춤 프로그램 + 식단 + 촬영 패키지',tags:['#바디프로필','#단기집중','#다이어트']}
-      ]
-    },
-    {
-      id:'pd_wellness', category:'웰니스 · 힐링', accent:'#3a9e78',
-      companies:[
-        {name:'차움 클리닉',logo:'차움',role:'프리미엄 웰니스',image:'https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=760&h=570&fit=crop&q=80',overlay:'건강과 아름다움을 함께 관리하는\n통합 웰니스 서비스',desc:'공간·프로그램·의료진까지 프리미엄 기준 설계',tags:['#프리미엄','#통합관리','#맞춤헬스']},
-        {name:'힐리언스 선마을',logo:'선마',role:'힐링 리조트',image:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=760&h=570&fit=crop&q=80',overlay:'자연 속 디지털 디톡스와\n마음 치유 프로그램',desc:'강원도 홍천 기반 통합 힐링 리트릿 운영',tags:['#힐링','#디톡스','#리트릿']},
-        {name:'마인드카페',logo:'MC',role:'심리 상담',image:'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=760&h=570&fit=crop&q=80',overlay:'전문 심리상담사와 함께하는\n온라인 멘탈 케어 플랫폼',desc:'1:1 상담, 그룹 테라피, AI 감정 분석 서비스',tags:['#심리상담','#멘탈케어','#온라인']},
-        {name:'스파랜드',logo:'SL',role:'프리미엄 스파',image:'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=760&h=570&fit=crop&q=80',overlay:'신라호텔 기반\n도심 속 프리미엄 스파',desc:'한방·아로마·스톤 테라피 등 프리미엄 힐링 경험',tags:['#프리미엄스파','#아로마','#힐링']}
-      ]
-    },
-    {
-      id:'pd_legal', category:'법률 · 세무', accent:'#e67e22',
-      companies:[
-        {name:'법무법인 김앤장',logo:'K&C',role:'종합 로펌',image:'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=760&h=570&fit=crop&q=80',overlay:'기업법무·금융·국제거래\n국내 대표 종합 로펌',desc:'다양한 법률 분야의 깊은 전문성과 실행력',tags:['#기업법무','#국제거래','#M&A']},
-        {name:'세무법인 다솔',logo:'다솔',role:'세무법인',image:'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=760&h=570&fit=crop&q=80',overlay:'중소기업·스타트업 전문\n세무 컨설팅 파트너',desc:'절세 전략 수립부터 세무 신고까지 원스톱 서비스',tags:['#세무컨설팅','#절세전략','#신고대행']},
-        {name:'법무법인 율촌',logo:'율촌',role:'종합 로펌',image:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=760&h=570&fit=crop&q=80',overlay:'공정거래·조세·지적재산권\n전문 법률 자문',desc:'깊이 있는 분야별 전문 법률 서비스 제공',tags:['#공정거래','#조세','#IP']}
-      ]
-    },
-    {
-      id:'pd_education', category:'교육 · 컨설팅', accent:'#e67e22',
-      companies:[
-        {name:'패스트캠퍼스',logo:'FC',role:'교육 플랫폼',image:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=760&h=570&fit=crop&q=80',overlay:'실무 중심 교육으로\n빠르게 성과를 만드는 플랫폼',desc:'직무 역량 향상부터 취업·이직까지 연결',tags:['#실무교육','#온라인','#직무역량']},
-        {name:'맥킨지 코리아',logo:'McK',role:'경영 컨설팅',image:'https://images.unsplash.com/photo-1552664730-d307ca884978?w=760&h=570&fit=crop&q=80',overlay:'전략 수립부터 실행까지\n체계적인 경영 자문',desc:'글로벌 전략 컨설팅 기업의 한국 파트너십',tags:['#전략컨설팅','#경영혁신','#글로벌']},
-        {name:'클래스101',logo:'C101',role:'크리에이터 교육',image:'https://images.unsplash.com/photo-1513258496099-48168024aec0?w=760&h=570&fit=crop&q=80',overlay:'취미부터 부업까지\n실질적인 스킬을 전달',desc:'다양한 분야의 크리에이터 강의 플랫폼',tags:['#크리에이터','#취미교육','#부업']}
-      ]
-    },
-    {
-      id:'pd_manufacturing', category:'제조 · B2B', accent:'#e67e22',
-      companies:[
-        {name:'삼성전자',logo:'SEC',role:'종합 전자',image:'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=760&h=570&fit=crop&q=80',overlay:'세계적인 기술력을 보유한\n글로벌 대표 제조 기업',desc:'반도체·디스플레이·모바일 분야 리더',tags:['#반도체','#디스플레이','#글로벌']},
-        {name:'LG에너지솔루션',logo:'LGE',role:'배터리',image:'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=760&h=570&fit=crop&q=80',overlay:'전기차·ESS용 배터리\n글로벌 리더',desc:'차세대 에너지 기술 개발에 집중',tags:['#배터리','#전기차','#에너지']},
-        {name:'포스코홀딩스',logo:'PSC',role:'철강·소재',image:'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=760&h=570&fit=crop&q=80',overlay:'세계 최고 수준의 철강과\n미래 소재 산업 확장',desc:'이차전지 소재, 수소 사업으로 미래 성장',tags:['#철강','#이차전지소재','#수소']},
-        {name:'한화솔루션',logo:'HWS',role:'에너지·화학',image:'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=760&h=570&fit=crop&q=80',overlay:'친환경 에너지 솔루션과\n첨단 소재 개발',desc:'태양광·수소 기반 종합 솔루션 기업',tags:['#태양광','#친환경','#첨단소재']}
-      ]
-    },
-    {
-      id:'pd_fnb', category:'외식 · 카페', accent:'#e67e22',
-      companies:[
-        {name:'스타벅스 코리아',logo:'SBX',role:'카페 프랜차이즈',image:'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=760&h=570&fit=crop&q=80',overlay:'커피를 넘어 공간 경험을\n제공하는 라이프스타일 브랜드',desc:'브랜드 감성과 고객 경험이 핵심',tags:['#프리미엄카페','#글로벌','#공간경험']},
-        {name:'본아이에프',logo:'본IF',role:'외식 프랜차이즈',image:'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=760&h=570&fit=crop&q=80',overlay:'건강식 중심의\n체계적인 외식 프랜차이즈',desc:'본죽·본도시락 등 건강 브랜드 운영',tags:['#건강식','#프랜차이즈','#가맹']},
-        {name:'블루보틀 코리아',logo:'BB',role:'스페셜티 카페',image:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=760&h=570&fit=crop&q=80',overlay:'원두부터 추출까지\n장인 정신을 담은 커피',desc:'미니멀 공간 디자인의 스페셜티 브랜드',tags:['#스페셜티','#미니멀','#장인정신']}
-      ]
-    },
-    {
-      id:'pd_realestate', category:'부동산 · 인테리어', accent:'#e67e22',
-      companies:[
-        {name:'한샘',logo:'한샘',role:'인테리어',image:'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=760&h=570&fit=crop&q=80',overlay:'공간을 설계하는 기업의\n포트폴리오 중심 인테리어',desc:'시공 사례·디자인 철학·맞춤 제안 시스템',tags:['#인테리어','#주거공간','#맞춤설계']},
-        {name:'직방',logo:'직방',role:'부동산 플랫폼',image:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=760&h=570&fit=crop&q=80',overlay:'데이터 기반의\n스마트 부동산 탐색',desc:'다양한 주거 매물을 한눈에 비교',tags:['#부동산','#데이터','#매물탐색']},
-        {name:'현대리바트',logo:'리바',role:'가구·인테리어',image:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=760&h=570&fit=crop&q=80',overlay:'가정용·사무용 가구부터\n공간 솔루션까지',desc:'국내 대표 종합 인테리어 기업',tags:['#가구','#공간솔루션','#종합인테리어']}
+      id:'sm_fitness', category:'운동·체력 강화', subs:['전체','홈트레이닝','PT·개인지도','재활운동','시니어 운동'],
+      items:[
+        {name:'AI 홈트 코치 구독',logo:'홈트',sub:'홈트레이닝',image:'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=640&h=400&fit=crop&q=80',desc:'스마트폰 카메라가 자세를 분석하고 실시간 피드백하는 AI 기반 홈트레이닝 앱',tags:['#홈트레이닝','#AI코치','#자세분석','#실시간피드백']},
+        {name:'체성분 맞춤 PT 매칭',logo:'PT',sub:'PT·개인지도',image:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=640&h=400&fit=crop&q=80',desc:'인바디 분석 후 목표(다이어트·벌크업·체력)에 맞는 전문 트레이너를 자동 매칭',tags:['#PT','#트레이너매칭','#인바디','#맞춤운동']},
+        {name:'수술 후 재활 운동 플랜',logo:'재활',sub:'재활운동',image:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=640&h=400&fit=crop&q=80',desc:'무릎·어깨·척추 수술 후 단계별 재활 운동을 물리치료사가 원격으로 관리하는 프로그램',tags:['#수술후재활','#원격재활','#물리치료','#단계별운동']},
+        {name:'시니어 낙상 예방 운동 교실',logo:'시니어',sub:'시니어 운동',image:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&h=400&fit=crop&q=80',desc:'65세 이상 대상 균형감각·근력·유연성 향상을 위한 소그룹 운동 클래스 (주 3회)',tags:['#시니어','#낙상예방','#균형운동','#소그룹']}
       ]
     }
   ];
 
-  /* ═══════════ DOM 생성 ═══════════ */
-  var navTabs = document.getElementById('pdNavTabs');
-  var content = document.getElementById('pdContent');
+  /* ═══════════ DOM ═══════════ */
+  var navTabs = document.getElementById('smNavTabs');
+  var content = document.getElementById('smContent');
 
   data.forEach(function(cat, ci){
-    /* NAV TAB */
     var tab = document.createElement('button');
-    tab.className = 'pd-nav-tab';
-    tab.setAttribute('data-active', ci === 0 ? 'true' : 'false');
+    tab.className = 'sm-nav-tab';
+    tab.setAttribute('data-active', ci===0?'true':'false');
     tab.setAttribute('data-target', cat.id);
     tab.textContent = cat.category;
     tab.type = 'button';
     navTabs.appendChild(tab);
 
-    /* SECTION */
     var sec = document.createElement('div');
-    sec.className = 'pd-cat';
+    sec.className = 'sm-cat';
     sec.id = cat.id;
-    var sliderId = 'pdSlider_' + ci;
+    sec.setAttribute('data-hidden','false');
+    var sliderId = 'smSlider_'+ci;
 
-    /* HEADER */
     var hd = document.createElement('div');
-    hd.className = 'pd-cat-header';
+    hd.className = 'sm-cat-header';
     hd.innerHTML =
-      '<h2 class="pd-cat-title">' + cat.category + '</h2>' +
-      '<div class="pd-arrows">' +
-        '<button type="button" class="pd-arrow" data-dir="prev" data-slider="' + sliderId + '" aria-label="이전"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>' +
-        '<button type="button" class="pd-arrow" data-dir="next" data-slider="' + sliderId + '" aria-label="다음"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>' +
+      '<h2 class="sm-cat-title">'+cat.category+'</h2>'+
+      '<div class="sm-arrows">'+
+        '<button type="button" class="sm-arrow" data-dir="prev" data-slider="'+sliderId+'"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>'+
+        '<button type="button" class="sm-arrow" data-dir="next" data-slider="'+sliderId+'"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>'+
       '</div>';
     sec.appendChild(hd);
 
-    /* CARD SLIDER */
+    var subWrap = document.createElement('div');
+    subWrap.className = 'sm-sub-wrap';
+    var subList = document.createElement('div');
+    subList.className = 'sm-sub-list';
+    cat.subs.forEach(function(s, si){
+      var btn = document.createElement('button');
+      btn.className = 'sm-sub-btn';
+      btn.type = 'button';
+      btn.textContent = s;
+      btn.setAttribute('data-sub', s);
+      btn.setAttribute('data-active', si===0?'true':'false');
+      subList.appendChild(btn);
+    });
+    subWrap.appendChild(subList);
+    sec.appendChild(subWrap);
+
     var sw = document.createElement('div');
-    sw.className = 'pd-slider-wrap';
+    sw.className = 'sm-slider-wrap';
     var sl = document.createElement('div');
-    sl.className = 'pd-slider';
+    sl.className = 'sm-slider';
     sl.id = sliderId;
 
-    cat.companies.forEach(function(c){
+    cat.items.forEach(function(it){
       var cd = document.createElement('article');
-      cd.className = 'pd-card';
+      cd.className = 'sm-card';
+      cd.setAttribute('data-sub', it.sub);
+      cd.setAttribute('data-name', it.name.toLowerCase());
+      cd.setAttribute('data-tags', it.tags.join(' ').toLowerCase());
+      cd.setAttribute('data-hidden','false');
       cd.innerHTML =
-        '<div class="pd-card-thumb">' +
-          '<img src="' + c.image + '" alt="' + c.name + '" loading="lazy">' +
-          '<div class="pd-card-overlay">' +
-            '<div class="pd-card-ov-title">' + c.overlay.replace(/\n/g,'<br>') + '</div>' +
-            '<div class="pd-card-ov-role">' + c.name + ' ' + c.role + '</div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="pd-card-meta">' +
-          '<span class="pd-card-meta-cat" style="color:' + cat.accent + '">' + cat.category + '</span>' +
-          '<span class="pd-card-meta-sep"></span>' +
-          '<span class="pd-card-meta-desc">' + c.desc + '</span>' +
-        '</div>' +
-        '<div class="pd-card-name">' + c.name + ' | ' + c.role + '</div>' +
-        '<div class="pd-card-tags">' + c.tags.map(function(t){return '<span class="pd-tag">'+t+'</span>'}).join('') + '</div>';
+        '<div class="sm-card-thumb">'+
+          '<img src="'+it.image+'" alt="'+it.name+'" loading="lazy">'+
+          '<span class="sm-card-badge">'+it.sub+'</span>'+
+        '</div>'+
+        '<div class="sm-card-body">'+
+          '<div class="sm-card-sub">'+cat.category+' · '+it.sub+'</div>'+
+          '<div class="sm-card-name">'+it.name+'</div>'+
+          '<div class="sm-card-desc">'+it.desc+'</div>'+
+          '<div class="sm-card-tags">'+it.tags.map(function(t){return '<span class="sm-card-tag">'+t+'</span>'}).join('')+'</div>'+
+        '</div>';
       sl.appendChild(cd);
     });
     sw.appendChild(sl);
     sec.appendChild(sw);
 
-    /* LIST VIEW */
     var lw = document.createElement('div');
-    lw.className = 'pd-list-wrap';
-
-    cat.companies.forEach(function(c, idx){
-      var item = document.createElement('div');
-      item.className = 'pd-list-item';
-      item.innerHTML =
-        '<span class="pd-list-num">' + String(idx+1).padStart(2,'0') + '</span>' +
-        '<span class="pd-list-logo">' + c.logo + '</span>' +
-        '<div class="pd-list-info">' +
-          '<div class="pd-list-name">' + c.name + '</div>' +
-          '<div class="pd-list-role">' + c.role + '</div>' +
-        '</div>' +
-        '<div class="pd-list-desc">' + c.desc + '</div>' +
-        '<div class="pd-list-tags">' + c.tags.map(function(t){return '<span class="pd-list-tag">'+t+'</span>'}).join('') + '</div>';
-      lw.appendChild(item);
+    lw.className = 'sm-list-wrap';
+    cat.items.forEach(function(it){
+      var li = document.createElement('div');
+      li.className = 'sm-list-item';
+      li.setAttribute('data-sub', it.sub);
+      li.setAttribute('data-name', it.name.toLowerCase());
+      li.setAttribute('data-tags', it.tags.join(' ').toLowerCase());
+      li.setAttribute('data-hidden','false');
+      li.innerHTML =
+        '<span class="sm-list-logo">'+it.logo+'</span>'+
+        '<div class="sm-list-info"><div class="sm-list-name">'+it.name+'</div><div class="sm-list-sub">'+it.sub+'</div></div>'+
+        '<div class="sm-list-desc">'+it.desc+'</div>'+
+        '<div class="sm-list-tags">'+it.tags.map(function(t){return '<span class="sm-list-tag">'+t+'</span>'}).join('')+'</div>';
+      lw.appendChild(li);
     });
     sec.appendChild(lw);
+
+    var nr = document.createElement('div');
+    nr.className = 'sm-no-result';
+    nr.textContent = '검색 결과가 없습니다.';
+    sec.appendChild(nr);
 
     content.appendChild(sec);
   });
 
-  /* ═══════════ 카테고리 탭 드래그 스크롤 ═══════════ */
+  /* ═══════════ TAB DRAG ═══════════ */
   (function(){
     var el = navTabs;
-    var isDown = false;
-    var startX = 0;
-    var scrollLeft = 0;
-    var hasMoved = false;
+    var dragging = false, moved = false;
+    var startX = 0, scrollStart = 0;
+    var trackX = [], trackT = [];
+    var velX = 0, rafId = 0;
+
+    function momentum(){
+      velX *= 0.94;
+      if(Math.abs(velX) < 0.5) return;
+      el.scrollLeft += velX;
+      rafId = requestAnimationFrame(momentum);
+    }
 
     el.addEventListener('mousedown', function(e){
-      isDown = true;
-      hasMoved = false;
+      cancelAnimationFrame(rafId);
+      dragging = true; moved = false; velX = 0;
+      startX = e.clientX;
+      scrollStart = el.scrollLeft;
+      trackX = [e.clientX]; trackT = [Date.now()];
       el.classList.add('dragging');
-      startX = e.pageX - el.offsetLeft;
-      scrollLeft = el.scrollLeft;
       e.preventDefault();
     });
 
-    el.addEventListener('mouseleave', function(){
-      isDown = false;
+    document.addEventListener('mousemove', function(e){
+      if(!dragging) return;
+      var dx = e.clientX - startX;
+      if(Math.abs(dx) > 3) moved = true;
+      el.scrollLeft = scrollStart - dx;
+      trackX.push(e.clientX); trackT.push(Date.now());
+      if(trackX.length > 5){ trackX.shift(); trackT.shift(); }
+    });
+
+    document.addEventListener('mouseup', function(){
+      if(!dragging) return;
+      dragging = false;
       el.classList.remove('dragging');
-    });
-
-    el.addEventListener('mouseup', function(){
-      isDown = false;
-      el.classList.remove('dragging');
-    });
-
-    el.addEventListener('mousemove', function(e){
-      if(!isDown) return;
-      var x = e.pageX - el.offsetLeft;
-      var walk = (x - startX) * 1.5;
-      if(Math.abs(walk) > 4) hasMoved = true;
-      el.scrollLeft = scrollLeft - walk;
-    });
-
-    /* 드래그 후 클릭 방지 */
-    el.addEventListener('click', function(e){
-      if(hasMoved){
-        e.stopPropagation();
-        e.preventDefault();
-        hasMoved = false;
+      if(trackX.length >= 2){
+        var dt = trackT[trackT.length-1] - trackT[0];
+        var dp = trackX[trackX.length-1] - trackX[0];
+        if(dt > 0) velX = -dp / dt * 16;
       }
+      if(Math.abs(velX) > 0.5) rafId = requestAnimationFrame(momentum);
+    });
+
+    el.addEventListener('click', function(e){
+      if(moved){ e.stopPropagation(); e.preventDefault(); moved = false; }
     }, true);
   })();
 
-  /* ═══════════ INTERACTIONS ═══════════ */
-  var allTabs = root.querySelectorAll('.pd-nav-tab');
-  var catBlocks = root.querySelectorAll('.pd-cat');
-  var pdNav = document.getElementById('pdNav');
-  var ticking = false;
-  var currentActive = -1;
-  var isClickScrolling = false;
+  /* ═══════════ SCROLL / TAB ═══════════ */
+  var allTabs = root.querySelectorAll('.sm-nav-tab');
+  var catBlocks = root.querySelectorAll('.sm-cat');
+  var smNav = document.getElementById('smNav');
+  var ticking=false,currentActive=-1,isClick=false;
 
-  /* 스크롤 → 활성 탭 */
   function onScroll(){
-    if(ticking) return;
-    ticking = true;
+    if(ticking)return;ticking=true;
     requestAnimationFrame(function(){
-      pdNav.classList.toggle('scrolled', window.scrollY > 10);
-      if(!isClickScrolling){
-        var navH = pdNav.offsetHeight;
-        var newActive = 0;
-        for(var i = 0; i < catBlocks.length; i++){
-          if(catBlocks[i].getBoundingClientRect().top <= navH + 60) newActive = i;
-        }
-        if(newActive !== currentActive){
-          currentActive = newActive;
-          allTabs.forEach(function(n, j){n.setAttribute('data-active', j === currentActive ? 'true' : 'false')});
-          /* 탭 영역 안에서 활성 탭이 보이도록 */
-          var activeTab = allTabs[currentActive];
-          var tabsEl = navTabs;
-          var tabLeft = activeTab.offsetLeft;
-          var tabWidth = activeTab.offsetWidth;
-          var scrollL = tabsEl.scrollLeft;
-          var visibleW = tabsEl.clientWidth;
-          if(tabLeft < scrollL){
-            tabsEl.scrollTo({left:tabLeft - 16, behavior:'smooth'});
-          } else if(tabLeft + tabWidth > scrollL + visibleW){
-            tabsEl.scrollTo({left:tabLeft + tabWidth - visibleW + 16, behavior:'smooth'});
-          }
+      smNav.classList.toggle('scrolled',window.scrollY>10);
+      if(!isClick){
+        var navH=smNav.offsetHeight,na=0;
+        for(var i=0;i<catBlocks.length;i++){if(catBlocks[i].getAttribute('data-hidden')!=='true'&&catBlocks[i].getBoundingClientRect().top<=navH+80)na=i}
+        if(na!==currentActive){
+          currentActive=na;
+          allTabs.forEach(function(n,j){n.setAttribute('data-active',j===currentActive?'true':'false')});
+          var at=allTabs[currentActive],te=navTabs,tl=at.offsetLeft,tw=at.offsetWidth,sL=te.scrollLeft,vW=te.clientWidth;
+          if(tl<sL)te.scrollTo({left:tl-16,behavior:'smooth'});
+          else if(tl+tw>sL+vW)te.scrollTo({left:tl+tw-vW+16,behavior:'smooth'});
         }
       }
-      ticking = false;
+      ticking=false;
     });
   }
-  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('scroll',onScroll,{passive:true});
 
-  /* 탭 클릭 */
   allTabs.forEach(function(tab){
-    tab.addEventListener('click', function(e){
-      var target = document.getElementById(tab.getAttribute('data-target'));
-      if(!target) return;
+    tab.addEventListener('click',function(){
+      var t=document.getElementById(tab.getAttribute('data-target'));
+      if(!t)return;
       allTabs.forEach(function(n){n.setAttribute('data-active','false')});
       tab.setAttribute('data-active','true');
-      isClickScrolling = true;
-      target.scrollIntoView({behavior:'smooth'});
-      setTimeout(function(){ isClickScrolling = false; }, 800);
+      isClick=true;t.scrollIntoView({behavior:'smooth'});
+      setTimeout(function(){isClick=false},800);
     });
   });
 
-  /* 뷰 토글 */
-  var viewBtns = root.querySelectorAll('.pd-view-btn');
-  viewBtns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var mode = btn.getAttribute('data-view');
-      root.setAttribute('data-view', mode);
-      viewBtns.forEach(function(b){b.setAttribute('data-active', b.getAttribute('data-view') === mode ? 'true' : 'false')});
+  /* view toggle */
+  var vBtns=root.querySelectorAll('.sm-view-btn');
+  vBtns.forEach(function(b){b.addEventListener('click',function(){
+    var m=b.getAttribute('data-view');root.setAttribute('data-view',m);
+    vBtns.forEach(function(v){v.setAttribute('data-active',v.getAttribute('data-view')===m?'true':'false')});
+  })});
+
+  /* arrows */
+  root.querySelectorAll('.sm-arrow').forEach(function(b){b.addEventListener('click',function(){
+    var s=document.getElementById(b.getAttribute('data-slider'));if(!s)return;
+    var c=s.querySelector('.sm-card:not([data-hidden="true"])'),a=c?c.offsetWidth+20:340;
+    s.scrollBy({left:b.getAttribute('data-dir')==='prev'?-a:a,behavior:'smooth'});
+  })});
+
+  /* slider drag */
+  root.querySelectorAll('.sm-slider').forEach(function(s){
+    var dragging = false;
+    var startX = 0, scrollStart = 0;
+    var trackX = [], trackT = [];
+    var velX = 0, rafId = 0;
+    var gap = 20; /* matches CSS gap */
+
+    function getCardWidth(){
+      var card = s.querySelector('.sm-card:not([data-hidden="true"])');
+      return card ? card.offsetWidth + gap : 340;
+    }
+
+    function snapToNearest(){
+      var cw = getCardWidth();
+      var current = s.scrollLeft;
+      var target = Math.round(current / cw) * cw;
+      var diff = target - current;
+      var step = diff * 0.15;
+
+      function snapTick(){
+        var remaining = target - s.scrollLeft;
+        if(Math.abs(remaining) < 1){
+          s.scrollLeft = target;
+          return;
+        }
+        s.scrollLeft += remaining * 0.18;
+        rafId = requestAnimationFrame(snapTick);
+      }
+      rafId = requestAnimationFrame(snapTick);
+    }
+
+    function momentum(){
+      velX *= 0.94;
+      if(Math.abs(velX) < 1.5){
+        snapToNearest();
+        return;
+      }
+      s.scrollLeft += velX;
+      rafId = requestAnimationFrame(momentum);
+    }
+
+    s.addEventListener('mousedown', function(e){
+      cancelAnimationFrame(rafId);
+      dragging = true; velX = 0;
+      startX = e.clientX;
+      scrollStart = s.scrollLeft;
+      trackX = [e.clientX]; trackT = [Date.now()];
+      s.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e){
+      if(!dragging) return;
+      s.scrollLeft = scrollStart - (e.clientX - startX);
+      trackX.push(e.clientX); trackT.push(Date.now());
+      if(trackX.length > 5){ trackX.shift(); trackT.shift(); }
+    });
+
+    document.addEventListener('mouseup', function(){
+      if(!dragging) return;
+      dragging = false;
+      s.style.cursor = '';
+      if(trackX.length >= 2){
+        var dt = trackT[trackT.length-1] - trackT[0];
+        var dp = trackX[trackX.length-1] - trackX[0];
+        if(dt > 0) velX = -dp / dt * 16;
+      }
+      if(Math.abs(velX) > 1.5){
+        rafId = requestAnimationFrame(momentum);
+      } else {
+        snapToNearest();
+      }
     });
   });
 
-  /* 카드 슬라이더 화살표 */
-  root.querySelectorAll('.pd-arrow').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var slider = document.getElementById(btn.getAttribute('data-slider'));
-      if(!slider) return;
-      var card = slider.querySelector('.pd-card');
-      var amt = card ? card.offsetWidth + 24 : 400;
-      slider.scrollBy({left: btn.getAttribute('data-dir') === 'prev' ? -amt : amt, behavior:'smooth'});
+  /* ═══════════ SUB CATEGORY FILTER ═══════════ */
+  root.querySelectorAll('.sm-sub-list').forEach(function(list){
+    list.addEventListener('click',function(e){
+      var btn=e.target.closest('.sm-sub-btn');
+      if(!btn)return;
+      list.querySelectorAll('.sm-sub-btn').forEach(function(b){b.setAttribute('data-active','false')});
+      btn.setAttribute('data-active','true');
+      var sub=btn.getAttribute('data-sub');
+      var sec=list.closest('.sm-cat');
+      var cards=sec.querySelectorAll('.sm-card');
+      var listItems=sec.querySelectorAll('.sm-list-item');
+      var count=0;
+      cards.forEach(function(c){
+        var show=sub==='전체'||c.getAttribute('data-sub')===sub;
+        c.setAttribute('data-hidden',show?'false':'true');
+        if(show)count++;
+      });
+      listItems.forEach(function(l){
+        var show=sub==='전체'||l.getAttribute('data-sub')===sub;
+        l.setAttribute('data-hidden',show?'false':'true');
+      });
+      var nr=sec.querySelector('.sm-no-result');
+      if(nr){count===0?nr.classList.add('visible'):nr.classList.remove('visible')}
     });
   });
 
-  /* 카드 슬라이더 드래그 */
-  root.querySelectorAll('.pd-slider').forEach(function(sl){
-    var down=false, sx, sLeft;
-    sl.addEventListener('mousedown', function(e){down=true;sl.style.cursor='grabbing';sx=e.pageX-sl.offsetLeft;sLeft=sl.scrollLeft});
-    sl.addEventListener('mouseleave', function(){down=false;sl.style.cursor=''});
-    sl.addEventListener('mouseup', function(){down=false;sl.style.cursor=''});
-    sl.addEventListener('mousemove', function(e){if(!down)return;e.preventDefault();sl.scrollLeft=sLeft-((e.pageX-sl.offsetLeft)-sx)*1.2});
-  });
+  /* ═══════════ SEARCH ═══════════ */
+  var searchInput=document.getElementById('smSearchInput');
+  var searchClear=document.getElementById('smSearchClear');
+  var searchCount=document.getElementById('smSearchCount');
+
+  function doSearch(){
+    var q=searchInput.value.trim().toLowerCase();
+    searchClear.classList.toggle('visible',q.length>0);
+    var totalMatch=0;
+
+    catBlocks.forEach(function(sec){
+      var cards=sec.querySelectorAll('.sm-card');
+      var listItems=sec.querySelectorAll('.sm-list-item');
+      var catMatch=0;
+
+      if(q.length>0){
+        sec.querySelectorAll('.sm-sub-btn').forEach(function(b,i){b.setAttribute('data-active',i===0?'true':'false')});
+      }
+
+      cards.forEach(function(c){
+        if(q.length===0){c.setAttribute('data-hidden','false');catMatch++;return}
+        var n=c.getAttribute('data-name'),t=c.getAttribute('data-tags');
+        var match=n.indexOf(q)!==-1||t.indexOf(q)!==-1;
+        c.setAttribute('data-hidden',match?'false':'true');
+        if(match)catMatch++;
+      });
+      listItems.forEach(function(l){
+        if(q.length===0){l.setAttribute('data-hidden','false');return}
+        var n=l.getAttribute('data-name'),t=l.getAttribute('data-tags');
+        var match=n.indexOf(q)!==-1||t.indexOf(q)!==-1;
+        l.setAttribute('data-hidden',match?'false':'true');
+      });
+
+      totalMatch+=catMatch;
+      sec.setAttribute('data-hidden',catMatch===0&&q.length>0?'true':'false');
+      var nr=sec.querySelector('.sm-no-result');
+      if(nr){catMatch===0&&q.length>0?nr.classList.add('visible'):nr.classList.remove('visible')}
+    });
+
+    if(q.length>0){
+      searchCount.textContent='"'+searchInput.value.trim()+'" 검색 결과 '+totalMatch+'개';
+    } else {
+      searchCount.textContent='';
+    }
+  }
+
+  searchInput.addEventListener('input',doSearch);
+  searchClear.addEventListener('click',function(){searchInput.value='';doSearch();searchInput.focus()});
 
   requestAnimationFrame(onScroll);
 })();
