@@ -619,20 +619,21 @@
 #solutionMarket .sm-view-btn[data-active="true"]{border-color:#1a1a1a;background:#1a1a1a;color:#fff}
 #solutionMarket .sm-view-btn svg{width:15px;height:15px;fill:currentColor}
 
-/* ── SEARCH (카테고리 탭 아래) ── */
+/* ── SEARCH ── */
 #solutionMarket .sm-search-bar{
-  max-width:1320px;margin:0 auto;
-  padding:20px 48px 0;
+  max-width:1320px;margin:0 auto;padding:20px 48px 0;
 }
 #solutionMarket .sm-search{
-  display:flex;align-items:center;gap:0;
+  display:flex;align-items:center;gap:10px;max-width:540px;
+}
+#solutionMarket .sm-search-field{
+  display:flex;align-items:center;flex:1;min-width:0;
   background:#f7f7f7;border:1px solid #e8e8e8;
   border-radius:12px;overflow:hidden;
-  max-width:480px;
   transition:border-color .25s ease, box-shadow .25s ease;
 }
-#solutionMarket .sm-search:focus-within{
-  border-color:#e67e22;box-shadow:0 0 0 3px rgba(230,126,34,.1);
+#solutionMarket .sm-search-field:focus-within{
+  border-color:#e67e22;box-shadow:0 0 0 3px rgba(230,126,34,.08);
 }
 #solutionMarket .sm-search-icon{
   padding:0 14px;display:flex;align-items:center;flex-shrink:0;color:#bbb;
@@ -641,7 +642,7 @@
 #solutionMarket .sm-search input{
   flex:1;border:none;background:none;outline:none;
   font-size:14px;font-family:inherit;color:#1a1a1a;
-  padding:12px 14px 12px 0;min-width:0;
+  padding:13px 14px 13px 0;min-width:0;
 }
 #solutionMarket .sm-search input::placeholder{color:#bbb}
 #solutionMarket .sm-search-clear{
@@ -652,9 +653,42 @@
 #solutionMarket .sm-search-clear.visible{display:flex}
 #solutionMarket .sm-search-clear:hover{color:#888}
 #solutionMarket .sm-search-clear svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#solutionMarket .sm-search-submit{
+  flex-shrink:0;width:44px;height:44px;border-radius:12px;border:none;
+  background:#1a1a1a;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;padding:0;outline:none;
+  transition:background .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+#solutionMarket .sm-search-submit:hover{
+  background:#333;box-shadow:0 4px 12px rgba(0,0,0,.15);transform:translateY(-1px);
+}
+#solutionMarket .sm-search-submit:active{transform:scale(.96);box-shadow:none}
+#solutionMarket .sm-search-submit svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 #solutionMarket .sm-search-count{
   font-size:13px;color:#bbb;margin-top:10px;min-height:20px;
 }
+
+/* ── EMPTY STATE ── */
+#solutionMarket .sm-empty-state{
+  display:none;text-align:center;padding:100px 24px 120px;max-width:480px;margin:0 auto;
+}
+#solutionMarket .sm-empty-state.visible{display:block}
+#solutionMarket .sm-empty-icon{
+  width:80px;height:80px;margin:0 auto 28px;border-radius:50%;
+  background:#f5f5f5;display:flex;align-items:center;justify-content:center;
+}
+#solutionMarket .sm-empty-icon svg{width:36px;height:36px;fill:none;stroke:#ccc;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+#solutionMarket .sm-empty-title{font-size:22px;font-weight:800;color:#1a1a1a;margin-bottom:10px;letter-spacing:-.02em}
+#solutionMarket .sm-empty-keyword{color:#e67e22}
+#solutionMarket .sm-empty-desc{font-size:14px;color:#999;line-height:1.7;margin-bottom:28px}
+#solutionMarket .sm-empty-tips{display:inline-flex;flex-wrap:wrap;gap:8px;justify-content:center}
+#solutionMarket .sm-empty-tip{
+  font-size:12px;font-weight:500;color:#888;
+  background:#f7f7f7;border:1px solid #eee;border-radius:100px;
+  padding:6px 14px;cursor:pointer;transition:all .2s ease;
+}
+#solutionMarket .sm-empty-tip:hover{background:#eee;color:#555}
 
 /* ── CATEGORY BLOCK ── */
 #solutionMarket .sm-cat{
@@ -665,25 +699,19 @@
 
 #solutionMarket .sm-cat-header{
   max-width:1320px;margin:0 auto;padding:0 48px;
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:12px;
+  display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;
 }
 #solutionMarket .sm-cat-title{
-  font-size:clamp(24px,2.8vw,34px);font-weight:900;
-  letter-spacing:-.03em;color:#1a1a1a;line-height:1.2;
+  font-size:clamp(24px,2.8vw,34px);font-weight:900;letter-spacing:-.03em;color:#1a1a1a;line-height:1.2;
 }
 
 /* 서브카테고리 */
-#solutionMarket .sm-sub-wrap{
-  max-width:1320px;margin:0 auto;padding:0 48px;margin-bottom:28px;
-}
+#solutionMarket .sm-sub-wrap{max-width:1320px;margin:0 auto;padding:0 48px;margin-bottom:28px}
 #solutionMarket .sm-sub-list{display:flex;flex-wrap:wrap;gap:8px}
 #solutionMarket .sm-sub-btn{
   font-size:13px;font-weight:500;color:#888;
-  background:#f5f5f5;border:1px solid #eee;
-  border-radius:100px;padding:7px 16px;
-  cursor:pointer;transition:all .2s ease;
-  outline:none;font-family:inherit;white-space:nowrap;
+  background:#f5f5f5;border:1px solid #eee;border-radius:100px;padding:7px 16px;
+  cursor:pointer;transition:all .2s ease;outline:none;font-family:inherit;white-space:nowrap;
 }
 #solutionMarket .sm-sub-btn:hover{border-color:#ccc;color:#555}
 #solutionMarket .sm-sub-btn[data-active="true"]{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
@@ -704,14 +732,12 @@
 #solutionMarket .sm-slider-wrap{max-width:1320px;margin:0 auto;padding:0 48px}
 #solutionMarket[data-view="list"] .sm-slider-wrap{display:none}
 #solutionMarket .sm-slider{
-  display:flex;gap:20px;overflow-x:auto;
-  scrollbar-width:none;padding-bottom:8px;
+  display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;padding-bottom:8px;
 }
 #solutionMarket .sm-slider::-webkit-scrollbar{display:none}
 
 #solutionMarket .sm-card{
-  flex:0 0 auto;width:320px;cursor:pointer;
-  transition:transform .3s ease;
+  flex:0 0 auto;width:320px;cursor:pointer;transition:transform .3s ease;
   border:1px solid #f0f0f0;border-radius:12px;overflow:hidden;background:#fff;
 }
 #solutionMarket .sm-card[data-hidden="true"]{display:none}
@@ -720,22 +746,17 @@
 #solutionMarket .sm-card-thumb{
   position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:#f0f0f0;
 }
-#solutionMarket .sm-card-thumb img{
-  width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;
-}
+#solutionMarket .sm-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
 #solutionMarket .sm-card:hover .sm-card-thumb img{transform:scale(1.04)}
 #solutionMarket .sm-card-badge{
-  position:absolute;top:12px;left:12px;
-  font-size:11px;font-weight:700;color:#fff;
-  background:rgba(230,126,34,.9);border-radius:6px;
-  padding:4px 10px;letter-spacing:.02em;
+  position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;color:#fff;
+  background:rgba(230,126,34,.9);border-radius:6px;padding:4px 10px;letter-spacing:.02em;
 }
 
 #solutionMarket .sm-card-body{padding:18px 20px 20px}
 #solutionMarket .sm-card-sub{font-size:11px;font-weight:600;color:#e67e22;margin-bottom:6px}
 #solutionMarket .sm-card-name{
-  font-size:16px;font-weight:700;color:#1a1a1a;
-  margin-bottom:6px;line-height:1.4;
+  font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:6px;line-height:1.4;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
 #solutionMarket .sm-card-desc{
@@ -744,8 +765,7 @@
 }
 #solutionMarket .sm-card-tags{display:flex;flex-wrap:wrap;gap:5px}
 #solutionMarket .sm-card-tag{
-  font-size:11px;font-weight:500;color:#999;
-  background:#f7f7f7;border:1px solid #eee;
+  font-size:11px;font-weight:500;color:#999;background:#f7f7f7;border:1px solid #eee;
   border-radius:100px;padding:3px 10px;line-height:1;
 }
 
@@ -753,10 +773,8 @@
 #solutionMarket .sm-list-wrap{max-width:1320px;margin:0 auto;padding:0 48px;display:none}
 #solutionMarket[data-view="list"] .sm-list-wrap{display:block}
 #solutionMarket .sm-list-item{
-  display:flex;align-items:center;gap:20px;
-  padding:18px 22px;border:1px solid #f0f0f0;
-  border-radius:10px;margin-bottom:10px;
-  transition:all .25s ease;cursor:pointer;background:#fff;
+  display:flex;align-items:center;gap:20px;padding:18px 22px;border:1px solid #f0f0f0;
+  border-radius:10px;margin-bottom:10px;transition:all .25s ease;cursor:pointer;background:#fff;
 }
 #solutionMarket .sm-list-item[data-hidden="true"]{display:none}
 #solutionMarket .sm-list-item:hover{border-color:#ddd;box-shadow:0 4px 16px rgba(0,0,0,.04);transform:translateY(-1px)}
@@ -778,10 +796,8 @@
   border:1px solid #eee;border-radius:100px;padding:3px 8px;line-height:1;
 }
 
-/* ── NO RESULT ── */
-#solutionMarket .sm-no-result{
-  text-align:center;padding:48px 20px;color:#ccc;font-size:15px;display:none;
-}
+/* ── NO RESULT (카테고리 내부) ── */
+#solutionMarket .sm-no-result{text-align:center;padding:48px 20px;color:#ccc;font-size:15px;display:none}
 #solutionMarket .sm-no-result.visible{display:block}
 
 /* ── RESPONSIVE ── */
@@ -811,6 +827,8 @@
   #solutionMarket .sm-list-item{flex-wrap:wrap;gap:12px;padding:14px 16px}
   #solutionMarket .sm-list-tags{max-width:100%}
   #solutionMarket .sm-list-desc{display:none}
+  #solutionMarket .sm-empty-state{padding:72px 20px 80px}
+  #solutionMarket .sm-empty-title{font-size:19px}
 }
 @media(max-width:480px){
   #solutionMarket .sm-search-bar,
@@ -834,14 +852,34 @@
   </div>
 </nav>
 
-<!-- SEARCH (카테고리 탭 아래) -->
+<!-- SEARCH -->
 <div class="sm-search-bar">
   <div class="sm-search">
-    <span class="sm-search-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
-    <input type="text" id="smSearchInput" placeholder="솔루션명, 해시태그로 검색 (예: 당뇨, #혈당관리)">
-    <button class="sm-search-clear" id="smSearchClear" type="button" aria-label="검색 초기화"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div class="sm-search-field">
+      <span class="sm-search-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+      <input type="text" id="smSearchInput" placeholder="솔루션명, 해시태그로 검색 (예: 당뇨, #혈당관리)">
+      <button class="sm-search-clear" id="smSearchClear" type="button" aria-label="검색 초기화"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <button class="sm-search-submit" id="smSearchSubmit" type="button" aria-label="검색"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
   </div>
   <div class="sm-search-count" id="smSearchCount"></div>
+</div>
+
+<!-- EMPTY STATE -->
+<div class="sm-empty-state" id="smEmptyState">
+  <div class="sm-empty-icon">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6"/></svg>
+  </div>
+  <div class="sm-empty-title">"<span class="sm-empty-keyword" id="smEmptyKeyword"></span>"에 대한 검색 결과가 없습니다</div>
+  <div class="sm-empty-desc">다른 키워드로 검색하거나, 아래 추천 키워드를 눌러보세요.</div>
+  <div class="sm-empty-tips">
+    <span class="sm-empty-tip" data-q="당뇨">당뇨</span>
+    <span class="sm-empty-tip" data-q="혈압">혈압</span>
+    <span class="sm-empty-tip" data-q="#골반교정">#골반교정</span>
+    <span class="sm-empty-tip" data-q="탈모">탈모</span>
+    <span class="sm-empty-tip" data-q="#수면장애">#수면장애</span>
+    <span class="sm-empty-tip" data-q="디톡스">디톡스</span>
+  </div>
 </div>
 
 <!-- CONTENT -->
@@ -1128,7 +1166,7 @@
     var startX = 0, scrollStart = 0;
     var trackX = [], trackT = [];
     var velX = 0, rafId = 0;
-    var gap = 20; /* matches CSS gap */
+    var gap = 20;
 
     function getCardWidth(){
       var card = s.querySelector('.sm-card:not([data-hidden="true"])');
@@ -1139,15 +1177,10 @@
       var cw = getCardWidth();
       var current = s.scrollLeft;
       var target = Math.round(current / cw) * cw;
-      var diff = target - current;
-      var step = diff * 0.15;
 
       function snapTick(){
         var remaining = target - s.scrollLeft;
-        if(Math.abs(remaining) < 1){
-          s.scrollLeft = target;
-          return;
-        }
+        if(Math.abs(remaining) < 1){ s.scrollLeft = target; return; }
         s.scrollLeft += remaining * 0.18;
         rafId = requestAnimationFrame(snapTick);
       }
@@ -1156,10 +1189,7 @@
 
     function momentum(){
       velX *= 0.94;
-      if(Math.abs(velX) < 1.5){
-        snapToNearest();
-        return;
-      }
+      if(Math.abs(velX) < 1.5){ snapToNearest(); return; }
       s.scrollLeft += velX;
       rafId = requestAnimationFrame(momentum);
     }
@@ -1167,8 +1197,7 @@
     s.addEventListener('mousedown', function(e){
       cancelAnimationFrame(rafId);
       dragging = true; velX = 0;
-      startX = e.clientX;
-      scrollStart = s.scrollLeft;
+      startX = e.clientX; scrollStart = s.scrollLeft;
       trackX = [e.clientX]; trackT = [Date.now()];
       s.style.cursor = 'grabbing';
       e.preventDefault();
@@ -1183,18 +1212,14 @@
 
     document.addEventListener('mouseup', function(){
       if(!dragging) return;
-      dragging = false;
-      s.style.cursor = '';
+      dragging = false; s.style.cursor = '';
       if(trackX.length >= 2){
         var dt = trackT[trackT.length-1] - trackT[0];
         var dp = trackX[trackX.length-1] - trackX[0];
         if(dt > 0) velX = -dp / dt * 16;
       }
-      if(Math.abs(velX) > 1.5){
-        rafId = requestAnimationFrame(momentum);
-      } else {
-        snapToNearest();
-      }
+      if(Math.abs(velX) > 1.5){ rafId = requestAnimationFrame(momentum); }
+      else { snapToNearest(); }
     });
   });
 
@@ -1225,53 +1250,77 @@
   });
 
   /* ═══════════ SEARCH ═══════════ */
-  var searchInput=document.getElementById('smSearchInput');
-  var searchClear=document.getElementById('smSearchClear');
-  var searchCount=document.getElementById('smSearchCount');
+  var searchInput = document.getElementById('smSearchInput');
+  var searchClear = document.getElementById('smSearchClear');
+  var searchCount = document.getElementById('smSearchCount');
+  var emptyState = document.getElementById('smEmptyState');
+  var emptyKeyword = document.getElementById('smEmptyKeyword');
 
   function doSearch(){
-    var q=searchInput.value.trim().toLowerCase();
-    searchClear.classList.toggle('visible',q.length>0);
-    var totalMatch=0;
+    var q = searchInput.value.trim().toLowerCase();
+    searchClear.classList.toggle('visible', q.length > 0);
+    var totalMatch = 0;
 
     catBlocks.forEach(function(sec){
-      var cards=sec.querySelectorAll('.sm-card');
-      var listItems=sec.querySelectorAll('.sm-list-item');
-      var catMatch=0;
+      var cards = sec.querySelectorAll('.sm-card');
+      var listItems = sec.querySelectorAll('.sm-list-item');
+      var catMatch = 0;
 
-      if(q.length>0){
+      if(q.length > 0){
         sec.querySelectorAll('.sm-sub-btn').forEach(function(b,i){b.setAttribute('data-active',i===0?'true':'false')});
       }
 
       cards.forEach(function(c){
-        if(q.length===0){c.setAttribute('data-hidden','false');catMatch++;return}
-        var n=c.getAttribute('data-name'),t=c.getAttribute('data-tags');
-        var match=n.indexOf(q)!==-1||t.indexOf(q)!==-1;
-        c.setAttribute('data-hidden',match?'false':'true');
-        if(match)catMatch++;
+        if(q.length === 0){ c.setAttribute('data-hidden','false'); catMatch++; return; }
+        var n = c.getAttribute('data-name'), t = c.getAttribute('data-tags');
+        var match = n.indexOf(q) !== -1 || t.indexOf(q) !== -1;
+        c.setAttribute('data-hidden', match ? 'false' : 'true');
+        if(match) catMatch++;
       });
       listItems.forEach(function(l){
-        if(q.length===0){l.setAttribute('data-hidden','false');return}
-        var n=l.getAttribute('data-name'),t=l.getAttribute('data-tags');
-        var match=n.indexOf(q)!==-1||t.indexOf(q)!==-1;
-        l.setAttribute('data-hidden',match?'false':'true');
+        if(q.length === 0){ l.setAttribute('data-hidden','false'); return; }
+        var n = l.getAttribute('data-name'), t = l.getAttribute('data-tags');
+        var match = n.indexOf(q) !== -1 || t.indexOf(q) !== -1;
+        l.setAttribute('data-hidden', match ? 'false' : 'true');
       });
 
-      totalMatch+=catMatch;
-      sec.setAttribute('data-hidden',catMatch===0&&q.length>0?'true':'false');
-      var nr=sec.querySelector('.sm-no-result');
-      if(nr){catMatch===0&&q.length>0?nr.classList.add('visible'):nr.classList.remove('visible')}
+      totalMatch += catMatch;
+      sec.setAttribute('data-hidden', catMatch === 0 && q.length > 0 ? 'true' : 'false');
+      var nr = sec.querySelector('.sm-no-result');
+      if(nr){ catMatch === 0 && q.length > 0 ? nr.classList.add('visible') : nr.classList.remove('visible'); }
     });
 
-    if(q.length>0){
-      searchCount.textContent='"'+searchInput.value.trim()+'" 검색 결과 '+totalMatch+'개';
+    if(q.length > 0){
+      searchCount.textContent = '"' + searchInput.value.trim() + '" 검색 결과 ' + totalMatch + '개';
+      if(totalMatch === 0){
+        emptyKeyword.textContent = searchInput.value.trim();
+        emptyState.classList.add('visible');
+      } else {
+        emptyState.classList.remove('visible');
+      }
     } else {
-      searchCount.textContent='';
+      searchCount.textContent = '';
+      emptyState.classList.remove('visible');
     }
   }
 
-  searchInput.addEventListener('input',doSearch);
-  searchClear.addEventListener('click',function(){searchInput.value='';doSearch();searchInput.focus()});
+  /* 입력 중에는 X 버튼만 토글, 검색은 버튼/Enter에서만 */
+  searchInput.addEventListener('input', function(){
+    searchClear.classList.toggle('visible', searchInput.value.trim().length > 0);
+  });
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+  document.getElementById('smSearchSubmit').addEventListener('click', doSearch);
+  searchClear.addEventListener('click', function(){ searchInput.value = ''; doSearch(); searchInput.focus(); });
+
+  /* 추천 키워드 클릭 */
+  root.querySelectorAll('.sm-empty-tip').forEach(function(tip){
+    tip.addEventListener('click', function(){
+      searchInput.value = tip.getAttribute('data-q');
+      doSearch();
+    });
+  });
 
   requestAnimationFrame(onScroll);
 })();
