@@ -398,6 +398,42 @@
 
 <div class="nhn-slider">
 
+  <!-- slide 1 -->
+  <div class="nhn-slide active">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=760&h=570&fit=crop&q=80" alt="">
+    </div>
+    <div class="nhn-content">
+      <div class="nhn-title">R&D 기반 혁신으로 글로벌을 선도</div>
+      <div class="nhn-brand">아모레퍼시픽 | 뷰티기업</div>
+      <div class="nhn-desc">국내 대표 화장품 기업의 브랜드 포트폴리오</div>
+    </div>
+  </div>
+
+  <!-- slide 2 -->
+  <div class="nhn-slide">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=760&h=570&fit=crop&q=80" alt="">
+    </div>
+    <div class="nhn-content">
+      <div class="nhn-title">전국 체인 네트워크와 자유로운 이용 시스템</div>
+      <div class="nhn-brand">스포애니 | 24시 피트니스</div>
+      <div class="nhn-desc">합리적 가격의 24시간 무인 피트니스</div>
+    </div>
+  </div>
+
+  <!-- slide 3 -->
+  <div class="nhn-slide">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=760&h=570&fit=crop&q=80" alt="">
+    </div>
+    <div class="nhn-content">
+      <div class="nhn-title">하타·빈야사·음양 요가 전문 수업 운영</div>
+      <div class="nhn-brand">코어요가 | 요가 스튜디오</div>
+      <div class="nhn-desc">명상과 움직임을 결합한 마인드풀 요가 프로그램</div>
+    </div>
+  </div>
+
 </div>
 
 <!-- progress -->
@@ -856,6 +892,72 @@
   if(!root) return;
   root.setAttribute('data-view','card');
 
+  var data = [
+    {
+      id:'sm_metabolic', category:'대사질환 관리', subs:['전체','당뇨·혈당','고혈압·혈관','고지혈증·콜레스테롤','비만·체중'],
+      items:[
+        {name:'스마트 혈당 밸런스 프로그램',logo:'혈당',sub:'당뇨·혈당',image:'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=640&h=400&fit=crop&q=80',desc:'연속혈당측정기(CGM) 데이터 기반 식단·운동·생활습관을 통합 관리하는 12주 맞춤 프로그램',tags:['#당뇨','#혈당관리','#CGM','#식단관리']},
+        {name:'당뇨 역전 영양 코칭',logo:'영양',sub:'당뇨·혈당',image:'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=640&h=400&fit=crop&q=80',desc:'전문 영양사의 1:1 코칭으로 혈당 스파이크를 줄이고 약물 의존도를 낮추는 식이 솔루션',tags:['#당뇨역전','#영양코칭','#혈당스파이크','#식이요법']},
+        {name:'혈압 안심 모니터링 키트',logo:'혈압',sub:'고혈압·혈관',image:'https://images.unsplash.com/photo-1559757175-7cb057fba93c?w=640&h=400&fit=crop&q=80',desc:'가정용 혈압계 + 앱 연동으로 매일 혈압 추이를 기록하고 전문의 원격 상담을 받는 패키지',tags:['#고혈압','#혈압모니터링','#원격상담','#가정관리']},
+        {name:'혈관 나이 검사 + 개선 솔루션',logo:'혈관',sub:'고혈압·혈관',image:'https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=640&h=400&fit=crop&q=80',desc:'혈관 탄성도·경직도 정밀 검사 후 운동·영양·보충제 맞춤 개선 프로그램 제공',tags:['#혈관건강','#혈관나이','#동맥경화','#정밀검사']},
+        {name:'콜레스테롤 제로 플랜',logo:'지질',sub:'고지혈증·콜레스테롤',image:'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=640&h=400&fit=crop&q=80',desc:'고지혈증 수치 개선을 위한 8주 식단 프로그램 + 오메가3·식이섬유 보충제 키트',tags:['#고지혈증','#콜레스테롤','#오메가3','#식단프로그램']},
+        {name:'비만대사증후군 통합 관리',logo:'대사',sub:'비만·체중',image:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&h=400&fit=crop&q=80',desc:'의사·약사·영양사 협진으로 비만의 근본 원인인 대사 불균형을 교정하는 16주 프로그램',tags:['#비만대사','#체중관리','#협진','#근본치료']},
+        {name:'간헐적 단식 가이드 솔루션',logo:'단식',sub:'비만·체중',image:'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=640&h=400&fit=crop&q=80',desc:'16:8, 5:2 등 개인 체질에 맞는 간헐적 단식 방법을 설계하고 실행을 돕는 앱 기반 코칭',tags:['#간헐적단식','#다이어트','#체질분석','#앱코칭']}
+      ]
+    },
+    {
+      id:'sm_body', category:'체형·통증 교정', subs:['전체','골반·체형 비대칭','거북목·일자목','허리·척추','어깨·관절'],
+      items:[
+        {name:'3D 체형 분석 + 교정 프로그램',logo:'체형',sub:'골반·체형 비대칭',image:'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=640&h=400&fit=crop&q=80',desc:'3D 바디스캐너로 비대칭을 정밀 분석하고 필라테스·도수치료를 결합한 12주 교정 과정',tags:['#체형비대칭','#골반교정','#3D분석','#도수치료']},
+        {name:'골반 밸런스 필라테스',logo:'골반',sub:'골반·체형 비대칭',image:'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=640&h=400&fit=crop&q=80',desc:'골반 틀어짐과 좌우 불균형을 교정하는 전문 필라테스 1:1 세션',tags:['#골반교정','#필라테스','#비대칭','#1:1']},
+        {name:'거북목 리셋 솔루션',logo:'목',sub:'거북목·일자목',image:'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=640&h=400&fit=crop&q=80',desc:'자세 센서 디바이스 + 8주 스트레칭·근력 프로그램으로 거북목을 근본 교정',tags:['#거북목','#일자목','#자세교정','#스트레칭']},
+        {name:'디스크·척추 재활 프로그램',logo:'척추',sub:'허리·척추',image:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&h=400&fit=crop&q=80',desc:'정형외과 전문의 감수 하에 진행되는 허리 디스크·척추관 협착증 맞춤 운동 재활',tags:['#디스크','#척추재활','#허리통증','#운동처방']},
+        {name:'오십견·회전근개 회복 키트',logo:'어깨',sub:'어깨·관절',image:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=640&h=400&fit=crop&q=80',desc:'어깨 통증의 단계별 자가 재활 가이드 + 탄력밴드·폼롤러 키트 + 전문가 영상 코칭',tags:['#오십견','#회전근개','#어깨재활','#자가재활']},
+        {name:'무릎 관절 보호 솔루션',logo:'무릎',sub:'어깨·관절',image:'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=640&h=400&fit=crop&q=80',desc:'무릎 연골 보호를 위한 근력 강화 운동 + 관절 영양제 + 보호대 통합 패키지',tags:['#무릎관절','#연골보호','#근력강화','#관절영양']}
+      ]
+    },
+    {
+      id:'sm_skin', category:'피부·탈모 솔루션', subs:['전체','여드름·트러블','색소·기미','주름·탄력','탈모·두피'],
+      items:[
+        {name:'AI 피부 진단 + 맞춤 스킨케어',logo:'피부',sub:'여드름·트러블',image:'https://images.unsplash.com/photo-1570172619644-dfd03ed5d142?w=640&h=400&fit=crop&q=80',desc:'AI가 피부 상태를 분석하고 성분 기반 맞춤 스킨케어 루틴과 제품을 추천하는 서비스',tags:['#AI진단','#여드름','#맞춤스킨케어','#성분분석']},
+        {name:'피지·모공 집중 관리 프로그램',logo:'모공',sub:'여드름·트러블',image:'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=640&h=400&fit=crop&q=80',desc:'피부과 전문의 감수 4주 프로그램으로 피지 조절·모공 축소·트러블 예방까지',tags:['#피지조절','#모공관리','#트러블케어','#피부과']},
+        {name:'기미·색소 브라이트닝 솔루션',logo:'색소',sub:'색소·기미',image:'https://images.unsplash.com/photo-1598524374912-6b0b0bab31e8?w=640&h=400&fit=crop&q=80',desc:'비타민C·나이아신아마이드 기반 홈케어 + 주 1회 전문 시술 조합 프로그램',tags:['#기미','#색소침착','#브라이트닝','#비타민C']},
+        {name:'콜라겐 부스팅 안티에이징',logo:'탄력',sub:'주름·탄력',image:'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=640&h=400&fit=crop&q=80',desc:'먹는 콜라겐 + 바르는 레티놀 + LED 마스크 3단계 홈케어 안티에이징 시스템',tags:['#콜라겐','#안티에이징','#주름개선','#레티놀']},
+        {name:'두피 정밀 진단 + 탈모 방지 케어',logo:'두피',sub:'탈모·두피',image:'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=640&h=400&fit=crop&q=80',desc:'200배 두피 현미경 진단 후 샴푸·앰플·영양제를 맞춤 처방하는 탈모 관리 솔루션',tags:['#탈모','#두피진단','#탈모방지','#맞춤처방']},
+        {name:'여성 탈모 전문 프로그램',logo:'여탈',sub:'탈모·두피',image:'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=640&h=400&fit=crop&q=80',desc:'호르몬·스트레스·영양 불균형 등 여성 탈모 원인별 맞춤 치료 플랜',tags:['#여성탈모','#호르몬','#스트레스탈모','#원인별치료']}
+      ]
+    },
+    {
+      id:'sm_mental', category:'멘탈·스트레스 관리', subs:['전체','수면 장애','번아웃·스트레스','불안·우울','집중력·브레인'],
+      items:[
+        {name:'수면 리듬 회복 코칭',logo:'수면',sub:'수면 장애',image:'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=640&h=400&fit=crop&q=80',desc:'수면 전문가의 4주 코칭으로 불면증·수면 무호흡·뒤척임을 개선하는 비약물 프로그램',tags:['#수면장애','#불면증','#수면코칭','#비약물']},
+        {name:'스마트 수면 환경 키트',logo:'환경',sub:'수면 장애',image:'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=640&h=400&fit=crop&q=80',desc:'수면 센서 매트 + 아로마 디퓨저 + 차단 커튼 + 맞춤 수면 앱으로 구성된 토탈 키트',tags:['#수면환경','#수면센서','#아로마','#숙면키트']},
+        {name:'번아웃 탈출 8주 프로그램',logo:'번아웃',sub:'번아웃·스트레스',image:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=640&h=400&fit=crop&q=80',desc:'심리상담 + 마인드풀니스 + 운동 처방을 결합한 직장인 번아웃 회복 통합 프로그램',tags:['#번아웃','#직장인','#마인드풀니스','#심리상담']},
+        {name:'일상 스트레스 해소 구독 박스',logo:'해소',sub:'번아웃·스트레스',image:'https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=640&h=400&fit=crop&q=80',desc:'매월 배송되는 힐링 아이템(차, 아로마, 저널, 명상가이드) + 주 1회 온라인 명상 클래스',tags:['#스트레스해소','#구독박스','#명상','#힐링']},
+        {name:'불안·우울 CBT 자가관리 앱',logo:'CBT',sub:'불안·우울',image:'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=640&h=400&fit=crop&q=80',desc:'인지행동치료(CBT) 기반 앱으로 감정 일기·사고 기록·행동 실험을 체계적으로 관리',tags:['#불안','#우울','#CBT','#인지행동치료']},
+        {name:'집중력 부스터 브레인 트레이닝',logo:'뇌',sub:'집중력·브레인',image:'https://images.unsplash.com/photo-1513258496099-48168024aec0?w=640&h=400&fit=crop&q=80',desc:'뉴로피드백 기기 + 뇌파 기반 집중력 훈련 게임 + 전문가 월 1회 리포트',tags:['#집중력','#뇌훈련','#뉴로피드백','#브레인']}
+      ]
+    },
+    {
+      id:'sm_nutrition', category:'영양·식단 솔루션', subs:['전체','맞춤 영양제','식단 배달','장 건강','해독·디톡스'],
+      items:[
+        {name:'혈액 검사 기반 맞춤 영양제',logo:'영양',sub:'맞춤 영양제',image:'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=640&h=400&fit=crop&q=80',desc:'혈액 검사 결과를 분석해 부족한 영양소를 정확히 보충하는 개인 맞춤 영양제 구독',tags:['#맞춤영양제','#혈액검사','#영양분석','#구독']},
+        {name:'목적별 건강 식단 배달',logo:'식단',sub:'식단 배달',image:'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=640&h=400&fit=crop&q=80',desc:'당뇨식·저염식·근육증가식·다이어트식 등 목적에 맞는 전문 영양사 설계 도시락 배달',tags:['#건강식단','#도시락배달','#당뇨식','#다이어트식']},
+        {name:'장 마이크로바이옴 분석 솔루션',logo:'장',sub:'장 건강',image:'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=640&h=400&fit=crop&q=80',desc:'장내 미생물 유전자 분석 키트 + 프로바이오틱스 맞춤 처방 + 식이섬유 가이드',tags:['#장건강','#마이크로바이옴','#프로바이오틱스','#유전자분석']},
+        {name:'7일 주스 디톡스 프로그램',logo:'디톡',sub:'해독·디톡스',image:'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=640&h=400&fit=crop&q=80',desc:'유기농 콜드프레스 주스 7일분 + 디톡스 가이드북 + 전문가 카카오톡 실시간 케어',tags:['#디톡스','#주스클렌즈','#해독','#유기농']}
+      ]
+    },
+    {
+      id:'sm_fitness', category:'운동·체력 강화', subs:['전체','홈트레이닝','PT·개인지도','재활운동','시니어 운동'],
+      items:[
+        {name:'AI 홈트 코치 구독',logo:'홈트',sub:'홈트레이닝',image:'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=640&h=400&fit=crop&q=80',desc:'스마트폰 카메라가 자세를 분석하고 실시간 피드백하는 AI 기반 홈트레이닝 앱',tags:['#홈트레이닝','#AI코치','#자세분석','#실시간피드백']},
+        {name:'체성분 맞춤 PT 매칭',logo:'PT',sub:'PT·개인지도',image:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=640&h=400&fit=crop&q=80',desc:'인바디 분석 후 목표(다이어트·벌크업·체력)에 맞는 전문 트레이너를 자동 매칭',tags:['#PT','#트레이너매칭','#인바디','#맞춤운동']},
+        {name:'수술 후 재활 운동 플랜',logo:'재활',sub:'재활운동',image:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=640&h=400&fit=crop&q=80',desc:'무릎·어깨·척추 수술 후 단계별 재활 운동을 물리치료사가 원격으로 관리하는 프로그램',tags:['#수술후재활','#원격재활','#물리치료','#단계별운동']},
+        {name:'시니어 낙상 예방 운동 교실',logo:'시니어',sub:'시니어 운동',image:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&h=400&fit=crop&q=80',desc:'65세 이상 대상 균형감각·근력·유연성 향상을 위한 소그룹 운동 클래스 (주 3회)',tags:['#시니어','#낙상예방','#균형운동','#소그룹']}
+      ]
+    }
+  ];
+
   /* ═══════════ DOM ═══════════ */
   var navTabs = document.getElementById('smNavTabs');
   var content = document.getElementById('smContent');
@@ -1229,9 +1331,7 @@
 
 <div id="footer_template"></div>
 
-   <script src="./frontend/supabase-config.js"></script>
-   <script src="./frontend/biznovalab-dynamic.js"></script>
-   <script src="./frontend/biznovalab-solution.js"></script>
+
 
     </body>
     <script src="./js/jquery-1.11.0.min.js"></script>

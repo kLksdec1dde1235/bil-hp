@@ -398,7 +398,41 @@
 
 <div class="nhn-slider">
 
+  <!-- slide 1 -->
+  <div class="nhn-slide active">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=760&h=570&fit=crop&q=80" alt="">
+    </div>
+    <div class="nhn-content">
+      <div class="nhn-title">R&D 기반 혁신으로 글로벌을 선도</div>
+      <div class="nhn-brand">아모레퍼시픽 | 뷰티기업</div>
+      <div class="nhn-desc">국내 대표 화장품 기업의 브랜드 포트폴리오</div>
+    </div>
+  </div>
 
+  <!-- slide 2 -->
+  <div class="nhn-slide">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=760&h=570&fit=crop&q=80" alt="">
+    </div>
+    <div class="nhn-content">
+      <div class="nhn-title">전국 체인 네트워크와 자유로운 이용 시스템</div>
+      <div class="nhn-brand">스포애니 | 24시 피트니스</div>
+      <div class="nhn-desc">합리적 가격의 24시간 무인 피트니스</div>
+    </div>
+  </div>
+
+  <!-- slide 3 -->
+  <div class="nhn-slide">
+    <div class="nhn-bg">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=760&h=570&fit=crop&q=80" alt="">
+    </div>
+    <div class="nhn-content">
+      <div class="nhn-title">하타·빈야사·음양 요가 전문 수업 운영</div>
+      <div class="nhn-brand">코어요가 | 요가 스튜디오</div>
+      <div class="nhn-desc">명상과 움직임을 결합한 마인드풀 요가 프로그램</div>
+    </div>
+  </div>
 
 </div>
 
@@ -1204,7 +1238,81 @@
 
   root.setAttribute('data-view','card');
 
+  var filters = [
+    {key:'all', label:'전체', title:'전체 프로젝트', desc:'뷰티와 헬스 업종이 어떤 기술과 결합해 새로운 프로젝트가 되는지 한눈에 확인합니다.'},
+    {key:'beauty', label:'뷰티', title:'뷰티 혁신 프로젝트', desc:'피부관리, 화장품, 에스테틱, 스타일링을 AI와 콘텐츠 구조로 확장합니다.'},
+    {key:'health', label:'헬스', title:'헬스 혁신 프로젝트', desc:'피트니스, 건강관리, 회복, 웰니스 서비스를 데이터와 공간 경험으로 확장합니다.'},
+    {key:'ai', label:'AI 활용', title:'AI 활용 프로젝트', desc:'뷰티와 헬스 서비스에 AI 분석, 추천, 자동화 시스템을 결합합니다.'},
+    {key:'space', label:'공간/경험', title:'공간·경험 프로젝트', desc:'오프라인 공간을 체험형 브랜드와 프리미엄 서비스로 전환합니다.'},
+    {key:'commerce', label:'커머스', title:'커머스 프로젝트', desc:'상품 판매, 구독, 추천, D2C 구조로 확장하는 프로젝트입니다.'},
+    {key:'brand', label:'브랜드 확장', title:'브랜드 확장 프로젝트', desc:'서비스를 브랜드 콘텐츠, 커뮤니티, 반복 구매 구조로 확장합니다.'}
+  ];
 
+  var projects = [
+    {
+      code:'LAB-01', category:['beauty','ai','health','brand'], title:'AI 피부 진단 뷰티 클리닉',
+      base:'피부과 · 에스테틱', add:'AI 피부 분석', plus:'퍼스널 홈케어 추천',
+      result:'피부 진단부터 제품 추천, 홈케어 루틴까지 연결하는 AI 뷰티 프로젝트',
+      copy:'오프라인 피부 관리 서비스를 AI 분석과 맞춤형 홈케어 구조로 확장합니다.',
+      stage:'검증중', image:'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-02', category:['health','space','brand'], title:'프리미엄 웰니스 회복 공간',
+      base:'헬스케어 프로그램', add:'명상 · 수면 회복 콘텐츠', plus:'프리미엄 공간 경험',
+      result:'운동과 심리 회복을 함께 경험하는 고급 웰니스 공간 프로젝트',
+      copy:'운동과 힐링을 결합해 몸과 마음 회복 경험을 제공하는 웰니스 구조입니다.',
+      stage:'진행중', image:'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-03', category:['beauty','commerce','brand','ai'], title:'AI 뷰티 제품 추천 플랫폼',
+      base:'뷰티 쇼핑몰', add:'고객 피부 데이터', plus:'AI 추천 알고리즘',
+      result:'피부 상태와 라이프스타일에 맞는 제품을 자동 추천하는 커머스 프로젝트',
+      copy:'고객 데이터와 AI 분석을 기반으로 개인 맞춤형 뷰티 제품을 추천합니다.',
+      stage:'개발중', image:'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-04', category:['health','brand'], title:'전문가 건강 습관 코칭 랩',
+      base:'건강 코칭', add:'습관 데이터 분석', plus:'커뮤니티 챌린지',
+      result:'전문가 코칭을 습관 형성과 참여형 커뮤니티 구조로 확장하는 프로젝트',
+      copy:'건강 관리 프로그램을 데이터 기반 습관 코칭 구조로 전환합니다.',
+      stage:'실험중', image:'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-05', category:['beauty','space','brand'], title:'뷰티 브랜드 체험 스튜디오',
+      base:'화장품 브랜드', add:'오프라인 체험 공간', plus:'SNS 콘텐츠 제작',
+      result:'브랜드 체험과 콘텐츠 제작을 동시에 할 수 있는 뷰티 공간 프로젝트',
+      copy:'뷰티 브랜드를 체험형 공간과 콘텐츠 중심 구조로 확장합니다.',
+      stage:'운영중', image:'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-06', category:['health','ai','commerce'], title:'AI 운동 루틴 자동화 서비스',
+      base:'피트니스 센터', add:'AI 운동 분석', plus:'구독형 건강 관리',
+      result:'운동 데이터를 기반으로 루틴과 식단을 자동 관리하는 헬스 프로젝트',
+      copy:'피트니스 데이터를 기반으로 운동과 식단 관리를 자동화합니다.',
+      stage:'개발중', image:'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-07', category:['beauty','commerce','brand'], title:'프리미엄 이너뷰티 브랜드',
+      base:'건강 식품', add:'뷰티 브랜딩', plus:'구독 커머스',
+      result:'먹는 건강 제품을 프리미엄 뷰티 라이프스타일 브랜드로 확장하는 프로젝트',
+      copy:'건강식품 시장을 뷰티 라이프스타일 기반 브랜드로 재구성합니다.',
+      stage:'기획중', image:'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-08', category:['health','space','ai'], title:'스마트 리커버리 헬스 라운지',
+      base:'재활 · 회복 프로그램', add:'AI 건강 모니터링', plus:'프리미엄 라운지 경험',
+      result:'회복 데이터를 기반으로 맞춤형 건강 케어를 제공하는 스마트 헬스 공간',
+      copy:'헬스케어와 공간 경험을 결합한 회복 중심의 프리미엄 라운지입니다.',
+      stage:'검증중', image:'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&h=675&fit=crop&q=80'
+    },
+    {
+      code:'LAB-09', category:['beauty','ai','brand'], title:'AI 퍼스널 스타일링 미러',
+      base:'뷰티 디바이스', add:'AI 얼굴 분석', plus:'스타일 추천 콘텐츠',
+      result:'얼굴형과 피부톤에 맞는 메이크업과 스타일을 추천하는 AI 뷰티 프로젝트',
+      copy:'뷰티 디바이스와 AI 스타일 분석을 결합한 차세대 뷰티 경험입니다.',
+      stage:'실험중', image:'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900&h=675&fit=crop&q=80'
+    }
+  ];
 
   var tabsEl = document.getElementById('iilTabs');
   var gridEl = document.getElementById('iilGrid');
