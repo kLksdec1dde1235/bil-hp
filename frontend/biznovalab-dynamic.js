@@ -62,7 +62,7 @@
       var st = document.createElement('style');
       st.id = 'nhn-cta-style';
       st.textContent =
-        '#nhnHeroSlider .nhn-cta{display:inline-block;margin-top:22px;padding:13px 30px;border:1.5px solid rgba(255,255,255,.85);border-radius:40px;color:#fff;font-weight:600;letter-spacing:.02em;opacity:0;transform:translateY(30px);transition:background .3s,color .3s}' +
+        '#nhnHeroSlider .nhn-cta{display:inline-block;margin-top:22px;padding:13px 30px;border:1.5px solid rgba(255,255,255,.85);border-radius:40px;color:#fff;font-weight:600;letter-spacing:.02em;opacity:0;transform:translateY(30px);transition:background .3s,color .3s;text-decoration:none;}' +
         '#nhnHeroSlider .nhn-slide.active .nhn-cta{animation:nhnFadeUp .8s .6s forwards}' +
         '#nhnHeroSlider .nhn-cta:hover{background:#fff;color:#111}';
       document.head.appendChild(st);
