@@ -350,13 +350,26 @@
   }
 
   /* ══════════ 부트스트랩 ══════════ */
+  function detectHeroKey() {
+    var section = document.querySelector('#nhnHeroSlider');
+    // 1) 명시적 지정 우선: <section id="nhnHeroSlider" data-hero-key="incubation">
+    var explicit = section && section.getAttribute('data-hero-key');
+    if (explicit) return explicit;
+    // 2) 같은 페이지에 어떤 섹션이 있는지로 자동 판별
+    if (document.getElementById('innovationIncubationLab')) return 'incubation';
+    if (document.getElementById('solutionMarket')) return 'solution';
+    return 'partners';
+  }
+
   function boot() {
-    // HERO
-    rest('hero_slides', 'is_active=eq.true&order=sort_order.asc')
+    // HERO (페이지별 슬라이드만 로드)
+    var heroKey = detectHeroKey();
+    rest('hero_slides', 'page_key=eq.' + encodeURIComponent(heroKey) + '&is_active=eq.true&order=sort_order.asc')
       .then(renderHero)
       .catch(function (e) { console.error('[BNL hero]', e); });
 
-    // DIRECTORY (categories + companies 합치기)
+    // DIRECTORY (categories + companies 합치기) — 해당 섹션이 있는 페이지에서만
+    if (!document.getElementById('partnerDirectory')) return;
     Promise.all([
       rest('categories', 'is_active=eq.true&order=sort_order.asc'),
       rest('companies', 'is_active=eq.true&order=sort_order.asc'),
