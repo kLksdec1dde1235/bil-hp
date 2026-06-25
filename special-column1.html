@@ -90,7 +90,7 @@
     .column-wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 120px 24px;
+      padding: 120px 24px 0;
     }
 
     /* 상단 헤더 */
@@ -778,50 +778,10 @@
 
   </section>
 
-  <footer class="next-preview" id="nextPreview">
-    <span class="next-tag">NEXT COLUMN</span>
-    <!-- ⬇️ 다음 칼럼 제목/링크는 실제 다음 편에 맞게 교체하세요 -->
-    <h2 style="font-size: 1.8rem; margin-bottom: 20px;">다음 칼럼〈다음 편 제목을 입력하세요〉</h2>
-    <p>다음 칼럼에서는 Why와 Who의 철학을 실제 비즈니스 현장에서 어떻게 구조화하고 실행할 수 있는지, 그 구체적인 방법을 다룰 것이다.</p>
-    <a href="column-4.html" class="next-btn">다음 편 읽기 →</a>
-  </footer>
+
 </div>
 
-<!-- ✅ Floating 버튼(90% 읽으면 등장) / 다음 편 파일명으로 교체하세요 -->
-<a href="column-4.html" class="next-float" id="nextFloatBtn" aria-label="다음 편 보기">
-  <span class="next-float__label">다음 편 보기</span>
-  <span class="next-float__arrow">→</span>
-</a>
 
-<script>
-(function(){
-  const btn = document.getElementById('nextFloatBtn');
-  if(!btn) return;
-
-  function getProgress(){
-    const doc = document.documentElement;
-    const body = document.body;
-
-    const scrollTop = window.pageYOffset || doc.scrollTop || body.scrollTop || 0;
-    const scrollHeight = Math.max(doc.scrollHeight, body.scrollHeight);
-    const clientHeight = window.innerHeight || doc.clientHeight || 0;
-
-    const maxScroll = Math.max(1, scrollHeight - clientHeight);
-    return scrollTop / maxScroll;
-  }
-
-  function update(){
-    const progress = getProgress();
-    const shouldShow = progress >= 0.90;
-    btn.classList.toggle('is-show', shouldShow);
-  }
-
-  window.addEventListener('scroll', update, { passive:true });
-  window.addEventListener('resize', update);
-  document.addEventListener('DOMContentLoaded', update);
-  update();
-})();
-</script>
 
 
 <script>
@@ -973,6 +933,397 @@
 })();
 </script>
 
+<section id="col-slider" aria-label="다른 칼럼 둘러보기">
+  <div class="cs-head">
+    <div>
+      <div class="cs-eyebrow">More Columns</div>
+      <h2 class="cs-title">다른 칼럼 둘러보기</h2>
+    </div>
+    <div class="cs-nav">
+      <button class="cs-arrow" data-cs="prev" aria-label="이전">‹</button>
+      <button class="cs-arrow" data-cs="next" aria-label="다음">›</button>
+    </div>
+  </div>
+ 
+  <div class="cs-viewport">
+    <div class="cs-track"><!-- 카드는 스크립트가 생성합니다 --></div>
+  </div>
+</section>
+ 
+<style>
+  #col-slider{
+    --cs-accent:#ff4d00;
+    --cs-surface:#0d0d0d;
+    --cs-border:#1c1c1c;
+    --cs-text:#ffffff;
+    --cs-sub:#888888;
+ 
+    max-width:1200px;
+    margin:0 auto;
+    padding:0px 24px 120px;
+    box-sizing:border-box;
+    font-family:'Pretendard',system-ui,-apple-system,sans-serif;
+    word-break:keep-all;
+  }
+  #col-slider *{ box-sizing:border-box; }
+ 
+  #col-slider .cs-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:14px;
+  }
+  #col-slider .cs-eyebrow{
+    color:var(--cs-accent);
+    font-size:13px; font-weight:900;
+    letter-spacing:4px; text-transform:uppercase;
+    margin-bottom:12px;
+  }
+  #col-slider .cs-title{
+    margin:0;
+    font-size:clamp(1.6rem, 3vw, 2.2rem);
+    font-weight:800; letter-spacing:-0.02em;
+    color:var(--cs-text); line-height:1.2;
+  }
+ 
+  #col-slider .cs-nav{ display:flex; gap:10px; flex:0 0 auto; }
+  #col-slider .cs-arrow{
+    width:46px; height:46px;
+    border-radius:12px;
+    border:1px solid var(--cs-border);
+    background:var(--cs-surface);
+    color:#fff; font-size:22px; line-height:1;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .2s ease, color .2s ease, opacity .2s ease;
+  }
+  #col-slider .cs-arrow:hover{ border-color:var(--cs-accent); color:var(--cs-accent); }
+  #col-slider .cs-arrow:disabled{ opacity:.28; cursor:default; border-color:var(--cs-border); color:#fff; }
+ 
+  /* 가로 스크롤 뷰포트 (스크롤바 숨김 + 스냅) */
+  #col-slider .cs-viewport{
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    scroll-snap-type:x mandatory;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+    margin:0 -24px;
+    padding:22px 24px 34px;  /* 상하 여백: 호버로 떠오른 카드/그림자가 잘리지 않게 */
+    cursor:grab;
+  }
+  #col-slider .cs-viewport::-webkit-scrollbar{ display:none; }
+ 
+  #col-slider .cs-track{ display:flex; gap:18px; }
+ 
+  /* 마우스 드래그 중: 스냅·부드러운 스크롤·호버 확대 효과를 꺼서 끊김 방지 */
+  #col-slider.dragging .cs-viewport{
+    scroll-snap-type:none;
+    scroll-behavior:auto;
+    cursor:grabbing;
+  }
+  #col-slider.dragging .cs-card{ transform:none; box-shadow:none; }
+  #col-slider.dragging .cs-card .cs-thumb img{ transform:scale(1.02); transition:none; }
+ 
+  /* 카드 */
+  #col-slider .cs-card{
+    scroll-snap-align:start;
+    flex:0 0 280px;
+    position:relative;
+    height:340px;
+    border-radius:18px;
+    overflow:hidden;
+    background:var(--cs-surface);
+    border:1px solid var(--cs-border);
+    text-decoration:none;
+    display:block;
+    user-select:none;
+    -webkit-user-drag:none;
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  #col-slider .cs-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(255,77,0,.5);
+    box-shadow:0 18px 50px rgba(0,0,0,.5);
+  }
+ 
+  #col-slider .cs-thumb{ position:absolute; inset:0; }
+  #col-slider .cs-thumb img{
+    width:100%; height:100%; object-fit:cover;
+    transform:scale(1.02);
+    transition:transform .4s ease;
+    user-select:none;
+    -webkit-user-drag:none;
+    pointer-events:none;  /* 호버 타깃을 카드로 고정 + 드래그 시 이미지 선택 방지 */
+  }
+  #col-slider .cs-card:hover .cs-thumb img{ transform:scale(1.06); }
+  #col-slider .cs-thumb.cs-fallback{ background:linear-gradient(140deg,#181818,#070707); }
+ 
+  #col-slider .cs-card::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.55) 52%, rgba(0,0,0,.92) 100%);
+    pointer-events:none;
+  }
+ 
+  #col-slider .cs-body{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:22px; z-index:2;
+  }
+  #col-slider .cs-num{
+    font-size:12px; font-weight:900; letter-spacing:2px;
+    color:var(--cs-accent); margin-bottom:8px;
+  }
+  #col-slider .cs-name{
+    margin:0;
+    font-size:1.15rem; font-weight:800; line-height:1.4;
+    color:#fff;
+  }
+ 
+  /* 현재 읽는 칼럼 */
+  #col-slider .cs-card.is-current{ border-color:var(--cs-accent); }
+  #col-slider .cs-pill{
+    position:absolute; top:16px; left:16px; z-index:3;
+    background:var(--cs-accent); color:#000;
+    font-size:11px; font-weight:900; letter-spacing:.5px;
+    padding:5px 11px; border-radius:999px;
+  }
+ 
+  /* 잠긴 칼럼 */
+  #col-slider .cs-card.is-locked{ pointer-events:none; }
+  #col-slider .cs-card.is-locked .cs-name{ color:#9a9a9a; }
+  #col-slider .cs-lock{
+    position:absolute; inset:0; z-index:3;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:10px;
+    background:rgba(0,0,0,.55);
+    -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  }
+  #col-slider .cs-lock svg{ width:28px; height:28px; opacity:.85; }
+  #col-slider .cs-lock span{ font-size:12px; font-weight:700; color:#bdbdbd; }
+ 
+  @media (max-width:600px){
+    #col-slider{ padding:70px 18px 110px; }
+    #col-slider .cs-viewport{ margin:0 -18px; padding:20px 18px 32px; }
+    #col-slider .cs-card{ flex-basis:240px; height:300px; }
+  }
+ 
+  @media (prefers-reduced-motion: reduce){
+    #col-slider .cs-card,
+    #col-slider .cs-thumb img,
+    #col-slider .cs-viewport{ transition:none; scroll-behavior:auto; }
+  }
+</style>
+ 
+<script>
+(function(){
+  var root = document.getElementById('col-slider');
+  if(!root) return;
+ 
+  /* =========================================================
+     ✅ 여기만 바꾸면 됩니다 — 칼럼 제목 / 이미지 / 개수
+     img를 비워두면( '' ) 회색 그라데이션 카드로 표시됩니다.
+  ========================================================= */
+  var COLUMNS = [
+    { n:1, title:'칼럼 1 제목을 입력하세요', img:'./img/special-1.jpg' },
+    { n:2, title:'칼럼 2 제목을 입력하세요', img:'./img/special-2.jpg' },
+    { n:3, title:'비즈니스 혁신의 철학, Why와 Who', img:'./img/special-3.jpg' },
+    { n:4, title:'칼럼 4 제목을 입력하세요', img:'' },
+    { n:5, title:'칼럼 5 제목을 입력하세요', img:'' },
+    { n:6, title:'칼럼 6 제목을 입력하세요', img:'' }
+  ];
+ 
+  /* 잠금 기능 사용 여부 (기존 unlock 시스템 연동).
+     false 로 두면 모든 칼럼을 항상 열어둡니다. */
+  var RESPECT_LOCK = false;
+  /* ======================================================= */
+ 
+  function getCookie(name){
+    try{
+      var n = name + "=";
+      var parts = document.cookie.split(';');
+      for(var i=0;i<parts.length;i++){
+        var c = parts[i].trim();
+        if(c.indexOf(n) === 0) return decodeURIComponent(c.substring(n.length));
+      }
+    }catch(e){}
+    return null;
+  }
+  function unlockedMax(){
+    var ls = 0, ck = 0;
+    try{ ls = parseInt(localStorage.getItem('bi_column_unlocked_max'), 10) || 0; }catch(e){}
+    ck = parseInt(getCookie('bi_column_unlocked_max'), 10) || 0;
+    return Math.max(ls, ck, 1);
+  }
+  function currentNum(){
+    var m = (location.pathname.split('/').pop() || '').match(/column-(\d+)\.html/i);
+    return m ? parseInt(m[1], 10) : null;
+  }
+ 
+  var CURRENT = currentNum();
+  var MAXU    = RESPECT_LOCK ? unlockedMax() : COLUMNS.length;
+ 
+  /* 실제 column-N.html 이 아닌 곳(=미리보기)에서는
+     데모용으로 상태를 채워 보여줍니다. 실사이트에선 자동으로 꺼집니다. */
+  var PREVIEW = (CURRENT === null);
+  if(PREVIEW){ CURRENT = 3; MAXU = RESPECT_LOCK ? 4 : COLUMNS.length; }
+ 
+  var lockSvg =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="#cfcfcf" stroke-width="2" ' +
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<rect x="4" y="11" width="16" height="9" rx="2"></rect>' +
+    '<path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>';
+ 
+  var track = root.querySelector('.cs-track');
+  track.innerHTML = COLUMNS.map(function(c){
+    var locked  = RESPECT_LOCK && (c.n > MAXU) && (c.n !== CURRENT);
+    var isCur   = (c.n === CURRENT);
+    var href    = locked ? 'javascript:void(0)' : ('column-' + c.n + '.html');
+    var pad2    = (c.n < 10 ? '0' : '') + c.n;
+ 
+    var thumb = c.img
+      ? '<div class="cs-thumb"><img src="' + c.img + '" alt="" loading="lazy"></div>'
+      : '<div class="cs-thumb cs-fallback"></div>';
+    var pill = isCur ? '<span class="cs-pill">읽는 중</span>' : '';
+    var lock = locked ? '<div class="cs-lock">' + lockSvg + '<span>스크롤하면 열려요</span></div>' : '';
+ 
+    return '<a class="cs-card' + (isCur ? ' is-current' : '') + (locked ? ' is-locked' : '') + '"' +
+           ' href="' + href + '" draggable="false"' + (locked ? ' aria-disabled="true" tabindex="-1"' : '') + '>' +
+             thumb + pill +
+             '<div class="cs-body">' +
+               '<div class="cs-num">COLUMN ' + pad2 + '</div>' +
+               '<p class="cs-name">' + c.title + '</p>' +
+             '</div>' +
+             lock +
+           '</a>';
+  }).join('');
+ 
+  /* 화살표 네비게이션 */
+  var vp   = root.querySelector('.cs-viewport');
+  var prev = root.querySelector('[data-cs="prev"]');
+  var next = root.querySelector('[data-cs="next"]');
+ 
+  function stepPx(){
+    var card = track.querySelector('.cs-card');
+    return card ? (card.offsetWidth + 18) : 300;
+  }
+  function syncArrows(){
+    prev.disabled = vp.scrollLeft <= 2;
+    next.disabled = (vp.scrollLeft + vp.clientWidth) >= (vp.scrollWidth - 2);
+  }
+ 
+  prev.addEventListener('click', function(){ vp.scrollBy({ left: -stepPx() * 1.5, behavior:'smooth' }); });
+  next.addEventListener('click', function(){ vp.scrollBy({ left:  stepPx() * 1.5, behavior:'smooth' }); });
+  vp.addEventListener('scroll', syncArrows, { passive:true });
+  window.addEventListener('resize', syncArrows);
+ 
+  /* 마우스 드래그-투-스크롤 + 관성 + 부드러운 정렬
+     (터치/펜은 네이티브 스크롤이 더 부드러워서 그대로 둠) */
+  var isDown = false, moved = false, dragId = null;
+  var startX = 0, startScroll = 0;
+  var velocity = 0, lastX = 0, lastT = 0;   // 관성 계산용
+  var raf = null, snapping = false, target = 0;
+ 
+  function maxScrollLeft(){ return Math.max(0, vp.scrollWidth - vp.clientWidth); }
+ 
+  /* 현재 위치에서 가장 가까운 카드(스냅 지점) 좌표 */
+  function nearestSnap(){
+    var cards = track.children, sl = vp.scrollLeft;
+    var best = sl, bestDist = Infinity;
+    for(var i=0;i<cards.length;i++){
+      var d = Math.abs(cards[i].offsetLeft - sl);
+      if(d < bestDist){ bestDist = d; best = cards[i].offsetLeft; }
+    }
+    return Math.max(0, Math.min(best, maxScrollLeft()));
+  }
+ 
+  function stopAnim(){ if(raf){ cancelAnimationFrame(raf); raf = null; } }
+ 
+  /* 이미지/링크가 마우스에 끌려 나가는 네이티브 드래그를 슬라이더 전역에서 차단 */
+  root.addEventListener('dragstart', function(e){ e.preventDefault(); });
+ 
+  /* 한 번의 rAF 루프로 관성 → 부드러운 스냅까지 처리 */
+  function animate(){
+    if(snapping){
+      var diff = target - vp.scrollLeft;
+      vp.scrollLeft += diff * 0.16;            // 부드럽게 빨려들어감
+      if(Math.abs(diff) < 0.5){
+        vp.scrollLeft = target;
+        raf = null;
+        root.classList.remove('dragging');     // 이미 정렬돼 있어 스냅 재적용돼도 안 튐
+        syncArrows();
+        return;
+      }
+    } else {
+      velocity *= 0.94;                          // 마찰
+      vp.scrollLeft += velocity;
+      var atEdge = (vp.scrollLeft <= 0 || vp.scrollLeft >= maxScrollLeft());
+      if(Math.abs(velocity) < 0.8 || atEdge){    // 충분히 느려지면 스냅 단계로
+        snapping = true;
+        target = nearestSnap();
+      }
+    }
+    syncArrows();
+    raf = requestAnimationFrame(animate);
+  }
+ 
+  function startGlide(){
+    stopAnim();
+    snapping = false;
+    // 마지막 포인터 속도(px/ms) → 프레임당 스크롤 속도. 반대 방향으로 이동.
+    velocity = -velocity * 16;
+    if(velocity > 60) velocity = 60;
+    if(velocity < -60) velocity = -60;
+    raf = requestAnimationFrame(animate);
+  }
+ 
+  vp.addEventListener('pointerdown', function(e){
+    if(e.pointerType !== 'mouse' || e.button !== 0) return;
+    stopAnim();
+    isDown = true; moved = false; dragId = e.pointerId;
+    startX = e.clientX; startScroll = vp.scrollLeft;
+    lastX = e.clientX; lastT = e.timeStamp; velocity = 0;
+    root.classList.add('dragging');
+    try{ vp.setPointerCapture(e.pointerId); }catch(_){}
+  });
+ 
+  vp.addEventListener('pointermove', function(e){
+    if(!isDown || e.pointerId !== dragId) return;
+    var dx = e.clientX - startX;
+    if(Math.abs(dx) > 3) moved = true;
+    vp.scrollLeft = startScroll - dx;
+ 
+    var dt = e.timeStamp - lastT;                // 순간 속도(px/ms)
+    if(dt > 0) velocity = (e.clientX - lastX) / dt;
+    lastX = e.clientX; lastT = e.timeStamp;
+ 
+    e.preventDefault();
+  });
+ 
+  function endDrag(e){
+    if(!isDown || (e && e.pointerId !== dragId)) return;
+    isDown = false;
+    try{ vp.releasePointerCapture(dragId); }catch(_){}
+    dragId = null;
+    startGlide();                                // dragging 클래스는 glide 끝나면 해제
+  }
+  vp.addEventListener('pointerup', endDrag);
+  vp.addEventListener('pointercancel', endDrag);
+ 
+  /* 드래그였다면 카드 클릭(페이지 이동)을 막아 오작동 방지 */
+  track.addEventListener('click', function(e){
+    if(moved){ e.preventDefault(); e.stopPropagation(); moved = false; }
+  }, true);
+ 
+  /* 현재 읽는 칼럼이 보이도록 위치 맞추기 */
+  var cur = track.querySelector('.is-current');
+  if(cur){ vp.scrollLeft = Math.max(0, cur.offsetLeft - 24); }
+  syncArrows();
+})();
+</script>
+<!-- ============================================================
+     ✅ 칼럼 슬라이더 END — 여기까지 복사
+============================================================ -->
 
 
 </body>

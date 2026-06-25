@@ -121,7 +121,7 @@
         <h4>패밀리 사이트</h4>
         <ul>
          <li><a href="https://htuglobal.com">HTU GLOBAL</a></li>
-              <li><a href="https://www.maxq.kr/">MAXQ</a></li>
+              <li><a href="https://maxq.kr/">MAXQ</a></li>
               <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
               <li><a href="https://www.mdjournal.kr/">MD저널</a></li>
         </ul>
