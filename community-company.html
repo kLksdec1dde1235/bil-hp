@@ -857,26 +857,30 @@
   scrollbar-width:none;
   scroll-snap-type:x mandatory;
   padding-bottom:8px;
+  cursor:grab;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
 }
 #partnerDirectory .pd-slider::-webkit-scrollbar{display:none}
-
-/* 이미지 영역 드래그(고스트 끌림) 차단 + 부드러운 좌우 스와이프 */
-#partnerDirectory .pd-slider{
-  -webkit-user-select:none;
-  user-select:none;
-  -webkit-overflow-scrolling:touch;
+#partnerDirectory .pd-slider.dragging{
+  cursor:grabbing;
+  scroll-behavior:auto;
+  scroll-snap-type:none;
 }
-#partnerDirectory .pd-slider img,
-#partnerDirectory .pd-card-thumb img{
-  -webkit-user-drag:none;
-  -khtml-user-drag:none;
-  -moz-user-drag:none;
-  -o-user-drag:none;
-  user-drag:none;
+#partnerDirectory .pd-slider.dragging .pd-card{
+  pointer-events:none;
+}
+#partnerDirectory .pd-card,
+#partnerDirectory .pd-card *,
+#partnerDirectory .pd-list-item,
+#partnerDirectory .pd-list-item *{
   -webkit-user-select:none;
   user-select:none;
-  -webkit-touch-callout:none;
-  pointer-events:none;
+}
+#partnerDirectory .pd-card img,
+#partnerDirectory .pd-list-item img{
+  -webkit-user-drag:none;
+  user-drag:none;
 }
 
 #partnerDirectory .pd-card{
@@ -1243,6 +1247,27 @@
   var navTabs = document.getElementById('pdNavTabs');
   var content = document.getElementById('pdContent');
 
+  function getCompanyLink(c){
+    return c.link || c.url || c.href || c.website || c.homepage || c.site || c.linkUrl || c.link_url || c.linkURL || '';
+  }
+
+  function normalizeCompanyLink(link){
+    var url = String(link || '').trim();
+    if(!url) return '';
+    if(/^(https?:\/\/|mailto:|tel:|#|\.\/|\.\.\/|\/)/i.test(url)) return url;
+    return 'https://' + url;
+  }
+
+  function openCompanyLink(link){
+    var url = normalizeCompanyLink(link);
+    if(!url) return;
+    if(url.charAt(0) === '#'){
+      window.location.hash = url;
+      return;
+    }
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+
   data.forEach(function(cat, ci){
     /* NAV TAB */
     var tab = document.createElement('button');
@@ -1284,6 +1309,12 @@
       cd.setAttribute('data-name', c.name.toLowerCase());
       cd.setAttribute('data-tags', c.tags.join(' ').toLowerCase());
       cd.setAttribute('data-hidden','false');
+      var cdLink = getCompanyLink(c);
+      if(cdLink){
+        cd.setAttribute('data-link', cdLink);
+        cd.setAttribute('role', 'link');
+        cd.setAttribute('tabindex', '0');
+      }
       cd.innerHTML =
         '<div class="pd-card-thumb">' +
           '<img src="' + c.image + '" alt="' + c.name + '" loading="lazy">' +
@@ -1314,6 +1345,12 @@
       item.setAttribute('data-name', c.name.toLowerCase());
       item.setAttribute('data-tags', c.tags.join(' ').toLowerCase());
       item.setAttribute('data-hidden','false');
+      var itemLink = getCompanyLink(c);
+      if(itemLink){
+        item.setAttribute('data-link', itemLink);
+        item.setAttribute('role', 'link');
+        item.setAttribute('tabindex', '0');
+      }
       item.innerHTML =
         '<span class="pd-list-num">' + String(idx+1).padStart(2,'0') + '</span>' +
         '<span class="pd-list-logo">' + c.logo + '</span>' +
@@ -1457,48 +1494,82 @@
     });
   });
 
-  /* ═══════════ 카드 슬라이더 드래그 (마우스 부드러운 드래그 / 이미지 고스트 방지) ═══════════ */
+  /* 카드 슬라이더 드래그 */
   root.querySelectorAll('.pd-slider').forEach(function(sl){
-    var down = false, moved = false, startX = 0, startLeft = 0;
+    var isDown = false;
+    var startX = 0;
+    var startLeft = 0;
+    var moved = false;
+    var preventClick = false;
+    var pointerId = null;
 
-    sl.style.cursor = 'grab';
-
-    /* 카드 내부 이미지의 브라우저 기본 드래그(고스트 이미지) 차단 */
-    sl.querySelectorAll('img').forEach(function(img){ img.setAttribute('draggable','false'); });
-    sl.addEventListener('dragstart', function(e){ e.preventDefault(); });
-
-    sl.addEventListener('mousedown', function(e){
-      down = true;
-      moved = false;
-      sl.style.cursor = 'grabbing';
-      startX = e.pageX - sl.offsetLeft;
-      startLeft = sl.scrollLeft;
-      e.preventDefault(); /* 텍스트/이미지 선택 및 고스트 드래그 방지 */
-    });
-
-    /* 슬라이더 밖으로 커서가 나가도 끊기지 않도록 window 에 바인딩 */
-    window.addEventListener('mousemove', function(e){
-      if(!down) return;
+    sl.addEventListener('dragstart', function(e){
       e.preventDefault();
-      var walk = (e.pageX - sl.offsetLeft) - startX;
-      if(Math.abs(walk) > 3) moved = true;
-      sl.scrollLeft = startLeft - walk * 1.2;
     });
 
-    window.addEventListener('mouseup', function(){
-      if(!down) return;
-      down = false;
-      sl.style.cursor = 'grab';
+    sl.addEventListener('pointerdown', function(e){
+      if(e.button !== undefined && e.button !== 0) return;
+      isDown = true;
+      moved = false;
+      pointerId = e.pointerId;
+      startX = e.clientX;
+      startLeft = sl.scrollLeft;
+      sl.classList.add('dragging');
+      if(sl.setPointerCapture){
+        try{ sl.setPointerCapture(pointerId); }catch(err){}
+      }
     });
 
-    /* 드래그 직후 발생하는 카드 클릭 무시 */
-    sl.addEventListener('click', function(e){
-      if(moved){
-        e.stopPropagation();
+    sl.addEventListener('pointermove', function(e){
+      if(!isDown) return;
+      var dx = e.clientX - startX;
+      if(Math.abs(dx) > 4){
+        moved = true;
         e.preventDefault();
-        moved = false;
+      }
+      sl.scrollLeft = startLeft - (dx * 1.15);
+    });
+
+    function endDrag(){
+      if(!isDown) return;
+      isDown = false;
+      sl.classList.remove('dragging');
+      if(moved){
+        preventClick = true;
+        setTimeout(function(){ preventClick = false; }, 120);
+      }
+      if(sl.releasePointerCapture && pointerId !== null){
+        try{ sl.releasePointerCapture(pointerId); }catch(err){}
+      }
+      pointerId = null;
+    }
+
+    sl.addEventListener('pointerup', endDrag);
+    sl.addEventListener('pointercancel', endDrag);
+    sl.addEventListener('pointerleave', endDrag);
+
+    sl.addEventListener('click', function(e){
+      if(preventClick){
+        e.preventDefault();
+        e.stopPropagation();
+        preventClick = false;
       }
     }, true);
+  });
+
+  /* 링크가 있는 카드/리스트 클릭 이동 */
+  root.addEventListener('click', function(e){
+    var target = e.target.closest('.pd-card[data-link], .pd-list-item[data-link]');
+    if(!target || !root.contains(target)) return;
+    openCompanyLink(target.getAttribute('data-link'));
+  });
+
+  root.addEventListener('keydown', function(e){
+    if(e.key !== 'Enter' && e.key !== ' ') return;
+    var target = e.target.closest('.pd-card[data-link], .pd-list-item[data-link]');
+    if(!target || !root.contains(target)) return;
+    e.preventDefault();
+    openCompanyLink(target.getAttribute('data-link'));
   });
 
   /* ═══════════ SEARCH (추가) ═══════════ */
