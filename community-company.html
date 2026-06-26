@@ -860,6 +860,25 @@
 }
 #partnerDirectory .pd-slider::-webkit-scrollbar{display:none}
 
+/* 이미지 영역 드래그(고스트 끌림) 차단 + 부드러운 좌우 스와이프 */
+#partnerDirectory .pd-slider{
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-overflow-scrolling:touch;
+}
+#partnerDirectory .pd-slider img,
+#partnerDirectory .pd-card-thumb img{
+  -webkit-user-drag:none;
+  -khtml-user-drag:none;
+  -moz-user-drag:none;
+  -o-user-drag:none;
+  user-drag:none;
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+  pointer-events:none;
+}
+
 #partnerDirectory .pd-card{
   flex:0 0 auto;
   width:380px;
@@ -1438,13 +1457,48 @@
     });
   });
 
-  /* 카드 슬라이더 드래그 */
+  /* ═══════════ 카드 슬라이더 드래그 (마우스 부드러운 드래그 / 이미지 고스트 방지) ═══════════ */
   root.querySelectorAll('.pd-slider').forEach(function(sl){
-    var down=false, sx, sLeft;
-    sl.addEventListener('mousedown', function(e){down=true;sl.style.cursor='grabbing';sx=e.pageX-sl.offsetLeft;sLeft=sl.scrollLeft});
-    sl.addEventListener('mouseleave', function(){down=false;sl.style.cursor=''});
-    sl.addEventListener('mouseup', function(){down=false;sl.style.cursor=''});
-    sl.addEventListener('mousemove', function(e){if(!down)return;e.preventDefault();sl.scrollLeft=sLeft-((e.pageX-sl.offsetLeft)-sx)*1.2});
+    var down = false, moved = false, startX = 0, startLeft = 0;
+
+    sl.style.cursor = 'grab';
+
+    /* 카드 내부 이미지의 브라우저 기본 드래그(고스트 이미지) 차단 */
+    sl.querySelectorAll('img').forEach(function(img){ img.setAttribute('draggable','false'); });
+    sl.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    sl.addEventListener('mousedown', function(e){
+      down = true;
+      moved = false;
+      sl.style.cursor = 'grabbing';
+      startX = e.pageX - sl.offsetLeft;
+      startLeft = sl.scrollLeft;
+      e.preventDefault(); /* 텍스트/이미지 선택 및 고스트 드래그 방지 */
+    });
+
+    /* 슬라이더 밖으로 커서가 나가도 끊기지 않도록 window 에 바인딩 */
+    window.addEventListener('mousemove', function(e){
+      if(!down) return;
+      e.preventDefault();
+      var walk = (e.pageX - sl.offsetLeft) - startX;
+      if(Math.abs(walk) > 3) moved = true;
+      sl.scrollLeft = startLeft - walk * 1.2;
+    });
+
+    window.addEventListener('mouseup', function(){
+      if(!down) return;
+      down = false;
+      sl.style.cursor = 'grab';
+    });
+
+    /* 드래그 직후 발생하는 카드 클릭 무시 */
+    sl.addEventListener('click', function(e){
+      if(moved){
+        e.stopPropagation();
+        e.preventDefault();
+        moved = false;
+      }
+    }, true);
   });
 
   /* ═══════════ SEARCH (추가) ═══════════ */
