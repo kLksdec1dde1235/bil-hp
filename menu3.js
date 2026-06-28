@@ -250,12 +250,20 @@
           </li>
 
             <li role="none" data-col="2">
-            <a role="menuitem" href="./community.html">혁신 광장</a>
+              <a role="menuitem" href="./community.html">혁신 광장</a>
+            <ul class="dep2" role="menu">
+
+               <li><a href="./community-company.html">혁신 파트너스 그룹</a></li>
+         <li><a href="./innolab.html">혁신 인큐베이션 랩</a></li>
+           <li><a href="./community-solution.html">혁신 솔루션 마켓</a></li>
+             <!-- <li><a href="./column.html?cat=ceo">CEO 인사이트</a></li> -->
+
+          </ul>
           </li>
 
           <!-- 3) 오프라인 상담 (✅ 1개 버튼만) -->
-          <li role="none" data-col="2">
-            <a role="menuitem" href="./consult.html">패밀리 사이트</a>
+          <li role="none" data-col="3">
+            <a role="menuitem" href="#">패밀리 사이트</a>
             <ul class="dep2" role="menu">
               <li><a href="https://htuglobal.com/">HTU GLOBAL</a></li>
               <li><a href="https://maxq.kr/">MAXQ</a></li>
@@ -266,7 +274,7 @@
           </li>
 
           <!-- 4) 오시는 길 -->
-          <li role="none" data-col="3">
+          <li role="none" data-col="4">
             <a role="menuitem" href="./location.html">오시는 길</a>
             <ul class="dep2" role="menu">
               <li><a href="./location.html">오시는 길</a></li>
@@ -312,8 +320,10 @@
              <div>
             <h4>혁신 광장</h4>
              <ul>
-            <li><a href="./community.html">혁신 광장</a></li>
-             
+            <li><a href="./community-company.html">혁신 파트너스 그룹</a></li>
+            <li><a href="./innolab.html">혁신 인큐베이션 랩</a></li>
+            <li><a href="./community-solution.html">혁신 솔루션 마켓</a></li>
+
             </ul>
           </div>
 
@@ -387,7 +397,9 @@
             <h3>혁신 광장</h3>
             <ul>
               <li><a href="./community.html">혁신 광장</a></li>
-            
+                  <li><a href="./community-company.html">혁신 파트너스 그룹</a></li>
+            <li><a href="./innolab.html">혁신 인큐베이션 랩</a></li>
+            <li><a href="./community-solution.html">혁신 솔루션 마켓</a></li>
             </ul>
           </div>
 
@@ -458,7 +470,9 @@
           <details>
         <summary>혁신 광장<span class="chev"></span></summary>
         <div class="gs2">
-              <a href="./community.html">혁신 광장</a>
+              <a href="./community-company.html">혁신 파트너스 그룹</a>
+              <a href="./innolab.html">혁신 인큐베이션 랩</a>
+              <a href="./community-solution.html">혁신 솔루션 마켓</a>
           
         </div>
       </details>
