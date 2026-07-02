@@ -112,7 +112,7 @@
         <ul>
           <li><a href="./community-company.html">혁신 파트너스 그룹</a></li>
           <li><a href="./innolab.html">혁신 인큐베이션 랩</a></li>
-          <li><a href="./community-solution.html">혁신 솔루션 마켓</a></li>
+          <li><a href="./community-solution.html">혁신 인사이트</a></li>
         </ul>
       </div>
 
