@@ -21,8 +21,8 @@
 <meta name="subject" content="비즈니스혁신의 원리와 실제 현장 혁신 — 비즈니스혁신연구소" />
 <meta name="title" content="비즈니스혁신의 원리와 실제 현장 혁신 | 비즈니스혁신연구소" />
 <meta name="author" content="비즈니스혁신연구소">
-<meta name="description" content="비즈니스의 핵심구조와 비즈니스혁신의 융복합 공식, 화천 산천어축제·우버·넷플릭스·스와치·코닝의 실제 혁신 사례를 순서대로 정리한 비즈니스혁신연구소 칼럼." />
-<meta name="keywords" content="비즈니스혁신연구소, 비즈니스혁신, 융복합, 현장 혁신, 고객 문제 해결, 화천 산천어축제, 우버, 넷플릭스, 스와치, 코닝, 고객가치혁신, 혁신 공식" />
+<meta name="description" content="비즈니스의 정의와 세 가지 핵심요소, 경쟁우위, 혁신의 공식, 기술의 진보와 이업종 융복합을 실제 사례와 함께 정리한 비즈니스혁신연구소 칼럼." />
+<meta name="keywords" content="비즈니스혁신연구소, 비즈니스혁신, 경쟁우위, 고객 문제 해결, 해결 방법, 고객 관계, 혁신 공식, 기술의 진보, 이업종 융복합, 화천 산천어축제, 우버, 넷플릭스, 스와치, 코닝" />
 
 
 
@@ -43,17 +43,17 @@
 <meta property="og:rich_attachment" content="true" />
 <meta property="og:site_name" content="비즈니스혁신연구소" />
 <meta property="og:title" content="비즈니스혁신의 원리와 실제 현장 혁신" />
-<meta property="og:description" content="비즈니스의 핵심구조와 융복합 혁신 공식, 화천 산천어축제·우버·넷플릭스·스와치·코닝 사례로 살펴보는 실제 현장 혁신." />
+<meta property="og:description" content="비즈니스의 세 가지 핵심요소와 경쟁우위, 혁신의 공식, 기술의 진보와 이업종 융복합을 실제 현장 사례로 살펴봅니다." />
 <meta property="og:image" content="https://biznovalab.com/img/market.jpg" />
 <meta property="og:url" content="https://biznovalab.com/special-column4.html" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="비즈니스혁신의 원리와 실제 현장 혁신" />
-<meta name="twitter:description" content="비즈니스의 핵심구조와 융복합 혁신 공식, 실제 현장 사례를 통해 살펴보는 비즈니스혁신의 원리." />
+<meta name="twitter:description" content="비즈니스의 정의, 경쟁우위, 혁신의 공식과 융복합의 원리를 실제 현장 사례를 통해 살펴봅니다." />
 <meta name="twitter:image" content="https://biznovalab.com/img/market.jpg" />
 
 <meta itemprop="name" content="비즈니스혁신의 원리와 실제 현장 혁신 | 비즈니스혁신연구소" />
-<meta itemprop="description" content="비즈니스의 핵심구조와 융복합 혁신 공식, 실제 현장 사례를 통해 살펴보는 비즈니스혁신의 원리." />
+<meta itemprop="description" content="비즈니스의 정의, 경쟁우위, 혁신의 공식과 융복합의 원리를 실제 현장 사례를 통해 살펴봅니다." />
 <meta itemprop="image" content="https://biznovalab.com/img/market.jpg" />
 <title>비즈니스혁신의 원리와 실제 현장 혁신 | 비즈니스혁신연구소</title>
   <meta name="color-scheme" content="dark">
@@ -1123,6 +1123,202 @@
       }
     }
 
+
+
+    /* =========================================================
+       REVISED CORE LOGIC CONTENT
+       회의에서 확정한 비즈니스 정의·경쟁우위·혁신 공식 구조
+    ========================================================== */
+    .structure-grid.is-three{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+
+    .structure-item.is-detail{
+      min-height:210px;
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:flex-start;
+      gap:10px;
+      padding:26px 22px;
+    }
+
+    .structure-title{
+      color:#fff;
+      font-size:1.2rem;
+      font-weight:850;
+      line-height:1.4;
+      letter-spacing:-.02em;
+    }
+
+    .structure-desc{
+      color:#cfcfcf;
+      font-size:1rem;
+      font-weight:500;
+      line-height:1.75;
+    }
+
+    .logic-flow{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+      margin:30px 0 42px;
+    }
+
+    .logic-step{
+      position:relative;
+      min-height:170px;
+      padding:25px 22px;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:15px;
+      background:rgba(255,255,255,.025);
+    }
+
+    .logic-step::after{
+      content:"→";
+      position:absolute;
+      top:50%;
+      right:-20px;
+      z-index:2;
+      transform:translateY(-50%);
+      color:var(--accent);
+      font-size:1.35rem;
+      font-weight:900;
+    }
+
+    .logic-step:last-child::after{
+      display:none;
+    }
+
+    .logic-step-num{
+      display:block;
+      margin-bottom:13px;
+      color:var(--accent);
+      font-size:.75rem;
+      font-weight:900;
+      letter-spacing:1.7px;
+    }
+
+    .logic-step strong{
+      display:block;
+      margin-bottom:10px;
+      color:#fff;
+      font-size:1.14rem;
+      line-height:1.45;
+    }
+
+    .logic-step p{
+      margin:0;
+      color:#cfcfcf;
+      font-size:1rem;
+      line-height:1.75;
+    }
+
+    .term-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin:28px 0 40px;
+    }
+
+    .term-card{
+      padding:28px 26px;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:16px;
+      background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+    }
+
+    .term-card-label{
+      display:block;
+      margin-bottom:12px;
+      color:var(--accent);
+      font-size:.75rem;
+      font-weight:900;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+    }
+
+    .term-card h3{
+      margin:0 0 12px;
+      color:#fff;
+      font-size:1.25rem;
+      font-weight:850;
+      line-height:1.45;
+    }
+
+    .term-card p{
+      margin:0;
+      color:#d6d6d6;
+      font-size:1.04rem;
+      line-height:1.8;
+    }
+
+    .formula-main{
+      display:block;
+      margin:0 0 16px;
+      color:#fff;
+      font-size:clamp(1.22rem,3.1vw,1.82rem);
+      font-weight:900;
+      line-height:1.55;
+      text-align:center;
+      letter-spacing:-.025em;
+    }
+
+    .formula-main .formula-accent{
+      color:var(--accent);
+    }
+
+    @media (max-width:900px){
+      .structure-grid.is-three,
+      .logic-flow{
+        grid-template-columns:1fr;
+      }
+
+      .logic-step{
+        min-height:auto;
+      }
+
+      .logic-step::after{
+        content:"↓";
+        top:auto;
+        right:50%;
+        bottom:-25px;
+        transform:translateX(50%);
+      }
+    }
+
+    @media (max-width:680px){
+      .structure-item.is-detail{
+        min-height:auto;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+        padding:21px 18px;
+      }
+
+      .structure-title{
+        font-size:1.06rem;
+      }
+
+      .structure-desc,
+      .logic-step p,
+      .term-card p{
+        font-size:.96rem;
+      }
+
+      .term-grid{
+        grid-template-columns:1fr;
+        gap:11px;
+      }
+
+      .term-card{
+        padding:23px 19px;
+      }
+
+      .formula-main{
+        text-align:left;
+      }
+    }
+
   </style>
 </head>
 
@@ -1147,27 +1343,38 @@
     <div class="section-heading-row">
       <div>
         <span class="section-index">01</span>
-        <h2 class="section-h1">비즈니스란?</h2>
+        <h2 class="section-h1">비즈니스란 무엇인가?</h2>
       </div>
       <div class="section-roman" aria-hidden="true">Ⅰ</div>
     </div>
 
     <div class="sentence-group">
-      <p class="highlight-text">고객의 문제를 해결하고(가치제공)<br>경제적 대가를 지속적으로 받는 활동이다.</p>
+      <p class="highlight-text">비즈니스란 고객의 문제와 욕구를 재화 또는 서비스로 해결하고,<br>그 대가로 경제적 이득을 지속적으로 얻는 활동이다.</p>
     </div>
 
-    <p>비즈니스의 핵심구조는</p>
+    <p>비즈니스는 단순히 상품을 판매하는 행위가 아니다. 고객이 무엇 때문에 불편한지 발견하고, 그 문제를 해결할 방법을 제공하며, 고객이 그 해결책을 알고 선택하고 계속 이용할 수 있도록 관계를 만드는 전 과정이다.</p>
 
-    <div class="structure-grid" aria-label="비즈니스의 핵심구조">
-      <div class="structure-item"><span class="structure-num">01</span><span class="structure-text">문제 또는 욕구</span></div>
-      <div class="structure-item"><span class="structure-num">02</span><span class="structure-text">해결책(가치제공)</span></div>
-      <div class="structure-item"><span class="structure-num">03</span><span class="structure-text">대가(경제적)</span></div>
-      <div class="structure-item"><span class="structure-num">04</span><span class="structure-text">지속성</span></div>
+    <div class="structure-grid is-three" aria-label="비즈니스의 세 가지 핵심 구성요소">
+      <div class="structure-item is-detail">
+        <span class="structure-num">01</span>
+        <span class="structure-title">해결할 문제</span>
+        <span class="structure-desc">고객이 해결하고 싶어 하는 문제와 욕구를 의미한다. 비즈니스는 고객이 실제로 겪는 문제를 정확하게 이해하는 것에서 시작한다.</span>
+      </div>
+      <div class="structure-item is-detail">
+        <span class="structure-num">02</span>
+        <span class="structure-title">해결 방법</span>
+        <span class="structure-desc">고객의 문제를 해결하는 상품, 서비스, 기술, 유통 구조와 제공 방식을 모두 포함한다.</span>
+      </div>
+      <div class="structure-item is-detail">
+        <span class="structure-num">03</span>
+        <span class="structure-title">고객 관계</span>
+        <span class="structure-desc">브랜딩, 마케팅, 주문 편의성, 신뢰, 소통과 재구매처럼 고객이 해결책을 알고 선택하고 지속적으로 이용하게 하는 모든 활동이다.</span>
+      </div>
     </div>
 
     <div class="insight-card">
-      <span class="insight-label">CORE STRUCTURE</span>
-      <div class="insight-content"><b class="quote-text">4 개가 연결되면 비즈니스다.</b></div>
+      <span class="insight-label">CORE OF BUSINESS</span>
+      <div class="insight-content">세 가지 요소가 연결되어 고객에게 가치를 제공하고, 그 대가가 지속적으로 발생할 때 <b class="quote-text">하나의 비즈니스가 완성된다.</b></div>
     </div>
   </section>
 
@@ -1175,87 +1382,239 @@
     <div class="section-heading-row">
       <div>
         <span class="section-index">02</span>
-        <h2 class="section-h1">비즈니스 혁신이란?</h2>
+        <h2 class="section-h1">비즈니스 혁신이란 무엇인가?</h2>
       </div>
       <div class="section-roman" aria-hidden="true">Ⅱ</div>
     </div>
 
     <div class="sentence-group">
-      <p>고객이 해결하고 싶은 문제와 욕구, 해결책을 바꾸어 <b class="quote-text">비즈니스 경쟁 우위를 선점하는 모든 활동이다.</b></p>
-      <p>결국, 고객에게 더 큰 가치(문제해결)를 제공하고 기업의 지속적 성장을 만드는 활동이다.</p>
-      
+      <p class="highlight-text">비즈니스 혁신이란 해결할 문제, 해결 방법, 고객 관계를 기존보다 더 좋게 또는 다르게 만들어 비즈니스 경쟁우위를 확보하는 활동이다.</p>
+    </div>
+
+    <p>혁신은 단순히 새로운 기술을 도입하는 일이 아니다. 첨단 기술을 사용하더라도 고객의 문제를 더 잘 해결하지 못한다면 비즈니스 혁신이라고 할 수 없다.</p>
+
+    <div class="logic-flow" aria-label="비즈니스 혁신의 세 가지 방향">
+      <div class="logic-step">
+        <span class="logic-step-num">STEP 01</span>
+        <strong>해결할 문제를 더 정확하게</strong>
+        <p>고객이 진짜 해결하고 싶은 문제를 다시 발견하거나, 서로 다른 문제를 새롭게 연결한다.</p>
+      </div>
+      <div class="logic-step">
+        <span class="logic-step-num">STEP 02</span>
+        <strong>해결 방법을 더 효과적으로</strong>
+        <p>상품, 서비스, 기술과 제공 방식을 개선해 더 좋은 해결 경험을 만든다.</p>
+      </div>
+      <div class="logic-step">
+        <span class="logic-step-num">STEP 03</span>
+        <strong>고객 관계를 더 지속 가능하게</strong>
+        <p>고객이 더 쉽게 알고, 신뢰하고, 선택하고, 다시 이용할 수 있는 구조를 만든다.</p>
+      </div>
+    </div>
+
+    <div class="insight-card">
+      <span class="insight-label">BUSINESS INNOVATION</span>
+      <div class="insight-content">고객 문제를 더 잘 해결하고, 해결 방법을 더 효과적으로 만들며, 고객과의 관계를 더 편리하고 지속 가능하게 만드는 것이 <b class="quote-text">비즈니스 혁신의 핵심이다.</b></div>
+    </div>
+  </section>
+
+  <section class="section article-section" id="competitive-advantage">
+    <div class="section-heading-row">
+      <div>
+        <span class="section-index">03</span>
+        <h2 class="section-h1">비즈니스 경쟁우위란?</h2>
+      </div>
+      <div class="section-roman" aria-hidden="true">Ⅲ</div>
+    </div>
+
+    <div class="sentence-group">
+      <p class="highlight-text">비즈니스 경쟁우위란 기존 방법이나 경쟁 업체보다 고객의 문제를 더 잘 해결하고, 더 많은 경제적 이득을 더 오랫동안 얻을 수 있는 상태를 말한다.</p>
+    </div>
+
+    <p>경쟁우위는 단순히 경쟁사보다 가격이 싸거나 기술이 앞선 상태만을 뜻하지 않는다. 고객에게 더 큰 가치를 제공하는 능력과 그 가치를 지속적인 성과로 연결하는 능력을 함께 포함한다.</p>
+
+    <div class="term-grid" aria-label="경쟁우위의 두 가지 기준">
+      <div class="term-card">
+        <span class="term-card-label">Customer Value</span>
+        <h3>고객의 문제를 더 잘 해결한다</h3>
+        <p>고객이 기존보다 더 빠르고, 편리하고, 만족스러운 방법으로 문제를 해결할 수 있도록 만든다.</p>
+      </div>
+      <div class="term-card">
+        <span class="term-card-label">Economic Sustainability</span>
+        <h3>경제적 이득을 더 오래 만든다</h3>
+        <p>일회성 판매에 그치지 않고 선택, 재구매, 추천과 관계 확장으로 이어지는 지속 가능한 구조를 만든다.</p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <p>왜 해결할 문제, 해결 방법, 고객 관계를 더 좋게 만들어야 하는가?</p>
+      <p class="quote-text">그 세 가지를 개선해야 고객가치와 경제적 지속성이 함께 높아지고, 비즈니스 경쟁우위가 만들어지기 때문이다.</p>
     </div>
   </section>
 
   <section class="section article-section" id="business-innovation-formula">
     <div class="section-heading-row">
       <div>
-        <span class="section-index">03</span>
-        <h2 class="section-h1">비즈니스혁신의 원리(방법)와 핵심공식</h2>
+        <span class="section-index">04</span>
+        <h2 class="section-h1">혁신의 공식</h2>
       </div>
-      <div class="section-roman" aria-hidden="true">Ⅲ</div>
+      <div class="section-roman" aria-hidden="true">Ⅳ</div>
     </div>
 
     <div class="sentence-group">
-      <p>지금의 비즈니스를 더 잘하게 끔 하여 경쟁우위를 만드는 비즈니스 혁신 방정식은 다음과 같다.</p>
+      <p>지금의 비즈니스를 기존보다 더 좋게 또는 다르게 만들어 경쟁우위를 확보하는 혁신의 공식은 다음과 같다.</p>
     </div>
 
-    <div class="formula-card" aria-label="비즈니스 혁신 방정식">
+    <div class="formula-card" aria-label="비즈니스 혁신의 공식">
       <span class="formula-label">Business Innovation Formula</span>
+      <strong class="formula-main"><span class="formula-accent">혁신</span> ＝ 기존 비즈니스 ＋ 기술의 진보와 이업종의 융복합</strong>
       <div class="formula-flow">
         <div class="formula-term">
           <small>기존 비즈니스</small>
-          <strong>1. 고객 문제 및 욕구<br>2. 해결책<br>3. 고객관계<br>(브랜딩, 마케팅 등 고객과 접촉하는 모든 행위)</strong>
+          <strong>해결할 문제<br>해결 방법<br>고객 관계</strong>
         </div>
-        <div class="formula-operator" aria-hidden="true">X</div>
+        <div class="formula-operator" aria-hidden="true">＋</div>
         <div class="formula-term">
-          <small>새로운 요소</small>
-          <strong>기술의 진보</strong>
-          <strong>이업종</strong>
-          
+          <small>새롭게 연결할 요소</small>
+          <strong>기술의 진보<br>이업종의 문제·기술·운영 방식</strong>
         </div>
       </div>
-      <div class="formula-result">기존 비즈니스와 새로운 요소를 <span class="quote-text">융복합</span>하는 것이다.</div>
+      <div class="formula-result">기존 비즈니스에 기술의 진보와 이업종을 각각 또는 함께 <span class="quote-text">융복합</span>하여 새로운 고객가치와 경쟁우위를 만드는 것이다.</div>
     </div>
 
-    <!-- 핵심 공식 다음 이미지 위치: 산업과 기술이 연결되는 네트워크 이미지 -->
-    <!-- <section class="imgDeck" aria-label="비즈니스혁신 융복합 공식 이미지">
+    <section class="imgDeck" aria-label="비즈니스혁신 융복합 공식 이미지">
       <div class="imgDeck-list">
         <article class="imgCard">
-          <img src="./img/business-innovation-formula.jpg" alt="산업과 기술의 융복합" loading="lazy" onerror="this.closest('.imgCard').classList.add('is-fallback');this.remove();">
+          <img src="./img/business-innovation-formula.jpg" alt="기존 비즈니스와 기술 및 이업종의 융복합" loading="lazy" onerror="this.closest('.imgCard').classList.add('is-fallback');this.remove();">
           <div class="imgCard-center">
             <div>
-              <div class="imgCard-logo">산업과 기술의 융복합</div>
-              <p class="imgCard-desc">기존 비즈니스에 기술의 진보와 이업종을 각각 또는 모두 섞어 시너지를 만드는 구조</p>
+              <div class="imgCard-logo">기존 비즈니스 × 새로운 연결</div>
+              <p class="imgCard-desc">해결할 문제·해결 방법·고객 관계에 기술의 진보와 이업종을 연결해 새로운 고객가치를 만드는 구조</p>
             </div>
           </div>
         </article>
       </div>
-    </section> -->
+    </section>
+
+    <div class="insight-card">
+      <span class="insight-label">FORMULA, NOT EQUATION</span>
+      <div class="insight-content">이 표현은 정답을 계산하기 위한 수학적 방정식이 아니라, 실제 현장에서 혁신의 방향을 쉽게 찾기 위한 <b class="quote-text">실행의 공식</b>이다.</div>
+    </div>
+  </section>
+
+  <section class="section article-section" id="convergence-definition">
+    <div class="section-heading-row">
+      <div>
+        <span class="section-index">05</span>
+        <h2 class="section-h1">융복합이란 무엇인가?</h2>
+      </div>
+      <div class="section-roman" aria-hidden="true">Ⅴ</div>
+    </div>
 
     <div class="sentence-group">
-      <p class="highlight-text">융복합이란?</p>
-      <br>
-      <p>기존 비즈니스 [고객문제, 해결방법, 고객관계]에 [기술의 진보, 이업종]을 각각 또는 모두를 섞어 시너지(물리적 + 화학적) 효과를 만드는 것</p>
-      <p>기존의 비즈니스에서 조금 더 개선되는 점진적 혁신을 넘어 새로운 시장을 만드는 창의적 혁신과 기존의 시장을 무너뜨리는 파괴적 혁신을 포함한 비즈니스 경쟁 우위를 만드는 모든 활동에 필요하다.</p>
-      <p>특히 새로운 기술은 융복합의 촉매제 역할을 한다. 왜냐하면, 과거 불가능하던 이업종이 기술의 진보를 통해 합쳐질 수 있기 때문이다.</p>
-      <p>다만, 많은 사람들이 혁신을 생각할 때 첨단 기술에만 초점을 두는 경우가 많다. 아무리 최고의 기술이라도 고객의 문제 해결과 연결되지 않으면 소용이 없는 만큼, 기술과 업종의 융복합은 고객을 향해야 한다.</p>
+      <p class="highlight-text">융복합은 서로 다른 기능, 상품, 문제, 기술과 업종을 단순히 나란히 붙이는 것이 아니라, 결합을 통해 새로운 가치와 시너지를 만드는 것이다.</p>
+    </div>
+
+    <div class="question-card">
+      <p>융복합에서 1＋1은 단순히 2가 아니다.</p>
+      <p class="quote-text">서로 다른 요소가 결합하면서 이전에는 없었던 가치와 경험이 만들어져야 한다.</p>
+    </div>
+
+    <div class="term-grid" aria-label="융복합의 두 가지 방식">
+      <div class="term-card">
+        <span class="term-card-label">Physical Combination</span>
+        <h3>물리적 결합</h3>
+        <p>서로 다른 기능이나 상품을 하나의 제품 또는 서비스 안에 연결해 고객이 여러 문제를 함께 해결하도록 만드는 방식이다.</p>
+      </div>
+      <div class="term-card">
+        <span class="term-card-label">Value Transformation</span>
+        <h3>가치와 경험의 변화</h3>
+        <p>결합 과정에서 고객이 제품을 사용하는 이유와 경험 자체가 달라지고, 기존에 없던 새로운 시장이 만들어지는 방식이다.</p>
+      </div>
+    </div>
+
+    <div class="list-box" aria-label="고객 문제 융복합 사례">
+      <div class="list-item">TV에 인테리어의 문제를 결합하면, 단순한 영상 시청기기를 넘어 공간의 일부가 되는 새로운 가치가 만들어진다.</div>
+      <div class="list-item">정수기에 얼음 기능을 결합하면, 물을 정수하는 문제와 얼음을 편리하게 사용하는 문제를 함께 해결할 수 있다.</div>
     </div>
 
     <div class="insight-card">
-      <span class="insight-label">ESSENCE</span>
-      <div class="insight-content"><b class="quote-text">혁신의 본질은 문제 해결을 위한 산업과 기술의 새로운 연결, 융복합이다.</b></div>
+      <span class="insight-label">CONVERGENCE</span>
+      <div class="insight-content">융복합의 기준은 얼마나 많은 것을 섞었는가가 아니라, 그 결합이 <b class="quote-text">고객에게 어떤 새로운 가치와 경험을 만들었는가</b>에 있다.</div>
+    </div>
+  </section>
+
+  <section class="section article-section" id="technology-advancement">
+    <div class="section-heading-row">
+      <div>
+        <span class="section-index">06</span>
+        <h2 class="section-h1">기술의 진보</h2>
+      </div>
+      <div class="section-roman" aria-hidden="true">Ⅵ</div>
+    </div>
+
+    <p>혁신의 공식에서 말하는 기술의 진보는 크게 두 가지로 구분할 수 있다.</p>
+
+    <div class="term-grid" aria-label="기술의 진보 유형">
+      <div class="term-card">
+        <span class="term-card-label">Industry Technology</span>
+        <h3>개별 산업 기술</h3>
+        <p>특정 업종이나 분야에서 전문적으로 활용되는 기술이다. 한 산업의 생산 방식이나 서비스 품질을 직접적으로 개선한다.</p>
+      </div>
+      <div class="term-card">
+        <span class="term-card-label">Civilizational Technology</span>
+        <h3>문명 수준의 기술</h3>
+        <p>불, 전기, 인터넷, AI처럼 특정 산업을 넘어 거의 모든 산업과 업종의 일하는 방식과 생활 방식을 변화시키는 기술이다.</p>
+      </div>
+    </div>
+
+    <div class="insight-card">
+      <span class="insight-label">AI AS CIVILIZATION</span>
+      <div class="insight-content">AI는 일부 업종에서만 사용하는 하나의 도구가 아니라, 모든 산업의 문제 해결 방식과 고객 관계를 바꾸는 <b class="quote-text">문명 수준의 변화</b>로 이해해야 한다.</div>
+    </div>
+  </section>
+
+  <section class="section article-section" id="cross-industry-definition">
+    <div class="section-heading-row">
+      <div>
+        <span class="section-index">07</span>
+        <h2 class="section-h1">이업종의 의미</h2>
+      </div>
+      <div class="section-roman" aria-hidden="true">Ⅶ</div>
+    </div>
+
+    <div class="sentence-group">
+      <p class="highlight-text">이업종 융복합은 서로 다른 업종의 상품을 단순히 결합하는 것보다 넓은 개념이다.</p>
+    </div>
+
+    <div class="method-list">
+      <div class="method-card">
+        <span class="method-num">01</span>
+        <h3 class="method-title">서로 다른 업종이 해결하던 고객 문제를 결합한다</h3>
+        <p>각 업종이 따로 해결하던 문제를 하나의 새로운 상품이나 서비스 안에서 함께 해결한다. 고객 문제의 결합은 제품의 기능뿐 아니라 고객이 구매하는 이유까지 바꿀 수 있다.</p>
+      </div>
+      <div class="method-card">
+        <span class="method-num">02</span>
+        <h3 class="method-title">다른 업종의 기술과 운영 방식을 가져온다</h3>
+        <p>다른 산업에서는 이미 일반적으로 사용하지만 자신의 업종에서는 사용하지 않았던 기술, 유통 구조, 운영 방식과 고객 경험을 새롭게 적용한다.</p>
+      </div>
+    </div>
+
+    <div class="insight-card">
+      <span class="insight-label">CROSS-INDUSTRY INNOVATION</span>
+      <div class="insight-content">다른 산업에서는 이미 존재하는 기술이라도 내 업종에 처음 적용되어 고객의 문제를 더 잘 해결한다면, 그것은 충분히 <b class="quote-text">비즈니스 혁신</b>이 될 수 있다.</div>
     </div>
   </section>
 
   <section class="section article-section" id="real-cases">
     <div class="section-heading-row">
       <div>
-        <span class="section-index">04</span>
-        <h2 class="section-h1">비즈니스혁신(=융복합)의 실제 모습</h2>
+        <span class="section-index">08</span>
+        <h2 class="section-h1">혁신의 공식으로 보는 실제 현장 혁신</h2>
       </div>
-      <div class="section-roman" aria-hidden="true">Ⅳ</div>
+      <div class="section-roman" aria-hidden="true">Ⅷ</div>
     </div>
+
+    <p class="section-desc">앞에서 정리한 혁신의 공식이 실제 비즈니스 현장에서 어떤 모습으로 나타나는지 사례를 통해 살펴본다.</p>
 
     <!-- CASE 01 -->
     <article class="case-block" id="hwacheon-case">
@@ -1311,6 +1670,8 @@
 
   
 
+    <!-- CASE 02 -->
+    <article class="case-block" id="uber-case">
       <div class="case-head">
         <span class="case-kicker">Case 02</span>
         <h3 class="case-title">2. 우버의 혁신</h3>
