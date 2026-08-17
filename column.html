@@ -359,9 +359,9 @@
   <!-- 1편 -->
   <a class="h-banner banner-1" href="column-1.html" aria-label="1편 : 혁신의 필요성을 느끼고 있는 사업자라면?으로 이동">
     <div class="h-banner-content">
-      <h3 class="h-dummy-title">01. 이 시대에 혁신은 선택이 아닌 생존이다.</h3>
+      <h3 class="h-dummy-title">01. 이 시대에 혁신은<br>선택이 아닌 생존이다.</h3>
       <p class="h-banner-text">
-        열심히 하는데 결과가 줄어든다면,<br>노력의 문제가 아니라, 비즈니스의 룰이 바뀌었을 수 있다.
+        열심히 하는데 결과가 줄어든다면, 노력의 문제가 아니라, 비즈니스의 룰이 바뀌었을 수 있다.
       </p>
     </div>
   </a>
@@ -369,9 +369,9 @@
   <!-- 2편 -->
   <a class="h-banner banner-2" href="column-2.html" aria-label="2편. 혁신을 위해 꼭 알아야 할 비즈니스의 본질로 이동">
     <div class="h-banner-content">
-      <h3 class="h-dummy-title">02. 혁신을 위해 꼭 알아야 할 비즈니스의 본질</h3>
+      <h3 class="h-dummy-title">02. 혁신을 위해 꼭 알아야 할 <br>비즈니스의 본질</h3>
       <p class="h-banner-text">
-        시대가 바뀌고, 기술이 바뀌고, 시장의 모습이 달라져도<br>
+        시대가 바뀌고, 기술이 바뀌고, 시장의 모습이 달라져도 
 비즈니스의 본질은 단 한 번도 바뀐 적이 없다는 것이다.
       </p>
     </div>
@@ -380,9 +380,9 @@
   <!-- 3편 -->
   <a class="h-banner banner-3" href="column-3.html" aria-label="3편. 성공하는 비즈니스 혁신의 4가지 형태로 이동">
     <div class="h-banner-content">
-      <h3 class="h-dummy-title">03. 성공하는 비즈니스 혁신의 4가지 형태</h3>
+      <h3 class="h-dummy-title">03. 성공하는 비즈니스 혁신의<br>4가지 형태</h3>
       <p class="h-banner-text">
-       비즈니스 혁신의 방식은 무수히 많아 보인다.<br>
+       비즈니스 혁신의 방식은 무수히 많아 보인다.
 그러나 실제로 성과로 이어진 혁신은 대부분 네 가지 유형 안에서 반복된다.
       </p>
     </div>
@@ -391,9 +391,9 @@
   <!-- 4편 -->
   <a class="h-banner banner-4 h-hidden" href="column-4.html" aria-label="4편. 혁신을 위한 진정한 비즈니스의 흐름은 어떻게 읽어내는가?로 이동">
     <div class="h-banner-content">
-      <h3 class="h-dummy-title">04. 혁신을 위한 진정한 비즈니스의 흐름은 어떻게 읽어내는가?</h3>
+      <h3 class="h-dummy-title">04. 혁신을 위한<br>진정한 비즈니스의 흐름은<br>어떻게 읽어내는가?</h3>
       <p class="h-banner-text">
-        혁신을 위한 가장 중요한 능력은<br>
+        혁신을 위한 가장 중요한 능력은 
 시대의 바람을 읽어내는 힘이다.
       </p>
     </div>
@@ -404,7 +404,7 @@
     <div class="h-banner-content">
       <h3 class="h-dummy-title">05. 혁신은 아무나 못한다</h3>
       <p class="h-banner-text">
-        왜 혁신은 늘 소수의 선택으로 남을까?<br>
+        왜 혁신은 늘 소수의 선택으로 남을까? 
         혁신을 가로막는 구조적인 장벽이 존재하기 때문이다.
       </p>
     </div>
@@ -413,9 +413,9 @@
   <!-- 6편 -->
   <a class="h-banner banner-6 h-hidden" href="column-6.html" aria-label="6편. 혁신은 개인적이지만, 이뤄내는 것은 함께로 이동">
     <div class="h-banner-content">
-      <h3 class="h-dummy-title">06. 혁신은 개인적이지만, 이뤄내는 것은 함께</h3>
+      <h3 class="h-dummy-title">06. 혁신은 개인적이지만,<br>이뤄내는 것은 함께</h3>
       <p class="h-banner-text">
-        혁신의 출발은 개인이지만, 완주는 시스템과 팀이 만듭니다.<br>
+        혁신의 출발은 개인이지만, 완주는 시스템과 팀이 만듭니다.
         실행이 지속되는 협업 구조와 환경의 중요성
       </p>
     </div>
@@ -510,6 +510,28 @@
       max-width: 980px;
     }
 
+
+    @media screen and (max-width:1000px) {
+     
+      #h-service-banners .h-banner-content{
+       max-width: 480px;
+    }
+    }
+
+    @media screen and (max-width:600px) {
+     
+      #h-service-banners .h-banner-content{
+       max-width: 480px;
+    }
+    }
+
+    @media screen and (max-width:430px) {
+     
+      #h-service-banners .h-banner-content{
+       max-width: 380px;
+    }
+    }
+
     /* ✅ Hover: 이미지 확대 + 살짝 선명 */
     @media (hover:hover){
       #h-service-banners .h-banner:hover::before{ transform: scale(1.08); }
@@ -571,8 +593,8 @@
     @media (max-width: 768px){
       #h-service-banners .h-banner{ height: 260px; border-radius: 24px; }
       #h-service-banners .h-main-title{ font-size: 26px; }
-      #h-service-banners .h-dummy-title{ font-size: 22px; }
-      #h-service-banners .h-banner-text{ font-size: 15px; }
+      #h-service-banners .h-dummy-title{ font-size: 22px;}
+      #h-service-banners .h-banner-text{ font-size: 15px;}
       #h-service-banners #h-load-more-btn{ padding: 14px 44px; }
     }
 
@@ -623,8 +645,8 @@
   z-index:5;
   pointer-events:none;
 
-  width:32px;
-  height:32px;
+  width:33px;
+  height:33px;
 
   /* 배경/테두리/원 제거 */
   border-radius:0;
@@ -641,6 +663,20 @@
 
   /* 기존 flex/폰트 영향 제거 */
   display:block;
+}
+
+@media screen and (max-width:600px) {
+  #h-service-banners .h-banner.is-locked .lock-badge{
+  width:25px;
+  height:25px;
+}
+}
+
+@media screen and (max-width:400px) {
+  #h-service-banners .h-banner.is-locked .lock-badge{
+  width:20px;
+  height:20px;
+}
 }
 
 

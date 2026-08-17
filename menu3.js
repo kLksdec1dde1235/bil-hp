@@ -179,8 +179,7 @@
     #nbbioHeaderLocal .drawer.act{transform:translateX(0);}
     #nbbioHeaderLocal .drawer .top{
       display:flex;align-items:center;justify-content:space-between;
-      padding:18px 16px;border-bottom:1px solid var(--line);
-      background:#fff;flex:0 0 auto;
+      padding:18px 16px;background:#fff;flex:0 0 auto;
     }
     #nbbioHeaderLocal .drawer .top .brand{display:flex;align-items:center;gap:10px;}
     #nbbioHeaderLocal .drawer .top .brand img{height:28px;}
