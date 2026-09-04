@@ -368,7 +368,10 @@
     #nbbioHeaderLocal .mega .col li a.is-cf.is-on{color:var(--brand);font-weight:700;}
 
     /* ===================== COLUMN FEED (제목 + 내용 + 썸네일) ===================== */
-    #nbbioHeaderLocal .colfeed{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);}
+    /* PC: 기본은 숨김 — '혁신 칼럼 / 확장 칼럼 / 혁신 사례'에 마우스를 올렸을 때만 노출 */
+    #nbbioHeaderLocal .colfeed{display:none;margin-top:26px;padding-top:20px;border-top:1px solid var(--line);}
+    #nbbioHeaderLocal .colfeed.is-open{display:block;animation:nbbioCfFade .24s ease;}
+    @keyframes nbbioCfFade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
     #nbbioHeaderLocal .cf-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 16px;flex-wrap:wrap;}
     #nbbioHeaderLocal .cf-tabs{display:flex;gap:8px;flex-wrap:wrap;}
     #nbbioHeaderLocal .cf-tab{
@@ -424,7 +427,7 @@
     }
 
     /* 모바일(드로어) 변형: 가로형 카드 */
-    #nbbioHeaderLocal .colfeed.cf-mobile{margin-top:2px;padding-top:14px;border-top:1px solid #eceff2;}
+    #nbbioHeaderLocal .colfeed.cf-mobile{display:block;margin-top:2px;padding-top:14px;border-top:1px solid #eceff2;}
     #nbbioHeaderLocal .colfeed.cf-mobile .cf-head{margin-bottom:14px;}
     #nbbioHeaderLocal .colfeed.cf-mobile .cf-tab{font-size:13px;padding:9px 13px;}
     #nbbioHeaderLocal .colfeed.cf-mobile .cf-list{grid-template-columns:1fr;gap:14px;}
@@ -890,15 +893,39 @@
       });
     });
 
-    // 패널 안의 "혁신 칼럼 / 확장 칼럼 / 혁신 사례" 링크 → 같은 패널 피드 전환
-    root.querySelectorAll('[data-cf-cat]').forEach(link => {
-      const scope = link.closest('.megalite, .mega');
-      const box = scope ? scope.querySelector('[data-feed]') : null;
-      if (!box) return;
-      const apply = () => { ensureFeed(); setFeedCat(box, link.dataset.cfCat); };
-      link.addEventListener('mouseenter', apply);
-      link.addEventListener('focus', apply);
+    /* PC: '혁신 칼럼 / 확장 칼럼 / 혁신 사례'에 마우스를 올렸을 때만 칼럼 내용 노출 */
+    const feedGroups = [];
+    ['.megalite', '.mega'].forEach(sel => {
+      const scope = root.querySelector(sel);
+      if (!scope) return;
+      const box = scope.querySelector('[data-feed]');
+      const firstLink = scope.querySelector('[data-cf-cat]');
+      if (!box || !firstLink) return;
+
+      const group = firstLink.closest('.col') || firstLink.closest('div');
+      const g = { box: box, timer: null };
+      feedGroups.push(g);
+
+      const show = () => { clearTimeout(g.timer); ensureFeed(); box.classList.add('is-open'); };
+      const hide = () => { clearTimeout(g.timer); g.timer = setTimeout(() => box.classList.remove('is-open'), 160); };
+
+      [group, box].forEach(el => {
+        if (!el) return;
+        el.addEventListener('mouseenter', show);
+        el.addEventListener('mouseleave', hide);
+        el.addEventListener('focusin', show);
+      });
+
+      scope.querySelectorAll('[data-cf-cat]').forEach(link => {
+        const apply = () => { show(); setFeedCat(box, link.dataset.cfCat); };
+        link.addEventListener('mouseenter', apply);
+        link.addEventListener('focus', apply);
+      });
     });
+
+    function closeAllFeeds() {
+      feedGroups.forEach(g => { clearTimeout(g.timer); g.box.classList.remove('is-open'); });
+    }
 
     if (gnb) {
       gnb.addEventListener('mouseover', () => header.classList.add('act'));
@@ -913,7 +940,7 @@
       ensureFeed();
       megalite.classList.add('act');
     };
-    const closeLite = () => { if (megalite) megalite.classList.remove('act'); };
+    const closeLite = () => { if (megalite) megalite.classList.remove('act'); closeAllFeeds(); };
     const delayedCloseLite = () => {
       if (!megalite) return;
       clearTimeout(liteTimer);
@@ -959,6 +986,7 @@
       mega.classList.remove('act');
       btnHamburger.setAttribute('aria-expanded', 'false');
       lockScroll(false);
+      closeAllFeeds();
       syncLogo();
     };
 
