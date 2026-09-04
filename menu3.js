@@ -11,8 +11,8 @@
 
   const FEED_CATS = [
     { key: 'innovation', label: '혁신 칼럼', href: PAGE_INNOVATION },
-    { key: 'special',    label: '확장 칼럼', href: PAGE_SPECIAL },
-    { key: 'case',       label: '혁신 사례', href: PAGE_CASE }
+    { key: 'special',    label: '확장 칼럼', href: PAGE_SPECIAL }
+   // { key: 'case',       label: '혁신 사례', href: PAGE_CASE }
   ];
 
   /* =========================================================================
@@ -547,7 +547,7 @@
             <ul class="dep2" role="menu">
               <li><a href="${PAGE_INNOVATION}">혁신 칼럼</a></li>
               <li><a href="${PAGE_SPECIAL}">확장 칼럼</a></li>
-              <li><a href="${PAGE_CASE}">혁신 사례</a></li>
+             <!-- <li><a href="${PAGE_CASE}">혁신 사례</a></li> -->
             </ul>
           </li>
 
@@ -608,7 +608,7 @@
             <ul>
               <li><a class="is-cf is-on" href="${PAGE_INNOVATION}" data-cf-cat="innovation">혁신 칼럼</a></li>
               <li><a class="is-cf" href="${PAGE_SPECIAL}" data-cf-cat="special">확장 칼럼</a></li>
-              <li><a class="is-cf" href="${PAGE_CASE}" data-cf-cat="case">혁신 사례</a></li>
+              <!-- <li><a class="is-cf" href="${PAGE_CASE}" data-cf-cat="case">혁신 사례</a></li> -->
             </ul>
           </div>
 
@@ -682,7 +682,7 @@
             <ul>
               <li><a class="is-cf is-on" href="${PAGE_INNOVATION}" data-cf-cat="innovation">혁신 칼럼</a></li>
               <li><a class="is-cf" href="${PAGE_SPECIAL}" data-cf-cat="special">확장 칼럼</a></li>
-              <li><a class="is-cf" href="${PAGE_CASE}" data-cf-cat="case">혁신 사례</a></li>
+             <!-- <li><a class="is-cf" href="${PAGE_CASE}" data-cf-cat="case">혁신 사례</a></li> -->
             </ul>
           </div>
 
