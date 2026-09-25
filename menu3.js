@@ -88,31 +88,55 @@
       }
     ],
 
-    // ⬇️ 혁신 사례 전용 글이 준비되면 이 배열만 교체하세요.
+    // ⬇️ 혁신 사례 (case-column.html 목록과 동일하게 관리)
     'case': [
       {
-        title: '비즈니스 혁신의 최고의 철학은 Why와 Who이다',
-        desc : '현장에서 Why와 Who를 다시 세운 기업들의 이야기.',
-        url  : './special-column1.html',
-        thumb: './img/special-1.jpg'
+        title: '01. 업타운(와썹타운)에서 배우는 혁신의 공식',
+        desc : '평균연령 70대 산골마을에 5년간 6만 명. 관광객을 관계인구로 바꾼 관계혁신.',
+        url  : './case-column1.html',
+        thumb: 'https://cdn.the-news24.co.kr/news/photo/202306/21721_22029_129.jpg'
       },
       {
-        title: '혁신의 최종 목적지는 인간과 사회의 행복이다',
-        desc : '기술이 아니라 사람을 향한 혁신이 만든 결과.',
-        url  : './special-column2.html',
-        thumb: './img/2-4.jpg'
+        title: '02. 코닝 혁신의 핵심은 집토끼 전략이다',
+        desc : '이미 가진 유리 기술로 통신 문제를 풀어 광통신이라는 새 산업을 열다.',
+        url  : './case-column2.html',
+        thumb: './img/corning.jpg'
       },
       {
-        title: '비즈니스 성공의 6가지 요소',
-        desc : '성공한 현장이 공통으로 갖추고 있던 여섯 가지.',
-        url  : './special-column3.html',
-        thumb: './img/fm.jpg'
+        title: '03. 현대건설 ‘더 뉴 하우스’ 보존의 혁신',
+        desc : '이주 없이, 간소하게, 2년 이내에. 철거 대신 필요한 곳만 바꾸는 혁신.',
+        url  : './case-column3.html',
+        thumb: './img/the-new-house.jpg'
+      },
+      {
+        title: '04. 빅블러 시대, 경계가 무너지는 혁신',
+        desc : '이어폰 · 보청기 · 안경이 ‘더 잘 듣고 싶다’는 하나의 고객문제로 모이다.',
+        url  : './case-column4.html',
+        thumb: './img/bigblur-main.jpg'
+      },
+      {
+        title: '05. 작은 연결이 나라를 바꾼다',
+        desc : '확정일자와 색깔 유도선. 연결 하나로 국가의 사회적 비용을 줄인 두 혁신.',
+        url  : './case-column5.html',
+        thumb: './img/special-5.jpg'
+      },
+      {
+        title: '06. 제품을 혁신하지 말고 문제를 혁신하라',
+        desc : '수영용 샴푸 스타트업 마케마케. 샴푸가 아니라 ‘워터 스트레스’라는 새로운 문제를 정의하다.',
+        url  : './special-column6.html',
+        thumb: './img/makemake-main.jpg'
+      },
+      {
+        title: '07. 환율을 혁신한 것이 아니라 금융의 국경을 허물다',
+        desc : '트래블로그에서 블록체인 송금, 두나무, 원화 스테이블코인까지. 하나은행이 금융의 경계를 허무는 과정.',
+        url  : './special-column7.html',
+        thumb: './img/hana-main.jpg'
       }
     ]
   };
 
   const FEED_CFG = window.NBBIO_COLUMN_FEED || {};
-  const FEED_LIMIT = FEED_CFG.limit || 6;   // 카테고리별 최대 보관 개수
+  const FEED_LIMIT = FEED_CFG.limit || 7;   // 카테고리별 최대 보관 개수
 
   // 패널별 노출 개수
   const COUNT_LITE   = 3;   // PC 호버 패널
