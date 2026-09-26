@@ -94,43 +94,43 @@
         title: '01. 업타운(와썹타운)에서 배우는 혁신의 공식',
         desc : '평균연령 70대 산골마을에 5년간 6만 명. 관광객을 관계인구로 바꾼 관계혁신.',
         url  : './case-column1.html',
-        thumb: 'https://cdn.the-news24.co.kr/news/photo/202306/21721_22029_129.jpg'
+        thumb: './img/case-8.jpg'
       },
       {
         title: '02. 코닝 혁신의 핵심은 집토끼 전략이다',
         desc : '이미 가진 유리 기술로 통신 문제를 풀어 광통신이라는 새 산업을 열다.',
         url  : './case-column2.html',
-        thumb: './img/corning.jpg'
+        thumb: './img/case-1.jpg'
       },
       {
         title: '03. 현대건설 ‘더 뉴 하우스’ 보존의 혁신',
         desc : '이주 없이, 간소하게, 2년 이내에. 철거 대신 필요한 곳만 바꾸는 혁신.',
         url  : './case-column3.html',
-        thumb: './img/the-new-house.jpg'
+        thumb: './img/case-6.jpg'
       },
       {
         title: '04. 빅블러 시대, 경계가 무너지는 혁신',
         desc : '이어폰 · 보청기 · 안경이 ‘더 잘 듣고 싶다’는 하나의 고객문제로 모이다.',
         url  : './case-column4.html',
-        thumb: './img/bigblur-main.jpg'
+        thumb: './img/case-9.jpg'
       },
       {
         title: '05. 작은 연결이 나라를 바꾼다',
         desc : '확정일자와 색깔 유도선. 연결 하나로 국가의 사회적 비용을 줄인 두 혁신.',
         url  : './case-column5.html',
-        thumb: './img/special-5.jpg'
+        thumb: './img/case-4.jpg'
       },
       {
         title: '06. 제품을 혁신하지 말고 문제를 혁신하라',
         desc : '수영용 샴푸 스타트업 마케마케. 샴푸가 아니라 ‘워터 스트레스’라는 새로운 문제를 정의하다.',
-        url  : './special-column6.html',
-        thumb: './img/makemake-main.jpg'
+        url  : './case-column6.html',
+        thumb: './img/case-14.jpg'
       },
       {
         title: '07. 환율을 혁신한 것이 아니라 금융의 국경을 허물다',
         desc : '트래블로그에서 블록체인 송금, 두나무, 원화 스테이블코인까지. 하나은행이 금융의 경계를 허무는 과정.',
-        url  : './special-column7.html',
-        thumb: './img/hana-main.jpg'
+        url  : './case-column7.html',
+        thumb: './img/case-3.jpg'
       }
     ]
   };
