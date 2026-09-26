@@ -101,8 +101,8 @@
         <ul>
           <li><a href="./column.html">혁신 칼럼</a></li>
           <li><a href="./special-column.html">확장 칼럼</a></li>
-          <!-- <li><a href="./columns.html?cat=innovation">비즈니스 혁신</a></li>
-          <li><a href="./columns.html?cat=insight">산업 인사이트</a></li>
+          <li><a href="./case-column.html">혁신 사례</a></li>
+          <!-- <li><a href="./columns.html?cat=insight">산업 인사이트</a></li>
           <li><a href="./columns.html?cat=ceo">CEO 인사이트</a></li> -->
         </ul>
       </div>
