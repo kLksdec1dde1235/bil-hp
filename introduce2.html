@@ -1,1430 +1,871 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <!-- ===== 기본 메타 ===== -->
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  
-  <link href="./css/reset.css" rel="stylesheet" type="text/css" />
-   <link href="./css/style.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-        <div id="menu_navi"></div>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+<!-- 소유권 인증 -->
+<meta name="naver-site-verification" content="3d90b88f5b034dcafecbefafa2709d57a999bf64" />
+<meta name="google-site-verification" content="구글_인증코드_여기에" />
+
+<!-- Canonical : 이 페이지의 실제 파일명으로 교체 -->
+<link rel="canonical" href="https://biznovalab.com/" />
+<meta name="robots" content="index,follow" />
+<meta name="subject" content="비즈니스혁신연구소 - 생각 1% 플랫폼" />
+<meta name="title" content="생각 1% 플랫폼 | 비즈니스혁신연구소" />
+<meta name="author" content="비즈니스혁신연구소">
+<meta name="description" content="비즈니스혁신연구소[생각 1% 플랫폼] — 각 분야에서 기존과 다르게 생각하는 ‘생각 1%’가 모이고, 연결되고, 융복합하여 새로운 고객가치를 만드는 실행형 혁신 플랫폼."/>
+<meta name="keywords" content="비즈니스혁신연구소, 생각 1%, 생각1% 플랫폼, 이업종 융복합, 비즈니스 혁신, 혁신 원리, 혁신 패턴, 현장 혁신, 실행형 혁신 플랫폼, 고객가치, Business Innovation Lab" />
+
+<link rel="icon" href="./img/favicon.png" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./img/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./img/favicon.png">
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="비즈니스혁신연구소" />
+<meta property="og:title" content="생각 1% 플랫폼 | 비즈니스혁신연구소" />
+<meta property="og:description" content="생각 1%가 만나 혁신을 만드는 곳. 비즈니스혁신연구소의 철학과 혁신 원리를 소개합니다." />
+<meta property="og:image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+<meta property="og:url" content="https://biznovalab.com/" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="생각 1% 플랫폼 | 비즈니스혁신연구소" />
+<meta name="twitter:description" content="생각 1%가 만나 혁신을 만드는 곳. 비즈니스혁신연구소의 철학과 혁신 원리를 소개합니다." />
+<meta name="twitter:image" content="https://biznovalab.com/img/og-biznovlab.jpg" />
+<title>생각 1% 플랫폼 | 비즈니스혁신연구소</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link href="./css/reset.css" rel="stylesheet" type="text/css" />
+<link href="./css/style.css" rel="stylesheet" type="text/css" />
+
+<style>
+  body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:#fff;color:#111;overflow-x:hidden}
+  #sidebar{display:none}
+</style>
+</head>
+<body>
+
+<div id="menu_navi"></div>
 <script src="./menu3.js"></script>
 
 
-
-  <style>
-    /* ── RESET & LAYOUT ── */
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Pretendard',sans-serif;background:#111;color:#fff;overflow-x:hidden}
-    .container{display:flex}
-    #main{flex:1;position:relative;overflow:hidden}
-    #visualTransWrap{position:absolute;inset:0;pointer-events:none;z-index:5}
-
-    /* ── SWIPER & BG ── */
-    .mv_container{width:100%;height:90vh;position:relative}
-    .swiper-container,.swiper-wrapper,.swiper-slide{width:100%;height:100%}
-    .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 6s ease;filter:brightness(0.5)}
-    .swiper-slide-active .bg{transform:scale(1.12)}
-    .bg1{background-image:url('./img/intro-1.jpg')}
-    .bg2{background-image:url('./img/intro-2.jpg')}
-    .bg3{background-image:url('./img/page-3.jpg')}
-    .bg4{background-image:url('./img/repair.jpg')}
-
-    /* ── TEXT & BUTTON ── */
-    .mv_txt_box{position:absolute;top:20%;left:5%;max-width:640px;z-index:2}
-    .mv_cate{font-size:18px;font-weight:600;margin-bottom:14px;color:#ffeb55;display:inline-block}
-    .mv_tit{font-size:43px;line-height:1.4;margin:0 0 12px}
-    @media screen and (max-width:620px){ .mv_tit{font-size:34px !important;} }
-    @media screen and (max-width:500px){ .mv_tit{font-size:26px !important;} }
-    .mv_txt{font-size:18px;line-height:1.6;font-weight:300}
-    .mv_btn{
-      display:inline-block;margin-top:30px;padding:14px 36px;
-      border:2px solid #fff;border-radius:40px;
-      background:transparent;color:#fff;font-weight:600;letter-spacing:.3px;
-      opacity:0;pointer-events:none;
-      transition:opacity .6s,background .35s,box-shadow .35s,color .35s,transform .35s;
-      position:relative;overflow:hidden;text-decoration:none;
-    }
-    .swiper-slide-active .mv_btn{opacity:1;pointer-events:auto}
-    .mv_btn::after{
-      content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);
-      transform:translateX(-100%);transition:transform .4s;
-    }
-    .mv_btn:hover::after{transform:translateX(0)}
-    .mv_btn:hover{
-      background:#fff;color:#111;box-shadow:0 8px 24px rgba(0,0,0,.25);
-      transform:translateY(-2px);
-    }
-
-    /* ── WAVE ANIMATION ── */
-    .wave_anim .wave{display:inline-block;opacity:0;animation:wave 1.1s ease-out forwards}
-    @keyframes wave{0%{transform:translateY(25px);opacity:0}100%{transform:translateY(0);opacity:1}}
-    .wave_anim.custom .wave:nth-child(1){animation-delay:.15s}
-    .wave_anim.custom .wave:nth-child(2){animation-delay:.3s}
-    .wave_anim.custom .wave:nth-child(3){animation-delay:.45s}
-
-    /* ── PROGRESS BAR ── */
-    .progress-container{position:absolute;bottom:80px;left:5%;right:5%;height:4px;display:flex;gap:10px;z-index:3;width:150px;}
-    .progress-segment{flex:1;background:rgba(255,255,255,.25);border-radius:2px;overflow:hidden;cursor:pointer}
-    .progress-fill{width:0;height:100%;background:#fff;display:block}
-
-    .wheel_down{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:24px;opacity:.7;z-index:3;animation: wheel-bounce 2s ease-in-out infinite;}
-    .wheel_down .wheel {animation: wheel-fade 2s ease-in-out infinite;}
-    @keyframes wheel-fade {
-      0%{opacity:1;transform:translateY(0)}
-      80%{opacity:.2;transform:translateY(10px)}
-      100%{opacity:0;transform:translateY(14px)}
-    }
-    #sidebar{display:none}
-  </style>
-
-  <style>
-    /* ──────────────────────────────────────────
-          #visual-section 전용 스타일
-      ─────────────────────────────────────────── */
-    #visual-section{position:relative;width:100%;height:100vh;overflow:hidden}
-    #visual-section .video_wrap{position:absolute;inset:0;z-index:0}
-    #visual-section .video_wrap video{width:100%;height:100%;object-fit:cover;object-position:center}
-    #visual-section .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5)}
-    #visual-section .txt_container{
-      position:absolute;inset:0;z-index:2;
-      display:flex;flex-direction:column;
-      justify-content:space-evenly;align-items:center;
-      text-align:center;pointer-events:none
-    }
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    #visual-section .company,#visual-section .logo,#visual-section .exp{opacity:0}
-    #visual-section.animate .company{
-      color:#fff;font-size:2.5rem;font-weight:500;margin-bottom:.5em;
-      animation:fadeInUp 1s ease-out forwards;animation-delay:.2s
-    }
-    #visual-section.animate .logo{animation:fadeInUp 1s ease-out forwards;animation-delay:.7s}
-    #visual-section .logo .m_logo{
-      width:800px;height:130px;
-      background:url("../img/sm-logo.png") no-repeat center/contain;
-      margin-bottom:.5em
-    }
-    #visual-section.animate .exp{
-      color:#fff;font-size:1.25rem;line-height:1.6;max-width:80%;
-      animation:fadeInUp 1s ease-out forwards;animation-delay:1s
-    }
-    #visual-section .highlight{color:#e6d3a3;font-weight:600}
-    @media (max-width:768px){
-      #visual-section .company{font-size:2rem !important}
-      #visual-section .logo .m_logo{
-        background:url("../img/sm-font.png") no-repeat center/contain;
-        width:400px;height:300px
-      }
-      #visual-section .exp{font-size:1rem}
-      #visual-section .video_wrap video{object-position:right center}
-    }
-  </style>
-</head>
-
-<body>
-
-<!-- 메뉴(외부 로드) -->
-<div id="menu"></div>
-
+<!-- ════════════════════════════════════════════
+     [0] 서브 비주얼 (기존 서브페이지 톤 유지)
+═════════════════════════════════════════════ -->
+<section id="bnSubVisual" aria-label="생각 1% 플랫폼 비주얼">
 <style>
-  /* ───────────────────────────────────────────────
-     공통 · 레이아웃
-  ───────────────────────────────────────────────*/
-  .sub-visual__wrap{
-    position:relative; z-index:2;
-    height:80vh; width:100%;
-    background-size:cover!important; background-position:center top!important;
-    overflow:hidden; perspective:900px;
-    --reveal-dur: 900ms;
+  #bnSubVisual{position:relative;margin:0;padding:0}
+  #bnSubVisual .sv-wrap{
+    position:relative;z-index:2;height:80vh;min-height:520px;width:100%;
+    background:url(./img/lab1.jpg) no-repeat center top;background-size:cover;
+    overflow:hidden;--reveal-dur:900ms;
   }
-  .sub-visual__wrap.visual-01{
-    background:url(./img/lab1.jpg) no-repeat center top;
+  #bnSubVisual .sv-wrap::before{
+    z-index:1;content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(110deg,rgba(18,22,34,.62) 45%,rgba(28,33,54,.36) 100%);
   }
-  .sub-visual__wrap[class*="visual"]::before{
-    z-index:1; content:''; position:absolute; inset:0;
-    background:linear-gradient(110deg,rgba(18,22,34,.56)45%,rgba(28,33,54,.34)100%);
-    pointer-events:none; transition:background .8s;
-  }
+  #bnSubVisual .reveal{position:absolute;top:0;bottom:0;width:50%;background:#0b0d12;z-index:1;will-change:transform}
+  #bnSubVisual .reveal.l{left:0}
+  #bnSubVisual .reveal.r{right:0}
+  #bnSubVisual .sv-wrap.play .reveal.l{animation:bnSvL var(--reveal-dur) cubic-bezier(.22,.8,.18,1) forwards}
+  #bnSubVisual .sv-wrap.play .reveal.r{animation:bnSvR var(--reveal-dur) cubic-bezier(.22,.8,.18,1) forwards}
+  @keyframes bnSvL{to{transform:translateX(-100%)}}
+  @keyframes bnSvR{to{transform:translateX(100%)}}
 
-  /* ▼ 중앙에서 바깥쪽으로 '열리며' 배경이 나타나는 리빌 패널 */
-  .sub-visual__wrap .reveal{
-    position:absolute; top:0; bottom:0; width:50%;
-    background:#0b0d12;
-    z-index:0;
-    transform:translateX(0);
-    will-change:transform;
+  #bnSubVisual .sv-area{position:absolute;bottom:110px;left:50%;transform:translateX(-50%);width:calc(100% - 80px);max-width:1440px;z-index:3}
+  #bnSubVisual .sv-crumb ol{display:flex;gap:10px;align-items:center;list-style:none;margin:0 0 22px;padding:0;font-size:1.02rem;color:#fff}
+  #bnSubVisual .sv-crumb li{display:flex;align-items:center}
+  #bnSubVisual .sv-crumb li:not(:last-child)::after{content:"›";margin:0 7px;opacity:.48;font-weight:600}
+  #bnSubVisual .sv-crumb a{color:#fff;opacity:.83;text-decoration:none}
+  #bnSubVisual .sv-crumb a:hover{opacity:1;text-decoration:underline}
+  #bnSubVisual .sv-crumb .current{font-weight:700;opacity:1}
+  #bnSubVisual .sv-eyebrow{display:block;font-size:16px;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.78);margin-bottom:14px}
+  #bnSubVisual .sv-title{font-size:56px;font-weight:700;line-height:1.24;letter-spacing:-.035em;color:#fff;margin:0}
+  #bnSubVisual .sv-desc{font-size:24px;margin:22px 0 0;font-weight:400;letter-spacing:-.02em;line-height:1.5;color:rgba(255,255,255,.9)}
+
+  #bnSubVisual .sv-crumb,#bnSubVisual .sv-eyebrow,#bnSubVisual .sv-title,#bnSubVisual .sv-desc{opacity:0;transform:translateY(36px);transition:opacity 1.1s cubic-bezier(.24,.8,.26,1.01),transform 1.1s cubic-bezier(.24,.8,.26,1.01)}
+  #bnSubVisual .sv-title{transition-delay:.08s}
+  #bnSubVisual .sv-desc{transition-delay:.2s}
+  #bnSubVisual .sv-wrap.in .sv-crumb,#bnSubVisual .sv-wrap.in .sv-eyebrow,#bnSubVisual .sv-wrap.in .sv-title,#bnSubVisual .sv-wrap.in .sv-desc{opacity:1;transform:none}
+
+  @media (max-width:950px){
+    #bnSubVisual .sv-wrap{height:460px;min-height:0}
+    #bnSubVisual .sv-area{bottom:52px;width:calc(100% - 36px)}
+    #bnSubVisual .sv-eyebrow{font-size:14px}
+    #bnSubVisual .sv-title{font-size:34px}
+    #bnSubVisual .sv-desc{font-size:17px}
+    #bnSubVisual .sv-crumb ol{font-size:.9rem}
   }
-  .sub-visual__wrap .reveal.l{ left:0; }
-  .sub-visual__wrap .reveal.r{ right:0; }
-  .sub-visual__wrap.play .reveal.l{ animation:revealOutL var(--reveal-dur) cubic-bezier(.22,.8,.18,1) forwards; }
-  .sub-visual__wrap.play .reveal.r{ animation:revealOutR var(--reveal-dur) cubic-bezier(.22,.8,.18,1) forwards; }
-  @keyframes revealOutL{ to{ transform:translateX(-100%); } }
-  @keyframes revealOutR{ to{ transform:translateX(100%); } }
   @media (prefers-reduced-motion:reduce){
-    .sub-visual__wrap.play .reveal.l{ animation:none; transform:translateX(-100%); }
-    .sub-visual__wrap.play .reveal.r{ animation:none; transform:translateX(100%); }
-  }
-
-  /* ───── 브레드크럼 ───── */
-  .breadcrumb-nav{
-    position:absolute;
-    left:50%; transform:translateX(-50%) translateY(-18px);
-    width:100%;
-    top:20%; max-width:1440px;
-    margin:0 40px;
-    bottom:210px;
-    z-index:10;
-    font-family:'Pretendard','Noto Sans KR',sans-serif;
-    opacity:0;
-    transition:opacity .9s cubic-bezier(.22,.9,.39,1.01),
-               transform 1.05s cubic-bezier(.22,.9,.39,1.01);
-  }
-  .breadcrumb-nav.in{opacity:1; transform:translateX(-50%) translateY(0);}
-  .breadcrumb-nav ol{
-    display:flex; gap:10px; align-items:center; margin:0; padding:0;
-    font-size:1.04rem; color:#fff; opacity:.92; list-style:none;
-  }
-  .breadcrumb-nav li{display:flex; align-items:center;}
-  .breadcrumb-nav li:not(:last-child)::after{
-    content:"›"; margin:0 7px; color:#fff; opacity:.48; font-size:.92em; font-weight:600;
-  }
-  .breadcrumb-nav a{color:#fff; opacity:.83; text-decoration:none; transition:opacity .17s;}
-  .breadcrumb-nav a:hover,.breadcrumb-nav a:focus{opacity:1; text-decoration:underline;}
-  .breadcrumb-nav .current{color:#fff; font-weight:700; opacity:1;}
-
-  /* ───── 타이틀 · 설명 ───── */
-  .sub-visual__area{
-    position:absolute; bottom:110px; left:50%; transform:translateX(-50%);
-    width:100%; max-width:1440px; margin:0 40px; z-index:2;
-  }
-  .sub-visual__title{
-    color:#fff; text-align:left; width:100%;
-    filter:drop-shadow(0 8px 32px rgba(0,0,0,.11));
-  }
-
-  /* ✅ H1/H2/H3/H4 정리: 인사말 페이지의 메인 타이틀은 h1 */
-  .sub-visual__title .title{
-    font-size:56px; font-weight:700; line-height:1.28; letter-spacing:-1px;
-    opacity:0; transform:translateY(60px) scale(.96) skewY(4deg) rotateX(15deg);
-    filter:blur(4px) brightness(1.4);
-    transition:all 1.1s cubic-bezier(.24,.8,.26,1.01);
-    margin:0;
-  }
-  .sub-visual__title .desc{
-    font-size:26px; margin-top:26px; opacity:0;
-    transform:translateY(50px) scale(.97) skewY(2deg) rotateX(10deg);
-    filter:blur(7px) brightness(1.3);
-    min-height:28px; font-weight:400; letter-spacing:-.3px; line-height:1.4;
-    transition:all 1.25s cubic-bezier(.22,.78,.21,1.02) .14s;
-    margin:0;
-  }
-  .sub-visual__title.in .title{ opacity:1; filter:blur(0) brightness(1); transform:none; }
-  .sub-visual__title.in .desc{  opacity:1; filter:blur(0) brightness(1); transform:none; }
-
-  /* ───── 반응형 ───── */
-  @media(max-width:950px){
-    .sub-visual__wrap{height:440px;}
-    .sub-visual__area{bottom:52px; margin:0 16px;}
-    .breadcrumb-nav{margin:0 16px; bottom:112px;}
-    .sub-visual__title .title{font-size:2rem;}
-    .sub-visual__title .desc{font-size:1.02rem;}
-    .breadcrumb-nav ol{font-size:.92rem;}
+    #bnSubVisual .reveal{display:none}
+    #bnSubVisual .sv-crumb,#bnSubVisual .sv-eyebrow,#bnSubVisual .sv-title,#bnSubVisual .sv-desc{opacity:1;transform:none;transition:none}
   }
 </style>
 
-<!-- ▣ 비주얼 영역 -->
-<div class="sub-visual__wrap visual-01">
+<div class="sv-wrap">
   <div class="reveal l" aria-hidden="true"></div>
   <div class="reveal r" aria-hidden="true"></div>
-
-  <!-- 브레드크럼 -->
-  <nav class="breadcrumb-nav" aria-label="breadcrumb">
-    <ol>
-      <li><a href="#">홈</a></li>
-      <li><a href="#">연구소 소개</a></li>
-    </ol>
-  </nav>
-
-  <!-- 타이틀·설명 -->
-<div class="sub-visual__area">
-  <header class="sub-visual__title">
-    <h1 class="title">연구소 소개</h1>
-    <p class="desc"><br>
-      비즈니스 혁신 연구소에 오신 것을 환영합니다.<br>
-    
-    </p>
-  </header>
-</div>
-
+  <div class="sv-area">
+    <nav class="sv-crumb" aria-label="breadcrumb">
+      <ol>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">연구소</a></li>
+        <li><span class="current">생각 1% 플랫폼</span></li>
+      </ol>
+    </nav>
+    <span class="sv-eyebrow">비즈니스혁신연구소의 또 다른 이름</span>
+    <h1 class="sv-title">생각 1% 플랫폼</h1>
+    <p class="sv-desc">생각 1%가 만나, 혁신을 만드는 곳</p>
+  </div>
 </div>
 
 <script>
-  /* ───── 애니메이션 + 패럴럭스 + 브레드크럼 정렬 ───── */
-  document.addEventListener('DOMContentLoaded',()=>{
-    const titleBox   = document.querySelector('.sub-visual__title');
-    const breadcrumb = document.querySelector('.breadcrumb-nav');
-    const visual     = document.querySelector('.sub-visual__wrap.visual-01');
-
-    // ① 배경 양갈래 리빌 시작(중앙 → 바깥)
-    visual.classList.add('play');
-
-    // 리빌 길이( CSS 변수 --reveal-dur )를 읽어서 동기화
-    const dur = parseInt(getComputedStyle(visual).getPropertyValue('--reveal-dur')) || 900;
-
-    // ② 리빌 종료 후 텍스트 등장
-    setTimeout(()=>{
-      titleBox.classList.add('in');
-      breadcrumb.classList.add('in');
-      alignBreadcrumb();
-    }, dur + 40);
-
-    // ③ 스크롤 패럴럭스
-    window.addEventListener('scroll',()=>{
-      const scrolled=window.scrollY||window.pageYOffset;
-      if(visual){
-        visual.style.backgroundPosition=`center ${Math.max(0,-scrolled*0.15)}px`;
-      }
-    });
-
-    // ④ 브레드크럼을 타이틀 바로 위에 놓음
-    function alignBreadcrumb(){
-      const areaRect = document.querySelector('.sub-visual__area').getBoundingClientRect();
-      const wrapRect = visual.getBoundingClientRect();
-      const nav      = breadcrumb;
-      const gap      = 12;
-      nav.style.bottom = (wrapRect.bottom - areaRect.top + gap * -1) + 'px';
-    }
-    window.addEventListener('resize',alignBreadcrumb);
-  });
+(function(){
+  var root=document.getElementById('bnSubVisual');if(!root)return;
+  var wrap=root.querySelector('.sv-wrap');
+  wrap.classList.add('play');
+  var dur=parseInt(getComputedStyle(wrap).getPropertyValue('--reveal-dur'))||900;
+  setTimeout(function(){wrap.classList.add('in')},dur+40);
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY||window.pageYOffset;
+    wrap.style.backgroundPosition='center '+Math.min(0,-y*0.15)+'px';
+  },{passive:true});
+})();
 </script>
-
-
-<section id="aiRobotHero" aria-label="AI 로봇 솔루션 히어로 섹션">
-  <style>
-    /* ===============================
-       Scope: #aiRobotHero ONLY
-       =============================== */
-    #aiRobotHero{
-      --bg:#ffffff;
-      --ink:#0b0d12;
-      --muted:#5b6472;
-      --max:1120px;
-      --padX:20px;
-
-      --titleSize:clamp(32px, 3.2vw, 52px);
-      --subSize:clamp(18px, 1.3vw, 30px);
-
-      --radius:18px;
-      --shadow:0 18px 55px rgba(15, 23, 42, .14);
-      --line:rgba(15, 23, 42, .10);
-
-      font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--ink);
-      padding:clamp(34px, 5.5vw, 56px) 0 clamp(36px, 6vw, 72px);
-    }
-
-    #aiRobotHero .arh-wrap{max-width:var(--max); margin:0 auto; padding:0 var(--padX);}
-
-    #aiRobotHero .arh-head{ text-align:center; }
-    #aiRobotHero .arh-title{
-      margin:0;
-      font-size:var(--titleSize);
-      line-height:1.25;
-      font-weight:850;
-    }
-    #aiRobotHero .arh-sub{
-      margin:22px auto;
-      max-width:60ch;
-      font-size:var(--subSize);
-      line-height:1.6;
-      color:var(--muted);
-      font-weight:500;
-    }
-
-    #aiRobotHero .arh-media{
-      margin:clamp(22px, 3.6vw, 34px) auto 0;
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:#eef2f7;
-      border:1px solid var(--line);
-    }
-
-    #aiRobotHero .arh-frame{
-      position:relative;
-      width:100%;
-      aspect-ratio:16/9;
-      min-height:260px;
-      max-height:520px;
-    }
-
-    #aiRobotHero .arh-img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    #aiRobotHero .arh-overlay{
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.15) 100%);
-      pointer-events:none;
-    }
-
-    /* ✅ 중앙 정렬 텍스트 박스 */
-    #aiRobotHero .arh-textbox{
-      position:absolute;
-      inset:0;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:clamp(18px, 3vw, 48px);
-      color:#fff;
-      z-index:2;
-    }
-
-    #aiRobotHero .arh-imgtitle{
-      margin:0;
-      font-size:clamp(20px, 2.4vw, 34px);
-      line-height:1.45;
-      font-weight:850;
-      text-shadow:0 12px 32px rgba(0,0,0,.45);
-    }
-
-    #aiRobotHero .arh-imgdesc{
-      margin-top:14px;
-      font-size:clamp(14px, 1.5vw, 18px);
-      line-height:1.6;
-      color:rgba(255,255,255,.95);
-      text-shadow:0 10px 24px rgba(0,0,0,.4);
-    }
-
-    #aiRobotHero .arh-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      margin-top:18px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(0,0,0,.28);
-      color:#fff;
-      font-size:12px;
-      backdrop-filter: blur(6px);
-    }
-
-    #aiRobotHero .arh-dot{
-      width:7px;height:7px;border-radius:99px;
-      background:#fff;
-      box-shadow:0 0 0 6px rgba(255,255,255,.25)
-    }
-
-    #aiRobotHero [contenteditable="true"]{
-      outline:none;
-      border-radius:12px;
-      padding:6px 12px;
-      background:rgba(0,0,0,0);
-      transition:.15s ease;
-    }
-
-    #aiRobotHero [contenteditable="true"]:focus{
-      background:rgba(0,0,0,.25);
-      box-shadow:0 0 0 2px rgba(255,255,255,.6);
-    }
-  </style>
-
-  <div class="arh-wrap">
-    <header class="arh-head">
-      <h1 class="arh-title">
-        급변하는 AI 시대<br>
-        변하지 않으면 생존하기 힘든 위기를<br>
-        기회로 바꾸는 혁신의 길을 전달합니다.
-      </h1>
-      <p class="arh-sub">
-        트렌드를 쫓는 것이 아니라 시대의 바람을 읽고<br>
-        새로운 비즈니스 흐름에 맞는 혁신의 길을 제시합니다.
-      </p>
-    </header>
-
-    <figure class="arh-media">
-      <div class="arh-frame">
-        <img class="arh-img" src="./img/history.jpg" alt="혁신 배경 이미지">
-
-        <div class="arh-textbox">
-          <h2 class="arh-imgtitle" contenteditable="true">
-            ‘말로만 하는 혁신’이 아니라,<br>
-           혁신을 현실로 이루는<br>[생각 1% 사업자]를 위한 공간
-          </h2>
-
-        </div>
-
-        <div class="arh-overlay"></div>
-      </div>
-    </figure>
-  </div>
-
-  <script>
-    (function(){
-      const root = document.getElementById('aiRobotHero');
-      if(!root) return;
-
-      const editables = root.querySelectorAll('[contenteditable="true"]');
-
-      editables.forEach(el => {
-        el.addEventListener('paste', e => {
-          e.preventDefault();
-          const text = (e.clipboardData || window.clipboardData).getData('text/plain');
-          document.execCommand('insertText', false, text);
-        });
-
-        el.addEventListener('keydown', e => {
-          if(e.key === 'Enter' && el.tagName === 'H2'){
-            e.preventDefault();
-          }
-        });
-      });
-    })();
-  </script>
 </section>
 
 
-<section id="business-expansion-section">
-  <div class="biz-overlay"></div>
-  <div class="biz-container">
-    <h2 class="biz-main-title">
-      말로는 혁신을 외치지만<br>
-      어떻게 해야할지? 무엇을 해야할지 모른다.<br><br>
-트렌드와 사례, 기술만 소비하다<br>다시 제자리로 돌아오는 반복을<br>이젠 끊고 싶은 1% 사업자를 위한 솔루션
-    </h2>
+<!-- ════════════════════════════════════════════
+     [1] 우리는 왜 존재하는가
+═════════════════════════════════════════════ -->
+<section id="bnWhy" aria-label="우리는 왜 존재하는가">
+<style>
+  #bnWhy{
+    --ink:#111111;--sub:#4a4f57;--mute:#8a9099;--line:#e6e8ec;--soft:#f5f7fa;--point:#114ca5;
+    container-type:inline-size;
+    font-family:'Pretendard','Noto Sans KR',sans-serif;background:#fff;color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  #bnWhy *,#bnWhy *::before,#bnWhy *::after{box-sizing:border-box;margin:0;padding:0}
+  #bnWhy .w-shell{max-width:1280px;margin:0 auto;padding:clamp(80px,10cqi,150px) clamp(20px,5cqi,64px)}
 
-    <div class="biz-card-wrapper">
-      <div class="biz-card">
-        <div class="biz-card-top">
-          <span class="biz-number">01</span>
-        </div>
-        <div class="biz-card-body">
-          <h3 class="biz-card-title">혁신 마인드 제공</h3>
-          <p class="biz-card-desc">
-           실제 비즈니스 혁신을 이끌어 내고 있는 전문가 컨설팅을 통해 혁신 마인드 제공
-          </p>
-        </div>
+  #bnWhy .w-label{display:flex;align-items:center;gap:14px;font-size:clamp(13px,1.1cqi,15px);font-weight:700;letter-spacing:.08em;color:var(--point);margin-bottom:clamp(20px,2.4cqi,32px)}
+  #bnWhy .w-label::before{content:"";width:32px;height:2px;background:var(--point)}
+  #bnWhy .w-head{font-size:clamp(28px,3.8cqi,52px);font-weight:700;line-height:1.3;letter-spacing:-.045em;word-break:keep-all}
+  #bnWhy .w-head b{font-weight:700;color:var(--point)}
+  #bnWhy .w-lead{margin-top:clamp(20px,2.4cqi,32px);max-width:720px;font-size:clamp(16px,1.4cqi,19px);line-height:1.85;color:var(--sub);word-break:keep-all}
+
+  #bnWhy .w-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6cqi,96px);margin-top:clamp(60px,7cqi,110px);padding-top:clamp(40px,5cqi,64px);border-top:1px solid var(--line)}
+  #bnWhy .w-sub{font-size:clamp(14px,1.2cqi,16px);font-weight:700;color:var(--mute);margin-bottom:22px;letter-spacing:-.01em}
+
+  #bnWhy .w-def{border-left:3px solid var(--point);padding:6px 0 6px clamp(18px,2.4cqi,28px)}
+  #bnWhy .w-def-no{font-size:clamp(15px,1.3cqi,17px);color:var(--mute);text-decoration:line-through;text-decoration-color:#c3c7ce;margin-bottom:14px}
+  #bnWhy .w-def-yes{font-size:clamp(20px,2.2cqi,30px);font-weight:700;line-height:1.5;letter-spacing:-.04em;word-break:keep-all}
+  #bnWhy .w-def-yes b{color:var(--point);font-weight:700}
+
+  #bnWhy .w-drive{margin-top:clamp(36px,4cqi,52px);display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}
+  #bnWhy .w-drive div{padding:22px 20px}
+  #bnWhy .w-drive div+div{border-left:1px solid var(--line)}
+  #bnWhy .w-drive span{display:block;font-size:13px;font-weight:600;color:var(--mute);margin-bottom:8px}
+  #bnWhy .w-drive strong{font-size:clamp(17px,1.6cqi,21px);font-weight:700;letter-spacing:-.03em}
+
+  #bnWhy .w-rows{border-top:2px solid var(--ink)}
+  #bnWhy .w-row{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:clamp(22px,2.4cqi,30px) 0;border-bottom:1px solid var(--line);transition:background .3s}
+  #bnWhy .w-row:hover{background:var(--soft)}
+  #bnWhy .w-num{font-size:clamp(15px,1.3cqi,17px);font-weight:700;color:var(--point);padding-left:4px}
+  #bnWhy .w-row strong{display:block;font-size:clamp(19px,1.8cqi,24px);font-weight:700;letter-spacing:-.035em;margin-bottom:6px}
+  #bnWhy .w-row p{font-size:clamp(15px,1.25cqi,16.5px);line-height:1.7;color:var(--sub);word-break:keep-all}
+  #bnWhy .w-note{margin-top:22px;font-size:clamp(15px,1.3cqi,17px);font-weight:600;color:var(--ink);word-break:keep-all}
+  #bnWhy .w-note b{color:var(--point)}
+
+  @container (max-width:900px){
+    #bnWhy .w-grid{grid-template-columns:1fr}
+    #bnWhy .w-row{grid-template-columns:52px 1fr}
+  }
+
+  #bnWhy [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0) * 1ms)}
+  #bnWhy [data-r].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){#bnWhy [data-r]{opacity:1;transform:none;transition:none}}
+</style>
+
+<div class="w-shell">
+  <p class="w-label" data-r>01 &nbsp;WHY WE EXIST</p>
+  <h2 class="w-head" data-r style="--d:100">
+    고객의 문제를 새롭게 발견하고,<br>
+    다르게 해결하려는 사람들을 돕기 위해<br>
+    <b>비즈니스혁신연구소</b>가 존재합니다.
+  </h2>
+  <p class="w-lead" data-r style="--d:200">
+    기존과 다른 방법으로 새로운 고객가치를 만들고자 하는 사람들.
+    그들이 실제로 혁신을 이뤄낼 수 있도록 곁에서 돕는 것, 그것이 연구소의 존재 이유입니다.
+  </p>
+
+  <div class="w-grid">
+    <div>
+      <p class="w-sub" data-r>연구소가 정의하는 비즈니스</p>
+      <div class="w-def" data-r style="--d:100">
+        <p class="w-def-no">상품을 판매하고 돈을 버는 활동</p>
+        <p class="w-def-yes">고객의 문제를 해결하고 가치를 제공함으로써<br><b>지속적으로 경제적 가치를 얻는 활동</b></p>
       </div>
 
-      <div class="biz-card">
-        <div class="biz-card-top">
-          <span class="biz-number">02</span>
-        </div>
-        <div class="biz-card-body">
-          <h3 class="biz-card-title">혁신 기반 제공</h3>
-          <p class="biz-card-desc">
-            정부지원, 사업 컨설팅, 마케팅 교육 뿐만 아니라
-혁신의 마인드를 가진 사람들과 협업 기회 제공
-          </p>
-        </div>
+      <div class="w-drive" data-r style="--d:200">
+        <div><span>혁신의 동력 01</span><strong>기술의 진보</strong></div>
+        <div><span>혁신의 동력 02</span><strong>이업종 융복합</strong></div>
       </div>
+    </div>
 
-      <div class="biz-card">
-        <div class="biz-card-top">
-          <span class="biz-number">03</span>
+    <div>
+      <p class="w-sub" data-r>비즈니스혁신이란, 다음 중 하나를 새롭게 바꾸는 것</p>
+      <div class="w-rows">
+        <div class="w-row" data-r style="--d:0">
+          <span class="w-num">01</span>
+          <div><strong>해결할 문제</strong><p>고객이 진짜 불편해하는 문제를 새롭게 발견합니다.</p></div>
         </div>
-        <div class="biz-card-body">
-          <h3 class="biz-card-title">비즈니스 성장 기회 제공</h3>
-          <p class="biz-card-desc">
-            언론, 네트워크, 프로젝트 연계를 통해  
-        실제 성과로 이어지는 비즈니스 성장 기회를 제공합니다.
-          </p>
+        <div class="w-row" data-r style="--d:100">
+          <span class="w-num">02</span>
+          <div><strong>해결 방법</strong><p>같은 문제라도 기존과 다른 방식으로 풀어냅니다.</p></div>
+        </div>
+        <div class="w-row" data-r style="--d:200">
+          <span class="w-num">03</span>
+          <div><strong>고객 관계</strong><p>고객과 만나고 관계를 맺는 방식을 새롭게 설계합니다.</p></div>
         </div>
       </div>
+      <p class="w-note" data-r>완전히 새로운 발명만이 혁신이 아닙니다. <b>이 변화가 곧 경쟁우위</b>가 됩니다.</p>
     </div>
   </div>
+</div>
 
-  <style>
-    #business-expansion-section {
-      position: relative;
-      font-family: 'Pretendard', -apple-system, sans-serif;
-      padding: 100px 20px;
-      min-height: 600px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=1600');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #ffffff;
-      overflow: hidden;
-    }
-
-    #business-expansion-section .biz-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
-
-    #business-expansion-section .biz-container {
-      position: relative;
-      z-index: 2;
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    #business-expansion-section .biz-main-title {
-      font-size: 34px;
-      font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: 60px;
-      letter-spacing: -0.03em;
-      text-align: left;
-    }
-
-    #business-expansion-section .biz-card-wrapper {
-      display: flex;
-      gap: 24px;
-      justify-content: space-between;
-    }
-
-    #business-expansion-section .biz-card {
-      background-color: rgba(255, 255, 255, 0.886);
-      border-radius: 20px;
-      padding: 40px 30px;
-      flex: 1;
-      min-height: 380px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    #business-expansion-section .biz-card:hover {
-      transform: translateY(-10px);
-    }
-
-    #business-expansion-section .biz-number {
-      font-size: 36px;
-      font-weight: 800;
-      color: #1a2b6d; /* 진한 네이비 */
-      display: block;
-      margin-bottom: 40px;
-    }
-
-    #business-expansion-section .biz-card-title {
-      font-size: 26px;
-      font-weight: 700;
-      color: #111111;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-
-    #business-expansion-section .biz-card-desc {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #555555;
-      word-break: keep-all;
-    }
-
-    @media (max-width: 900px) {
-      #business-expansion-section .biz-card-wrapper {
-        flex-direction: column;
-        gap: 20px;
-      }
-      
-      #business-expansion-section .biz-main-title {
-        font-size: 26px;
-        margin-bottom: 40px;
-      }
-
-      #business-expansion-section .biz-card {
-        min-height: auto;
-        padding: 30px;
-      }
-      
-      #business-expansion-section .biz-number {
-        margin-bottom: 20px;
-      }
-    }
-  </style>
-</section>
-
-<section id="tpCeoGreeting">
-  <style>
-    #tpCeoGreeting{
-      font-family:Pretendard,"Noto Sans KR",sans-serif;
-      background:#fff;color:#111;
-      padding:40px 20px
-    }
-    #tpCeoGreeting .container{
-      max-width:1200px;margin:0 auto;
-      display:grid;grid-template-columns:1fr .9fr;
-      gap:40px;align-items:center
-    }
-
-    #tpCeoGreeting .photo-desktop{display:block}
-    #tpCeoGreeting .photo-desktop img{max-width:100%;height:auto}
-
-    #tpCeoGreeting .content{line-height:1.7;font-size:16px;text-align:left}
-    #tpCeoGreeting .content h2{font-size:32px;font-weight:800;margin:0 0 12px}
-    #tpCeoGreeting .content h3{font-size:22px;font-weight:700;margin:0 0 20px}
-
-    #tpCeoGreeting .content p{margin:0 0 16px}
-    #tpCeoGreeting .sign{margin-top:22px;font-weight:600}
-
-    #tpCeoGreeting .photo-mobile{display:none}
-    @media(max-width:768px){
-      #tpCeoGreeting .container{display:block}
-      #tpCeoGreeting .content{font-size:15px}
-      #tpCeoGreeting .content h2{font-size:26px}
-      #tpCeoGreeting .content h3{font-size:18px}
-      #tpCeoGreeting .photo-desktop{display:none}
-      #tpCeoGreeting .photo-mobile{display:block;margin:10px 0 18px}
-      #tpCeoGreeting .photo-mobile img{width:100%;height:auto}
-    }
-
-    .sign{
-      font-size:1.125rem;font-weight:500;color:#111;
-      display:inline-flex;align-items:center;gap:.75rem;
-      margin-top:1.5rem
-    }
-    .sign-img{height:40px;width:auto;display:inline-block}
-    @media (max-width:600px){
-      .sign{flex-direction:column;align-items:flex-start;gap:.5rem}
-      .sign-img{height:32px}
-    }
-  </style>
-
-  <div class="container">
-    <div class="photo-desktop">
-      <img src="./img/ceo-pic.jpg" alt="컨텐츠킬러 소개 이미지">
-    </div>
-
-    <div class="content">
-      <h1>‘말로 설명하는 혁신’이 아니라,
-실제 비즈니스를 뒤흔드는 혁신이 탄생하는 공간</h1><br>
-
-      <div class="photo-mobile" aria-hidden="false">
-        <img src="./img/ceo-pic.jpg" alt="컨텐츠킬러 소개 이미지(모바일)">
-      </div>
-
-      <h2>취재·촬영 현장을 가장 빠르게 지원하는 장비 파트너</h2>
-
-      <p>
-        컨텐츠킬러는 취재·촬영 일정이 “장비 하나 때문에 지연되는 순간”을 줄이기 위해 시작된
-        장비 임대 및 현장 지원 서비스입니다.
-        노트북, 카메라, 드론, 편집 장비까지 필요한 장비를 합리적인 비용으로 빠르게 제공해드립니다.
-      </p>
-
-      <p>
-        단순 대여에서 끝나지 않습니다.
-        사용 목적과 현장 환경을 기준으로 장비를 추천하고,
-        초보 사용자도 바로 활용할 수 있도록 기본 세팅·체크포인트까지 함께 안내합니다.
-      </p>
-
-      <p>
-        급한 일정, 촬영 변경, 갑작스러운 장비 이슈에도
-        “현장이 멈추지 않도록” 빠르고 유연하게 대응하겠습니다.
-        컨텐츠 제작자와 취재진이 결과물에만 집중할 수 있도록,
-        믿고 맡길 수 있는 지원 체계를 계속 강화하겠습니다.
-      </p>
-
-    
-    </div>
-  </div>
+<script>
+(function(){var r=document.getElementById('bnWhy');if(!r)return;var t=r.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){t.forEach(function(e){e.classList.add('is-in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});t.forEach(function(e){io.observe(e)})})();
+</script>
 </section>
 
 
-<section id="valueCardSection" aria-label="Value 카드 섹션">
-  <style>
-    /* ===============================
-       Scope: #valueCardSection ONLY
-       =============================== */
-    #valueCardSection{
-      --blue:#5a7cf6;
-      --red:#fa4733;
-      --dark:#3f4049;
-      --navy:#3a4778;
-      --ink:#111827;
-      --muted:#6b7280;
-      --radius:20px;
-      --max:1280px;
+<!-- ════════════════════════════════════════════
+     [2] 혁신원리
+═════════════════════════════════════════════ -->
+<section id="bnPrinciple" aria-label="비즈니스혁신연구소의 혁신원리">
+<style>
+  #bnPrinciple{
+    --ink:#111111;--sub:#4a4f57;--mute:#8a9099;--line:#e6e8ec;--soft:#f5f7fa;--point:#114ca5;
+    container-type:inline-size;
+    font-family:'Pretendard','Noto Sans KR',sans-serif;background:var(--soft);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  #bnPrinciple *,#bnPrinciple *::before,#bnPrinciple *::after{box-sizing:border-box;margin:0;padding:0}
+  #bnPrinciple .p-shell{max-width:1280px;margin:0 auto;padding:clamp(80px,10cqi,150px) clamp(20px,5cqi,64px)}
+  #bnPrinciple .p-label{display:flex;align-items:center;gap:14px;font-size:clamp(13px,1.1cqi,15px);font-weight:700;letter-spacing:.08em;color:var(--point);margin-bottom:clamp(20px,2.4cqi,32px)}
+  #bnPrinciple .p-label::before{content:"";width:32px;height:2px;background:var(--point)}
+  #bnPrinciple .p-head{font-size:clamp(28px,3.6cqi,50px);font-weight:700;line-height:1.3;letter-spacing:-.045em;word-break:keep-all}
+  #bnPrinciple .p-head b{color:var(--point);font-weight:700}
+  #bnPrinciple .p-lead{margin-top:clamp(20px,2.4cqi,28px);max-width:680px;font-size:clamp(16px,1.4cqi,19px);line-height:1.85;color:var(--sub);word-break:keep-all}
 
-      font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background:#fff;
-      padding:100px 20px;
-    }
+  #bnPrinciple .p-start{margin:clamp(56px,6cqi,88px) 0 20px;font-size:clamp(14px,1.2cqi,16px);font-weight:700;color:var(--mute)}
+  #bnPrinciple .p-cards{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid var(--line)}
+  #bnPrinciple .p-card{position:relative;padding:clamp(30px,3.4cqi,48px) clamp(24px,2.8cqi,40px);transition:background .35s}
+  #bnPrinciple .p-card+.p-card{border-left:1px solid var(--line)}
+  #bnPrinciple .p-card::before{content:"";position:absolute;left:0;top:-1px;height:3px;width:0;background:var(--point);transition:width .5s cubic-bezier(.22,1,.36,1)}
+  #bnPrinciple .p-card:hover::before{width:100%}
+  #bnPrinciple .p-key{font-size:clamp(40px,4.6cqi,64px);font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--point)}
+  #bnPrinciple .p-key-sub{display:block;margin-top:12px;font-size:14px;font-weight:600;color:var(--mute)}
+  #bnPrinciple .p-q{margin-top:clamp(28px,3cqi,40px);font-size:clamp(19px,1.8cqi,24px);font-weight:700;line-height:1.45;letter-spacing:-.035em;word-break:keep-all}
+  #bnPrinciple .p-a{margin-top:12px;font-size:clamp(15px,1.25cqi,16.5px);line-height:1.7;color:var(--sub);word-break:keep-all}
 
-    #valueCardSection .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:1fr 1.2fr;
-      gap:80px;
-      align-items:center;
-    }
+  #bnPrinciple .p-quote{margin-top:clamp(56px,6cqi,88px);display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(32px,5cqi,80px);align-items:center}
+  #bnPrinciple .p-quote-main{font-size:clamp(26px,3.4cqi,46px);font-weight:700;line-height:1.35;letter-spacing:-.045em;word-break:keep-all}
+  #bnPrinciple .p-quote-main b{color:var(--point);font-weight:700}
+  #bnPrinciple .p-quote-main small{display:block;font-size:clamp(14px,1.2cqi,16px);font-weight:600;color:var(--mute);letter-spacing:0;margin-bottom:16px}
+  #bnPrinciple .p-notes{border-top:2px solid var(--ink)}
+  #bnPrinciple .p-note{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:22px 0;border-bottom:1px solid var(--line);font-size:clamp(15px,1.35cqi,17.5px);line-height:1.7;color:var(--sub);word-break:keep-all}
+  #bnPrinciple .p-note span{font-weight:700;color:var(--point);font-size:14px;padding-top:3px}
+  #bnPrinciple .p-note b{color:var(--ink);font-weight:700}
 
-    /* ===== LEFT TEXT ===== */
-    #valueCardSection .left h2{
-      font-size:22px;
-      letter-spacing:0em;
-      color:#2f80ff;
-      margin-bottom:24px;
-    }
+  @container (max-width:900px){
+    #bnPrinciple .p-cards{grid-template-columns:1fr}
+    #bnPrinciple .p-card+.p-card{border-left:0;border-top:1px solid var(--line)}
+    #bnPrinciple .p-quote{grid-template-columns:1fr}
+  }
 
-    #valueCardSection .left p{
-      font-size:32px;
-      line-height:1.45;
-      font-weight:700;
-      color:var(--ink);
-      word-break:keep-all;
-    }
+  #bnPrinciple [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0) * 1ms)}
+  #bnPrinciple [data-r].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){#bnPrinciple [data-r]{opacity:1;transform:none;transition:none}}
+</style>
 
-    /* ===== RIGHT CARDS ===== */
-    #valueCardSection .cards{
-      display:flex;
-      flex-direction:column;
-      gap:22px;
-    }
+<div class="p-shell">
+  <p class="p-label" data-r>02 &nbsp;PRINCIPLE</p>
+  <h2 class="p-head" data-r style="--d:100">혁신은 천재의 특별한 능력이 아니라<br><b>배우고 적용할 수 있는 원리</b>입니다.</h2>
+  <p class="p-lead" data-r style="--d:200">혁신에는 발견하고, 학습하고, 반복해서 적용할 수 있는 원리와 공식, 그리고 패턴이 존재합니다.</p>
 
-    #valueCardSection .card{
-      position:relative;
-      border-radius:var(--radius);
-      padding:36px 42px;
-      color:#fff;
-      overflow:hidden;
-      min-height:140px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
+  <p class="p-start" data-r>모든 혁신은 세 가지 질문에서 시작됩니다</p>
+  <div class="p-cards" data-r>
+    <article class="p-card">
+      <div class="p-key">Why</div><span class="p-key-sub">방향</span>
+      <h3 class="p-q">왜 이 문제를<br>해결해야 하는가?</h3>
+      <p class="p-a">혁신이 향해야 할 방향과 이유를 먼저 분명히 합니다.</p>
+    </article>
+    <article class="p-card">
+      <div class="p-key">Who</div><span class="p-key-sub">대상</span>
+      <h3 class="p-q">누구의 어떤 문제를<br>해결할 것인가?</h3>
+      <p class="p-a">해결해야 할 고객과 그 고객의 진짜 문제를 찾아냅니다.</p>
+    </article>
+    <article class="p-card">
+      <div class="p-key">Who</div><span class="p-key-sub">파트너</span>
+      <h3 class="p-q">그리고 누구와 함께<br>해결할 것인가?</h3>
+      <p class="p-a">혼자가 아닌, 함께 풀어갈 파트너를 연결합니다.</p>
+    </article>
+  </div>
 
-    #valueCardSection .card small{
-      font-size:14px;
-      opacity:.85;
-      margin-bottom:10px;
-    }
+  <div class="p-quote">
+    <p class="p-quote-main" data-r><small>그래서 연구소는 이렇게 말합니다</small>“Why는 혁신의 <b>나침반</b>,<br>Who는 혁신의 <b>엔진</b>이다.”</p>
+    <div class="p-notes" data-r style="--d:150">
+      <div class="p-note"><span>기술</span><p>기술은 혁신의 목적이 아닙니다. 과거에는 불가능했던 해결방법과 융복합을 가능하게 하는 <b>촉매이자 원동력</b>입니다.</p></div>
+      <div class="p-note"><span>목적</span><p>혁신의 최종 목적은 언제나 <b>고객의 문제를 더 잘 해결하고, 더 큰 가치를 제공하는 것</b>입니다.</p></div>
+    </div>
+  </div>
+</div>
 
-    #valueCardSection .card h3{
-      font-size:26px;
-      font-weight:700;
-    }
+<script>
+(function(){var r=document.getElementById('bnPrinciple');if(!r)return;var t=r.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){t.forEach(function(e){e.classList.add('is-in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});t.forEach(function(e){io.observe(e)})})();
+</script>
+</section>
 
-    /* ===== ICON ===== */
-    #valueCardSection .arrow{
-      position:absolute;
-      left:32px;
-      bottom:24px;
-      width:26px;
-      height:26px;
-      border-radius:50%;
-      border:2px solid rgba(255,255,255,.7);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:14px;
-    }
 
-    /* ===== DECORATIONS ===== */
-    #valueCardSection .circle{
-      position:absolute;
-      right:-40px;
-      top:50%;
-      transform:translateY(-50%);
-      width:220px;
-      height:220px;
-      border-radius:50%;
-      background:rgba(255,255,255,.18);
-    }
+<!-- ════════════════════════════════════════════
+     [3] 핵심 개념 — 생각 1%
+═════════════════════════════════════════════ -->
+<section id="bnOnePct" aria-label="핵심 개념 생각 1%">
+<style>
+  #bnOnePct{
+    --ink:#111111;--sub:#4a4f57;--mute:#8a9099;--line:#e6e8ec;--soft:#f5f7fa;--point:#114ca5;
+    container-type:inline-size;
+    font-family:'Pretendard','Noto Sans KR',sans-serif;background:#fff;color:var(--ink);
+    -webkit-font-smoothing:antialiased;overflow:hidden;
+  }
+  #bnOnePct *,#bnOnePct *::before,#bnOnePct *::after{box-sizing:border-box;margin:0;padding:0}
+  #bnOnePct .o-shell{max-width:1280px;margin:0 auto;padding:clamp(80px,10cqi,150px) clamp(20px,5cqi,64px)}
+  #bnOnePct .o-label{display:flex;align-items:center;gap:14px;font-size:clamp(13px,1.1cqi,15px);font-weight:700;letter-spacing:.08em;color:var(--point);margin-bottom:clamp(20px,2.4cqi,32px)}
+  #bnOnePct .o-label::before{content:"";width:32px;height:2px;background:var(--point)}
 
-    #valueCardSection .circle::after{
-      content:"";
-      position:absolute;
-      inset:40px;
-      border-radius:50%;
-      background:rgba(255,255,255,.35);
-    }
+  #bnOnePct .o-top{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(36px,5cqi,80px);align-items:end}
+  #bnOnePct .o-head{font-size:clamp(30px,4.2cqi,58px);font-weight:700;line-height:1.24;letter-spacing:-.05em;word-break:keep-all}
+  #bnOnePct .o-head b{color:var(--point);font-weight:700}
+  #bnOnePct .o-not{list-style:none;border-top:1px solid var(--line)}
+  #bnOnePct .o-not li{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);font-size:clamp(16px,1.4cqi,19px);color:var(--mute)}
+  #bnOnePct .o-not li s{text-decoration-color:#c3c7ce}
+  #bnOnePct .o-not li em{font-style:normal;font-size:13px;font-weight:600;color:var(--mute)}
 
-    #valueCardSection .bars{
-      position:absolute;
-      right:26px;
-      bottom:24px;
-      display:flex;
-      gap:10px;
-      align-items:flex-end;
-    }
+  /* 정의 블록 */
+  #bnOnePct .o-def{margin-top:clamp(56px,6cqi,88px);background:var(--point);color:#fff;padding:clamp(36px,5cqi,72px) clamp(24px,5cqi,72px);display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5cqi,72px);align-items:center}
+  #bnOnePct .o-def-t{font-size:clamp(15px,1.3cqi,17px);font-weight:600;color:rgba(255,255,255,.7);line-height:1.5}
+  #bnOnePct .o-def-t strong{display:block;font-size:clamp(36px,5cqi,68px);font-weight:700;letter-spacing:-.045em;color:#fff;line-height:1.1;margin-top:6px}
+  #bnOnePct .o-def p{font-size:clamp(19px,2.1cqi,28px);font-weight:600;line-height:1.6;letter-spacing:-.035em;word-break:keep-all}
 
-    #valueCardSection .bars span{
-      width:18px;
-      border-radius:12px 12px 0 0;
-      background:rgba(255,255,255,.55);
-    }
+  /* 분야 */
+  #bnOnePct .o-block{margin-top:clamp(64px,7cqi,100px)}
+  #bnOnePct .o-sub{font-size:clamp(20px,2.2cqi,30px);font-weight:700;letter-spacing:-.04em;margin-bottom:clamp(22px,2.6cqi,32px);word-break:keep-all}
+  #bnOnePct .o-sub b{color:var(--point);font-weight:700}
+  #bnOnePct .o-fields{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  #bnOnePct .o-fields span{padding:20px 10px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:clamp(15px,1.3cqi,17px);font-weight:600;transition:color .3s,background .3s}
+  #bnOnePct .o-fields span:hover{color:#fff;background:var(--point)}
 
-    #valueCardSection .bars span:nth-child(1){height:38px}
-    #valueCardSection .bars span:nth-child(2){height:62px}
-    #valueCardSection .bars span:nth-child(3){height:92px}
+  /* 사람들 */
+  #bnOnePct .o-people{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ink)}
+  #bnOnePct .o-person{padding:clamp(22px,2.4cqi,30px) clamp(4px,1cqi,16px) clamp(22px,2.4cqi,30px) 0;border-bottom:1px solid var(--line)}
+  #bnOnePct .o-person strong{display:block;font-size:clamp(17px,1.6cqi,20px);font-weight:700;letter-spacing:-.03em;margin-bottom:6px}
+  #bnOnePct .o-person p{font-size:clamp(14.5px,1.2cqi,16px);line-height:1.65;color:var(--sub);word-break:keep-all;padding-right:16px}
 
-    /* ===== COLOR VARIANTS ===== */
-    #valueCardSection .blue{background:var(--blue)}
-    #valueCardSection .dark{background:var(--dark)}
-    #valueCardSection .navy{background:var(--navy)}
-    #valueCardSection .red{background:var(--red)}
+  /* 질문 */
+  #bnOnePct .o-ask{margin-top:clamp(80px,9cqi,130px);text-align:center}
+  #bnOnePct .o-ask blockquote{position:relative;display:inline-block;font-size:clamp(24px,3.4cqi,46px);font-weight:700;line-height:1.4;letter-spacing:-.045em;word-break:keep-all}
+  #bnOnePct .o-ask blockquote::before{content:"";display:block;width:1px;height:56px;background:var(--point);margin:0 auto 28px}
+  #bnOnePct .o-ask p{margin-top:24px;font-size:clamp(16px,1.6cqi,21px);color:var(--sub);word-break:keep-all}
+  #bnOnePct .o-ask p b{color:var(--point);font-weight:700}
 
-    /* ===== RESPONSIVE ===== */
-    @media(max-width:900px){
-      #valueCardSection .wrap{grid-template-columns:1fr;gap:60px}
-      #valueCardSection .left p{font-size:26px}
-    }
-  </style>
+  @container (max-width:980px){
+    #bnOnePct .o-top{grid-template-columns:1fr}
+    #bnOnePct .o-def{grid-template-columns:1fr}
+    #bnOnePct .o-fields{grid-template-columns:repeat(4,1fr)}
+    #bnOnePct .o-people{grid-template-columns:1fr 1fr}
+  }
+  @container (max-width:560px){
+    #bnOnePct .o-fields{grid-template-columns:repeat(3,1fr)}
+    #bnOnePct .o-people{grid-template-columns:1fr}
+  }
 
-  <div class="wrap">
-    <!-- LEFT -->
-    <div class="left">
-      <h2>비즈니스 혁신 연구소는</h2>
-      <p>
-        혁신의 마인드를 전달하고<br>실제 현장을 혁신으로 만들어갑니다.
+  #bnOnePct [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0) * 1ms)}
+  #bnOnePct [data-r].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){#bnOnePct [data-r]{opacity:1;transform:none;transition:none}}
+</style>
+
+<div class="o-shell">
+  <p class="o-label" data-r>03 &nbsp;CORE CONCEPT</p>
+  <div class="o-top">
+    <h2 class="o-head" data-r style="--d:100">연구소가 주목하는 사람들,<br><b>생각 1%</b></h2>
+    <ul class="o-not" data-r style="--d:200" aria-label="생각 1%가 아닌 것">
+      <li><s>매출액 상위 1%</s><em>아닙니다</em></li>
+      <li><s>자산 상위 1%</s><em>아닙니다</em></li>
+      <li><s>시장점유율 상위 1%</s><em>아닙니다</em></li>
+    </ul>
+  </div>
+
+  <div class="o-def" data-r>
+    <div class="o-def-t">Definition<strong>생각 1%</strong></div>
+    <p>자신의 분야에서 성공하고 발전하려면 기존과 다르게 생각하고, 문제와 해결방법을 끊임없이 바꾸고 혁신해야 한다고 믿는 사람들입니다.</p>
+  </div>
+
+  <div class="o-block">
+    <h3 class="o-sub" data-r>모든 분야에 <b>분야별 생각 1%</b>가 존재합니다</h3>
+    <div class="o-fields" data-r style="--d:100">
+      <span>외식업</span><span>유통업</span><span>제조업</span><span>금융</span><span>의료</span><span>교육</span><span>농업</span>
+      <span>건설</span><span>부동산</span><span>IT</span><span>문화</span><span>관광</span><span>종교</span><span>공공서비스</span>
+    </div>
+  </div>
+
+  <div class="o-block">
+    <h3 class="o-sub" data-r>유명한 사람이나 큰 기업의 경영자일 필요는 없습니다</h3>
+    <div class="o-people">
+      <div class="o-person" data-r style="--d:0"><strong>작은 가게 운영자</strong><p>현장에서 매일 고객을 만나며 더 나은 방법을 고민하는 사람</p></div>
+      <div class="o-person" data-r style="--d:80"><strong>직장인</strong><p>늘 하던 방식 대신 새로운 방법을 찾는 사람</p></div>
+      <div class="o-person" data-r style="--d:160"><strong>의료인</strong><p>기존의 진료 방식을 바꿔보려는 사람</p></div>
+      <div class="o-person" data-r style="--d:0"><strong>교사</strong><p>새로운 교육 방법을 고민하는 사람</p></div>
+      <div class="o-person" data-r style="--d:80"><strong>자영업자</strong><p>고객의 작은 불편을 먼저 발견한 사람</p></div>
+      <div class="o-person" data-r style="--d:160"><strong>새로운 도전자</strong><p>새로운 시도를 하지만, 지금의 상식으로는 어렵다고 느끼는 사람</p></div>
+    </div>
+  </div>
+
+  <div class="o-ask" data-r>
+    <blockquote>“왜 꼭 지금처럼 해야 하는가?<br>더 좋은 방법은 없는가?”</blockquote>
+    <p>이 질문을 던지는 사람이라면, <b>누구나 생각 1%</b>가 될 수 있습니다.</p>
+  </div>
+</div>
+
+<script>
+(function(){var r=document.getElementById('bnOnePct');if(!r)return;var t=r.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){t.forEach(function(e){e.classList.add('is-in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});t.forEach(function(e){io.observe(e)})})();
+</script>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     [4] 연구소의 역할 — 융복합 플랫폼
+═════════════════════════════════════════════ -->
+<section id="bnFusion" aria-label="생각 1%가 모이는 플랫폼">
+<style>
+  #bnFusion{
+    --ink:#111111;--sub:#4a4f57;--mute:#8a9099;--line:#e6e8ec;--soft:#f5f7fa;--point:#114ca5;
+    container-type:inline-size;
+    font-family:'Pretendard','Noto Sans KR',sans-serif;background:var(--soft);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  #bnFusion *,#bnFusion *::before,#bnFusion *::after{box-sizing:border-box;margin:0;padding:0}
+  #bnFusion .f-shell{max-width:1280px;margin:0 auto;padding:clamp(80px,10cqi,150px) clamp(20px,5cqi,64px)}
+  #bnFusion .f-label{display:flex;align-items:center;gap:14px;font-size:clamp(13px,1.1cqi,15px);font-weight:700;letter-spacing:.08em;color:var(--point);margin-bottom:clamp(20px,2.4cqi,32px)}
+  #bnFusion .f-label::before{content:"";width:32px;height:2px;background:var(--point)}
+  #bnFusion .f-head{font-size:clamp(28px,3.6cqi,50px);font-weight:700;line-height:1.3;letter-spacing:-.045em;word-break:keep-all}
+  #bnFusion .f-head b{color:var(--point);font-weight:700}
+
+  #bnFusion .f-vs{margin-top:clamp(48px,5cqi,72px);display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:#fff}
+  #bnFusion .f-box{padding:clamp(28px,3.4cqi,48px)}
+  #bnFusion .f-box+.f-box{border-left:1px solid var(--line)}
+  #bnFusion .f-box span{display:block;font-size:14px;font-weight:600;color:var(--mute);margin-bottom:14px}
+  #bnFusion .f-box p{font-size:clamp(18px,1.8cqi,23px);font-weight:600;line-height:1.55;letter-spacing:-.03em;word-break:keep-all;color:var(--sub)}
+  #bnFusion .f-box.new span{color:var(--point)}
+  #bnFusion .f-box.new p{color:var(--ink);font-weight:700}
+
+  #bnFusion .f-sub{margin:clamp(64px,7cqi,100px) 0 clamp(22px,2.6cqi,32px);font-size:clamp(20px,2.2cqi,30px);font-weight:700;letter-spacing:-.04em;word-break:keep-all}
+  #bnFusion .f-sub b{color:var(--point);font-weight:700}
+  #bnFusion .f-pairs{list-style:none;border-top:2px solid var(--ink)}
+  #bnFusion .f-pair{display:grid;grid-template-columns:60px 1fr auto 1fr;align-items:center;gap:clamp(12px,2cqi,28px);padding:clamp(20px,2.4cqi,28px) 0;border-bottom:1px solid var(--line);transition:padding .35s ease}
+  #bnFusion .f-pair:hover{padding-left:12px}
+  #bnFusion .f-pair i{font-style:normal;font-size:14px;font-weight:700;color:var(--mute)}
+  #bnFusion .f-pair .a,#bnFusion .f-pair .b{font-size:clamp(20px,2.2cqi,30px);font-weight:700;letter-spacing:-.04em}
+  #bnFusion .f-pair .a small,#bnFusion .f-pair .b small{font-size:.5em;font-weight:600;color:var(--mute);margin-left:8px;letter-spacing:0}
+  #bnFusion .f-pair .x{font-size:clamp(18px,1.8cqi,24px);font-weight:300;color:var(--point)}
+  #bnFusion .f-pair .b{color:var(--point)}
+  #bnFusion .f-hint{margin-top:24px;font-size:clamp(15px,1.4cqi,18px);line-height:1.7;color:var(--sub);word-break:keep-all}
+
+  #bnFusion .f-end{margin-top:clamp(64px,7cqi,100px);padding:clamp(40px,5cqi,72px) clamp(24px,4cqi,64px);background:#fff;border:1px solid var(--line);border-top:3px solid var(--point);text-align:center}
+  #bnFusion .f-end span{display:block;font-size:clamp(15px,1.4cqi,18px);color:var(--sub);margin-bottom:14px;word-break:keep-all}
+  #bnFusion .f-end strong{font-size:clamp(24px,3cqi,40px);font-weight:700;letter-spacing:-.045em;line-height:1.4;word-break:keep-all}
+  #bnFusion .f-end strong b{color:var(--point);font-weight:700}
+
+  @container (max-width:760px){
+    #bnFusion .f-vs{grid-template-columns:1fr}
+    #bnFusion .f-box+.f-box{border-left:0;border-top:1px solid var(--line)}
+    #bnFusion .f-pair{grid-template-columns:36px 1fr auto 1fr}
+    #bnFusion .f-pair .a small,#bnFusion .f-pair .b small{display:none}
+  }
+
+  #bnFusion [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0) * 1ms)}
+  #bnFusion [data-r].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){#bnFusion [data-r]{opacity:1;transform:none;transition:none}}
+</style>
+
+<div class="f-shell">
+  <p class="f-label" data-r>04 &nbsp;PLATFORM</p>
+  <h2 class="f-head" data-r style="--d:100">각 분야의 생각 1%가<br><b>모이고, 만나고, 연결되는 플랫폼</b></h2>
+
+  <div class="f-vs" data-r style="--d:150">
+    <div class="f-box"><span>한 분야 안에서만 생각하면</span><p>그 분야의 기존 상식과 경험에서 벗어나기 어렵습니다.</p></div>
+    <div class="f-box new"><span>서로 다른 분야가 만나면</span><p>문제·경험·기술·해결방법이 서로 연결되며 새로운 길이 열립니다.</p></div>
+  </div>
+
+  <h3 class="f-sub" data-r>바로 이 지점에서 <b>이업종 융복합 혁신</b>이 시작됩니다</h3>
+  <ul class="f-pairs">
+    <li class="f-pair" data-r style="--d:0"><i>01</i><span class="a">외식업<small>생각 1%</small></span><span class="x">×</span><span class="b">IT<small>생각 1%</small></span></li>
+    <li class="f-pair" data-r style="--d:60"><i>02</i><span class="a">의료<small>생각 1%</small></span><span class="x">×</span><span class="b">AI<small>생각 1%</small></span></li>
+    <li class="f-pair" data-r style="--d:120"><i>03</i><span class="a">금융<small>생각 1%</small></span><span class="x">×</span><span class="b">여행<small>생각 1%</small></span></li>
+    <li class="f-pair" data-r style="--d:180"><i>04</i><span class="a">자동차<small>생각 1%</small></span><span class="x">×</span><span class="b">물류<small>생각 1%</small></span></li>
+    <li class="f-pair" data-r style="--d:240"><i>05</i><span class="a">농업<small>생각 1%</small></span><span class="x">×</span><span class="b">관광<small>생각 1%</small></span></li>
+  </ul>
+  <p class="f-hint" data-r>전혀 다른 분야의 문제·경험·기술·해결방법이 만날 때, 혼자서는 떠올릴 수 없던 해답이 나옵니다.</p>
+
+  <div class="f-end" data-r>
+    <span>그래서 비즈니스혁신연구소는 단순한 연구기관·교육기관을 넘어</span>
+    <strong><b>생각 1%들의 융복합 플랫폼</b>이 되고자 합니다.</strong>
+  </div>
+</div>
+
+<script>
+(function(){var r=document.getElementById('bnFusion');if(!r)return;var t=r.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){t.forEach(function(e){e.classList.add('is-in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});t.forEach(function(e){io.observe(e)})})();
+</script>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     [5] 혁신의 재료
+═════════════════════════════════════════════ -->
+<section id="bnRecipe" aria-label="생각 1%는 서로에게 혁신의 재료">
+<style>
+  #bnRecipe{
+    --ink:#111111;--sub:#4a4f57;--mute:#8a9099;--line:#e6e8ec;--soft:#f5f7fa;--point:#114ca5;
+    container-type:inline-size;
+    font-family:'Pretendard','Noto Sans KR',sans-serif;background:#fff;color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  #bnRecipe *,#bnRecipe *::before,#bnRecipe *::after{box-sizing:border-box;margin:0;padding:0}
+  #bnRecipe .r-shell{max-width:1280px;margin:0 auto;padding:clamp(80px,10cqi,150px) clamp(20px,5cqi,64px)}
+  #bnRecipe .r-label{display:flex;align-items:center;gap:14px;font-size:clamp(13px,1.1cqi,15px);font-weight:700;letter-spacing:.08em;color:var(--point);margin-bottom:clamp(20px,2.4cqi,32px)}
+  #bnRecipe .r-label::before{content:"";width:32px;height:2px;background:var(--point)}
+
+  #bnRecipe .r-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6cqi,96px);align-items:start}
+  #bnRecipe .r-head{font-size:clamp(28px,3.6cqi,50px);font-weight:700;line-height:1.3;letter-spacing:-.045em;word-break:keep-all}
+  #bnRecipe .r-head b{color:var(--point);font-weight:700}
+  #bnRecipe .r-lead{margin-top:clamp(20px,2.4cqi,28px);font-size:clamp(16px,1.4cqi,19px);line-height:1.9;color:var(--sub);word-break:keep-all}
+  #bnRecipe .r-lead b{color:var(--ink);font-weight:700}
+
+  #bnRecipe .r-list-t{font-size:14px;font-weight:600;color:var(--mute);margin-bottom:16px}
+  #bnRecipe .r-list{list-style:none;border-top:2px solid var(--ink);counter-reset:ing}
+  #bnRecipe .r-list li{counter-increment:ing;display:flex;gap:18px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);font-size:clamp(17px,1.6cqi,20px);font-weight:600;letter-spacing:-.03em}
+  #bnRecipe .r-list li::before{content:counter(ing,decimal-leading-zero);font-size:13px;font-weight:700;color:var(--point);min-width:22px}
+  #bnRecipe .r-list-note{margin-top:18px;font-size:clamp(15px,1.25cqi,16.5px);line-height:1.7;color:var(--sub);word-break:keep-all}
+
+  /* 공식 */
+  #bnRecipe .r-formula{margin-top:clamp(80px,9cqi,130px)}
+  #bnRecipe .r-f-t{text-align:center;font-size:14px;font-weight:700;letter-spacing:.08em;color:var(--point);margin-bottom:24px}
+  #bnRecipe .r-f-row{display:flex;align-items:stretch;justify-content:center}
+  #bnRecipe .r-term{flex:1;min-width:0;border:1px solid var(--line);padding:clamp(22px,2.6cqi,34px) 12px;text-align:center;display:flex;flex-direction:column;justify-content:center;background:#fff}
+  #bnRecipe .r-term small{display:block;font-size:13px;font-weight:600;color:var(--mute);margin-bottom:8px}
+  #bnRecipe .r-term strong{font-size:clamp(16px,1.7cqi,22px);font-weight:700;letter-spacing:-.035em;word-break:keep-all}
+  #bnRecipe .r-op{flex:0 0 clamp(28px,3.4cqi,48px);display:grid;place-items:center;font-size:clamp(18px,2cqi,26px);font-weight:300;color:var(--mute)}
+  #bnRecipe .r-term.result{flex:1.3;background:var(--point);border-color:var(--point);color:#fff}
+  #bnRecipe .r-term.result small{color:rgba(255,255,255,.7)}
+  #bnRecipe .r-f-note{margin-top:clamp(32px,4cqi,48px);text-align:center;font-size:clamp(18px,2cqi,26px);font-weight:700;letter-spacing:-.04em;line-height:1.55;word-break:keep-all}
+  #bnRecipe .r-f-note b{color:var(--point);font-weight:700}
+
+  @container (max-width:900px){
+    #bnRecipe .r-grid{grid-template-columns:1fr}
+    #bnRecipe .r-f-row{flex-wrap:wrap;row-gap:0}
+    #bnRecipe .r-term{flex:0 0 calc(50% - 20px)}
+    #bnRecipe .r-op{flex:0 0 40px}
+    #bnRecipe .r-op.hide-m{flex:0 0 100%;height:14px;font-size:0}
+    #bnRecipe .r-op.eq{flex:0 0 100%;height:44px}
+    #bnRecipe .r-term.result{flex:0 0 100%}
+  }
+
+  #bnRecipe [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0) * 1ms)}
+  #bnRecipe [data-r].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){#bnRecipe [data-r]{opacity:1;transform:none;transition:none}}
+</style>
+
+<div class="r-shell">
+  <p class="r-label" data-r>05 &nbsp;INGREDIENTS</p>
+  <div class="r-grid">
+    <div>
+      <h2 class="r-head" data-r style="--d:100">생각 1%는 서로에게<br><b>혁신의 재료</b>입니다.</h2>
+      <p class="r-lead" data-r style="--d:200">
+        새로운 요리를 만들려면 창의성만으로는 부족합니다.
+        <b>다양한 재료를 알아야 합니다.</b>
+        비즈니스도 마찬가지입니다. 다른 사람이 가진 지식과 경험이 내 비즈니스를 바꾸는 재료가 됩니다.
       </p>
     </div>
-
-    <!-- RIGHT -->
-    <div class="cards">
-      <div class="card blue">
-        <small>Business Innovation Lab</small>
-        <h3>1) 혁신 마인드 제공</h3><br>
-        <p>실제 비즈니스 혁신을 이끌어 내고 있는<br>전문가 컨설팅을 통해 혁신 마인드 제공</p>
-        <div class="circle"></div>
-      </div>
-
-      <div class="card dark">
-        <small>Business Innovation Lab</small>
-        <h3>2) 혁신 기반 제공</h3><br>
-        <p>정부지원, 사업 컨설팅, 마케팅 교육 뿐만 아니라<br>혁신의 마인드를 가진 사람들과 협업 기회 제공</p>
-      </div>
-
-
-      <div class="card navy">
-        <small>Business Innovation Lab</small>
-        <h3>3) 비즈니스 성장 기회 제공</h3>
-          <p>정부지원, 사업 컨설팅, 마케팅 교육 뿐만 아니라<br>혁신의 마인드를 가진 사람들과 협업 기회 제공</p>
-        <div class="bars">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-<section id="solar-service-section">
-
-   <style>
-    /* 아이디 기반 독립 스타일링 */
-    #solar-service-section {
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-      padding: 60px 20px;
-      /* max-width: 1100px; */
-      margin: 0 auto;
-      background-color: #ffffff;
-      color: #333;
-    }
-
-    #solar-service-section .solar-main-title {
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: 40px;
-      letter-spacing: -0.5px;
-    }
-
-    #solar-service-section .solar-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    #solar-service-section .solar-card {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      height: 280px;
-      background-color: #f5f6f7;
-      display: flex;
-      transition: transform 0.3s ease;
-    }
-
-    #solar-service-section .solar-card:hover {
-      transform: translateY(-5px);
-    }
-
-    #solar-service-section .solar-card-content {
-      padding: 40px;
-      z-index: 2;
-      flex: 1;
-    }
-
-    #solar-service-section .solar-tag {
-      font-size: 14px;
-      color: #666;
-      font-weight: 500;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    #solar-service-section .solar-card-title {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 15px;
-      color: #111;
-    }
-
-    #solar-service-section .solar-card-desc {
-      font-size: 16px;
-      color: #555;
-      line-height: 1.5;
-    }
-
-    /* 이미지 영역 설정 (이미지 배경 처리) */
-    #solar-service-section .solar-card-img {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      z-index: 1;
-    }
-
-    /* 배경색 및 가상 이미지 설정 */
-    #solar-service-section .card-1 { background-color: #f0f7ff; }
-    #solar-service-section .card-2 { background-color: #f9f4f0; }
-    #solar-service-section .card-3 { background-color: #f2f2f2; }
-    #solar-service-section .card-4 { background-color: #eeeeee; }
-
-    /* 모바일 반응형 */
-    @media (max-width: 768px) {
-      #solar-service-section .solar-grid {
-        grid-template-columns: 1fr;
-      }
-      #solar-service-section .solar-card {
-        height: 240px;
-      }
-      #solar-service-section .solar-card-content {
-        padding: 30px;
-      }
-      #solar-service-section .solar-main-title {
-        font-size: 22px;
-      }
-    }
-    
-    /* 실제 이미지 경로가 있을 경우 아래 클래스에 background-image: url('...')을 추가하세요 */
-    #solar-service-section .img-solar { background-image: linear-gradient(to left, rgba(255,255,255,0), #f0f7ff), url('https://images.unsplash.com/photo-1509391366360-fe5bb65831bb?auto=format&fit=crop&q=80&w=400'); opacity: 0.8; }
-    #solar-service-section .img-phone { background-image: linear-gradient(to left, rgba(255,255,255,0), #f9f4f0), url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=400'); opacity: 0.8; }
-    #solar-service-section .img-handshake { background-image: linear-gradient(to left, rgba(255,255,255,0), #f2f2f2), url('https://images.unsplash.com/photo-1573166364524-d9dbfd8bbf83?auto=format&fit=crop&q=80&w=400'); opacity: 0.8; }
-    #solar-service-section .img-sales { background-image: linear-gradient(to left, rgba(255,255,255,0), #eeeeee), url('https://images.unsplash.com/photo-1521791136366-398537599de1?auto=format&fit=crop&q=80&w=400'); opacity: 0.8; }
-  </style>
-  
-  <div class="solar-container">
-    <h2 class="solar-main-title">
-      솔라쉐어는 태양광 발전소를<br>
-      중심으로 다양한 서비스를 제공합니다.
-    </h2>
-
-    <div class="solar-grid">
-      <div class="solar-card card-1">
-        <div class="solar-card-content">
-          <span class="solar-tag">자가소비형</span>
-          <h3 class="solar-card-title">태양광 전력 계약</h3>
-          <p class="solar-card-desc">안정적인 전력 공급망을 통해<br>산업 경쟁력을 키워보세요.</p>
-        </div>
-        <div class="solar-card-img img-solar"></div>
-      </div>
-
-      <div class="solar-card card-2">
-        <div class="solar-card-content">
-          <span class="solar-tag">임대수익형</span>
-          <h3 class="solar-card-title">임대 수익 받기</h3>
-          <p class="solar-card-desc">유휴 지붕 임대로<br>20년 임대 수익을 받아보세요.</p>
-        </div>
-        <div class="solar-card-img img-phone"></div>
-      </div>
-
-      <div class="solar-card card-3">
-        <div class="solar-card-content">
-          <span class="solar-tag">인센티브형</span>
-          <h3 class="solar-card-title">지붕 소개 하기</h3>
-          <p class="solar-card-desc">발전소 설치가 가능한 지붕,<br>임대인을 소개하고 인센티브를 받아보세요.</p>
-        </div>
-        <div class="solar-card-img img-handshake"></div>
-      </div>
-
-      <div class="solar-card card-4">
-        <div class="solar-card-content">
-          <span class="solar-tag">영업전문가형</span>
-          <h3 class="solar-card-title">영업 지원 하기</h3>
-          <p class="solar-card-desc">솔라쉐어 상품 영업을 통해<br>영업 인센티브를 받아보세요.</p>
-        </div>
-        <div class="solar-card-img img-sales"></div>
-      </div>
+    <div data-r style="--d:150">
+      <p class="r-list-t">이 모든 것이 혁신의 재료가 됩니다</p>
+      <ul class="r-list">
+        <li>다른 산업의 기술</li>
+        <li>다른 업종의 사업방식</li>
+        <li>다른 사람의 경험</li>
+        <li>현장의 작은 아이디어</li>
+        <li>그리고 실패의 경험까지</li>
+      </ul>
+      <p class="r-list-note">연구소는 생각 1%가 가진 지식과 경험이 서로에게 혁신의 재료가 되도록 연결합니다.</p>
     </div>
   </div>
 
- 
+  <div class="r-formula">
+    <p class="r-f-t" data-r>THE FORMULA</p>
+    <div class="r-f-row" data-r style="--d:100">
+      <div class="r-term"><small>A 분야</small><strong>생각 1%</strong></div>
+      <div class="r-op" aria-hidden="true">+</div>
+      <div class="r-term"><small>B 분야</small><strong>생각 1%</strong></div>
+      <div class="r-op hide-m" aria-hidden="true">+</div>
+      <div class="r-term"><small>촉매</small><strong>기술의 진보</strong></div>
+      <div class="r-op" aria-hidden="true">+</div>
+      <div class="r-term"><small>출발점</small><strong>고객 문제</strong></div>
+      <div class="r-op eq" aria-hidden="true">=</div>
+      <div class="r-term result"><small>결과</small><strong>새로운 융복합 혁신</strong></div>
+    </div>
+    <p class="r-f-note" data-r>내 분야에서는 너무나 당연한 해결방법이<br><b>다른 분야에서는 혁신적인 아이디어</b>가 될 수 있습니다.</p>
+  </div>
+</div>
+
+<script>
+(function(){var r=document.getElementById('bnRecipe');if(!r)return;var t=r.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){t.forEach(function(e){e.classList.add('is-in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});t.forEach(function(e){io.observe(e)})})();
+</script>
 </section>
 
-<section id="footerElite" aria-label="사이트 푸터" style="position:relative;">
-  <!-- 아이콘 킷: 유튜브/페북/인스타용 -->
-  <script src="https://kit.fontawesome.com/2d323a629b.js" crossorigin="anonymous"></script>
 
-  <style>
-    /* ================= Scope: #footerElite only ================= */
-    #footerElite{
-      --bg:#0a0a0b;
-      --ink:#e5e7eb;
-      --muted:#9aa1aa;
-      --line:rgba(255,255,255,.08);
-      --glass:rgba(255,255,255,.06);
-      --max:1280px;
-      --radius:16px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+<!-- ════════════════════════════════════════════
+     [6] 혁신환경 (프로세스)
+═════════════════════════════════════════════ -->
+<section id="bnProcess" aria-label="연구소가 제공하는 혁신환경">
+<style>
+  #bnProcess{
+    --ink:#111111;--sub:#4a4f57;--mute:#8a9099;--line:#e6e8ec;--soft:#f5f7fa;--point:#114ca5;
+    container-type:inline-size;
+    font-family:'Pretendard','Noto Sans KR',sans-serif;background:var(--soft);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  #bnProcess *,#bnProcess *::before,#bnProcess *::after{box-sizing:border-box;margin:0;padding:0}
+  #bnProcess .pr-shell{max-width:1280px;margin:0 auto;padding:clamp(80px,10cqi,150px) clamp(20px,5cqi,64px)}
+  #bnProcess .pr-label{display:flex;align-items:center;gap:14px;font-size:clamp(13px,1.1cqi,15px);font-weight:700;letter-spacing:.08em;color:var(--point);margin-bottom:clamp(20px,2.4cqi,32px)}
+  #bnProcess .pr-label::before{content:"";width:32px;height:2px;background:var(--point)}
+  #bnProcess .pr-head{font-size:clamp(28px,3.6cqi,50px);font-weight:700;line-height:1.3;letter-spacing:-.045em;word-break:keep-all}
+  #bnProcess .pr-head b{color:var(--point);font-weight:700}
+  #bnProcess .pr-lead{margin-top:clamp(20px,2.4cqi,28px);max-width:680px;font-size:clamp(16px,1.4cqi,19px);line-height:1.85;color:var(--sub);word-break:keep-all}
 
-      font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background:var(--bg);
-      color:var(--muted);
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
+  #bnProcess .pr-phases{margin-top:clamp(56px,6cqi,88px);display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line)}
+  #bnProcess .pr-phase{position:relative;padding:clamp(28px,3cqi,40px) clamp(20px,2.4cqi,32px)}
+  #bnProcess .pr-phase+.pr-phase{border-left:1px solid var(--line)}
+  #bnProcess .pr-phase::before{content:"";position:absolute;left:0;top:-1px;height:3px;width:0;background:var(--point);transition:width .5s cubic-bezier(.22,1,.36,1)}
+  #bnProcess .pr-phase:hover::before{width:100%}
+  #bnProcess .pr-ph-n{font-size:14px;font-weight:700;color:var(--point);letter-spacing:.06em}
+  #bnProcess .pr-ph-t{display:block;margin:10px 0 clamp(22px,2.6cqi,32px);font-size:clamp(22px,2.2cqi,30px);font-weight:700;letter-spacing:-.045em}
+  #bnProcess .pr-steps{list-style:none}
+  #bnProcess .pr-steps li{display:flex;gap:12px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line);font-size:clamp(15px,1.3cqi,16.5px);font-weight:500;line-height:1.5;color:var(--sub);word-break:keep-all}
+  #bnProcess .pr-steps li b{flex:0 0 auto;font-size:12.5px;font-weight:700;color:var(--mute)}
+  #bnProcess .pr-phase.last{background:var(--point);color:#fff}
+  #bnProcess .pr-phase.last .pr-ph-n{color:rgba(255,255,255,.7)}
+  #bnProcess .pr-phase.last .pr-steps li{color:#fff;border-color:rgba(255,255,255,.22)}
+  #bnProcess .pr-phase.last .pr-steps li b{color:rgba(255,255,255,.6)}
+  #bnProcess .pr-phase.last::before{display:none}
 
-    #footerElite .wrap{max-width:var(--max);margin:0 auto;padding:3.5rem 1.25rem 2.25rem}
+  #bnProcess .pr-roles{margin-top:clamp(56px,6cqi,88px);display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4cqi,64px);align-items:start}
+  #bnProcess .pr-roles-t{font-size:clamp(20px,2.2cqi,28px);font-weight:700;letter-spacing:-.04em;line-height:1.4;word-break:keep-all}
+  #bnProcess .pr-roles-t b{color:var(--point);font-weight:700}
+  #bnProcess .pr-role-list{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
+  #bnProcess .pr-role-list li{padding:18px 0;border-bottom:1px solid var(--line);font-size:clamp(16px,1.5cqi,19px);font-weight:600;letter-spacing:-.03em}
+  #bnProcess .pr-role-list li.key{color:var(--point);font-weight:700}
 
-    /* 상단 네비게이션 영역 */
-    #footerElite .navGrid{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:2.2rem;
-      border-bottom:1px solid var(--line);
-      padding-bottom:2rem;
-    }
+  @container (max-width:1020px){
+    #bnProcess .pr-phases{grid-template-columns:1fr 1fr}
+    #bnProcess .pr-phase:nth-child(3){border-left:0}
+    #bnProcess .pr-phase:nth-child(n+3){border-top:1px solid var(--line)}
+    #bnProcess .pr-roles{grid-template-columns:1fr}
+  }
+  @container (max-width:600px){
+    #bnProcess .pr-phases{grid-template-columns:1fr}
+    #bnProcess .pr-phase+.pr-phase{border-left:0;border-top:1px solid var(--line)}
+    #bnProcess .pr-role-list{grid-template-columns:1fr 1fr}
+  }
 
-    /* 브랜드 컬럼 */
-    #footerElite .brandCol{grid-column:span 4;display:flex;flex-direction:column;gap:.9rem}
-    #footerElite .brandCol .logoRow{
-      display:flex;align-items:center;gap:.75rem;
-      color:#fff;font-weight:900;font-size:1.15rem;letter-spacing:.2px
-    }
-    #footerElite .brandCol .logoImg{
-      width:40px;height:40px;border-radius:10px;overflow:hidden;
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--line);
-      display:flex;align-items:center;justify-content:center;
-      flex:0 0 auto;
-    }
-    #footerElite .brandCol .logoImg img{
-      width:100%;height:100%;
-      object-fit:contain;display:block;
-      padding:6px;
-    }
-    #footerElite .brandCol .brandText{display:flex;flex-direction:column;line-height:1.15}
-    #footerElite .brandCol .brandText strong{font-size:1.05rem}
-    #footerElite .brandCol .brandText span{font-size:.82rem;color:#c6cbd3;font-weight:700;letter-spacing:.2px}
-    #footerElite .brandCol .slogan{font-size:.92rem;line-height:1.55;color:var(--muted);margin:0}
+  #bnProcess [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0) * 1ms)}
+  #bnProcess [data-r].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){#bnProcess [data-r]{opacity:1;transform:none;transition:none}}
+</style>
 
-    #footerElite .col{grid-column:span 2}
-    #footerElite h4{margin:.1rem 0 .85rem;font-size:1rem;font-weight:800;color:#fff}
-    #footerElite ul{list-style:none;margin:0;padding:0}
-    #footerElite li{margin:.48rem 0}
-    #footerElite a{position:relative;color:var(--muted);text-decoration:none;font-size:.92rem;transition:color .25s ease}
-    #footerElite a::after{content:"";position:absolute;left:0;bottom:-3px;height:1px;width:0;background:#ffffff66;transition:width .25s ease}
-    #footerElite a:hover{color:#fff}
-    #footerElite a:hover::after{width:100%}
+<div class="pr-shell">
+  <p class="pr-label" data-r>06 &nbsp;ENVIRONMENT</p>
+  <h2 class="pr-head" data-r style="--d:100">사람을 소개하는 데서 끝나지 않습니다.<br><b>혁신이 실제로 일어날 때까지</b> 함께합니다.</h2>
+  <p class="pr-lead" data-r style="--d:200">생각 1%가 실제 혁신을 만들어 낼 수 있도록, 원리의 이해부터 확산까지 이어지는 환경과 시스템을 제공합니다.</p>
 
-    /* 하단 바 */
-    #footerElite .footBar{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:1rem;
-      padding:1.15rem 0;
-    }
-    #footerElite .addr{font-size:.86rem;line-height:1.7;min-width:0}
-    #footerElite .policies{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem;margin:0 auto;}
-    @media screen and (max-width:760px) { #footerElite .policies{justify-content: center;} }
-    #footerElite .policies a{font-size:.86rem}
-
-    /* ✅ 하단 “법인정보 한 줄” (깔끔 정렬) */
-    #footerElite .corpLine{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:.45rem .55rem;
-      margin-bottom:.15rem;
-      min-width:0;
-    }
-    #footerElite .corpName{
-      color:var(--ink);
-      font-weight:800;
-      letter-spacing:.1px;
-      white-space:nowrap;
-    }
-    #footerElite .corpMeta{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:.35rem .55rem;
-      min-width:0;
-      color:#b9c0cb;
-    }
-    #footerElite .sep{
-      color:rgba(255,255,255,.22);
-      margin:0 .05rem;
-      user-select:none;
-    }
-    #footerElite .meta{
-      color:#b9c0cb;
-      white-space:nowrap;
-    }
-    #footerElite .meta b{
-      color:#d7dde6;
-      font-weight:700;
-    }
-    #footerElite .addrShort{
-      color:#88919c;
-      white-space:normal;
-      word-break:keep-all;
-      overflow-wrap:anywhere;
-    }
-
-    /* SNS */
-    #footerElite .social{
-      display:flex;align-items:center;gap:.65rem;
-      background:var(--glass);
-      border:1px solid var(--line);
-      padding:.5rem .7rem;border-radius:999px;
-      box-shadow:var(--shadow);
-      flex:0 0 auto;
-    }
-    #footerElite .social .tip{font-size:.78rem;color:#c6cbd3;margin-right:.25rem}
-    #footerElite .sns-btn{
-      --size:38px;width:var(--size);height:var(--size);border-radius:999px;
-      display:inline-flex;align-items:center;justify-content:center;color:#d0d4dc;
-      background:transparent;border:1px solid transparent;
-      transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease
-    }
-    #footerElite .sns-btn:hover{transform:translateY(-2px);background:#111318;border-color:#2a2f36;color:#fff}
-    #footerElite .sns-btn i{font-size:18px;line-height:1}
-    #footerElite .sns-btn svg{width:20px;height:20px;display:block;fill:currentColor}
-
-    #footerElite .sns-btn[data-brand="kakao"]:hover{background:#2b241e;color:#ffdf00;border-color:#473a2a}
-    #footerElite .sns-btn[data-brand="naver"]:hover{background:#0a2e13;color:#15c654;border-color:#164f2b}
-    #footerElite .sns-btn[data-brand="youtube"]:hover{background:#2d1111;color:#ff0033;border-color:#4a1c1c}
-    #footerElite .sns-btn[data-brand="facebook"]:hover{background:#0f2239;color:#2d8cff;border-color:#1c3351}
-    #footerElite .sns-btn[data-brand="instagram"]:hover{background:#261530;color:#ff6aa2;border-color:#3b1f4a}
-
-    #footerElite .copy{margin-top:.6rem;font-size:.8rem;color:#88919c}
-
-    /* 반응형 */
-    @media(max-width:1100px){
-      #footerElite .brandCol{grid-column:span 12}
-      #footerElite .col{grid-column:span 4}
-    }
-    @media(max-width:760px){
-      #footerElite .navGrid{grid-template-columns:repeat(6,1fr);gap:1.4rem}
-      #footerElite .brandCol{grid-column:span 6}
-      #footerElite .col{grid-column:span 3}
-      #footerElite .footBar{flex-direction:column;align-items:center;text-align:center;gap:.75rem}
-      #footerElite .social{order:-1}
-      #footerElite .corpLine{justify-content:center}
-      #footerElite .corpMeta{justify-content:center}
-      #footerElite .addr{width:100%}
-    }
-
-    @media (max-width:760px){
-      /* ✅ 6칸 그리드 유지 + 간격 정돈 */
-      #footerElite .navGrid{
-        grid-template-columns:repeat(6,1fr);
-        gap:1.1rem 1.1rem;
-      }
-      /* ✅ 브랜드는 1줄 전체 */
-      #footerElite .brandCol{ grid-column:1 / -1; }
-      /* ✅ 카테고리는 무조건 2열(= 6칸 중 3칸씩) */
-      #footerElite .col{ grid-column:span 3 !important; }
-      /* ✅ 하단바 정렬 */
-      #footerElite .footBar{
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-        gap:.75rem;
-      }
-      #footerElite .social{ order:-1; }
-      #footerElite .corpLine{ justify-content:center; }
-      #footerElite .corpMeta{ justify-content:center; }
-      #footerElite .addr{ width:100%; }
-    }
-  </style>
-
-  <div class="wrap">
-    <div class="navGrid">
-      <!-- ✅ 브랜드 영역 -->
-      <div class="brandCol">
-        <div class="logoRow" aria-label="비즈니스 혁신 연구소">
-          <img src="../5. 종합본/img/logo-w.png" alt="비즈니스 혁신 연구소 로고" style="width:200px;">
-        </div>
-
-        <p class="slogan">
-          시대의 바람을 읽고, 지속 가능한 성장 구조를 설계합니다.<br>
-        </p>
-      </div>
-
-      <!-- ✅ 메뉴 (헤더 4카테고리와 1:1 일치) -->
-      <div class="col">
-        <h4>연구소</h4>
-        <ul>
-          <li><a href="./about.html">연구소 소개</a></li>
-          <li><a href="./philosophy.html">비전·철학</a></li>
-          <li><a href="./history.html">연혁</a></li>
-          <li><a href="./greeting.html">대표 인사말</a></li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h4>칼럼</h4>
-        <ul>
-          <li><a href="./columns.html">전체 칼럼</a></li>
-          <li><a href="./columns.html?cat=innovation">비즈니스 혁신</a></li>
-          <li><a href="./columns.html?cat=insight">산업 인사이트</a></li>
-          <li><a href="./columns.html?cat=ceo">CEO 인사이트</a></li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h4>오프라인 상담</h4>
-        <ul>
-          <!-- ✅ 요청대로 “상담신청” 버튼 1개만 -->
-          <li><a href="./consult.html">상담 신청</a></li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h4>오시는 길</h4>
-        <ul>
-          <li><a href="./location.html">오시는 길</a></li>
-        </ul>
-      </div>
+  <div class="pr-phases" data-r>
+    <div class="pr-phase">
+      <span class="pr-ph-n">PHASE 01</span><strong class="pr-ph-t">배우다</strong>
+      <ol class="pr-steps">
+        <li><b>01</b>혁신원리·공식·패턴 이해</li>
+        <li><b>02</b>고객문제 발견</li>
+      </ol>
     </div>
-
-    <!-- 하단 바 -->
-    <div class="footBar">
-      <div class="addr">
-        <div class="corpLine"
-             data-corp="[법인명 입력]"
-             data-ceo="[대표자 성함]"
-             data-corpno="[법인등록번호]"
-             data-bizno="[사업자등록번호]"
-             data-addr="[주소 한 줄 요약]">
-
-          <span class="corpName" id="corpName">비즈니스 혁신 연구소</span>
-
-          <span class="corpMeta" aria-label="법인 정보">
-            <span class="sep">·</span>
-            <span class="meta">회사명 : <b id="bizNo">HTU [헬스투유]</b></span>
-            <span class="sep">·</span>
-            <span class="meta">법인 : <b id="corpNo">110-230-129994</b></span>
-            <span class="sep">·</span>
-            <span class="meta">대표 : <b id="corpCEO">강영수</b></span>
-          </span>
-        </div>
-
-        <div class="policies">
-          <a href="#">개인정보처리방침</a>
-          <a href="#">이용약관</a>
-          <a href="#">법적고지</a>
-          <a href="#">사이트맵</a>
-        </div>
-
-        <div class="copy">
-          COPYRIGHT © 2025 BUSINESS INNOVATION LAB<br>ALL RIGHTS RESERVED
-        </div>
-      </div>
-
-      <!-- SNS 클러스터 -->
-      <div class="social" role="group" aria-label="공식 채널 바로가기">
-        <span class="tip">Follow</span>
-
-        <a class="sns-btn" data-brand="kakao" href="#" aria-label="KakaoTalk" rel="noopener">
-          <svg viewBox="0 0 36 36" aria-hidden="true">
-            <path d="M18 5C10.268 5 4 10.1 4 16.5c0 4.4 2.974 8.184 7.45 10.18L9.6 31.3c-.24.76.52 1.44 1.26 1.02l5.76-3.25c.46.05.93.07 1.38.07 7.732 0 14-5.1 14-11.44C32 10.1 25.732 5 18 5Z"/>
-          </svg>
-        </a>
-
-        <a class="sns-btn" data-brand="naver" href="#" aria-label="Naver Blog" rel="noopener">
-          <svg viewBox="0 0 36 36" aria-hidden="true">
-            <path d="M6 8.5C6 6.567 7.567 5 9.5 5h17c1.933 0 3.5 1.567 3.5 3.5v12c0 1.933-1.567 3.5-3.5 3.5H18.8l-4.2 3.1c-.73.55-1.6-.36-1.2-1.14l1.3-1.96H9.5C7.567 24 6 22.433 6 20.5v-12Z"/>
-            <g transform="translate(9 12)">
-              <path d="M2 0h2.2c1.4 0 2.3.8 2.3 2 0 1.1-.9 2-2.1 2H3.8V6H2V0Zm5.3 0H9.8v4.6c0 .9.5 1.4 1.3 1.4.8 0 1.3-.5 1.3-1.4V0h1.5v4.7c0 1.8-1.1 2.9-2.8 2.9s-2.8-1.1-2.8-2.9V0Zm8.5 0c1.7 0 2.8 1.1 2.8 2.9V6h-1.5V4.6c-.3.9-1  1.4-2.1 1.4-1.5 0-2.6-1-2.6-2.5S12.8 0 14.3 0Zm.4 1.4c-.8 0-1.3.5-1.3 1.3s.5 1.3 1.3 1.3 1.3-.5 1.3-1.3-.5-1.3-1.3-1.3ZM7 0h1.6v6H7V0Z"/>
-            </g>
-          </svg>
-        </a>
-
-        <!-- 필요 시 활성화 -->
-        <!--
-        <a class="sns-btn" data-brand="youtube" href="#" aria-label="YouTube" rel="noopener">
-          <i class="fab fa-youtube" aria-hidden="true"></i>
-        </a>
-        <a class="sns-btn" data-brand="instagram" href="#" aria-label="Instagram" rel="noopener">
-          <i class="fab fa-instagram" aria-hidden="true"></i>
-        </a>
-        -->
-      </div>
+    <div class="pr-phase">
+      <span class="pr-ph-n">PHASE 02</span><strong class="pr-ph-t">연결하다</strong>
+      <ol class="pr-steps">
+        <li><b>03</b>분야별 생각 1% 발굴</li>
+        <li><b>04</b>이업종 생각 1% 연결</li>
+        <li><b>05</b>새로운 기술과 정보 연결</li>
+      </ol>
+    </div>
+    <div class="pr-phase">
+      <span class="pr-ph-n">PHASE 03</span><strong class="pr-ph-t">실험하다</strong>
+      <ol class="pr-steps">
+        <li><b>06</b>아이디어 융복합</li>
+        <li><b>07</b>현장실험</li>
+        <li><b>08</b>고객반응 확인</li>
+        <li><b>09</b>수정·보완</li>
+      </ol>
+    </div>
+    <div class="pr-phase last">
+      <span class="pr-ph-n">PHASE 04</span><strong class="pr-ph-t">확산하다</strong>
+      <ol class="pr-steps">
+        <li><b>10</b>비즈니스모델화</li>
+        <li><b>11</b>확산</li>
+      </ol>
     </div>
   </div>
 
-  <!-- ✅ 값 자동 주입(선택): data-*만 바꾸면 텍스트가 자동 반영됨 -->
-  <script>
-    (function(){
-      const root = document.querySelector('#footerElite .corpLine');
-      if(!root) return;
+  <div class="pr-roles" data-r>
+    <p class="pr-roles-t">이 과정에서 연구소는<br><b>여섯 가지 역할</b>을 합니다</p>
+    <ul class="pr-role-list">
+      <li>교육자</li><li>연결자</li><li>촉진자</li>
+      <li>실험지원자</li><li>사례축적자</li><li class="key">혁신 생태계 플랫폼 운영자</li>
+    </ul>
+  </div>
+</div>
 
-      const corp   = root.getAttribute('data-corp');
-      const ceo    = root.getAttribute('data-ceo');
-      const corpno = root.getAttribute('data-corpno');
-      const bizno  = root.getAttribute('data-bizno');
-      const addr   = root.getAttribute('data-addr');
-
-      const set = (id, val) => {
-        const el = document.getElementById(id);
-        if(el && val && val.trim() && !val.includes('[')) el.textContent = val.trim();
-      };
-
-      set('corpName', corp);
-      set('corpCEO', ceo);
-      set('corpNo', corpno);
-      set('bizNo', bizno);
-
-      // addrShort는 현재 마크업에 출력 위치가 없어서(요청 코드 그대로 유지) 필요하면 아래처럼 한 줄을 추가해서 쓰면 됩니다.
-      // <div class="addrShort" id="addrShort"></div>
-      // set('addrShort', addr);
-    })();
-  </script>
+<script>
+(function(){var r=document.getElementById('bnProcess');if(!r)return;var t=r.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){t.forEach(function(e){e.classList.add('is-in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});t.forEach(function(e){io.observe(e)})})();
+</script>
 </section>
 
 
-    </body>
-    <script src="./js/jquery-1.11.0.min.js"></script>
-<script src="./js/validation1.js"> </script>
-<script src="./js/main.js"> </script>
-  </html>
+<!-- ════════════════════════════════════════════
+     [7] 사명 · 정체성 · 철학
+═════════════════════════════════════════════ -->
+<section id="bnMission" aria-label="비즈니스혁신연구소의 사명과 철학">
+<style>
+  #bnMission{
+    --ink:#111111;--sub:#4a4f57;--mute:#8a9099;--line:#e6e8ec;--soft:#f5f7fa;--point:#114ca5;
+    container-type:inline-size;
+    font-family:'Pretendard','Noto Sans KR',sans-serif;background:#fff;color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  #bnMission *,#bnMission *::before,#bnMission *::after{box-sizing:border-box;margin:0;padding:0}
+  #bnMission .m-shell{max-width:1280px;margin:0 auto;padding:clamp(80px,10cqi,150px) clamp(20px,5cqi,64px)}
+  #bnMission .m-label{display:flex;align-items:center;gap:14px;font-size:clamp(13px,1.1cqi,15px);font-weight:700;letter-spacing:.08em;color:var(--point);margin-bottom:clamp(20px,2.4cqi,32px)}
+  #bnMission .m-label::before{content:"";width:32px;height:2px;background:var(--point)}
+  #bnMission .m-head{font-size:clamp(28px,3.6cqi,50px);font-weight:700;line-height:1.3;letter-spacing:-.045em;word-break:keep-all}
+  #bnMission .m-head b{color:var(--point);font-weight:700}
+
+  #bnMission .m-keys{margin-top:clamp(48px,5cqi,72px);display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
+  #bnMission .m-key{padding:clamp(26px,3cqi,40px) clamp(0px,2cqi,28px) clamp(26px,3cqi,40px) 0;border-bottom:1px solid var(--line)}
+  #bnMission .m-key+.m-key{padding-left:clamp(0px,2cqi,28px);border-left:1px solid var(--line)}
+  #bnMission .m-key span{font-size:13px;font-weight:700;color:var(--point);letter-spacing:.06em}
+  #bnMission .m-key strong{display:block;margin:12px 0 10px;font-size:clamp(20px,2cqi,26px);font-weight:700;letter-spacing:-.04em}
+  #bnMission .m-key p{font-size:clamp(15px,1.25cqi,16.5px);line-height:1.7;color:var(--sub);word-break:keep-all}
+  #bnMission .m-goal{margin-top:28px;display:flex;align-items:center;gap:16px;font-size:clamp(18px,2cqi,26px);font-weight:700;letter-spacing:-.04em;word-break:keep-all}
+  #bnMission .m-goal::before{content:"";flex:0 0 40px;height:2px;background:var(--point)}
+  #bnMission .m-goal b{color:var(--point);font-weight:700}
+
+  /* 정체성 */
+  #bnMission .m-id{margin-top:clamp(80px,9cqi,130px);background:var(--point);color:#fff;padding:clamp(40px,6cqi,88px) clamp(24px,5cqi,80px);display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(28px,5cqi,80px);align-items:center}
+  #bnMission .m-id-l span{display:block;font-size:14px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:14px}
+  #bnMission .m-id-l strong{font-size:clamp(26px,3.2cqi,42px);font-weight:700;letter-spacing:-.045em;line-height:1.35;word-break:keep-all}
+  #bnMission .m-id-r{font-size:clamp(16px,1.6cqi,20px);line-height:1.85;color:rgba(255,255,255,.88);word-break:keep-all;border-left:1px solid rgba(255,255,255,.3);padding-left:clamp(20px,3cqi,40px)}
+  #bnMission .m-id-r b{color:#fff;font-weight:700}
+
+  /* 철학 */
+  #bnMission .m-phil-t{margin:clamp(80px,9cqi,130px) 0 clamp(22px,2.6cqi,32px);font-size:clamp(20px,2.2cqi,30px);font-weight:700;letter-spacing:-.04em}
+  #bnMission .m-phil{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-left:1px solid var(--line)}
+  #bnMission .m-p{padding:clamp(24px,2.6cqi,34px) clamp(18px,2cqi,26px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .35s,color .35s}
+  #bnMission .m-p:hover{background:var(--point);color:#fff}
+  #bnMission .m-p:hover em{color:#fff}
+  #bnMission .m-p:hover small{color:rgba(255,255,255,.7)}
+  #bnMission .m-p small{display:block;font-size:12.5px;font-weight:700;color:var(--mute);letter-spacing:.06em;margin-bottom:18px;transition:color .35s}
+  #bnMission .m-p strong{display:block;font-size:clamp(22px,2.2cqi,30px);font-weight:700;letter-spacing:-.04em}
+  #bnMission .m-p em{display:block;margin-top:8px;font-style:normal;font-size:clamp(15px,1.3cqi,17px);font-weight:600;color:var(--point);transition:color .35s}
+
+  /* 클로징 */
+  #bnMission .m-close{margin-top:clamp(96px,11cqi,160px);text-align:center}
+  #bnMission .m-close span{display:block;font-size:14px;font-weight:700;letter-spacing:.08em;color:var(--point);margin-bottom:22px}
+  #bnMission .m-close strong{display:block;font-size:clamp(32px,5.6cqi,76px);font-weight:700;letter-spacing:-.055em;line-height:1.2;word-break:keep-all}
+  #bnMission .m-close strong b{color:var(--point);font-weight:700}
+  #bnMission .m-close p{margin-top:24px;font-size:clamp(16px,1.6cqi,20px);color:var(--sub);line-height:1.7;word-break:keep-all}
+
+  @container (max-width:900px){
+    #bnMission .m-keys{grid-template-columns:1fr}
+    #bnMission .m-key,#bnMission .m-key+.m-key{padding-left:0;padding-right:0;border-left:0}
+    #bnMission .m-id{grid-template-columns:1fr}
+    #bnMission .m-id-r{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.3);padding-top:24px}
+    #bnMission .m-phil{grid-template-columns:1fr 1fr}
+  }
+
+  #bnMission [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0) * 1ms)}
+  #bnMission [data-r].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){#bnMission [data-r]{opacity:1;transform:none;transition:none}}
+</style>
+
+<div class="m-shell">
+  <p class="m-label" data-r>07 &nbsp;MISSION</p>
+  <h2 class="m-head" data-r style="--d:100">우리는 세 가지 일을 통해<br><b>새로운 고객가치</b>를 만듭니다.</h2>
+
+  <div class="m-keys">
+    <div class="m-key" data-r style="--d:0"><span>MISSION 01</span><strong>연구하고 확산합니다</strong><p>혁신의 원리·공식·패턴을 연구하고, 누구나 활용할 수 있도록 널리 알립니다.</p></div>
+    <div class="m-key" data-r style="--d:100"><span>MISSION 02</span><strong>발굴하고 연결합니다</strong><p>각 분야의 생각 1%를 찾아내고, 서로 연결되는 플랫폼을 구축합니다.</p></div>
+    <div class="m-key" data-r style="--d:200"><span>MISSION 03</span><strong>융복합하고 실험합니다</strong><p>기술의 진보와 이업종의 지식·경험·아이디어를 결합해 현장에서 실험할 환경을 제공합니다.</p></div>
+  </div>
+  <p class="m-goal" data-r>그 끝에서 <b>새로운 고객가치와 지속가능한 비즈니스</b>를 만들어 냅니다.</p>
+
+  <div class="m-id" data-r>
+    <div class="m-id-l">
+      <span>연구소의 정체성</span>
+      <strong>혁신을 가르치는 곳을 넘어,<br>혁신이 실제로 일어나는 곳</strong>
+    </div>
+    <p class="m-id-r">
+      비즈니스혁신연구소는 생각 1%가 모여 서로의 생각과 경험을 <b>혁신의 재료</b>로 융복합하고,
+      새로운 고객가치를 만들어 내는 <b>실행형(현장형) 혁신 플랫폼</b>입니다.
+    </p>
+  </div>
+
+  <h3 class="m-phil-t" data-r>연구소의 철학</h3>
+  <div class="m-phil" data-r>
+    <div class="m-p"><small>COMPASS</small><strong>Why</strong><em>혁신의 나침반</em></div>
+    <div class="m-p"><small>ENGINE</small><strong>Who</strong><em>혁신의 엔진</em></div>
+    <div class="m-p"><small>CATALYST</small><strong>기술</strong><em>혁신의 촉매</em></div>
+    <div class="m-p"><small>INGREDIENT</small><strong>이업종</strong><em>혁신의 재료</em></div>
+    <div class="m-p"><small>SUBJECT</small><strong>생각 1%</strong><em>혁신의 주체</em></div>
+    <div class="m-p"><small>METHOD</small><strong>융복합</strong><em>혁신의 방법</em></div>
+    <div class="m-p"><small>PURPOSE</small><strong>고객가치</strong><em>혁신의 목적</em></div>
+    <div class="m-p"><small>FIELD</small><strong>현장</strong><em>혁신이 완성되는 곳</em></div>
+  </div>
+
+  <div class="m-close" data-r>
+    <span>BUSINESS INNOVATION LAB</span>
+    <strong><b>생각 1%</b>가 만나<br>혁신을 만드는 곳.</strong>
+    <p>생각 1%가 모이고, 연결되고, 융복합하여 혁신이 일어나는 플랫폼</p>
+  </div>
+</div>
+
+<script>
+(function(){var r=document.getElementById('bnMission');if(!r)return;var t=r.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){t.forEach(function(e){e.classList.add('is-in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});t.forEach(function(e){io.observe(e)})})();
+</script>
+</section>
+
+
+<div id="footer_template"></div>
+
+<script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./js/validation1.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/footer.js"></script>
+</body>
+</html>
