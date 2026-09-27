@@ -578,7 +578,7 @@
           <li role="none" data-col="3">
             <a role="menuitem" href="./community.html">혁신 광장</a>
             <ul class="dep2" role="menu">
-              <li><a href="./community-company.html">혁신 파트너스 그룹</a></li>
+              <li><a href="./community-company.html">생각 1% 그룹</a></li>
               <li><a href="./innolab.html">혁신 인큐베이션 랩</a></li>
               <li><a href="./community-solution.html">혁신 인사이트</a></li>
             </ul>
@@ -639,7 +639,7 @@
           <div>
             <h4>혁신 광장</h4>
             <ul>
-              <li><a href="./community-company.html">혁신 파트너스 그룹</a></li>
+              <li><a href="./community-company.html">생각 1% 그룹</a></li>
               <li><a href="./innolab.html">혁신 인큐베이션 랩</a></li>
               <li><a href="./community-solution.html">혁신 인사이트</a></li>
             </ul>
@@ -714,7 +714,7 @@
             <h3>혁신 광장</h3>
             <ul>
               <li><a href="./community.html">혁신 광장</a></li>
-              <li><a href="./community-company.html">혁신 파트너스 그룹</a></li>
+              <li><a href="./community-company.html">생각 1% 그룹</a></li>
               <li><a href="./innolab.html">혁신 인큐베이션 랩</a></li>
               <li><a href="./community-solution.html">혁신 인사이트</a></li>
             </ul>
@@ -783,7 +783,7 @@
       <details>
         <summary>혁신 광장<span class="chev"></span></summary>
         <div class="gs2">
-          <a href="./community-company.html">혁신 파트너스 그룹</a>
+          <a href="./community-company.html">생각 1% 그룹</a>
           <a href="./innolab.html">혁신 인큐베이션 랩</a>
           <a href="./community-solution.html">혁신 인사이트</a>
         </div>
