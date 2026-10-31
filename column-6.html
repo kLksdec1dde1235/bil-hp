@@ -21,7 +21,7 @@
 <meta name="subject" content="⑥ 혁신은 개인적이지만, 이뤄내는 것은 함께 — 비즈니스혁신연구소" />
 <meta name="title" content="⑥ 혁신은 개인적이지만, 이뤄내는 것은 함께 | 비즈니스혁신연구소" />
 <meta name="author" content="비즈니스혁신연구소">
-<meta name="description" content="혁신을 막는 네 가지 장벽은 각오가 아니라 환경으로 넘는다. 검증·연결·전략·로드맵으로 장벽을 낮추는 방법과 비즈니스혁신연구소의 오프라인 강좌 안내. 비즈니스혁신연구소는 각 분야의 생각 1%가 모이고 연결되는 플랫폼입니다." />
+<meta name="description" content="혁신을 막는 네 가지 장벽은 각오가 아니라 환경으로 넘는다. 분야별 생각 1%, 연구소의 정체성과 6대 역할, 5단계 실행체계, 미션과 비전. 검증·연결·전략·로드맵으로 장벽을 낮추는 방법과 비즈니스혁신연구소의 오프라인 강좌 안내. 비즈니스혁신연구소는 각 분야의 생각 1%가 모이고 연결되는 플랫폼입니다." />
 <meta name="keywords" content="비즈니스혁신연구소, 혁신의 장벽, 실행 환경, 생각 1%, 오프라인 강좌, 현장 혁신, 비즈니스 모델, 정부지원, 생각1%" />
 
 <link rel="icon" href="./img/favicon.png" sizes="any">
@@ -1305,6 +1305,100 @@
       .closing-box{ padding:26px 20px; }
       .closing-box p{ font-size:1.02rem; }
     }
+
+    /* =========================
+       연구소 소개 추가 요소 (bil-*)
+    ========================= */
+    .term-grid.bil-three{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .logic-flow.bil-five{ grid-template-columns:repeat(5,minmax(0,1fr)); }
+
+    .bil-connect{
+      margin:34px 0 42px;
+      padding:30px 26px;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:16px;
+      background:rgba(255,255,255,.025);
+      text-align:center;
+    }
+    .bil-connect-label{
+      display:block;
+      margin-bottom:20px;
+      color:var(--accent);
+      font-size:12px; font-weight:900; letter-spacing:2px;
+    }
+    .bil-connect-fields{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+    }
+    .bil-connect-fields span{
+      padding:14px 10px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      color:#fff; font-weight:700; font-size:1rem;
+    }
+    .bil-connect-arrow{ margin:14px 0; color:var(--accent); font-size:1.4rem; font-weight:900; line-height:1; }
+    .bil-connect-hub{
+      padding:22px 18px;
+      border:1px solid var(--accent);
+      border-radius:14px;
+      background:rgba(255,77,0,.08);
+    }
+    .bil-connect-hub strong{ display:block; color:#fff; font-size:1.15rem; margin-bottom:6px; }
+    .bil-connect-hub span{ color:#d0d0d0; font-size:.98rem; }
+    .bil-connect-result{ color:#fff; font-weight:800; font-size:1.1rem; }
+
+    .bil-table-wrap{ margin:30px 0 40px; overflow-x:auto; }
+    .bil-table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:1.05rem;
+    }
+    .bil-table th{
+      text-align:left;
+      padding:14px 18px;
+      color:var(--accent);
+      font-size:.85rem; font-weight:900; letter-spacing:1px;
+      border-bottom:2px solid var(--accent);
+    }
+    .bil-table td{
+      padding:16px 18px;
+      color:#d6d6d6;
+      border-bottom:1px solid rgba(255,255,255,.1);
+      vertical-align:top;
+    }
+    .bil-table td:first-child{ color:#fff; font-weight:800; white-space:nowrap; }
+    .bil-table.is-compare td:first-child{ color:#9a9a9a; font-weight:600; white-space:normal; }
+    .bil-table.is-compare td:last-child{ color:#fff; font-weight:800; }
+    .bil-table tr.is-key td{ background:rgba(255,77,0,.07); }
+    .bil-table tr.is-key td:last-child{ color:#fff; font-weight:700; }
+
+    .bil-mvv{ display:grid; gap:12px; margin:30px 0 50px; }
+    .bil-mvv-item{
+      padding:26px 26px;
+      border:1px solid rgba(255,255,255,.1);
+      border-left:3px solid var(--accent);
+      border-radius:14px;
+      background:rgba(255,255,255,.025);
+    }
+    .bil-mvv-item span{
+      display:block; margin-bottom:8px;
+      color:var(--accent); font-size:12px; font-weight:900; letter-spacing:2px; text-transform:uppercase;
+    }
+    .bil-mvv-item p{ margin:0; color:#fff; font-size:1.2rem; font-weight:700; line-height:1.55; }
+
+    @media (max-width:900px){
+      .term-grid.bil-three{ grid-template-columns:1fr; }
+      .logic-flow.bil-five{ grid-template-columns:1fr; }
+    }
+    @media (max-width:600px){
+      .bil-connect{ padding:22px 16px; }
+      .bil-connect-fields{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .bil-table{ font-size:.95rem; }
+      .bil-table th, .bil-table td{ padding:12px 10px; }
+      .bil-table td:first-child{ white-space:normal; }
+      .bil-mvv-item p{ font-size:1.05rem; }
+    }
   </style>
 </head>
 
@@ -1436,7 +1530,9 @@
       <p>하지만 스스로 생각하고 스스로 혁신하는 마인드와 시스템은 아직 제대로 뿌리내리지 못했습니다. 따라갈 정답이 사라진 자리에서, 많은 사업자가 방향을 잃습니다.</p>
     </div>
 
-    <p>혁신을 절박하게 원하는 <b class="quote-text">생각 1%의 사업자</b>들이 높은 장벽에 막혀 실제 결과까지 가지 못하는 문제. 그 문제를 근본적으로 풀어보고자 비즈니스혁신연구소를 시작했습니다.</p>
+    <p>3편에서 300개 기업에 남은 마지막 공통점을, 5편에서 장벽을 알고도 끝까지 가려는 소수를 보았습니다. 혁신의 철학(Why · Who)을 갖고 그 원리를 실천하려는 사람, 곧 <b class="quote-text">생각 1%</b>입니다.</p>
+
+    <p>혁신을 절박하게 원하는 <b class="quote-text">생각 1%의 사업자</b>들이 높은 장벽에 막혀 실제 결과까지 가지 못하는 문제. 그 문제를 근본적으로 풀어보고자 비즈니스혁신연구소를 시작했습니다. 그래서 비즈니스혁신연구소는 <b class="quote-text">생각 1%를 찾고, 연결하고, 응원하는 플랫폼</b>입니다.</p>
 
     <p>연구소가 하는 일은 앞에서 본 네 가지 장벽을 <b class="quote-text">현실적으로 낮추는 것</b>입니다. 장벽별로 이렇게 대응합니다.</p>
 
@@ -1483,14 +1579,293 @@
     </div>
   </section>
 
-  <!-- ===================== 04 ===================== -->
-  <section class="section article-section" id="who">
+  <!-- ===================== 04 (분야별 생각 1% · 추가) ===================== -->
+  <section class="section article-section" id="think-1-percent">
     <div class="section-heading-row">
       <div>
         <span class="section-index">04</span>
-        <h2 class="section-h1">이 자리는 누구를 위한 것인가</h2>
+        <h2 class="section-h1">분야별 생각 1% — 혁신을 만드는 사람들</h2>
       </div>
       <div class="section-roman" aria-hidden="true">Ⅳ</div>
+    </div>
+
+    <div class="term-note">
+      <span class="term-note-label">용어 설명 · 분야별 생각 1%</span>
+      <p>분야별 생각 1%는 <b class="quote-text">매출 상위 1%, 자산 상위 1%, 학력이나 사회적 지위가 높은 1%를 의미하지 않는다.</b></p>
+      <p>자신의 분야에서 기존과 다르게 생각하고, 새로운 방식으로 문제를 해결해야 성공할 수 있다고 믿으며, 실제 혁신을 실천하려는 사람들을 의미한다. 이들은 반드시 지금 성공한 사람들이 아니다. 아직 성공하지 못했더라도 기존의 방식에 의문을 제기하고, 변화의 필요성을 인식하며, 새로운 가능성을 찾아 행동하려는 사람들이 바로 생각 1%다.</p>
+    </div>
+
+    <h4 class="sub-title">분야별 생각 1%의 5가지 특징</h4>
+
+    <div class="method-list" aria-label="분야별 생각 1%의 5가지 특징">
+      <div class="method-card">
+        <span class="method-num">01</span>
+        <h3 class="method-title">문제의식</h3>
+        <p>기존의 관행과 해결 방식을 당연하게 받아들이지 않는다.</p>
+      </div>
+      <div class="method-card">
+        <span class="method-num">02</span>
+        <h3 class="method-title">다른 생각</h3>
+        <p>남들과 다른 질문과 관점으로 새로운 기회를 찾는다.</p>
+      </div>
+      <div class="method-card">
+        <span class="method-num">03</span>
+        <h3 class="method-title">개방성</h3>
+        <p>자신의 전문 분야를 넘어 다른 분야의 지식과 기술을 받아들인다.</p>
+      </div>
+      <div class="method-card">
+        <span class="method-num">04</span>
+        <h3 class="method-title">협력성</h3>
+        <p>혼자 모든 것을 해결하기보다 다른 분야의 사람과 협력한다.</p>
+      </div>
+      <div class="method-card">
+        <span class="method-num">05</span>
+        <h3 class="method-title">실행력</h3>
+        <p>아이디어에 머물지 않고 현장에서 혁신을 실천하려 한다.</p>
+      </div>
+    </div>
+
+    <h4 class="sub-title">왜 분야별 생각 1%가 연결되어야 하는가</h4>
+
+    <p>현대의 비즈니스 문제는 점점 복잡해지고 있다. 의료의 문제를 의료기술만으로 해결하기 어렵고, 유통의 문제를 유통업계 내부에서만 해결하기 어려우며, 금융의 문제도 금융기술만으로 해결할 수 없는 시대다. 2편에서 본 혁신의 공식, <b class="quote-text">기존 비즈니스 ＋ 기술의 진보와 이업종의 융복합</b>이 현장에서 작동하려면 서로 다른 분야의 생각 1%가 연결되어야 한다.</p>
+
+    <div class="bil-connect" aria-label="생각 1%의 연결이 혁신을 만든다">
+      <span class="bil-connect-label">생각 1%의 연결이 혁신을 만든다</span>
+      <div class="bil-connect-fields">
+        <span>제조 · 기술</span><span>유통 · 마케팅</span><span>금융 · 서비스</span>
+        <span>의료 · 헬스케어</span><span>교육 · 문화</span><span>농업 · 지역산업</span>
+      </div>
+      <div class="bil-connect-arrow" aria-hidden="true">↓</div>
+      <div class="bil-connect-hub">
+        <strong>비즈니스혁신연구소 · 분야별 생각 1% 연결 플랫폼</strong>
+        <span>이업종 융복합 ＋ 기술의 진보 ＋ 혁신 원리 · 공식 · 패턴</span>
+      </div>
+      <div class="bil-connect-arrow" aria-hidden="true">↓</div>
+      <div class="bil-connect-result">현장 혁신 → 새로운 비즈니스 → 지속 성장</div>
+    </div>
+
+    <p>연구소의 중요한 역할은 분야별 생각 1%를 단순히 모으는 것이 아니라, <b class="quote-text">이들이 서로 만나고 협력하여 실제 혁신을 만들어 내도록 하는 것</b>이다.</p>
+
+    <div class="insight-card">
+      <span class="insight-label">Connection</span>
+      <div class="insight-content">한 사람의 다른 생각은 아이디어가 될 수 있지만, <b class="quote-text">서로 다른 분야의 생각 1%가 연결되면 새로운 산업과 비즈니스가 탄생할 수 있다.</b></div>
+    </div>
+  </section>
+
+  <!-- ===================== 05 (연구소의 정체성 · 6대 역할 · 추가) ===================== -->
+  <section class="section article-section" id="identity">
+    <div class="section-heading-row">
+      <div>
+        <span class="section-index">05</span>
+        <h2 class="section-h1">연구소의 정체성과 6대 핵심 역할</h2>
+      </div>
+      <div class="section-roman" aria-hidden="true">Ⅴ</div>
+    </div>
+
+    <p>혁신의 필요성을 말하는 사람은 많지만, 혁신을 어떻게 해야 하는지 이해하고 실제로 실행하는 사람은 상대적으로 적다. 혁신하려는 의지가 있어도 적합한 기술이나 협력자를 찾지 못하고, 다른 산업의 지식과 경험을 접할 기회가 부족해 혁신이 실현되지 못하는 경우도 많다.</p>
+
+    <p>비즈니스혁신연구소는 이 문제를 해결하기 위해 존재한다. <b class="quote-text">혁신하려는 사람들이 혁신의 원리와 방법을 이해하고, 서로 다른 분야의 사람과 기술을 연결하여, 실제 혁신에 성공할 수 있도록 돕는다.</b> 그래서 연구소는 세 가지 성격을 동시에 가진다.</p>
+
+    <div class="term-grid bil-three" aria-label="연구소의 세 가지 정체성">
+      <div class="term-card">
+        <span class="term-card-label">정체성 01 · 연구</span>
+        <h3>혁신의 철학과 방법론을 연구 · 체계화하는 곳</h3>
+        <p>혁신의 기본 철학 Why &amp; Who, 혁신 원리, 혁신 공식, 성공하는 혁신의 4가지 패턴과 6가지 유형을 연구하고 발전시킨다.</p>
+      </div>
+      <div class="term-card">
+        <span class="term-card-label">정체성 02 · 플랫폼</span>
+        <h3>분야별 생각 1%가 모이는 혁신 플랫폼</h3>
+        <p>다양한 산업의 기업가, 전문가, 기술자, 연구자, 창업자, 현장 실무자를 연결하고, 새로운 협력 관계와 융복합의 기회를 제공한다.</p>
+      </div>
+      <div class="term-card">
+        <span class="term-card-label">정체성 03 · 실행</span>
+        <h3>혁신을 실제 성과로 만드는 실행 지원 기관</h3>
+        <p>문제 발굴, 해법 설계, 이업종 연결, 사업모델 개발, 실증, 사업화와 성장까지 혁신의 전 과정을 지원한다.</p>
+      </div>
+    </div>
+
+    <h4 class="sub-title">6대 핵심 역할</h4>
+
+    <div class="bil-table-wrap">
+      <table class="bil-table" aria-label="비즈니스혁신연구소의 6대 핵심 역할">
+        <thead>
+          <tr><th>핵심 역할</th><th>주요 활동</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1. 혁신철학 정립</td><td>Why &amp; Who 중심의 비즈니스 철학 정립</td></tr>
+          <tr><td>2. 혁신방법론 보급</td><td>혁신 원리 · 공식 · 4패턴 · 6유형 교육</td></tr>
+          <tr class="is-key"><td>3. 생각 1% 발굴</td><td>분야별 혁신 인재 · 기업 · 전문가 발굴</td></tr>
+          <tr class="is-key"><td>4. 융복합 플랫폼</td><td>이업종 · 이기술 · 이분야 연결과 협력</td></tr>
+          <tr class="is-key"><td>5. 현장 혁신 지원</td><td>문제 진단 · 사업모델 설계 · 실행 · 검증</td></tr>
+          <tr><td>6. 혁신성과 확산</td><td>성공사례 발굴 · 공유 · 사업화 · 확산</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>이 중 특히 중요한 역할은 <b class="quote-text">③ 분야별 생각 1% 발굴, ④ 융복합 플랫폼, ⑤ 현장 혁신 지원</b>이다. 혁신방법론을 교육하는 것만으로는 충분하지 않다.</p>
+
+    <div class="insight-card">
+      <span class="insight-label">Core Competence</span>
+      <div class="insight-content">분야별 생각 1%가 실제로 모여 있고, 필요할 때 서로 연결되며, 연구소의 방법론을 활용해 <b class="quote-text">현장에서 성과를 만들어 내는 구조</b>. 이것이 연구소의 핵심 경쟁력이다.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 06 (5단계 실행체계 · 추가) ===================== -->
+  <section class="section article-section" id="execution-system">
+    <div class="section-heading-row">
+      <div>
+        <span class="section-index">06</span>
+        <h2 class="section-h1">발굴에서 확산까지, 5단계 실행체계</h2>
+      </div>
+      <div class="section-roman" aria-hidden="true">Ⅵ</div>
+    </div>
+
+    <p>연구소가 지속적으로 혁신을 만들어 내기 위해 다섯 단계의 실행체계로 움직인다.</p>
+
+    <div class="logic-flow bil-five" aria-label="비즈니스혁신연구소의 5단계 실행체계">
+      <div class="logic-step">
+        <span class="logic-step-num">단계 01</span>
+        <strong>발굴 · 교육</strong>
+        <p>분야별 생각 1%와 혁신이 필요한 현장 문제를 발굴한다.</p>
+      </div>
+      <div class="logic-step">
+        <span class="logic-step-num">단계 02</span>
+        <strong>진단 · 선택</strong>
+        <p>Why &amp; Who와 혁신 원리를 활용해 문제와 기회를 분석한다.</p>
+      </div>
+      <div class="logic-step">
+        <span class="logic-step-num">단계 03</span>
+        <strong>연결</strong>
+        <p>적합한 기술 · 전문가 · 기업 · 이업종 협력자를 연결한다.</p>
+      </div>
+      <div class="logic-step">
+        <span class="logic-step-num">단계 04</span>
+        <strong>실행</strong>
+        <p>4가지 패턴 · 6가지 유형을 적용해 사업모델을 설계하고 실증한다.</p>
+      </div>
+      <div class="logic-step">
+        <span class="logic-step-num">단계 05</span>
+        <strong>확산</strong>
+        <p>성과를 검증하고 성공 모델을 다른 기업과 산업으로 확산한다.</p>
+      </div>
+    </div>
+
+    <p>이 과정에서 연구소가 모든 기술과 전문 인력을 직접 보유할 필요는 없다. <b class="quote-text">각 분야의 생각 1%가 가진 역량을 연결하고, 연구소의 혁신방법론을 적용해 새로운 비즈니스가 탄생하도록 만드는 것</b>이 더 중요하다.</p>
+
+    <div class="insight-card">
+      <span class="insight-label">Platform Organization</span>
+      <div class="insight-content">그래서 연구소는 거대한 조직보다 <b class="quote-text">강력한 혁신 네트워크와 연결 역량을 가진 플랫폼 조직</b>을 지향한다.</div>
+    </div>
+  </section>
+
+  <!-- ===================== 07 (지향하는 혁신의 방향 · 추가) ===================== -->
+  <section class="section article-section" id="only-one">
+    <div class="section-heading-row">
+      <div>
+        <span class="section-index">07</span>
+        <h2 class="section-h1">Best One에서 Only One으로</h2>
+      </div>
+      <div class="section-roman" aria-hidden="true">Ⅶ</div>
+    </div>
+
+    <p>기존 경쟁은 같은 시장에서 더 좋은 제품, 더 높은 품질, 더 낮은 가격을 추구하는 경우가 많다. 비즈니스혁신연구소가 지향하는 혁신은 경쟁자보다 조금 더 잘하는 것을 넘어, <b class="quote-text">고객이 선택할 수밖에 없는 차별적인 가치를 만드는 것</b>이다.</p>
+
+    <div class="bil-table-wrap">
+      <table class="bil-table is-compare" aria-label="기존 경쟁 중심과 혁신 중심의 비교">
+        <thead>
+          <tr><th>기존 경쟁 중심</th><th>혁신 중심</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>남보다 더 잘하기</td><td>남과 다르게 하기</td></tr>
+          <tr><td>기존 문제를 더 잘 해결</td><td>문제 자체를 새롭게 정의</td></tr>
+          <tr><td>같은 산업 안에서 경쟁</td><td>산업의 경계를 넘어 융복합</td></tr>
+          <tr><td>제품 · 기술 중심</td><td>고객 문제와 가치 중심</td></tr>
+          <tr><td>보유 자원 중심</td><td>외부 역량과의 연결</td></tr>
+          <tr class="is-key"><td>Best One 추구</td><td>Only One 지향</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Only One은 단순히 경쟁자가 없다는 뜻이 아니다. <b class="quote-text">고객에게 차별적인 가치를 제공함으로써 자신만의 경쟁 영역을 구축하는 것</b>이다.</p>
+
+    <div class="term-grid" aria-label="연구소가 지향하는 혁신의 방향">
+      <div class="term-card">
+        <span class="term-card-label">방향 · 혁신의 대중화</span>
+        <h3>혁신은 소수의 전유물이 아니다</h3>
+        <p>중소기업, 소상공인, 자영업자, 농업인, 교육자, 지역사회 구성원도 기존과 다른 문제 정의와 해결 방법으로 혁신할 수 있다. 연구소는 혁신을 원리와 방법을 이해하고 실행하면 누구나 도전할 수 있는 활동으로 확산시킨다.</p>
+      </div>
+      <div class="term-card">
+        <span class="term-card-label">방향 · 지속 가능한 혁신생태계</span>
+        <h3>일회성 성공이 아니라 계속되는 혁신</h3>
+        <p>궁극적인 목표는 개별 기업의 일회성 성공을 넘어 혁신이 계속 발생하는 생태계다. 생각 1%가 모이고, 다른 기술과 산업이 연결되며, 성과가 축적되고 공유될수록 새로운 혁신의 가능성은 더 커진다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 08 (미션 · 비전 · 전체 체계 · 추가) ===================== -->
+  <section class="section article-section" id="mission-vision">
+    <div class="section-heading-row">
+      <div>
+        <span class="section-index">08</span>
+        <h2 class="section-h1">미션 · 비전, 그리고 전체 체계</h2>
+      </div>
+      <div class="section-roman" aria-hidden="true">Ⅷ</div>
+    </div>
+
+    <div class="bil-mvv" aria-label="비즈니스혁신연구소의 미션과 비전">
+      <div class="bil-mvv-item">
+        <span>Mission · 사명</span>
+        <p>혁신의 원리를 누구나 이해하고, 혁신하려는 사람들이 서로 연결되어, 현장에서 실제 혁신을 만들어 내도록 한다.</p>
+      </div>
+      <div class="bil-mvv-item">
+        <span>Vision · 비전</span>
+        <p>분야별 생각 1%가 모여 산업의 경계를 넘어 새로운 고객가치와 비즈니스를 창출하는 대한민국 대표 혁신 플랫폼</p>
+      </div>
+      <div class="bil-mvv-item">
+        <span>Core Value · 핵심가치</span>
+        <p>고객 중심 · 다른 생각 · 열린 연결 · 융복합 · 현장 실행 · 상생 성장</p>
+      </div>
+    </div>
+
+    <h4 class="sub-title">비즈니스혁신연구소 전체 체계</h4>
+
+    <p>이 시리즈에서 다룬 모든 내용은 하나의 체계로 이어진다.</p>
+
+    <div class="bil-table-wrap">
+      <table class="bil-table" aria-label="비즈니스혁신연구소 전체 체계">
+        <thead>
+          <tr><th>구분</th><th>핵심 내용</th></tr>
+        </thead>
+        <tbody>
+          <tr class="is-key"><td>기본철학 Why</td><td>왜 존재하고 왜 혁신해야 하는가</td></tr>
+          <tr class="is-key"><td>기본철학 Who</td><td>누구를 위해, 누구와 함께할 것인가</td></tr>
+          <tr><td>혁신원리</td><td>해결할 문제 · 해결 방법 · 고객 관계의 변화</td></tr>
+          <tr><td>혁신공식</td><td>기술의 진보와 이업종 융복합을 통한 새로운 고객가치 창출</td></tr>
+          <tr><td>혁신패턴 ①</td><td>해법의 전환</td></tr>
+          <tr><td>혁신패턴 ②</td><td>문제의 재정의</td></tr>
+          <tr><td>혁신패턴 ③</td><td>새 영토의 확장 : 고객 · 시장 / 문제 · 산업</td></tr>
+          <tr><td>혁신패턴 ④</td><td>집토끼 전략 : 고객 / 기술</td></tr>
+          <tr class="is-key"><td>핵심 주체</td><td>분야별 생각 1%</td></tr>
+          <tr><td>핵심 플랫폼</td><td>분야별 생각 1%가 모이고 연결되는 융복합 생태계</td></tr>
+          <tr><td>실행 방식</td><td>발굴 → 진단 → 연결 → 실행 → 확산</td></tr>
+          <tr class="is-key"><td>최종 목표</td><td>Only One 가치 창출과 지속 성장</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sentence-group">
+      <p class="highlight-text">혁신은 더 잘하는 것이 아니라<br><b class="quote-text">다르게 생각하는 것</b>에서 시작된다.<br>혁신의 방향은 <b class="quote-text">Why</b>가 정하고,<br>혁신의 주체는 <b class="quote-text">Who</b>가 결정한다.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 09 ===================== -->
+  <section class="section article-section" id="who">
+    <div class="section-heading-row">
+      <div>
+        <span class="section-index">09</span>
+        <h2 class="section-h1">이 자리는 누구를 위한 것인가</h2>
+      </div>
+      <div class="section-roman" aria-hidden="true">Ⅸ</div>
     </div>
 
     <p class="section-desc">모든 사업자를 위한 자리가 아니다. 혁신을 말로만 소비하고 싶은 사람을 위한 곳도 아니다.</p>
@@ -1522,14 +1897,14 @@
     </div>
   </section>
 
-  <!-- ===================== 05 ===================== -->
+  <!-- ===================== 10 ===================== -->
   <section class="section article-section" id="why-offline">
     <div class="section-heading-row">
       <div>
-        <span class="section-index">05</span>
+        <span class="section-index">10</span>
         <h2 class="section-h1">왜 반드시 오프라인이어야 했는가</h2>
       </div>
-      <div class="section-roman" aria-hidden="true">Ⅴ</div>
+      <div class="section-roman" aria-hidden="true">Ⅹ</div>
     </div>
 
     <p>우리는 일반적인 사업 컨설팅 회사가 아니다. 이미 정답이 정리된 길을 설명하거나 검증된 공식만 반복하는 곳도 아니다.</p>
@@ -1587,14 +1962,14 @@
     </div>
   </section>
 
-  <!-- ===================== 06 ===================== -->
+  <!-- ===================== 11 ===================== -->
   <section class="section article-section" id="from-field">
     <div class="section-heading-row">
       <div>
-        <span class="section-index">06</span>
+        <span class="section-index">11</span>
         <h2 class="section-h1">무엇을 나누는가</h2>
       </div>
-      <div class="section-roman" aria-hidden="true">Ⅵ</div>
+      <div class="section-roman" aria-hidden="true">Ⅺ</div>
     </div>
 
     <div class="insight-card">
@@ -1621,14 +1996,14 @@
     </div>
   </section>
 
-  <!-- ===================== 07 ===================== -->
+  <!-- ===================== 12 ===================== -->
   <section class="section article-section" id="wrap-up">
     <div class="section-heading-row">
       <div>
-        <span class="section-index">07</span>
+        <span class="section-index">12</span>
         <h2 class="section-h1">정리하면</h2>
       </div>
-      <div class="section-roman" aria-hidden="true">Ⅶ</div>
+      <div class="section-roman" aria-hidden="true">Ⅻ</div>
     </div>
 
     <div class="list-box" aria-label="이 칼럼의 요약">
@@ -1636,6 +2011,8 @@
       <div class="list-item">불확실성은 검증으로, 고독은 연결로, 저항은 전략으로, 시간 차이는 로드맵으로 낮춘다.</div>
       <div class="list-item">이 넷을 혼자 동시에 다루기는 어렵다. 그래서 환경이 필요하다.</div>
       <div class="list-item">혁신은 개인으로 시작되지만, 함께함으로써 완성된다.</div>
+      <div class="list-item">비즈니스혁신연구소는 생각 1%를 찾고, 연결하고, 응원하는 플랫폼이다.</div>
+      <div class="list-item">발굴 → 진단 → 연결 → 실행 → 확산, 다섯 단계로 Only One 가치와 지속 성장을 만든다.</div>
     </div>
 
     <div class="closing-box">
@@ -1662,10 +2039,10 @@
   <section class="section article-section" id="offline-class">
     <div class="section-heading-row">
       <div>
-        <span class="section-index">08</span>
+        <span class="section-index">13</span>
         <h2 class="section-h1">오프라인 혁신 강좌 안내</h2>
       </div>
-      <div class="section-roman" aria-hidden="true">Ⅷ</div>
+      <div class="section-roman" aria-hidden="true">ⅩⅢ</div>
     </div>
 
     <p class="section-desc">이 자리에서 다루는 것은 다음 세 가지다.</p>
