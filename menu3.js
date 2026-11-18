@@ -68,12 +68,7 @@
     ],
 
     special: [
-      {
-        title: '비즈니스 혁신의 최고의 철학은 Why와 Who이다',
-        desc : '무엇을 할 것인가보다 왜 하는가, 그리고 누구와 함께하는가.',
-        url  : './special-column1.html',
-        thumb: './img/special-1.jpg'
-      },
+    
       {
         title: '혁신의 최종 목적지는 인간과 사회의 행복이다',
         desc : '혁신의 본질은 기술 그 자체에 있지 않다.',
@@ -592,6 +587,8 @@
               <li><a href="https://maxq.kr/">MAXQ</a></li>
               <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
               <li><a href="https://www.mdjournal.kr/">MD저널</a></li>
+                     <li><a href="https://endo365.kr/">ENDO저널</a></li>
+          <li><a href="https://www.dangnyoshinmun.co.kr/">당뇨신문</a></li>
             </ul>
           </li>
 
@@ -652,6 +649,8 @@
               <li><a href="https://maxq.kr/">MAXQ</a></li>
               <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
               <li><a href="https://www.mdjournal.kr/">MD저널</a></li>
+                     <li><a href="https://endo365.kr/">ENDO저널</a></li>
+          <li><a href="https://www.dangnyoshinmun.co.kr/">당뇨신문</a></li>
             </ul>
           </div>
 
@@ -727,6 +726,8 @@
               <li><a href="https://maxq.kr/">MAXQ</a></li>
               <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
               <li><a href="https://www.mdjournal.kr/">MD저널</a></li>
+                     <li><a href="https://endo365.kr/">ENDO저널</a></li>
+          <li><a href="https://www.dangnyoshinmun.co.kr/">당뇨신문</a></li>
             </ul>
           </div>
 
