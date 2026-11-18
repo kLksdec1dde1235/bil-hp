@@ -796,6 +796,8 @@
           <a href="https://maxq.kr/">MAXQ</a>
           <a href="http://hcn.or.kr/">건강소비자연대</a>
           <a href="https://www.mdjournal.kr/">MD저널</a>
+          <a href="https://endo365.kr/">ENDO저널</a>
+          <a href="https://www.dangnyoshinmun.co.kr/">당뇨신문</a>
         </div>
       </details>
 
