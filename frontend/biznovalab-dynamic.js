@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════
-   biznovalab-dynamic.js
+   biznovalab-dynamic.js  (v6: 파트너 상세 프로필 필드 연동)
    - Supabase(읽기 전용)에서 인트로/카테고리/업체 데이터를 받아
      #nhnHeroSlider 와 #partnerDirectory 를 렌더링합니다.
    - 기존 index.html 의 CSS 를 그대로 사용하며, 기존 인라인
@@ -62,7 +62,7 @@
       var st = document.createElement('style');
       st.id = 'nhn-cta-style';
       st.textContent =
-        '#nhnHeroSlider .nhn-cta{display:inline-block;margin-top:22px;padding:13px 30px;border:1.5px solid rgba(255,255,255,.85);border-radius:40px;color:#fff;font-weight:600;letter-spacing:.02em;opacity:0;transform:translateY(30px);transition:background .3s,color .3s;text-decoration:none;}' +
+        '#nhnHeroSlider .nhn-cta{display:inline-block;margin-top:22px;padding:13px 30px;border:1.5px solid rgba(255,255,255,.85);border-radius:40px;color:#fff;font-weight:600;letter-spacing:.02em;opacity:0;transform:translateY(30px);transition:background .3s,color .3s}' +
         '#nhnHeroSlider .nhn-slide.active .nhn-cta{animation:nhnFadeUp .8s .6s forwards}' +
         '#nhnHeroSlider .nhn-cta:hover{background:#fff;color:#111}';
       document.head.appendChild(st);
@@ -379,18 +379,28 @@
         return {
           id: cat.slug,
           category: cat.name,
+          en: cat.en_name || '',
+          description: cat.description || '',
           accent: cat.accent,
           companies: comps.filter(function (c) { return c.category_id === cat.id; }).map(function (c) {
             return {
+              id: c.id,
               name: c.name, logo: c.logo, role: c.role,
               image: c.image_url, overlay: c.overlay, desc: c.description,
               tags: Array.isArray(c.tags) ? c.tags : [],
               link: c.link || '',
+              business: { summary: c.business_summary || '', items: Array.isArray(c.business_items) ? c.business_items : [] },
+              strengths: Array.isArray(c.strengths) ? c.strengths : [],
+              interests: Array.isArray(c.interests) ? c.interests : [],
+              lookingFor: c.looking_for || '',
+              portfolio: Array.isArray(c.portfolio) ? c.portfolio : [],
             };
           }),
         };
       });
-      renderDirectory(data);
+      // v6: 상세 패널이 있는 새 디렉터리 섹션이면 그 렌더러를, 아니면 기존 렌더러를 사용
+      if (typeof window.BNL_renderPartners === 'function') window.BNL_renderPartners(data);
+      else renderDirectory(data);
     }).catch(function (e) { console.error('[BNL directory]', e); });
   }
 
