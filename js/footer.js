@@ -90,6 +90,7 @@
         <ul>
           <li><a href="./introduce.html">연구소 소개</a></li>
           <li><a href="./ceo.html">대표 인사말</a></li>
+          <li><a href="./ceo-profile.html">대표 소개</a></li>
           <li><a href="./vision.html">비전 & 철학</a></li>
           <li><a href="./history.html">연혁</a></li>
           
@@ -102,6 +103,7 @@
           <li><a href="./column.html">혁신 칼럼</a></li>
           <li><a href="./special-column.html">확장 칼럼</a></li>
           <li><a href="./case-column.html">혁신 사례</a></li>
+          <li><a href="./series-column.html">연재 칼럼</a></li>
           <!-- <li><a href="./columns.html?cat=insight">산업 인사이트</a></li>
           <li><a href="./columns.html?cat=ceo">CEO 인사이트</a></li> -->
         </ul>

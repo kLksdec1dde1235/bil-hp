@@ -8,11 +8,14 @@
   const PAGE_INNOVATION = './column.html';
   const PAGE_SPECIAL    = './special-column.html';
   const PAGE_CASE       = './case-column.html';   // ← 혁신 사례 페이지 파일명으로 교체
+  const PAGE_SERIES     = './series-column.html'; // ← 대표 연재 칼럼 목록 페이지
+  const PAGE_CEO_PROFILE = './ceo-profile.html';   // ← 대표 소개 페이지
 
   const FEED_CATS = [
     { key: 'innovation', label: '혁신 칼럼', href: PAGE_INNOVATION },
     { key: 'special',    label: '확장 칼럼', href: PAGE_SPECIAL },
-    { key: 'case',       label: '혁신 사례', href: PAGE_CASE }
+    { key: 'case',       label: '혁신 사례', href: PAGE_CASE },
+    { key: 'series',     label: '연재 칼럼', href: PAGE_SERIES }
   ];
 
   /* =========================================================================
@@ -25,7 +28,7 @@
            headers: { apikey: 'ANON_KEY', Authorization: 'Bearer ANON_KEY' }
          };
        </script>
-       (category 값에 '확장/special' → 확장 칼럼, '사례/case' → 혁신 사례로 자동 분류)
+       (category 값에 '확장/special' → 확장 칼럼, '사례/case' → 혁신 사례, '연재/series' → 연재 칼럼으로 자동 분류)
      ========================================================================= */
   const DEFAULT_ITEMS = {
     innovation: [
@@ -126,7 +129,19 @@
         desc : '트래블로그에서 블록체인 송금, 두나무, 원화 스테이블코인까지. 하나은행이 금융의 경계를 허무는 과정.',
         url  : './case-column7.html',
         thumb: './img/case-3.jpg'
+      },
+      {
+        title: '08. 반도체를 만들지 않고 반도체 산업의 판을 바꾸다',
+        desc : '“설계기업이 반드시 공장까지 가져야 하는가?” 질문 하나로 팹리스 시대를 연 모리스 창의 TSMC.',
+        url  : './case-column8.html',
+        thumb: './img/case-9.jpg'
       }
+    ],
+
+    // ⬇️ 연재 칼럼 (series-column.html 목록과 동일하게 관리 · 강영수 대표 연재)
+    //    새 연재가 올라가면 아래 형식으로 맨 위에 추가하세요.
+    //    { title: '01. 연재 제목', desc: '한 줄 설명', url: './series-column1.html', thumb: './img/series-1.jpg' },
+    series: [
     ]
   };
 
@@ -150,6 +165,7 @@
 
   function catKeyOf(v) {
     const s = String(v || '');
+    if (/연재|series/i.test(s)) return 'series';
     if (/사례|case/i.test(s)) return 'case';
     if (/확장|special|expand/i.test(s)) return 'special';
     return 'innovation';
@@ -173,7 +189,7 @@
   }
 
   function groupItems(rows) {
-    const out = { innovation: [], special: [], 'case': [] };
+    const out = { innovation: [], special: [], 'case': [], series: [] };
     (rows || []).forEach(row => {
       const it = normalizeRow(row);
       if (!it) return;
@@ -555,6 +571,7 @@
             <ul class="dep2" role="menu">
               <li><a href="./introduce.html">연구소 소개</a></li>
               <li><a href="./ceo.html">대표 인사말</a></li>
+              <li><a href="${PAGE_CEO_PROFILE}">대표 소개</a></li>
               <li><a href="./vision.html">비전 &amp; 철학</a></li>
               <li><a href="./history.html">연혁</a></li>
             </ul>
@@ -567,6 +584,7 @@
               <li><a href="${PAGE_INNOVATION}">혁신 칼럼</a></li>
               <li><a href="${PAGE_SPECIAL}">확장 칼럼</a></li>
              <li><a href="${PAGE_CASE}">혁신 사례</a></li>
+              <li><a href="${PAGE_SERIES}">연재 칼럼</a></li>
             </ul>
           </li>
 
@@ -619,6 +637,7 @@
             <ul>
               <li><a href="./introduce.html">연구소 소개</a></li>
               <li><a href="./ceo.html">대표 인사말</a></li>
+              <li><a href="${PAGE_CEO_PROFILE}">대표 소개</a></li>
               <li><a href="./vision.html">비전 &amp; 철학</a></li>
               <li><a href="./history.html">연혁</a></li>
             </ul>
@@ -630,6 +649,7 @@
               <li><a class="is-cf is-on" href="${PAGE_INNOVATION}" data-cf-cat="innovation">혁신 칼럼</a></li>
               <li><a class="is-cf" href="${PAGE_SPECIAL}" data-cf-cat="special">확장 칼럼</a></li>
               <li><a class="is-cf" href="${PAGE_CASE}" data-cf-cat="case">혁신 사례</a></li>
+              <li><a class="is-cf" href="${PAGE_SERIES}" data-cf-cat="series">연재 칼럼</a></li>
             </ul>
           </div>
 
@@ -695,6 +715,7 @@
             <ul>
               <li><a href="./introduce.html">연구소 소개</a></li>
               <li><a href="./ceo.html">대표 인사말</a></li>
+              <li><a href="${PAGE_CEO_PROFILE}">대표 소개</a></li>
               <li><a href="./vision.html">비전 &amp; 철학</a></li>
               <li><a href="./history.html">연혁</a></li>
             </ul>
@@ -706,6 +727,7 @@
               <li><a class="is-cf is-on" href="${PAGE_INNOVATION}" data-cf-cat="innovation">혁신 칼럼</a></li>
               <li><a class="is-cf" href="${PAGE_SPECIAL}" data-cf-cat="special">확장 칼럼</a></li>
              <li><a class="is-cf" href="${PAGE_CASE}" data-cf-cat="case">혁신 사례</a></li>
+              <li><a class="is-cf" href="${PAGE_SERIES}" data-cf-cat="series">연재 칼럼</a></li>
             </ul>
           </div>
 
@@ -769,6 +791,7 @@
         <div class="gs2">
           <a href="./introduce.html">연구소 소개</a>
           <a href="./ceo.html">대표 인사말</a>
+          <a href="${PAGE_CEO_PROFILE}">대표 소개</a>
           <a href="./vision.html">비전 &amp; 철학</a>
           <a href="./history.html">연혁</a>
         </div>
