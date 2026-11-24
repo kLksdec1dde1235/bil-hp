@@ -1,3 +1,4 @@
+/* footer.js (v7) — 메뉴(관리자 [메뉴·푸터])와 같은 데이터로 푸터 열을 자동 구성합니다. */
 (function () {
   const mount = document.getElementById('footer_template');
   if (!mount) return;
@@ -194,4 +195,79 @@
     const el = document.getElementById(id);
     if (el) el.textContent = value;
   });
+})();
+
+
+/* ═════════ v7: 관리자 데이터로 푸터 다시 그리기 ═════════
+   · 메뉴 중 '푸터 노출'을 켠 항목이 열로 만들어집니다.
+   · 상호/대표/추가 정보/정책 링크/저작권/로고는 관리자 [메뉴·푸터 → 푸터·로고] 설정을 씁니다. */
+(function () {
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+    });
+  }
+  function link(it) {
+    return '<a href="' + esc(it.href || '#') + '"' + (it.new_tab ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a>';
+  }
+  function render(d) {
+    const root = document.getElementById('footerElite');
+    if (!root || !d) return;
+    const site = window.BNL_SITE;
+    const menu = site && site.menu ? site.menu() : null;
+    const f = (d.settings && d.settings.footer) || null;
+
+    const grid = root.querySelector('.navGrid');
+    if (grid && Array.isArray(menu) && menu.length && d.menus) {
+      const cols = menu.filter(function (t) { return t.show_footer !== false; }).map(function (t) {
+        const kids = (t.children || []).filter(function (c) { return c.show_footer !== false; });
+        return { t: t, kids: kids.length ? kids : [t] };
+      });
+      const span = Math.max(2, Math.floor(10 / Math.max(cols.length, 1)));
+      const brand = grid.querySelector('.brandCol');
+      if (brand && f) {
+        const img = brand.querySelector('img');
+        if (img && f.logo) img.setAttribute('src', f.logo);
+        const sl = brand.querySelector('.slogan');
+        if (sl && f.slogan != null) sl.textContent = f.slogan;
+      }
+      grid.querySelectorAll('.col').forEach(function (el) { el.remove(); });
+      grid.insertAdjacentHTML('beforeend', cols.map(function (c) {
+        return '<div class="col" style="grid-column:span ' + span + '"><h4>' + esc(c.t.label) + '</h4><ul>' +
+          c.kids.map(function (k) { return '<li>' + link(k) + '</li>'; }).join('') + '</ul></div>';
+      }).join(''));
+    }
+
+    if (f) {
+      const corp = root.querySelector('#corpName');
+      if (corp && f.corp) corp.textContent = f.corp;
+      const ceo = root.querySelector('#corpCEO');
+      if (ceo && f.ceo) ceo.textContent = f.ceo;
+      const addr = root.querySelector('.addr');
+      if (addr) {
+        let extra = addr.querySelector('.bnl-lines');
+        if (!extra) {
+          extra = document.createElement('div');
+          extra.className = 'bnl-lines';
+          extra.style.cssText = 'margin-top:.4rem;font-size:.84rem;line-height:1.7;color:#b9c0cb';
+          const line = addr.querySelector('.corpLine');
+          if (line) line.insertAdjacentElement('afterend', extra); else addr.prepend(extra);
+        }
+        extra.innerHTML = (f.lines || []).map(function (l) { return '<div>' + esc(l) + '</div>'; }).join('');
+      }
+      const pol = root.querySelector('.policies');
+      if (pol && Array.isArray(f.policies) && f.policies.length) pol.innerHTML = f.policies.map(link).join('');
+      const copy = root.querySelector('.copy');
+      if (copy && f.copyright) copy.innerHTML = esc(f.copyright).replace(/\n/g, '<br>');
+    }
+  }
+  function boot() {
+    const site = window.BNL_SITE;
+    if (!site || !site.ready) return;
+    const cached = site.cached && site.cached();
+    if (cached) render(cached);
+    site.ready.then(render);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
 })();

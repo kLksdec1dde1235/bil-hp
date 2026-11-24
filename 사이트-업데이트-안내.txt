@@ -1,0 +1,12 @@
+비즈니스혁신연구소 사이트 v7 업데이트 파일
+
+저장소 루트에 폴더 구조 그대로 덮어쓰세요.
+  menu3.js                         메뉴를 관리자 데이터로 생성 + 칼럼 피드 + 글 하단 연재 목록 + 목록 페이지 새 글 카드
+  js/footer.js                     푸터를 같은 메뉴 데이터 + 푸터 설정으로 생성
+  community-company.html           생각 1% 그룹 (업체 상세 패널: 사업 소개·강점·관심 분야·포트폴리오)
+  frontend/biznovalab-dynamic.js   파트너 상세 프로필 필드 연동
+  series-column-template.html      자동 분류 메타 추가 (관리자 '새 글 작성' 디자인 원본)
+
+frontend/supabase-config.js 는 덮어쓰지 않습니다. url / anonKey 가 실제 값인지만 확인하세요.
+메뉴·푸터·칼럼·파트너 모두 이 한 파일의 연결 정보를 씁니다.
+자세한 순서는 관리자 압축파일의 '작업가이드-v7.md' 를 보세요.
