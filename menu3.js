@@ -1,4 +1,4 @@
-// ./menu3.js
+// ./menu3.js  (v7: 메뉴·푸터·칼럼을 관리자(Supabase)에서 불러와 자동 구성)
 (function () {
 
   /* =========================================================================
@@ -11,7 +11,7 @@
   const PAGE_SERIES     = './series-column.html'; // ← 대표 연재 칼럼 목록 페이지
   const PAGE_CEO_PROFILE = './ceo-profile.html';   // ← 대표 소개 페이지
 
-  const FEED_CATS = [
+  let FEED_CATS = [
     { key: 'innovation', label: '혁신 칼럼', href: PAGE_INNOVATION },
     { key: 'special',    label: '확장 칼럼', href: PAGE_SPECIAL },
     { key: 'case',       label: '혁신 사례', href: PAGE_CASE },
@@ -145,6 +145,260 @@
     ]
   };
 
+  /* =========================================================================
+     [v7] 사이트 데이터 — 관리자(Supabase)에서 메뉴 · 로고 · 칼럼 카테고리 · 칼럼 목록을 불러옵니다.
+     · 관리자 [메뉴·푸터] 에서 바꾸면 PC 메뉴 · 전체 메뉴 · 모바일 · 푸터가 함께 바뀝니다.
+     · 연결 정보는 ./frontend/supabase-config.js 한 곳에서만 관리합니다(없으면 아래 기본 메뉴로 표시).
+     · 방문자 브라우저에 1회분을 저장해 두었다가 먼저 그리고, 새 데이터가 오면 바뀐 경우에만 다시 그립니다.
+     ========================================================================= */
+  function L(label, href, extra) { return Object.assign({ label: label, href: href, children: [] }, extra || {}); }
+  const DEFAULT_MENU = [
+    L('연구소', './introduce.html', { children: [
+      L('연구소 소개', './introduce.html'), L('대표 인사말', './ceo.html'), L('대표 소개', PAGE_CEO_PROFILE),
+      L('비전 & 철학', './vision.html'), L('연혁', './history.html') ] }),
+    L('칼럼', PAGE_INNOVATION, { children: [
+      L('혁신 칼럼', PAGE_INNOVATION, { feed_key: 'innovation' }), L('확장 칼럼', PAGE_SPECIAL, { feed_key: 'special' }),
+      L('혁신 사례', PAGE_CASE, { feed_key: 'case' }), L('연재 칼럼', PAGE_SERIES, { feed_key: 'series' }) ] }),
+    L('혁신 광장', './community.html', { children: [
+      L('생각 1% 그룹', './community-company.html'), L('혁신 인큐베이션 랩', './innolab.html'), L('혁신 인사이트', './community-solution.html') ] }),
+    L('패밀리 사이트', '#', { children: [
+      L('HTU GLOBAL', 'https://htuglobal.com/', { new_tab: true }), L('MAXQ', 'https://maxq.kr/', { new_tab: true }),
+      L('건강소비자연대', 'http://hcn.or.kr/', { new_tab: true }), L('MD저널', 'https://www.mdjournal.kr/', { new_tab: true }),
+      L('ENDO저널', 'https://endo365.kr/', { new_tab: true }), L('당뇨신문', 'https://www.dangnyoshinmun.co.kr/', { new_tab: true }) ] }),
+    L('오시는 길', './location.html', { children: [ L('오시는 길', './location.html') ] })
+  ];
+  let MENU = DEFAULT_MENU;
+  let LOGO = { dark: './img/logo-b.png', light: './img/logo-w.png' };
+
+  const BNL = window.BNL_SITE || (window.BNL_SITE = (function () {
+    const CACHE_KEY = 'bnl_site_v7';
+    function cached() {
+      try { const c = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); return c && c.data ? c.data : null; } catch (e) { return null; }
+    }
+    function config() {
+      return new Promise(function (res) {
+        if (window.BNL_SUPABASE && window.BNL_SUPABASE.url) return res(window.BNL_SUPABASE);
+        const s = document.createElement('script');
+        s.src = './frontend/supabase-config.js';
+        s.onload = function () { res(window.BNL_SUPABASE || null); };
+        s.onerror = function () { res(null); };
+        document.head.appendChild(s);
+        setTimeout(function () { res(window.BNL_SUPABASE || null); }, 4000);
+      });
+    }
+    function rest(c, table, qs) {
+      return fetch(c.url + '/rest/v1/' + table + '?' + qs, { headers: { apikey: c.anonKey, Authorization: 'Bearer ' + c.anonKey } })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(table + ' ' + r.status)); });
+    }
+    const ready = config().then(function (c) {
+      if (!c || !c.url || /x{6,}/.test(c.url)) return null;
+      return Promise.all([
+        rest(c, 'site_menus', 'select=id,parent_id,label,href,new_tab,show_header,show_mobile,show_footer,feed_key,sort_order&order=sort_order.asc').catch(function () { return null; }),
+        rest(c, 'site_settings', 'select=key,value').catch(function () { return null; }),
+        rest(c, 'column_categories', 'select=key,label,en_label,list_page,series_name,sort_order&order=sort_order.asc').catch(function () { return null; }),
+        rest(c, 'columns', 'select=id,category_key,series,number,title,subtitle,description,thumb,url,file_path,published_at&order=number.asc.nullslast,published_at.asc').catch(function () { return null; })
+      ]).then(function (r) {
+        const settings = {};
+        (r[1] || []).forEach(function (x) { settings[x.key] = x.value; });
+        const data = { menus: r[0], settings: settings, categories: r[2], columns: r[3] };
+        if (r[0] || r[2] || r[3]) { try { localStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), data: data })); } catch (e) {} }
+        return data;
+      });
+    }).catch(function () { return null; });
+    return { ready: ready, cached: cached, defaults: function () { return DEFAULT_MENU; } };
+  })());
+
+  function treeFrom(rows) {
+    if (!Array.isArray(rows) || !rows.length) return null;
+    const tops = rows.filter(function (r) { return !r.parent_id; }).sort(function (a, b) { return a.sort_order - b.sort_order; });
+    return tops.map(function (t) {
+      return Object.assign({}, t, { children: rows.filter(function (r) { return r.parent_id === t.id; }).sort(function (a, b) { return a.sort_order - b.sort_order; }) });
+    });
+  }
+  function applySiteData(d) {
+    if (!d) return;
+    const t = treeFrom(d.menus);
+    if (t) MENU = t;
+    const h = (d.settings && d.settings.header) || {};
+    LOGO = { dark: h.logo || './img/logo-b.png', light: h.logo_light || './img/logo-w.png' };
+    if (Array.isArray(d.categories) && d.categories.length) {
+      FEED_CATS = d.categories.map(function (c) { return { key: c.key, label: c.label, href: c.list_page || '#' }; });
+    }
+  }
+  window.BNL_SITE.menu = function () { return MENU; };
+
+  /* ---------- 메뉴 마크업 생성 (PC 상단 · 라이트 패널 · 전체 메뉴 · 모바일) ---------- */
+  function vis(it, k) { return it[k] !== false; }
+  function aAttr(it) { return ' href="' + esc(it.href || '#') + '"' + (it.new_tab ? ' target="_blank" rel="noopener"' : ''); }
+  function isFeed(c) { return !!(c.feed_key && FEED_CATS.some(function (f) { return f.key === c.feed_key; })); }
+  function feedOf(t) { const k = (t.children || []).find(isFeed); return k ? k.feed_key : ''; }
+  function listOf(t) {
+    let first = true;
+    return (t.children || []).filter(function (c) { return vis(c, 'show_header'); }).map(function (c) {
+      if (isFeed(c)) {
+        const on = first; first = false;
+        return '<li><a class="is-cf' + (on ? ' is-on' : '') + '"' + aAttr(c) + ' data-cf-cat="' + esc(c.feed_key) + '">' + esc(c.label) + '</a></li>';
+      }
+      return '<li><a' + aAttr(c) + '>' + esc(c.label) + '</a></li>';
+    }).join('');
+  }
+  function gnbHTML() {
+    return MENU.filter(function (t) { return vis(t, 'show_header'); }).map(function (t, i) {
+      const kids = (t.children || []).filter(function (c) { return vis(c, 'show_header'); });
+      const f = feedOf(t);
+      return '<li role="none" data-col="' + i + '"' + (f ? ' data-feedkey="' + esc(f) + '"' : '') + '>' +
+        '<a role="menuitem"' + aAttr(t) + '>' + esc(t.label) + '</a>' +
+        (kids.length ? '<ul class="dep2" role="menu">' + kids.map(function (c) { return '<li><a' + aAttr(c) + '>' + esc(c.label) + '</a></li>'; }).join('') + '</ul>' : '') +
+        '</li>';
+    }).join('');
+  }
+  function liteHTML() {
+    return MENU.filter(function (t) { return vis(t, 'show_header'); }).map(function (t) {
+      return '<div><h4>' + esc(t.label) + '</h4><ul>' + listOf(t) + '</ul></div>';
+    }).join('');
+  }
+  function megaHTML() {
+    return MENU.filter(function (t) { return vis(t, 'show_header'); }).map(function (t, i) {
+      return '<div class="col" data-col="' + i + '"><h3>' + esc(t.label) + '</h3><ul>' + listOf(t) + '</ul></div>';
+    }).join('');
+  }
+  function mobileHTML() {
+    return MENU.filter(function (t) { return vis(t, 'show_mobile'); }).map(function (t) {
+      const kids = (t.children || []).filter(function (c) { return vis(c, 'show_mobile'); });
+      const inner = feedOf(t)
+        ? feedBlockHTML('cf-mobile')
+        : (kids.length ? kids.map(function (c) { return '<a' + aAttr(c) + '>' + esc(c.label) + '</a>'; }).join('') : '<a' + aAttr(t) + '>' + esc(t.label) + '</a>');
+      return '<details><summary>' + esc(t.label) + ' <span class="chev"></span></summary><div class="gs2">' + inner + '</div></details>';
+    }).join('');
+  }
+
+  /* =========================================================================
+     [v7] 페이지 훅
+     ① 칼럼·연재 글 하단에 "같은 연재 전체 목록 + 이전/다음 글" 자동 연결
+     ② 칼럼 목록 페이지(column.html 등)에 관리자에서 새로 발행한 글 카드 자동 추가
+     ========================================================================= */
+  function curFile() {
+    try { return decodeURIComponent(location.pathname.split('/').pop() || 'index.html'); } catch (e) { return 'index.html'; }
+  }
+  function stripDot(u) { return String(u || '').replace(/^\.\//, '').replace(/^\//, '').split(/[?#]/)[0]; }
+
+  function runPageHooks(d) {
+    if (!d || !Array.isArray(d.columns)) return;
+    try { seriesHook(d); } catch (e) { console.warn('[BNL series]', e); }
+    try { listHook(d); } catch (e) { console.warn('[BNL list]', e); }
+  }
+
+  function seriesHook(d) {
+    const file = curFile();
+    const me = d.columns.find(function (c) { return c.file_path === file; });
+    if (!me || document.getElementById('bnlSeriesList')) return;
+    const cat = (d.categories || []).find(function (c) { return c.key === me.category_key; }) || { label: '칼럼', list_page: '#' };
+    const same = d.columns.filter(function (c) { return me.series ? c.series === me.series : c.category_key === me.category_key; });
+    if (same.length < 2) return;
+    const idx = same.indexOf(me);
+    const prev = same[idx - 1], next = same[idx + 1];
+    const num = function (c, i) { return String(c.number != null ? c.number : i + 1).padStart(2, '0'); };
+    const card = function (c, tag) {
+      return c ? '<a class="bsl-step' + (tag === 'NEXT' ? ' is-next' : '') + '" href="' + esc(c.url || './' + c.file_path) + '"><small>' + tag + '</small><strong>' + esc(c.title) + '</strong></a>'
+               : '<span class="bsl-step is-empty"><small>' + tag + '</small><strong>' + (tag === 'NEXT' ? '다음 글 준비 중' : '첫 번째 글입니다') + '</strong></span>';
+    };
+    const sec = document.createElement('section');
+    sec.id = 'bnlSeriesList';
+    sec.setAttribute('aria-label', '연재 목록');
+    sec.innerHTML =
+      '<style>' +
+      '#bnlSeriesList{--a:#ff4d00;background:#0b0b0c;color:#fff;font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif;word-break:keep-all;padding:clamp(64px,8vw,110px) 20px}' +
+      '#bnlSeriesList *{box-sizing:border-box}' +
+      '#bnlSeriesList .bsl-wrap{max-width:1100px;margin:0 auto}' +
+      '#bnlSeriesList .bsl-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid #222}' +
+      '#bnlSeriesList .bsl-eye{display:block;color:var(--a);font-size:12px;font-weight:900;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px}' +
+      '#bnlSeriesList h2{margin:0;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.3}' +
+      '#bnlSeriesList h2 small{font-size:.5em;font-weight:600;color:#888;margin-left:10px;letter-spacing:0}' +
+      '#bnlSeriesList .bsl-all{color:#bbb;font-size:14px;font-weight:700;text-decoration:none;border-bottom:1px solid #444;padding-bottom:2px}' +
+      '#bnlSeriesList .bsl-all:hover{color:#fff;border-color:var(--a)}' +
+      '#bnlSeriesList .bsl-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 34px}' +
+      '#bnlSeriesList .bsl-step{display:block;padding:20px 22px;border:1px solid #232323;border-radius:10px;background:#111;color:#fff;text-decoration:none;transition:border-color .2s}' +
+      '#bnlSeriesList .bsl-step.is-next{text-align:right}' +
+      '#bnlSeriesList a.bsl-step:hover{border-color:var(--a)}' +
+      '#bnlSeriesList .bsl-step small{display:block;font-size:11px;font-weight:900;letter-spacing:3px;color:var(--a);margin-bottom:8px}' +
+      '#bnlSeriesList .bsl-step strong{font-size:16px;line-height:1.5;font-weight:700}' +
+      '#bnlSeriesList .bsl-step.is-empty{opacity:.45}' +
+      '#bnlSeriesList ol{list-style:none;margin:0;padding:0;border-top:1px solid #222}' +
+      '#bnlSeriesList li a{display:grid;grid-template-columns:56px 96px 1fr auto;gap:18px;align-items:center;padding:16px 6px;border-bottom:1px solid #1d1d1d;color:#ddd;text-decoration:none;transition:background .2s}' +
+      '#bnlSeriesList li a:hover{background:#121212}' +
+      '#bnlSeriesList .n{font-size:13px;font-weight:900;color:#666;letter-spacing:1px}' +
+      '#bnlSeriesList .t{width:96px;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:#1a1a1a}' +
+      '#bnlSeriesList .t img{width:100%;height:100%;object-fit:cover;display:block}' +
+      '#bnlSeriesList .x b{display:block;font-size:16px;font-weight:700;line-height:1.45;color:#fff}' +
+      '#bnlSeriesList .x small{display:block;margin-top:4px;font-size:13px;color:#8a8a8a;line-height:1.5;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}' +
+      '#bnlSeriesList .pill{font-size:11px;font-weight:800;color:#000;background:var(--a);border-radius:20px;padding:4px 10px;white-space:nowrap}' +
+      '#bnlSeriesList li.is-cur a{background:#140d09}' +
+      '#bnlSeriesList li.is-cur .n{color:var(--a)}' +
+      '@media(max-width:640px){#bnlSeriesList .bsl-steps{grid-template-columns:1fr}#bnlSeriesList .bsl-step.is-next{text-align:left}#bnlSeriesList li a{grid-template-columns:40px 72px 1fr;gap:12px}#bnlSeriesList .t{width:72px}#bnlSeriesList .pill{display:none}}' +
+      '</style>' +
+      '<div class="bsl-wrap">' +
+        '<div class="bsl-head"><div><span class="bsl-eye">' + esc(cat.label) + (me.series ? ' · SERIES' : '') + '</span>' +
+        '<h2>' + esc(me.series || cat.label) + '<small>전체 ' + same.length + '편</small></h2></div>' +
+        '<a class="bsl-all" href="' + esc(cat.list_page || '#') + '">목록 전체 보기 →</a></div>' +
+        '<div class="bsl-steps">' + card(prev, 'PREV') + card(next, 'NEXT') + '</div>' +
+        '<ol>' + same.map(function (c, i) {
+          const cur = c === me;
+          return '<li' + (cur ? ' class="is-cur"' : '') + '><a href="' + esc(c.url || './' + c.file_path) + '"' + (cur ? ' aria-current="page"' : '') + '>' +
+            '<span class="n">' + num(c, i) + '</span>' +
+            '<span class="t">' + (c.thumb ? '<img src="' + esc(c.thumb) + '" alt="" loading="lazy" onerror="this.remove()">' : '') + '</span>' +
+            '<span class="x"><b>' + esc(c.title) + '</b>' + (c.description ? '<small>' + esc(c.description) + '</small>' : '') + '</span>' +
+            (cur ? '<span class="pill">읽는 중</span>' : '<span></span>') +
+            '</a></li>';
+        }).join('') + '</ol>' +
+      '</div>';
+    const foot = document.getElementById('footer_template');
+    if (foot && foot.parentNode) foot.parentNode.insertBefore(sec, foot);
+    else document.body.appendChild(sec);
+    /* 손으로 넣어 둔 이전/다음·다른 칼럼 영역은 자동 목록으로 대체 */
+    ['col-slider'].forEach(function (id) { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+    document.querySelectorAll('.series-nav, .next-preview').forEach(function (el) { el.style.display = 'none'; });
+  }
+
+  function listHook(d) {
+    const file = curFile();
+    const cat = (d.categories || []).find(function (c) { return stripDot(c.list_page) === file; });
+    const box = document.getElementById('h-banner-container');
+    if (!cat || !box) return;
+    const items = d.columns.filter(function (c) { return c.category_key === cat.key; });
+    const have = {};
+    box.querySelectorAll('a.h-banner').forEach(function (a) { have[stripDot(a.getAttribute('href'))] = true; });
+    const add = items.filter(function (c) { return !have[stripDot(c.url || c.file_path)]; });
+    if (!add.length) return;
+    const sample = box.querySelector('a.h-banner');
+    add.forEach(function (c, i) {
+      let card;
+      if (sample) {
+        card = sample.cloneNode(true);
+        card.className = card.className.replace(/\bbanner-\d+\b/g, '').replace(/\bh-hidden\b/g, '').trim();
+        card.removeAttribute('data-category');
+        card.style.display = ''; card.style.opacity = ''; card.style.transform = '';
+        card.querySelectorAll('.cs-lock, .h-lock, .lock').forEach(function (el) { el.remove(); });
+      } else {
+        card = document.createElement('a');
+        card.className = 'h-banner';
+        card.innerHTML = '<span class="h-num"></span><div class="h-banner-content"><h3 class="h-dummy-title"></h3><span class="h-cat"></span><p class="h-banner-text"></p><span class="h-more">자세히 보기 <span class="arrow">→</span></span></div>';
+      }
+      const n = String(c.number != null ? c.number : (box.querySelectorAll('a.h-banner').length + i + 1)).padStart(2, '0');
+      card.setAttribute('href', c.url || ('./' + c.file_path));
+      card.setAttribute('aria-label', c.title + '(으)로 이동');
+      const q = function (sel) { return card.querySelector(sel); };
+      if (q('.h-num')) q('.h-num').textContent = n;
+      if (q('.h-dummy-title')) q('.h-dummy-title').textContent = (sample && !q('.h-num') ? n + '. ' : '') + c.title;
+      if (q('.h-banner-text')) q('.h-banner-text').textContent = c.description || c.subtitle || '';
+      if (q('.h-cat')) { if (c.series || c.subtitle) q('.h-cat').textContent = c.series || ''; else q('.h-cat').remove(); }
+      if (c.thumb) { card.setAttribute('data-thumb', c.thumb); card.style.setProperty('--h-bg', 'url("' + String(c.thumb).replace(/"/g, '%22') + '")'); }
+      box.appendChild(card);
+    });
+    box.style.display = '';
+    const empty = document.getElementById('sr-empty');
+    if (empty) empty.hidden = true;
+  }
+
   const FEED_CFG = window.NBBIO_COLUMN_FEED || {};
   const FEED_LIMIT = FEED_CFG.limit || 7;   // 카테고리별 최대 보관 개수
 
@@ -189,11 +443,14 @@
   }
 
   function groupItems(rows) {
-    const out = { innovation: [], special: [], 'case': [], series: [] };
+    const out = {};
+    FEED_CATS.forEach(c => { out[c.key] = []; });
+    ['innovation', 'special', 'case', 'series'].forEach(k => { if (!out[k]) out[k] = []; });
     (rows || []).forEach(row => {
       const it = normalizeRow(row);
       if (!it) return;
-      const key = catKeyOf(it.cat || it.url);
+      const key = out[it.cat] ? it.cat : catKeyOf(it.cat || it.url);
+      if (!out[key]) out[key] = [];
       if (out[key].length < FEED_LIMIT) out[key].push(it);
     });
     Object.keys(out).forEach(k => {
@@ -204,17 +461,13 @@
 
   function loadColumns() {
     if (feedPromise) return feedPromise;
-
-    if (Array.isArray(FEED_CFG.data)) {
-      feedPromise = Promise.resolve(groupItems(FEED_CFG.data));
-    } else if (FEED_CFG.endpoint) {
-      feedPromise = fetch(FEED_CFG.endpoint, { headers: FEED_CFG.headers || {} })
-        .then(r => (r.ok ? r.json() : Promise.reject(new Error('feed ' + r.status))))
-        .then(json => groupItems(Array.isArray(json) ? json : (json.items || json.data || json.rows || [])))
-        .catch(() => groupItems([]));
-    } else {
-      feedPromise = Promise.resolve(groupItems([]));
-    }
+    if (Array.isArray(FEED_CFG.data)) { feedPromise = Promise.resolve(groupItems(FEED_CFG.data)); return feedPromise; }
+    feedPromise = BNL.ready.then(function (d) {
+      const rows = (d && Array.isArray(d.columns)) ? d.columns.slice().reverse().map(function (c) {
+        return { title: c.title, desc: c.description, url: c.url || ('./' + c.file_path), thumb: c.thumb, date: c.published_at, category: c.category_key };
+      }) : [];
+      return groupItems(rows);
+    }).catch(function () { return groupItems([]); });
     return feedPromise;
   }
 
@@ -259,8 +512,8 @@
     </a>`;
   }
 
-  // 1) 헤더 전체 HTML 템플릿 (#nbbioHeaderLocal + 스타일 + 구조)
-  const HEADER_TEMPLATE = `
+  // 1) 헤더 전체 HTML 템플릿 (#nbbioHeaderLocal + 스타일 + 구조) — 메뉴 부분은 데이터로 생성
+  function headerTemplate() { return `
 <section id="nbbioHeaderLocal" aria-label="NBBIO Global Navigation">
   <style>
     /* ============== Scope: #nbbioHeaderLocal only ============== */
@@ -561,62 +814,11 @@
   <!-- ====== Header Bar (+ 라이트 패널 컨테이너) ====== -->
   <div class="bar header">
     <div class="wrap">
-      <a class="logo" href="./index.html"><img src="./img/logo-b.png" alt="비즈니스 혁신 연구소"></a>
+      <a class="logo" href="./index.html"><img src="${esc(LOGO.dark)}" alt="비즈니스 혁신 연구소"></a>
 
       <nav aria-label="주 메뉴">
         <ul class="gnb" role="menubar">
-          <!-- 1) 연구소 -->
-          <li role="none" data-col="0">
-            <a role="menuitem" href="./introduce.html">연구소</a>
-            <ul class="dep2" role="menu">
-              <li><a href="./introduce.html">연구소 소개</a></li>
-              <li><a href="./ceo.html">대표 인사말</a></li>
-              <li><a href="${PAGE_CEO_PROFILE}">대표 소개</a></li>
-              <li><a href="./vision.html">비전 &amp; 철학</a></li>
-              <li><a href="./history.html">연혁</a></li>
-            </ul>
-          </li>
-
-          <!-- 2) 칼럼 -->
-          <li role="none" data-col="1">
-            <a role="menuitem" href="${PAGE_INNOVATION}">칼럼</a>
-            <ul class="dep2" role="menu">
-              <li><a href="${PAGE_INNOVATION}">혁신 칼럼</a></li>
-              <li><a href="${PAGE_SPECIAL}">확장 칼럼</a></li>
-             <li><a href="${PAGE_CASE}">혁신 사례</a></li>
-              <li><a href="${PAGE_SERIES}">연재 칼럼</a></li>
-            </ul>
-          </li>
-
-          <li role="none" data-col="3">
-            <a role="menuitem" href="./community.html">혁신 광장</a>
-            <ul class="dep2" role="menu">
-              <li><a href="./community-company.html">생각 1% 그룹</a></li>
-              <li><a href="./innolab.html">혁신 인큐베이션 랩</a></li>
-              <li><a href="./community-solution.html">혁신 인사이트</a></li>
-            </ul>
-          </li>
-
-          <!-- 3) 패밀리 사이트 -->
-          <li role="none" data-col="4">
-            <a role="menuitem" href="#">패밀리 사이트</a>
-            <ul class="dep2" role="menu">
-              <li><a href="https://htuglobal.com/">HTU GLOBAL</a></li>
-              <li><a href="https://maxq.kr/">MAXQ</a></li>
-              <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
-              <li><a href="https://www.mdjournal.kr/">MD저널</a></li>
-                     <li><a href="https://endo365.kr/">ENDO저널</a></li>
-          <li><a href="https://www.dangnyoshinmun.co.kr/">당뇨신문</a></li>
-            </ul>
-          </li>
-
-          <!-- 4) 오시는 길 -->
-          <li role="none" data-col="5">
-            <a role="menuitem" href="./location.html">오시는 길</a>
-            <ul class="dep2" role="menu">
-              <li><a href="./location.html">오시는 길</a></li>
-            </ul>
-          </li>
+          ${gnbHTML()}
         </ul>
       </nav>
 
@@ -632,54 +834,7 @@
     <div class="megalite" aria-hidden="true">
       <div class="inner">
         <div class="grid">
-          <div>
-            <h4>연구소</h4>
-            <ul>
-              <li><a href="./introduce.html">연구소 소개</a></li>
-              <li><a href="./ceo.html">대표 인사말</a></li>
-              <li><a href="${PAGE_CEO_PROFILE}">대표 소개</a></li>
-              <li><a href="./vision.html">비전 &amp; 철학</a></li>
-              <li><a href="./history.html">연혁</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4>칼럼</h4>
-            <ul>
-              <li><a class="is-cf is-on" href="${PAGE_INNOVATION}" data-cf-cat="innovation">혁신 칼럼</a></li>
-              <li><a class="is-cf" href="${PAGE_SPECIAL}" data-cf-cat="special">확장 칼럼</a></li>
-              <li><a class="is-cf" href="${PAGE_CASE}" data-cf-cat="case">혁신 사례</a></li>
-              <li><a class="is-cf" href="${PAGE_SERIES}" data-cf-cat="series">연재 칼럼</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4>혁신 광장</h4>
-            <ul>
-              <li><a href="./community-company.html">생각 1% 그룹</a></li>
-              <li><a href="./innolab.html">혁신 인큐베이션 랩</a></li>
-              <li><a href="./community-solution.html">혁신 인사이트</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4>패밀리 사이트</h4>
-            <ul>
-              <li><a href="https://htuglobal.com/">HTU GLOBAL</a></li>
-              <li><a href="https://maxq.kr/">MAXQ</a></li>
-              <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
-              <li><a href="https://www.mdjournal.kr/">MD저널</a></li>
-                     <li><a href="https://endo365.kr/">ENDO저널</a></li>
-          <li><a href="https://www.dangnyoshinmun.co.kr/">당뇨신문</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4>오시는 길</h4>
-            <ul>
-              <li><a href="./location.html">오시는 길</a></li>
-            </ul>
-          </div>
+          ${liteHTML()}
         </div>
 
         ${feedBlockHTML('cf-lite')}
@@ -697,7 +852,7 @@
     <div class="panel">
       <div class="inner">
         <div class="topline">
-          <div class="brand"><img src="./img/logo-b.png" alt="비즈니스 혁신 연구소" /><span style="font-weight:800;color:#0a6a62;letter-spacing:.4px;"></span></div>
+          <div class="brand"><img src="${esc(LOGO.dark)}" alt="비즈니스 혁신 연구소" /><span style="font-weight:800;color:#0a6a62;letter-spacing:.4px;"></span></div>
           <div class="icons">
             <button class="iconBtn" type="button" aria-label="언어">
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#0b1220" stroke-width="1.7"/><path d="M3 12h18M12 3c3.5 3.8 3.5 13.2 0 18M12 3c-3.5 3.8-3.5 13.2 0 18" fill="none" stroke="#0b1220" stroke-width="1.2"/></svg>
@@ -710,55 +865,7 @@
         <hr style="border:none;border-top:1px solid var(--line);margin:10px 0 40px;" />
 
         <div class="grid" role="menu">
-          <div class="col" data-col="0">
-            <h3>연구소</h3>
-            <ul>
-              <li><a href="./introduce.html">연구소 소개</a></li>
-              <li><a href="./ceo.html">대표 인사말</a></li>
-              <li><a href="${PAGE_CEO_PROFILE}">대표 소개</a></li>
-              <li><a href="./vision.html">비전 &amp; 철학</a></li>
-              <li><a href="./history.html">연혁</a></li>
-            </ul>
-          </div>
-
-          <div class="col" data-col="1">
-            <h3>칼럼</h3>
-            <ul>
-              <li><a class="is-cf is-on" href="${PAGE_INNOVATION}" data-cf-cat="innovation">혁신 칼럼</a></li>
-              <li><a class="is-cf" href="${PAGE_SPECIAL}" data-cf-cat="special">확장 칼럼</a></li>
-             <li><a class="is-cf" href="${PAGE_CASE}" data-cf-cat="case">혁신 사례</a></li>
-              <li><a class="is-cf" href="${PAGE_SERIES}" data-cf-cat="series">연재 칼럼</a></li>
-            </ul>
-          </div>
-
-          <div class="col" data-col="2">
-            <h3>혁신 광장</h3>
-            <ul>
-              <li><a href="./community.html">혁신 광장</a></li>
-              <li><a href="./community-company.html">생각 1% 그룹</a></li>
-              <li><a href="./innolab.html">혁신 인큐베이션 랩</a></li>
-              <li><a href="./community-solution.html">혁신 인사이트</a></li>
-            </ul>
-          </div>
-
-          <div class="col" data-col="3">
-            <h3>패밀리 사이트</h3>
-            <ul>
-              <li><a href="https://htuglobal.com/">HTU GLOBAL</a></li>
-              <li><a href="https://maxq.kr/">MAXQ</a></li>
-              <li><a href="http://hcn.or.kr/">건강소비자연대</a></li>
-              <li><a href="https://www.mdjournal.kr/">MD저널</a></li>
-                     <li><a href="https://endo365.kr/">ENDO저널</a></li>
-          <li><a href="https://www.dangnyoshinmun.co.kr/">당뇨신문</a></li>
-            </ul>
-          </div>
-
-          <div class="col" data-col="4">
-            <h3>오시는 길</h3>
-            <ul>
-              <li><a href="./location.html">오시는 길</a></li>
-            </ul>
-          </div>
+          ${megaHTML()}
         </div>
 
         ${feedBlockHTML('cf-mega')}
@@ -774,7 +881,7 @@
   <div class="overlay" hidden></div>
   <aside class="drawer" aria-hidden="true" aria-label="모바일 전체 메뉴">
     <div class="top">
-      <div class="brand"><img src="./img/logo-b.png" alt="비즈니스 혁신 연구소"></div>
+      <div class="brand"><img src="${esc(LOGO.dark)}" alt="비즈니스 혁신 연구소"></div>
       <div style="display:flex;gap:10px;align-items:center;">
         <button class="globeBtn" type="button" aria-label="언어">
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#0b1220" stroke-width="1.7"/><path d="M3 12h18M12 3c3.5 3.8 3.5 13.2 0 18M12 3c3.5 3.8 3.5 13.2 0 18" fill="none" stroke="#0b1220" stroke-width="1.2"/></svg>
@@ -786,55 +893,11 @@
     </div>
 
     <nav class="mnav" aria-label="모바일 내비게이션">
-      <details>
-        <summary>연구소 <span class="chev"></span></summary>
-        <div class="gs2">
-          <a href="./introduce.html">연구소 소개</a>
-          <a href="./ceo.html">대표 인사말</a>
-          <a href="${PAGE_CEO_PROFILE}">대표 소개</a>
-          <a href="./vision.html">비전 &amp; 철학</a>
-          <a href="./history.html">연혁</a>
-        </div>
-      </details>
-
-      <details>
-        <summary>칼럼 <span class="chev"></span></summary>
-        <div class="gs2">
-          ${feedBlockHTML('cf-mobile')}
-        </div>
-      </details>
-
-      <details>
-        <summary>혁신 광장<span class="chev"></span></summary>
-        <div class="gs2">
-          <a href="./community-company.html">생각 1% 그룹</a>
-          <a href="./innolab.html">혁신 인큐베이션 랩</a>
-          <a href="./community-solution.html">혁신 인사이트</a>
-        </div>
-      </details>
-
-      <details>
-        <summary>패밀리 사이트<span class="chev"></span></summary>
-        <div class="gs2">
-          <a href="https://htuglobal.com/">HTU GLOBAL</a>
-          <a href="https://maxq.kr/">MAXQ</a>
-          <a href="http://hcn.or.kr/">건강소비자연대</a>
-          <a href="https://www.mdjournal.kr/">MD저널</a>
-          <a href="https://endo365.kr/">ENDO저널</a>
-          <a href="https://www.dangnyoshinmun.co.kr/">당뇨신문</a>
-        </div>
-      </details>
-
-      <details>
-        <summary>오시는 길 <span class="chev"></span></summary>
-        <div class="gs2">
-          <a href="./location.html">오시는 길</a>
-        </div>
-      </details>
+      ${mobileHTML()}
     </nav>
   </aside>
 </section>
-`;
+`; }
 
   // 2) 메뉴 동작 초기화 함수
   function initNbbioMenu(root) {
@@ -1014,11 +1077,11 @@
     });
 
     // 칼럼 GNB에 마우스를 올리면 라이트 패널 피드를 혁신 칼럼으로
-    const colGnb = root.querySelector('.gnb > li[data-col="1"]');
+    const colGnb = root.querySelector('.gnb > li[data-feedkey]');
     if (colGnb && megalite) {
       colGnb.addEventListener('mouseenter', () => {
         ensureFeed();
-        setFeedCat(megalite.querySelector('[data-feed]'), 'innovation');
+        setFeedCat(megalite.querySelector('[data-feed]'), colGnb.getAttribute('data-feedkey') || FEED_CATS[0].key);
       });
     }
 
@@ -1220,9 +1283,9 @@
 
     function swapLogoByState(y) {
       const menuOpened = mega.classList.contains('act') || drawer.classList.contains('act');
-      if (menuOpened || isMenuHovered()) setLogo('./img/logo-b.png');
-      else if (y <= 30) setLogo('./img/logo-w.png');
-      else setLogo('./img/logo-b.png');
+      if (menuOpened || isMenuHovered()) setLogo(LOGO.dark);
+      else if (y <= 30) setLogo(LOGO.light);
+      else setLogo(LOGO.dark);
     }
 
     function applyTopState(y) {
@@ -1334,17 +1397,24 @@
     setTimeout(ensureFeed, 0);
   }
 
-  // 3) mount 함수: #menu_navi에 템플릿 주입 후 init
+  // 3) mount 함수: 저장해 둔(또는 기본) 메뉴를 먼저 그리고, 관리자 데이터가 오면 바뀐 경우에만 다시 그림
   function mountMenu() {
     const mount = document.getElementById('menu_navi');
-    if (!mount) return;
+    if (!mount) { BNL.ready.then(runPageHooks); return; }
     if (mount._nbbioMounted) return;
     mount._nbbioMounted = true;
 
-    mount.innerHTML = HEADER_TEMPLATE;
-
-    const root = mount.querySelector('#nbbioHeaderLocal');
-    initNbbioMenu(root);
+    function draw(data) {
+      applySiteData(data);
+      const sig = JSON.stringify([MENU, LOGO, FEED_CATS]);
+      if (mount._sig === sig) return;
+      mount._sig = sig;
+      feedPromise = null;
+      mount.innerHTML = headerTemplate();
+      initNbbioMenu(mount.querySelector('#nbbioHeaderLocal'));
+    }
+    draw(BNL.cached());
+    BNL.ready.then(function (d) { if (d) draw(d); runPageHooks(d); });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountMenu);
